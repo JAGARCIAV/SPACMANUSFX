@@ -22,4 +22,5 @@ public:
 
 private:
 	int tipo;
+	int clase;
 };
