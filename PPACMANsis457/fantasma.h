@@ -14,6 +14,6 @@ public:
 	void setDireccionActual(DireccionMovimiento _direccionActual) { direccionActual = _direccionActual; }
 
 	DireccionMovimiento getDireccionSiguiente() { return direccionSiguiente; }
-	void setDireccionSiguiente(DireccionMovimiento _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; }
+	void setDireccionSiguiente(DireccionMovimiento _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; } 
 
 };
