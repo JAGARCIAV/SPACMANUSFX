@@ -17,3 +17,6 @@ public:
 	void setDireccionSiguiente(DireccionMovimiento _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; } 
 
 };
+
+
+

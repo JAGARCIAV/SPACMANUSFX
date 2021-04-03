@@ -142,12 +142,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="console.h" />
     <ClInclude Include="fantasma.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="movimiento.h" />
     <ClInclude Include="pacman.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="console.cpp" />
     <ClCompile Include="fantasma.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="main.cpp" />
