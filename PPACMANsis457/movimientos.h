@@ -1,0 +1,9 @@
+#pragma once
+
+enum DireccionMovimiento {
+	MOVER_ARRIBA,
+	MOVER_ABAJO,
+	MOVER_DERECHA,
+	MOVER_IZQUIERDA,
+	MOVER_SIN_MOVIEMIENTO
+};

@@ -18,16 +18,13 @@
     <ClInclude Include="pacman.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="fruta.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="fantasma.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="movimiento.h">
+    <ClInclude Include="movimientos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="console.h">
+    <ClInclude Include="fruta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,16 +32,13 @@
     <ClCompile Include="pacman.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="fruta.cpp">
+    <ClCompile Include="main_basico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="fantasma.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="console.cpp">
+    <ClCompile Include="fruta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,8 +1,7 @@
 #pragma once
 #include <SDL.h>
-#include "movimiento.h"
-
-class Fantasma {
+#include "Movimientos.h"
+class fantasma{
 private:
 	DireccionMovimiento direccionActual;
 	DireccionMovimiento direccionSiguiente;
@@ -11,12 +10,9 @@ private:
 
 public:
 	DireccionMovimiento getDireccionActual() { return direccionActual; }
-	void setDireccionActual(DireccionMovimiento _direccionActual) { direccionActual = _direccionActual; }
+	void setDireccionActual(DireccionMovimiento direccionActual) { direccionActual = direccionActual; }
 
-	DireccionMovimiento getDireccionSiguiente() { return direccionSiguiente; }
-	void setDireccionSiguiente(DireccionMovimiento _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; } 
-
+	DireccionMovimiento setDirecionActual(DireccionMovimiento _direccionActual) { direccionActual = _direccionActual;  }
+	DireccionMovimiento setDireccionSiguiente(DireccionMovimiento _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; }
 };
-
-
 

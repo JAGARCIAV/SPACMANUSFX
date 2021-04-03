@@ -7,7 +7,8 @@ using namespace std;
 int main()
 {
 	Pacman pacmansito;
-	Fruta fruta1;
+	
+	fruta fruta1;
 
 	fruta1.setColor(8);
 	fruta1.setTipo(1);
