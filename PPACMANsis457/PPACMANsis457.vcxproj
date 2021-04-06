@@ -146,12 +146,17 @@
     <ClInclude Include="fruta.h" />
     <ClInclude Include="movimientos.h" />
     <ClInclude Include="pacman.h" />
+    <ClInclude Include="Textura.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="pacman.cpp" />
+    <ClCompile Include="Textura.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="hello_world.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
