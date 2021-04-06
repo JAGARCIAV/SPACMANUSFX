@@ -1,5 +1,10 @@
 #pragma once
+#include <iostream>
+#include <string>
 #include <SDL.h>
+//#include "Movimientos.h"
+//#include "Textura.h"
+using namespace std;
 
 class Pacman
 {
@@ -7,24 +12,37 @@ private:
 	SDL_Point posicion;
 	SDL_Point velocidad;
 
+	int ancho;
+	int alto;
+
 public:
-	void move(float _velocidadX, float _velocidadY) {};
+	const int SCREEN_WIDTH = 640;
+	const int SCREEN_HEIGHT = 480;
 
-	SDL_Point getPosicion() { return posicion; }
-	int getPosicionX() { return posicion.x; }
-	int getPosicionY() { return posicion.y; }
-	void setPosicion(SDL_Point _posicion) { posicion = _posicion; }
-	void setPosicionX(int _x) { posicion.x = _x; }
-	void setPosicionY(int _y) { posicion.y = _y; }
+	const int PACMAN_WIDTH = 20;
+	const int PACMAN_HEIGHT = 20;
+	const int PACMAN_VEL = 10;
 
 
+	Pacman();
+	void handleEvent(SDL_Event& e);
+	void move();
+	void render();
 
-	SDL_Point getVelocidad() { return velocidad; }
-	int getVelocidadX() { return velocidad.x; }
-	int getVelocidadY() { return velocidad.y; }
-	void setVelocidad(SDL_Point _velocidad) { velocidad = _velocidad; }
-	void setVelocidadX(int _x) { velocidad.x = _x; }
-	void setVelocidadY(int _y) { velocidad.y = _y; }
+	//The window we'll be rendering to
+	SDL_Window* window = NULL;
+
+	//The window renderer
+	SDL_Renderer* renderer = NULL;
+
+	//The surface contained by the window
+	SDL_Surface* screenSurface = NULL;
+
+
+	//Scene textures
+	//Textura* PacmanTextura;
+	SDL_Surface* pacmanSurface = NULL;
 
 };
+
 
