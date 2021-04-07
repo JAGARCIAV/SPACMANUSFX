@@ -5,15 +5,16 @@ class Ceresa {
 private:
 	int posicionX;
 	int posicionY;
+	int tiempo;
 
 	//Velocidad en eje X
-	int velocidadX;
+	//int velocidadX;
 
 	//Velocidad en el eje Y
-	int velocidadY;
+	//int velocidadY;
 
 	//Velocidad a la que mueve el seresa en cualquier eje
-	int velocidadPatron;
+	//int velocidadPatron;
 
 	int ancho;
 	int alto;
@@ -42,9 +43,9 @@ public:
 
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
-	int getVelocidadX() { return velocidadX; }
-	int getVelocidadY() { return velocidadY; }
-	int getVelocidadPatron() { return velocidadPatron; }
+	//int getVelocidadX() { return velocidadX; }
+	//int getVelocidadY() { return velocidadY; }
+	//int getVelocidadPatron() { return velocidadPatron; }
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
 	int getAnchoPantalla() { return anchoPantalla; }
@@ -52,9 +53,9 @@ public:
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
-	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
-	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
-	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+	//void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
+	//void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
+	//void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setAncho(int _ancho) { ancho = _ancho; }
 	void setAlto(int _alto) { alto = _alto; }
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }

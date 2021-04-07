@@ -4,11 +4,12 @@
 using namespace std;
 
 Ceresa::Ceresa() {
-	posicionX = 50;
-	posicionY = 50;
-	velocidadX = 0;
-	velocidadY = 0;
-	velocidadPatron = 4;
+	posicionX = 200;
+	posicionY = 200;
+	//velocidadX = 0;
+	//velocidadY = 0;
+	//velocidadPatron = 4;
+	tiempo = 0;
 	ancho = 20;
 	alto = 20;
 	anchoPantalla = 640;
@@ -20,23 +21,24 @@ void Ceresa::move()
 {
 
 	// Mover el ceresa a la izquierda o derecha
-	posicionX += velocidadX;
+	//posicionX += velocidadX;
 
 	// Verificar si la posicion del ceresa no salio de los bordes izquierdo o derecho
 	if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 	{
+
 		// Mover ceresa atras
-		posicionX += velocidadX;
+		//posicionX += velocidadX;
 	}
 
 	// Mover el ceresa arriba o abajo
-	posicionY -= velocidadY;
+	//posicionY -= velocidadY;
 
 	// Verificar si la posicion del fantasma no salio de los bordes superior e inferior
 	if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 	{
 		// Mover ceresa atras
-		posicionY -= velocidadY;
+		//posicionY -= velocidadY;
 	}
 }
 

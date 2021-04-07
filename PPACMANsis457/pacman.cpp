@@ -39,20 +39,22 @@ void Pacman::handleEvent(SDL_Event& e)
 
 void Pacman::move()
 {
-	//Move the dot left or right
+	// Mueve el punto hacia la izquierda o hacia la derecha
 	posicion.x += velocidad.x;
 
-	//If the dot went too far to the left or right
+	//Si el punto fue demasiado hacia la izquierda o hacia la derecha
 	if ((posicion.x < 0) || (posicion.x + PACMAN_WIDTH > SCREEN_WIDTH))
 	{
-		//Move back
+		//Retroceder
 		posicion.x -= velocidad.x;
 	}
 
-	//Move the dot up or down
+	//Mueve el punto hacia arriba o hacia abajo
+
 	posicion.y += velocidad.y;
 
-	//If the dot went too far up or down
+	//Si el punto subió o bajó demasiado
+
 	if ((posicion.y < 0) || (posicion.y + PACMAN_HEIGHT > SCREEN_HEIGHT))
 	{
 		//Move back

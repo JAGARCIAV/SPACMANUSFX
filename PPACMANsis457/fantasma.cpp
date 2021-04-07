@@ -4,10 +4,10 @@
 using namespace std;
 
 Fantasma::Fantasma() {
-	posicionX = 100;
-	posicionY = 100;
-	velocidadX = 1;
-	velocidadY = 0;
+	posicionX = 200;
+	posicionY = 400;
+	velocidadX = 3;
+	velocidadY = 3;
 	velocidadPatron = 5;
 	ancho = 20;
 	alto = 20;
@@ -19,7 +19,7 @@ Fantasma::Fantasma() {
 void Fantasma::move()
 {
 
-	// Mover el fantasma a la izquierda o derecha
+	// Mover el fantasma a la derecha o izquierda
 	posicionX += velocidadX;
 
 	// Verificar si la posicion del fantasma no salio de los bordes izquierdo o derecho
@@ -27,16 +27,24 @@ void Fantasma::move()
 	{
 		// Mover fantasma atras
 		posicionX -= velocidadX;
+
+		velocidadX *=-1;
+	
 	}
 
+
+
+
+
 	// Mover el fantasma arriba o abajo
-	posicionY += velocidadY;
+	posicionY -= velocidadY;
 
 	// Verificar si la posicion del fantasma no salio de los bordes superior e inferior
 	if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 	{
 		// Mover fantasma atras
-		posicionY -= velocidadY;
+		posicionY += velocidadY;
+		velocidadY = -1;
 	}
 }
 
