@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include "Pacman.h"
 #include "Fantasma.h"
+#include "Ceresa.h"
+
 
 using namespace std;
 
@@ -29,6 +31,7 @@ private:
     //The images we will load and show on the screen
     SDL_Surface* gPacManSurface;
     SDL_Surface* gFantasmaSurface;
+    SDL_Surface* gCeresaSurface;
 
 public:
     GameManager();
@@ -45,6 +48,8 @@ public:
 
     Pacman* pacman;
     Fantasma fantasma;
+    Ceresa ceresa;
 };
+
 
 

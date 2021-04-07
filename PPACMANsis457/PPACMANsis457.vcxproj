@@ -143,14 +143,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="fantasma.h" />
-    <ClInclude Include="fruta.h" />
+    <ClInclude Include="ceresa.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
-    <ClCompile Include="fruta.cpp" />
+    <ClCompile Include="ceresa.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="pacman.cpp" />

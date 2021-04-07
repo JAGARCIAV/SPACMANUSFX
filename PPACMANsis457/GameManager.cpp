@@ -8,6 +8,7 @@ GameManager::GameManager() {
 	gScreenSurface = nullptr;
 	gPacManSurface = nullptr;
 	gFantasmaSurface = nullptr;
+	gCeresaSurface = nullptr;
 
 	juego_en_ejecucion = true;
 	pacman = new Pacman();
@@ -28,6 +29,11 @@ int GameManager::onExecute() {
 	fantasma.screenSurface = gScreenSurface;
 	fantasma.fantasmaSurface = gFantasmaSurface;
 
+	ceresa.window = gWindow;
+	ceresa.renderer = gRenderer;
+	ceresa.screenSurface = gScreenSurface;
+	ceresa.ceresaSurface = gCeresaSurface;
+
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
@@ -40,6 +46,9 @@ int GameManager::onExecute() {
 
 		// Mover Fantasma
 		fantasma.move();
+
+		// Mover Ceresa
+		ceresa.move();
 
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -70,7 +79,7 @@ bool GameManager::onInit() {
 	else
 	{
 		//Create window
-		gWindow = SDL_CreateWindow("Pacman USFX", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		gWindow = SDL_CreateWindow("Pacman sis 457", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (gWindow == NULL)
 		{
 			cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
@@ -107,6 +116,9 @@ bool GameManager::onInit() {
 			if ((gFantasmaSurface = SDL_LoadBMP("Resources/Fantasma.bmp")) == NULL) {
 				return false;
 			}
+			if ((gCeresaSurface = SDL_LoadBMP("Resources/Ceresa.bmp")) == NULL) {
+				return false;
+			}
 
 		}
 	}
@@ -123,6 +135,7 @@ void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacman->render();
 	fantasma.render();
+	ceresa.render();
 };
 
 void GameManager::onCleanup() {
