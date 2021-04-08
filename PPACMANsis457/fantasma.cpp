@@ -28,10 +28,9 @@ void Fantasma::move()
 		// Mover fantasma atras
 		posicionX -= velocidadX;
 
-		velocidadX *=-1;
+		velocidadX *= -1;
 	
 	}
-
 
 
 
@@ -44,9 +43,10 @@ void Fantasma::move()
 	{
 		// Mover fantasma atras
 		posicionY += velocidadY;
-		velocidadY = -1;
+		velocidadY *= -1;
 	}
 }
+
 
 void Fantasma::render()
 {

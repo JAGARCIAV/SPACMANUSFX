@@ -21,7 +21,7 @@
     <ClInclude Include="fantasma.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ceresa.h">
+    <ClInclude Include="fruta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
@@ -41,7 +41,7 @@
     <ClCompile Include="fantasma.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ceresa.cpp">
+    <ClCompile Include="fruta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
