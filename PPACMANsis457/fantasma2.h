@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 
-class Fantasma {
+class Fantasma2 {
 public:
 
 	int xi;
@@ -37,11 +37,11 @@ public:
 	SDL_Surface* screenSurface = nullptr;
 
 	// Supeerficie grafica del fantasma;
-	SDL_Surface* fantasmaSurface = nullptr;
+	SDL_Surface* fantasma2Surface = nullptr;
 
 public:
 	//Constructores y destructores
-	Fantasma();
+	Fantasma2();
 	//~Fantasma();
 
 	//Metodos accesores
@@ -79,16 +79,7 @@ public:
 	void setYf(int _yf) { yf = _yf; }
 
 
-
-
-
-
-	// Metodos varios
-
-	// Manejador de eventos del fantasma
-	//void handleEvent(SDL_Event& e);
-
-	// Mover fantasma
+	// Mover fantasma2
 	void move();
 	// Renderizar imagen fantasma
 	void render();

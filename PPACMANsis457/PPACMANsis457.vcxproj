@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_ttf\include;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_mixer\include;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_image\include;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_mixer\lib\x64;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_image\lib\x64;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2_ttf\lib\x64;E:\PROYECNTOS DE SIS 457\LIBRERIAS\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclibs\SDL2_ttf\include;C:\vclibs\SDL2_mixer\include;C:\vclibs\SDL2_image\include;C:\vclibs\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclibs\SDL2_mixer\lib\x64;C:\vclibs\SDL2_image\lib\x64;C:\vclibs\SDL2_ttf\lib\x64;C:\vclibs\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -143,6 +143,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="fantasma.h" />
+    <ClInclude Include="fantasma2.h" />
+    <ClInclude Include="fantasma3.h" />
+    <ClInclude Include="fantasma4.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="pacman.h" />
@@ -150,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
+    <ClCompile Include="fantasma2.cpp" />
+    <ClCompile Include="fantasma3.cpp" />
+    <ClCompile Include="fantasma4.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main_basico.cpp" />

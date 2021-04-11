@@ -1,18 +1,18 @@
-#include "Fantasma.h"
+#include "Fantasma2.h"
 #include <iostream>
 
 using namespace std;
 
-Fantasma::Fantasma() {
+Fantasma2::Fantasma2() {
 
-	xi=0;
-	xf=0;
-	yi=0;
-	yf=0;
-	posicionX = 200;
-	posicionY = 200;
+	xi = 0;
+	xf = 0;
+	yi = 0;
+	yf = 0;
+	posicionX = 300;
+	posicionY = 300;
 	velocidadX = 2;
-	velocidadY = 4;
+	velocidadY = 2;
 
 
 	velocidadPatron = 5;
@@ -23,7 +23,7 @@ Fantasma::Fantasma() {
 }
 
 
-void Fantasma::move()
+void Fantasma2::move()
 {
 
 	// Mover el fantasma a la derecha o izquierda
@@ -54,14 +54,14 @@ void Fantasma::move()
 }
 
 
-void Fantasma::render()
+void Fantasma2::render()
 {
 	// Color primario de la imagen del fantasma
 	//SDL_SetColorKey(screenSurface, SDL_TRUE, SDL_MapRGB(fantasmaSurface->format, 0, 0, 0));
 
 	SDL_Texture* nuevaTextura = NULL;
 
-	nuevaTextura = SDL_CreateTextureFromSurface(renderer, fantasmaSurface);
+	nuevaTextura = SDL_CreateTextureFromSurface(renderer, fantasma2Surface);
 	if (nuevaTextura == NULL)
 	{
 		cout << "No se puede crear una textura a partir de fantasmaSurface, SDL Error: " << SDL_GetError() << endl;
@@ -69,8 +69,8 @@ void Fantasma::render()
 	else
 	{
 		// Obtener dimension de la imagen
-		ancho = fantasmaSurface->w;
-		alto = fantasmaSurface->h;
+		ancho = fantasma2Surface->w;
+		alto = fantasma2Surface->h;
 	}
 
 	/*SDL_Rect* clip = nullptr;
@@ -78,7 +78,7 @@ void Fantasma::render()
 	SDL_Point* center = nullptr;
 	SDL_RendererFlip flip = SDL_FLIP_NONE;*/
 
-	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto,  };
+	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto, };
 
 	// Establecer las dimensionces del recorte para remderizar
 	/*if (clip != NULL)

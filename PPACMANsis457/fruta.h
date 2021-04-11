@@ -61,6 +61,7 @@ public:
 	int getAltoPantalla() { return altoPantalla; }
 	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
 	bool getVisible() { return visible; }
+
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoNoVisible() { return tiempoNoVisible; }
 
@@ -72,6 +73,7 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setVisible(bool _visible) { visible = _visible; }
+
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
 

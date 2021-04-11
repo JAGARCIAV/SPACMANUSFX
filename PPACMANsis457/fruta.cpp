@@ -8,10 +8,11 @@ Fruta::Fruta() {
 	posicionY = 50;
 	ancho = 20;
 	alto = 20;
-	anchoPantalla = 640;
-	altoPantalla = 480;
+	anchoPantalla = 1400;
+	altoPantalla = 1000;
 
 	tipoFruta = TIPO_FRUTA_GUINDA;
+
 
 	visible = false;
 
