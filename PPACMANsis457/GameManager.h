@@ -5,20 +5,18 @@
 #include <time.h>
 
 #include <SDL.h>
+#include <SDL_image.h>
 
 #include "Pacman.h"
 #include "Fantasma.h"
-#include "Fantasma2.h"
-#include "Fantasma3.h"
-#include "Fantasma4.h"
 #include "Fruta.h"
 
 using namespace std;
 
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 1400;
-const int SCREEN_HEIGHT = 1000;
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
 class GameManager
 {
@@ -35,12 +33,20 @@ private:
     SDL_Surface* gScreenSurface;
 
     //The images we will load and show on the screen
-    SDL_Surface* gPacManSurface;
-    SDL_Surface* gFantasmaSurface;
-    SDL_Surface* gFantasma2Surface;
-    SDL_Surface* gFantasma3Surface;
-    SDL_Surface* gFantasma4Surface;
-    SDL_Surface* gFrutaSurface;
+    SDL_Texture* gPacmanTexture;
+    SDL_Texture* gFantasmaTexture;
+    SDL_Texture* gFrutasTextures[3];
+    /*
+    SDL_Texture* gFruta01Texture;
+    SDL_Texture* gFruta02Texture;
+    SDL_Texture* gFruta03Texture;
+    SDL_Texture* gFruta04Texture;
+    */
+
+public:
+    Pacman* pacman;
+    Fantasma* fantasma;
+    Fruta* fruta;
 
 public:
     GameManager();
@@ -52,17 +58,6 @@ public:
     void onLoop();
     void onRender();
     void onCleanup();
-
-    /*  SDL_Surface* loadMediaToSurface(string _mediaFile);*/
-
-    Pacman* pacman;
-    Fantasma fantasma;
-    Fantasma2 fantasma2;
-    Fantasma3 fantasma3;
-    Fantasma4 fantasma4;
-    Fruta* fruta;
+    SDL_Texture* loadTexture(string path);
 };
-
-
-
 

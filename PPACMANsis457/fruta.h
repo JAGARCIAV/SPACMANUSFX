@@ -15,6 +15,7 @@ class Fruta
 {
 private:
 	// Ubicacion donde aparece la fruta
+	int al;
 	int posicionX;
 	int posicionY;
 
@@ -43,12 +44,14 @@ public:
 	// La superficie grafica (surface) que contiene la ventana
 	SDL_Surface* screenSurface = nullptr;
 
-	// Supeerficie grafica del fantasma;
-	SDL_Surface* frutaSurface = nullptr;
+	// Array de las texturas de las diferentes frutas;
+	SDL_Texture* frutasTextures[3];
+
 
 public:
 	//Constructores y destructores
 	Fruta();
+	Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[3], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla);
 	//~Fruta();
 
 	//Metodos accesores
@@ -61,7 +64,6 @@ public:
 	int getAltoPantalla() { return altoPantalla; }
 	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
 	bool getVisible() { return visible; }
-
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoNoVisible() { return tiempoNoVisible; }
 
@@ -73,7 +75,6 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setVisible(bool _visible) { visible = _visible; }
-
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
 

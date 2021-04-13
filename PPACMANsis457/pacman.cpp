@@ -1,37 +1,128 @@
+
 #include <stdio.h>
 #include "Pacman.h"
 
 Pacman::Pacman()
 {
-	//Initialize the offsets
-	posicion = { 0, 0 };
-	velocidad = { 0, 0 };
+	// Inicializa propiedade de de pacman
+	posicionX = 100;
+	posicionY = 100;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = 5;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = 640;
+	altoPantalla = 480;
 }
+
+Pacman::Pacman(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = 5;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = _anchoPantalla;
+	altoPantalla = _altoPantalla;
+}
+
+Pacman::Pacman(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = _velocidadPatron;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = _anchoPantalla;
+	altoPantalla = _altoPantalla;
+}
+
+Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Surface* _pacmanSurface)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = 100;
+	posicionY = 100;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = 5;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = 640;
+	altoPantalla = 480;
+	window = _window;
+	renderer = _renderer;
+	screenSurface = _screenSurface;
+	pacmanSurface = _pacmanSurface;
+}
+
+Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Surface* _pacmanSurface, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = _velocidadPatron;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = _anchoPantalla;
+	altoPantalla = _altoPantalla;
+	window = _window;
+	renderer = _renderer;
+	screenSurface = _screenSurface;
+	pacmanSurface = _pacmanSurface;
+}
+
+Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	velocidadX = 0;
+	velocidadY = 0;
+	velocidadPatron = _velocidadPatron;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = _anchoPantalla;
+	altoPantalla = _altoPantalla;
+	window = _window;
+	renderer = _renderer;
+	screenSurface = _screenSurface;
+	pacmanTexture = _pacmanTexture;
+}
+
 
 void Pacman::handleEvent(SDL_Event& e)
 {
-	//If a key was pressed
+	// Si se ha precionado una tecla
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
 	{
-		//Adjust the velocity
+		// Se ajusta la velocidad
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_UP: velocidad.y -= PACMAN_VEL; break;
-		case SDLK_DOWN: velocidad.y += PACMAN_VEL; break;
-		case SDLK_LEFT: velocidad.x -= PACMAN_VEL; break;
-		case SDLK_RIGHT: velocidad.x += PACMAN_VEL; break;
+		case SDLK_UP: velocidadY -= velocidadPatron; break;
+		case SDLK_DOWN: velocidadY += velocidadPatron; break;
+		case SDLK_LEFT: velocidadX -= velocidadPatron; break;
+		case SDLK_RIGHT: velocidadX += velocidadPatron; break;
 		}
 	}
-	//If a key was released
+	// Si se ha soltado una tecla
 	else if (e.type == SDL_KEYUP && e.key.repeat == 0)
 	{
-		//Adjust the velocity
+		// Se ajusta la velocidad
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_UP: velocidad.y += PACMAN_VEL; break;
-		case SDLK_DOWN: velocidad.y -= PACMAN_VEL; break;
-		case SDLK_LEFT: velocidad.x += PACMAN_VEL; break;
-		case SDLK_RIGHT: velocidad.x -= PACMAN_VEL; break;
+		case SDLK_UP: velocidadY += velocidadPatron; break;
+		case SDLK_DOWN: velocidadY -= velocidadPatron; break;
+		case SDLK_LEFT: velocidadX += velocidadPatron; break;
+		case SDLK_RIGHT: velocidadX -= velocidadPatron; break;
 		}
 	}
 	//move();
@@ -39,65 +130,33 @@ void Pacman::handleEvent(SDL_Event& e)
 
 void Pacman::move()
 {
-	// Mueve el punto hacia la izquierda o hacia la derecha
-	posicion.x += velocidad.x;
+	// Mueve pacman a la izquierda o a la derecha
+	posicionX += velocidadX;
 
-	//Si el punto fue demasiado hacia la izquierda o hacia la derecha
-	if ((posicion.x < 0) || (posicion.x + PACMAN_WIDTH > SCREEN_WIDTH))
+	// Se verifica que no se sobrepasen los bordes horizontales de los margenes establecidos para la pantalla
+	if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 	{
-		//Retroceder
-		posicion.x -= velocidad.x;
+		// mover atraz
+		posicionX -= velocidadX;
 	}
 
-	//Mueve el punto hacia arriba o hacia abajo
+	// Mover pacman arriba o abajo
+	posicionY += velocidadY;
 
-	posicion.y += velocidad.y;
-
-	//Si el punto subió o bajó demasiado
-
-	if ((posicion.y < 0) || (posicion.y + PACMAN_HEIGHT > SCREEN_HEIGHT))
+	// Se verifica que no se sobrepasen los bordes verticales de los margenes establecidos para la pantalla
+	if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 	{
-		//Move back
-		posicion.y -= velocidad.y;
+		// mover atra
+		posicionY -= velocidadY;
 	}
 }
 
 void Pacman::render()
 {
 
-	//Color key image
-	SDL_SetColorKey(screenSurface, SDL_TRUE, SDL_MapRGB(pacmanSurface->format, 0, 0xFF, 0xFF));
-
-	SDL_Texture* newTexture = NULL;
-
-	newTexture = SDL_CreateTextureFromSurface(renderer, pacmanSurface);
-	if (newTexture == NULL)
-	{
-		cout << "Unable to create texture from pacmanSurface, SDL Error: " << SDL_GetError() << endl;
-	}
-	else
-	{
-		//Get image dimensions
-		ancho = pacmanSurface->w;
-		alto = pacmanSurface->h;
-	}
-
-	SDL_Rect* clip = NULL;
-	double angle = 0.0;
-	SDL_Point* center = NULL;
-	SDL_RendererFlip flip = SDL_FLIP_NONE;
-
-	SDL_Rect renderQuad = { posicion.x, posicion.y, ancho, alto };
-
-	//Set clip rendering dimensions
-	if (clip != NULL)
-	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
-	}
+	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
 
 	//Render to screen
-	SDL_RenderCopyEx(renderer, newTexture, clip, &renderQuad, angle, center, flip);
+	SDL_RenderCopyEx(renderer, pacmanTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
 }
-
 

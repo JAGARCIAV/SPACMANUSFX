@@ -2,13 +2,8 @@
 #include <SDL.h>
 
 class Fantasma {
-public:
-
-	int xi;
-	int xf;
-	int yi;
-	int yf;
-
+private:
+	//Posicion actual del fantasma en la pantalla
 	int posicionX;
 	int posicionY;
 
@@ -26,7 +21,13 @@ public:
 
 	int anchoPantalla;
 	int altoPantalla;
-public:
+
+	int posicionXDestino;
+	int posicionYDestino;
+
+	int incrementoPosicionX;
+	int incrementoPosicionY;
+
 	// Ventana en la que se realizara el tratamiento grafico de renderizacion
 	SDL_Window* window = nullptr;
 
@@ -36,12 +37,17 @@ public:
 	// La superficie grafica (surface) que contiene la ventana
 	SDL_Surface* screenSurface = nullptr;
 
-	// Supeerficie grafica del fantasma;
+	// Superficie grafica del fantasma;
 	SDL_Surface* fantasmaSurface = nullptr;
+
+	// Textura de la grafica del fantasma
+	SDL_Texture* fantasmaTexture = nullptr;
 
 public:
 	//Constructores y destructores
 	Fantasma();
+	Fantasma(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	//~Fantasma();
 
 	//Metodos accesores
@@ -56,13 +62,6 @@ public:
 	int getAnchoPantalla() { return anchoPantalla; }
 	int getAltoPantalla() { return altoPantalla; }
 
-	int getXi() { return xi; }
-	int getYi() { return yi; }
-	int getXf() { return xf; }
-	int getYf() { return yf; }
-
-
-
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
@@ -72,15 +71,6 @@ public:
 	void setAlto(int _alto) { alto = _alto; }
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
-
-	void setXi(int _xi) { xi = _xi; }
-	void setYi(int _yi) { yi = _yi; }
-	void setXf(int _xf) { xf = _xf; }
-	void setYf(int _yf) { yf = _yf; }
-
-
-
-
 
 
 	// Metodos varios

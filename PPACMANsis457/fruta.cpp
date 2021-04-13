@@ -4,15 +4,15 @@
 using namespace std;
 
 Fruta::Fruta() {
+	al = 0;
 	posicionX = 50;
 	posicionY = 50;
 	ancho = 20;
 	alto = 20;
-	anchoPantalla = 1400;
-	altoPantalla = 1000;
+	anchoPantalla = 640;
+	altoPantalla = 480;
 
 	tipoFruta = TIPO_FRUTA_GUINDA;
-
 
 	visible = false;
 
@@ -20,6 +20,33 @@ Fruta::Fruta() {
 	tiempoNoVisible = 150;
 	contadorTiempoVisible = 0;
 	contadorTiempoNoVisible = 0;
+}
+
+Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[3], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla)
+{
+	// Inicializa propiedade de de pacman
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	ancho = 25;
+	alto = 25;
+	anchoPantalla = _anchoPantalla;
+	altoPantalla = _altoPantalla;
+	tipoFruta = TIPO_FRUTA_GUINDA;
+
+	visible = false;
+
+	tiempoVisible = 100;
+	tiempoNoVisible = 150;
+	contadorTiempoVisible = 0;
+	contadorTiempoNoVisible = 0;
+
+	window = _window;
+	renderer = _renderer;
+	screenSurface = _screenSurface;
+	frutasTextures[0] = _frutasTextures[0];
+	frutasTextures[1] = _frutasTextures[1];
+	frutasTextures[2] = _frutasTextures[2];
+	frutasTextures[3] = _frutasTextures[3];
 }
 
 
@@ -38,6 +65,7 @@ void Fruta::mostrar()
 			contadorTiempoNoVisible++;
 			//contadorTiempoNoVisible = contadorTiempoNoVisible + 1;
 		}
+		al = rand() % 4;
 	}
 	else {
 		contadorTiempoVisible++;
@@ -47,39 +75,8 @@ void Fruta::mostrar()
 void Fruta::render()
 {
 	if (visible) {
-		// Color primario de la imagen del Fruta
-		//SDL_SetColorKey(screenSurface, SDL_TRUE, SDL_MapRGB(FrutaSurface->format, 0, 0, 0));
-
-		SDL_Texture* nuevaTextura = NULL;
-
-		nuevaTextura = SDL_CreateTextureFromSurface(renderer, frutaSurface);
-		if (nuevaTextura == NULL)
-		{
-			cout << "No se puede crear una textura a partir de FrutaSurface, SDL Error: " << SDL_GetError() << endl;
-		}
-		else
-		{
-			// Obtener dimension de la imagen
-			ancho = frutaSurface->w;
-			alto = frutaSurface->h;
-		}
-
-		/*SDL_Rect* clip = nullptr;
-		double angle = 0.0;
-		SDL_Point* center = nullptr;
-		SDL_RendererFlip flip = SDL_FLIP_NONE;*/
 
 		SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
-
-		// Establecer las dimensionces del recorte para remderizar
-		/*if (clip != NULL)
-		{
-			renderQuad.w = clip->w;
-			renderQuad.h = clip->h;
-		}*/
-
-		// Renderizar en la pantalla
-		//SDL_RenderCopyEx(renderer, nuevaTextura, clip, &renderQuad, angle, center, flip);
-		SDL_RenderCopyEx(renderer, nuevaTextura, nullptr, &renderQuad, 0.0, nullptr, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(renderer, frutasTextures[al], nullptr, &renderQuad, 0.0, nullptr, SDL_FLIP_NONE);
 	}
 }
