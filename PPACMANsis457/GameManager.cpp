@@ -26,6 +26,7 @@ int GameManager::onExecute() {
 	//fantasma = new Fantasma(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH, SCREEN_HEIGHT, 7);
 	fantasma = new Fantasma(gWindow, gRenderer, gScreenSurface, gFantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fruta = new Fruta(gWindow, gRenderer, gScreenSurface, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 4);
 	srand(time(NULL));
 
 	SDL_Event Event;
@@ -40,6 +41,7 @@ int GameManager::onExecute() {
 
 		// Mover Fantasma
 		fantasma->move();
+		fantasma2->move();
 
 		fruta->mostrar();
 		//Clear screen
@@ -106,6 +108,13 @@ bool GameManager::onInit() {
 
 			gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
 			if (gFantasmaTexture == NULL)
+			{
+				cout << "Fallo en la carga de la textura aqui" << endl;
+				success = false;
+			}
+
+			gFantasma2Texture = loadTexture("Resources/Fantasma2.bmp");
+			if (gFantasma2Texture == NULL)
 			{
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				success = false;

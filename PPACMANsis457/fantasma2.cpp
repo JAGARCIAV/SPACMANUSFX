@@ -1,9 +1,9 @@
-#include "Fantasma.h"
+#include "Fantasma2.h"
 #include <iostream>
 
 using namespace std;
 
-Fantasma::Fantasma() {
+Fantasma2::Fantasma2() {
 	posicionX = 100;
 	posicionY = 100;
 	velocidadX = 3;
@@ -15,7 +15,7 @@ Fantasma::Fantasma() {
 	altoPantalla = 480;
 }
 
-Fantasma::Fantasma(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+Fantasma2::Fantasma2(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
 	// Inicializa propiedade de de pacman
 	posicionX = _posicionX;
@@ -29,13 +29,13 @@ Fantasma::Fantasma(int _posicionX, int _posicionY, int _anchoPantalla, int _alto
 	altoPantalla = _altoPantalla;
 }
 
-Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+Fantasma2::Fantasma2(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasma2Texture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
 	// Inicializa propiedade de de pacman
 	posicionX = _posicionX;
 	posicionY = _posicionY;
-	velocidadX = 3;
-	velocidadY = 3;
+	velocidadX = 4;
+	velocidadY = 4;
 	velocidadPatron = _velocidadPatron;
 	ancho = 25;
 	alto = 25;
@@ -44,10 +44,10 @@ Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _s
 	window = _window;
 	renderer = _renderer;
 	screenSurface = _screenSurface;
-	fantasmaTexture = _fantasmaTexture;
+	fantasma2Texture = _fantasma2Texture;
 }
 
-void Fantasma::move()
+void Fantasma2::move()
 {
 
 	if (posicionX >= posicionXDestino) {
@@ -104,10 +104,10 @@ void Fantasma::move()
 
 }
 
-void Fantasma::render()
+void Fantasma2::render()
 {
 	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
 
 	//Render to screen
-	SDL_RenderCopyEx(renderer, fantasmaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyEx(renderer, fantasma2Texture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
 }

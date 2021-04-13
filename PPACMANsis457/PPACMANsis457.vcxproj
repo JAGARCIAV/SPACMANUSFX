@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="fantasma.h" />
+    <ClInclude Include="fantasma2.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="pacman.h" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
+    <ClCompile Include="fantasma2.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main_basico.cpp" />
