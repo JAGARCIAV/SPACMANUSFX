@@ -34,8 +34,8 @@ Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _s
 	// Inicializa propiedade de de pacman
 	posicionX = _posicionX;
 	posicionY = _posicionY;
-	velocidadX = 0;
-	velocidadY = 0;
+	velocidadX = 4;
+	velocidadY = 4;
 	velocidadPatron = _velocidadPatron;
 	ancho = 25;
 	alto = 25;
@@ -57,32 +57,33 @@ void Fantasma::move()
 			posicionYDestino = 1 + rand() % altoPantalla;
 
 			if (posicionX > posicionXDestino) {
-				incrementoPosicionX *= -1;
+				incrementoPosicionX = +1;
 			}
 			else
 			{
-				incrementoPosicionX *= -1;
+				incrementoPosicionX = +1;
 			}
 
 			if (posicionY > posicionXDestino) {
-				incrementoPosicionY *= -1;
+				incrementoPosicionY = +1;
 			}
 			else
 			{
-				incrementoPosicionX *= -1;
+				incrementoPosicionX = +1;
 			}
 		}
 		else {
 			posicionY = posicionY + incrementoPosicionY;
 
 			// Mover el fantasma arriba o abajo
-			posicionY += velocidadY;
+			posicionY -= velocidadY;
 
 			// Verificar si la posicion del fantasma no salio de los bordes superior e inferior
 			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 			{
 				// Mover fantasma atras
 				posicionY -= velocidadY;
+				velocidadY = -1;
 			}
 		}
 	}
@@ -97,6 +98,7 @@ void Fantasma::move()
 		{
 			// Mover fantasma atras
 			posicionX -= velocidadX;
+			velocidadX = -1;
 		}
 	}
 

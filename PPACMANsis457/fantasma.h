@@ -43,6 +43,8 @@ private:
 	// Textura de la grafica del fantasma
 	SDL_Texture* fantasmaTexture = nullptr;
 
+
+
 public:
 	//Constructores y destructores
 	Fantasma();
