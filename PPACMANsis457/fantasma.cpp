@@ -3,102 +3,78 @@
 
 using namespace std;
 
-Fantasma::Fantasma() {
-	posicionX = 100;
-	posicionY = 100;
-	velocidadX = 3;
-	velocidadY = 3;
-	velocidadPatron = 5;
-	ancho = 20;
-	alto = 20;
-	anchoPantalla = 640;
-	altoPantalla = 480;
-}
-
-Fantasma::Fantasma(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+Fantasma::Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	// Inicializa propiedade de de pacman
-	posicionX = _posicionX;
-	posicionY = _posicionY;
-	velocidadX = 0;
-	velocidadY = 0;
+	velocidadX = 5;
+	velocidadY = 5;
 	velocidadPatron = _velocidadPatron;
-	ancho = 25;
-	alto = 25;
-	anchoPantalla = _anchoPantalla;
-	altoPantalla = _altoPantalla;
-}
-
-Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
-{
-	// Inicializa propiedade de de pacman
-	posicionX = _posicionX;
-	posicionY = _posicionY;
-	velocidadX = 3;
-	velocidadY = 3;
-	velocidadPatron = _velocidadPatron;
-	ancho = 25;
-	alto = 25;
-	anchoPantalla = _anchoPantalla;
-	altoPantalla = _altoPantalla;
-	window = _window;
 	renderer = _renderer;
-	screenSurface = _screenSurface;
 	fantasmaTexture = _fantasmaTexture;
 }
 
 void Fantasma::move()
 {
+	if (getPosicionX() >= posicionXDestino) {
+		if (getPosicionY() >= posicionYDestino) {
 
-	if (posicionX >= posicionXDestino) {
-		if (posicionY >= posicionYDestino) {
+			posicionXDestino = 1 + rand() % getAnchoPantalla();
+			posicionYDestino = 1 + rand() % getAltoPantalla();
 
-			posicionXDestino = 1 + rand() % anchoPantalla;
-			posicionYDestino = 1 + rand() % altoPantalla;
-
-			if (posicionX > posicionXDestino) {
-				incrementoPosicionX *= -1;
+			if (getPosicionX() > posicionXDestino) {
+				incrementoPosicionX = -1;
 			}
 			else
 			{
-				incrementoPosicionX *= -1;
+				incrementoPosicionX = -1;
 			}
 
-			if (posicionY > posicionXDestino) {
-				incrementoPosicionY *= -1;
+			if (getPosicionY() > posicionXDestino) {
+				incrementoPosicionY = 1;
 			}
 			else
 			{
-				incrementoPosicionX *= -1;
+				incrementoPosicionX = 1;
 			}
 		}
 		else {
-			posicionY = posicionY + incrementoPosicionY;
+			setPosicionY(getPosicionY() + incrementoPosicionY);
 
 			// Mover el fantasma arriba o abajo
-			posicionY += velocidadY;
+			setPosicionY(getPosicionY() + velocidadY);
 
 			// Verificar si la posicion del fantasma no salio de los bordes superior e inferior
-			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
+			if ((getPosicionY() < 0) || (getPosicionY() + getAlto() > getAltoPantalla()))
 			{
 				// Mover fantasma atras
-				posicionY -= velocidadY;
+				setPosicionY(getPosicionY() - velocidadY);
+			
+				
+			
+
 				velocidadY *= -1;
+			
 			}
 		}
 	}
 	else {
-		posicionX = posicionX + incrementoPosicionX;
+		setPosicionX(getPosicionX() + incrementoPosicionX);
 
-		//Mover el fantasma a la izquierda o derecha
-		posicionX += velocidadX;
+		// Mover el fantasma a la izquierda o derecha
+		setPosicionX(getPosicionX() + velocidadX);
 
 		// Verificar si la posicion del fantasma no salio de los bordes izquierdo o derecho
-		if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
+		if ((getPosicionX() < 0) || (getPosicionX() + getAncho() > getAnchoPantalla()))
 		{
 			// Mover fantasma atras
-			posicionX -= velocidadX;
-			velocidadX *= -1;
+			setPosicionX(getPosicionX() - velocidadX);
+
+
+			
+
+			
+			velocidadY *= -1;
 		}
 	}
 
@@ -106,7 +82,7 @@ void Fantasma::move()
 
 void Fantasma::render()
 {
-	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
+	SDL_Rect renderQuad = { getPosicionX(), getPosicionY(), getAncho(), getAlto() };
 
 	//Render to screen
 	SDL_RenderCopyEx(renderer, fantasmaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);

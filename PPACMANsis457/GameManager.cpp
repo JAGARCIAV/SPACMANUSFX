@@ -10,23 +10,15 @@ GameManager::GameManager() {
 	gPacmanTexture = nullptr;
 
 	juego_en_ejecucion = true;
-	//pacman = new Pacman(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-
-	fruta = new Fruta();
 }
 
 int GameManager::onExecute() {
 	if (onInit() == false) {
 		return -1;
 	}
-	//pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacManSurface);
-	//pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacManSurface, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	//fantasma = new Fantasma();
-	//fantasma = new Fantasma(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH, SCREEN_HEIGHT, 7);
-	fantasma = new Fantasma(gWindow, gRenderer, gScreenSurface, gFantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fruta = new Fruta(gWindow, gRenderer, gScreenSurface, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
-	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 4);
+	pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma = new Fantasma(gRenderer, gFantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fruta = new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
 	srand(time(NULL));
 
 	SDL_Event Event;
@@ -41,7 +33,6 @@ int GameManager::onExecute() {
 
 		// Mover Fantasma
 		fantasma->move();
-		fantasma2->move();
 
 		fruta->mostrar();
 		//Clear screen
@@ -108,13 +99,6 @@ bool GameManager::onInit() {
 
 			gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
 			if (gFantasmaTexture == NULL)
-			{
-				cout << "Fallo en la carga de la textura aqui" << endl;
-				success = false;
-			}
-
-			gFantasma2Texture = loadTexture("Resources/Fantasma2.bmp");
-			if (gFantasma2Texture == NULL)
 			{
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				success = false;

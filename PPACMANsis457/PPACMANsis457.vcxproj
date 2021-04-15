@@ -143,17 +143,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="fantasma.h" />
-    <ClInclude Include="fantasma2.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
-    <ClCompile Include="fantasma2.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="pacman.cpp" />
   </ItemGroup>
