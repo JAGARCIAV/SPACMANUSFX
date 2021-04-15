@@ -108,7 +108,7 @@ bool GameManager::onInit() {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
-			if ((gFrutasTextures[1] = loadTexture("Resources/Fruta02.png")) == NULL) {
+			if ((gFrutasTextures[1] = loadTexture("Resources/Fruta04.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
@@ -116,7 +116,7 @@ bool GameManager::onInit() {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
-			if ((gFrutasTextures[3] = loadTexture("Resources/Fruta04.png")) == NULL) {
+			if ((gFrutasTextures[4] = loadTexture("Resources/Fruta02.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}

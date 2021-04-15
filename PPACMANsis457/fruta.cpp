@@ -25,6 +25,7 @@ Fruta::Fruta(SDL_Renderer* _renderer, SDL_Texture* _frutasTextures[3], int _posi
 
 void Fruta::mostrar()
 {
+	srand(time(NULL));
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;
 		if (contadorTiempoNoVisible >= tiempoNoVisible) {

@@ -16,6 +16,7 @@ Fantasma::Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _
 
 void Fantasma::move()
 {
+
 	if (getPosicionX() >= posicionXDestino) {
 		if (getPosicionY() >= posicionYDestino) {
 
