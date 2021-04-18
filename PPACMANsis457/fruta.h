@@ -1,21 +1,25 @@
 #pragma once
+#include <iostream>
+#include <vector>
 #include <SDL.h>
 
 #include "GameObject.h"
+
+using namespace std;
 
 enum TIPO_FRUTA {
 	TIPO_FRUTA_GUINDA,
 	TIPO_FRUTA_FRUTILLA,
 	TIPO_FRUTA_NARANJA,
 	TIPO_FRUTA_PLATANO,
-	TIPO_FRUTA_MANZANA
+	TIPO_FRUTA_MANZANA,
+	TIPO_FRUTA_MAXIMO
 };
 
 
 class Fruta : public GameObject
 {
 private:
-	int R;
 	TIPO_FRUTA tipoFruta;
 
 	int tiempoVisible;
@@ -23,18 +27,18 @@ private:
 
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
-
+	int numeroFrutaVisible;
 public:
 	// Renderizador de la ventana
 	SDL_Renderer* renderer = nullptr;
 
 	// Array de las texturas de las diferentes frutas;
-	SDL_Texture* frutasTextures[3];
+	vector<SDL_Texture*> frutasTextures;
 
 
 public:
 	//Constructores y destructores
-	Fruta(SDL_Renderer* _renderer, SDL_Texture* _frutasTextures[3], int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(SDL_Renderer* _renderer, vector<SDL_Texture*> _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 	//~Fruta();
 
 	//Metodos accesores
@@ -58,5 +62,6 @@ public:
 	void render();
 
 };
+
 
 

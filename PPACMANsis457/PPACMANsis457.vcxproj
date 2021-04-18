@@ -146,8 +146,10 @@
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Moneda.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fantasma.cpp" />
@@ -155,7 +157,9 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main_basico.cpp" />
+    <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="pacman.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PPACMANsis457.rc" />

@@ -3,6 +3,7 @@ class GameObject
 {
 protected:
 	// Posicion en el eje X y Y
+	int idObjeto;
 	int posicionX;
 	int posicionY;
 
@@ -18,10 +19,14 @@ protected:
 	bool visible;
 
 public:
+	static int numeroObjetosCreados;
+
+public:
 	//Constructores y destructores
 	GameObject(int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 
 	//Metodos accesores
+	int getIdObjeto() { return idObjeto; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
 	int getAncho() { return ancho; }
@@ -42,5 +47,7 @@ public:
 
 	// Renderizar imagen
 	virtual void render();
+	virtual void move() {};
+	virtual void mostrar() {};
 };
 
