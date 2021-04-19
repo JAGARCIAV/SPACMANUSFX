@@ -143,8 +143,8 @@ bool GameManager::onInit() {
 				success = false;
 			}
 
-			gFrutasTextures.push_back(loadTexture("Resources/Fruta01.png"));
-			gFrutasTextures.push_back(loadTexture("Resources/Fruta02.png"));
+			gFrutasTextures.push_back(loadTexture("Resources/Fruta011.bmp"));
+			gFrutasTextures.push_back(loadTexture("Resources/Fruta02.bmp"));
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta03.png"));
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta04.png"));
 
