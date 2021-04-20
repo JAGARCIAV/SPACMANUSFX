@@ -1,51 +1,127 @@
-#pragma once
+#include "Texture.h"
 
-#include <string>
-#include <SDL.h>
-#include <SDL_ttf.h>
-// #include <SDL_image.h>
+SDL_Renderer* Texture::renderer = nullptr;
 
-class Texture
+Texture::Texture()
 {
-private:
-	// Textura actual
-	SDL_Texture* texture;
+	texture = nullptr;
+	ancho = 0;
+	alto = 0;
+}
 
-	int ancho;
-	int alto;
+Texture::~Texture()
+{
+	free();
+}
 
-public:
-	// Static SDL_Renderer so we don't have to ask for it
-	// when creating the texture or when rendering
-	// TODO: Temporary solution, should be removed after implementation of Game class
-	static SDL_Renderer* renderer;
+bool Texture::loadFromImage(std::string path, Uint8 r, Uint8 g, Uint8 b)
+{
+	// Free the previous texture
+	free();
 
-	Texture();
-	~Texture();
+	// Return if the renderer was not set
+	if (renderer == nullptr)
+		return false;
 
-	// Load texture from file
-	bool LoadFromImage(std::string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);
+	// Load image to a surface
+	SDL_Surface* loadedSurface = SDL_LoadBMP(path.c_str());
+	if (loadedSurface == nullptr) {
+		printf("Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+		return false;
+	}
 
-	// Load texture from rendered text
-	bool LoadFromRenderedText(TTF_Font* font, std::string text, SDL_Color textColor);
+	// Set color key
+	SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, r, g, b));
 
-	// Render the texture
-	void render(int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip renderFlip = SDL_FLIP_NONE);
+	// Create texture from the surface
+	texture = SDL_CreateTextureFromSurface(Texture::renderer, loadedSurface);
+	if (texture == nullptr) {
+		printf("Unable to create texture from surface %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+		return false;
+	}
 
-	// Set color
-	void SetColor(Uint8 red, Uint8 green, Uint8 blue);
+	// Set width and height of the texture
+	ancho = loadedSurface->w;
+	alto = loadedSurface->h;
 
-	// Set blend mode
-	void SetBlendMode(SDL_BlendMode blendMode);
+	// Free the surface
+	SDL_FreeSurface(loadedSurface);
 
-	// Set alpha
-	void SetAlpha(Uint8 alpha);
+	return true;
+}
 
-	// Free assets
-	void Free();
+bool Texture::loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color textColor)
+{
+	// Free the previous texture
+	free();
 
-	int getAncho();
-	int getAlto();
+	// Return if the renderer was not set
+	if (renderer == NULL)
+		return false;
 
-};
+	// Render the text using SDL_ttf library
+	SDL_Surface* loadedSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
+	if (loadedSurface == NULL) {
+		printf("Unable to render text! SDL_ttf Error: %s\n", TTF_GetError());
+		return false;
+	}
 
+	// Create a texture from generated surface
+	texture = SDL_CreateTextureFromSurface(Texture::renderer, loadedSurface);
+	if (texture == nullptr) {
+		printf("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+		return false;
+	}
+
+	// Set width and height of the texture
+	ancho = loadedSurface->w;
+	alto = loadedSurface->h;
+
+	// Free the surface
+	SDL_FreeSurface(loadedSurface);
+
+	return true;
+}
+
+void Texture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
+{
+	// Return if the renderer was not set
+	if (renderer == nullptr)
+		return;
+
+	SDL_Rect renderQuad = { x, y, getAncho(), getAlto() };
+
+	if (clip != nullptr) {
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+
+	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, renderFlip);
+}
+
+void Texture::setColor(Uint8 red, Uint8 green, Uint8 blue)
+{
+	SDL_SetTextureColorMod(texture, red, green, blue);
+}
+
+void Texture::setBlendMode(SDL_BlendMode blendMode)
+{
+	SDL_SetTextureBlendMode(texture, blendMode);
+}
+
+void Texture::setAlpha(Uint8 alpha)
+{
+	SDL_SetTextureAlphaMod(texture, alpha);
+}
+
+void Texture::free()
+{
+	if (texture != NULL) {
+		// Free the texture and set its pointer to NULL
+		SDL_DestroyTexture(texture);
+		texture = NULL;
+
+		ancho = 0;
+		alto = 0;
+	}
+}

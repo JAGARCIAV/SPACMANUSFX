@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "GameObject.h"
+#include "Texture.h"
 
 
 class Fantasma : public GameObject {
@@ -18,15 +19,21 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
+	Texture* fantasmaTexture = nullptr;
+
+	int numeroAnimacion;
+
 	// Renderizador de la ventana
-	SDL_Renderer* renderer = nullptr;
+	//SDL_Renderer* renderer = nullptr;
 
 	// Textura de la grafica del fantasma
-	SDL_Texture* fantasmaTexture = nullptr;
+	//SDL_Texture* fantasmaTexture = nullptr;
 
 public:
 	//Constructores y destructores
-	Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	
+	//Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	//~Fantasma();
 
 	//Metodos accesores
