@@ -1,6 +1,14 @@
 #pragma once
+#include <iostream>
+#include <string>
+#include "Texture.h"
+
+using namespace std;
+
 class GameObject
 {
+public:
+	string nombre;
 protected:
 	// Posicion en el eje X y Y
 	int idObjeto;
@@ -18,6 +26,7 @@ protected:
 	// Si el objeto es visible
 	bool visible;
 
+	Texture* texturaObjeto;
 public:
 	static int numeroObjetosCreados;
 
@@ -48,6 +57,9 @@ public:
 	// Renderizar imagen
 	virtual void render();
 	virtual void move() {};
+	virtual void update() { /*No se hace nada*/ };
 	virtual void mostrar() {};
 };
+
+
 
