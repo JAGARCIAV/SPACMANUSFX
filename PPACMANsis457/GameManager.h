@@ -46,6 +46,7 @@ private:
 
     Texture* fantasma1Texture = nullptr;
     Texture* fantasma2Texture = nullptr;
+    Texture* fantasma3Texture = nullptr;
 
 
     /*
@@ -61,6 +62,7 @@ public:
     //vector<Fantasma*> fantasma;
     Fantasma* fantasma;
     Fantasma* fantasma1;
+    Fantasma* fantasma3;
     Fruta* fruta;
     vector<Moneda*> monedas;
     vector<Moneda*> superMonedas;

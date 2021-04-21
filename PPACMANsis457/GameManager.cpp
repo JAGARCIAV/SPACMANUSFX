@@ -31,6 +31,7 @@ int GameManager::onExecute() {
 	*/
 	//actoresJuego.push_back(new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fantasma(fantasma1Texture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma(fantasma3Texture, 15, 300, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fantasma(fantasma2Texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fantasma("Resources/Clyde.bmp", 220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 
@@ -145,6 +146,8 @@ bool GameManager::onInit() {
 			fantasma1Texture->loadFromImage("Resources/Blinky.bmp");
 			fantasma2Texture = new Texture();
 			fantasma2Texture->loadFromImage("Resources/Inkey.bmp");
+			fantasma3Texture = new Texture();
+			fantasma3Texture->loadFromImage("Resources/Pinky.bmp");
 
 			/*gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
 			if (gFantasmaTexture == NULL)
