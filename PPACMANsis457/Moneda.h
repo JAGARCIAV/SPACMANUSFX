@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "GameObject.h"
+#include "Texture.h"
 
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
@@ -18,15 +19,24 @@ private:
     int valor;
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
-public:
-    // Renderizador de la ventana
-    SDL_Renderer* renderer = nullptr;
 
-    // Textura de la grafica del fantasma
-    SDL_Texture* monedaTexture = nullptr;
+    Texture* texture;
+
+    int numeroFrame;
+    int contadorFrames;
+    const int framesMovimiento = 2;
+    //public:
+    //    // Renderizador de la ventana
+    //    SDL_Renderer* renderer = nullptr;
+    //
+    //    // Textura de la grafica del fantasma
+    //    SDL_Texture* monedaTexture = nullptr;
 
 public:
-    Moneda(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    //Moneda(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    Moneda(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+
+
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
@@ -36,7 +46,11 @@ public:
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
 
+
+
     void render();
+
+    void update();
 
 };
 

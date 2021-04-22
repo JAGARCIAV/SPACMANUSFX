@@ -7,7 +7,9 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
 	gPacmanTexture = nullptr;
-	gMonedaTexture = nullptr;
+	monedaTextura = nullptr;
+
+	pacmanTextura = nullptr;
 
 	/*for (int i = 0; i <= 3; i++)
 	{
@@ -22,7 +24,8 @@ int GameManager::onExecute() {
 		return -1;
 	}
 
-	pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	pacman = new Pacman(pacmanTextura, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	cout << pacman->getIdObjeto() << endl;
 
 
@@ -31,8 +34,9 @@ int GameManager::onExecute() {
 	*/
 	//actoresJuego.push_back(new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fantasma(fantasma1Texture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma(fantasma3Texture, 15, 300, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fantasma(fantasma2Texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma(fantasma3Texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+
 	actoresJuego.push_back(new Fantasma("Resources/Clyde.bmp", 220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 
 	actoresJuego.push_back(new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -42,14 +46,16 @@ int GameManager::onExecute() {
 	{
 		posx = i * 50;
 		//monedas.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-		actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		//actoresJuego.push_back(new Moneda(gRenderer, gMonedaTexture, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		actoresJuego.push_back(new Moneda(monedaTextura, posx, 100, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+
 	}
 
-	for (int i = 0; i < 4; i++)
-	{
-		//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-		actoresJuego.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+	//	actoresJuego.push_back(new Moneda(SuperMonedaTextura, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+	//}
 
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		cout << actoresJuego[i]->getIdObjeto() << endl;
@@ -142,6 +148,12 @@ bool GameManager::onInit() {
 
 			Texture::renderer = gRenderer;
 
+			monedaTextura = new Texture();
+			monedaTextura->loadFromImage("Resources/Moneda13.bmp"); //moneda mientras en fantasma
+
+			pacmanTextura = new Texture();
+			pacmanTextura->loadFromImage("Resources/PacMan.bmp");
+
 			fantasma1Texture = new Texture();
 			fantasma1Texture->loadFromImage("Resources/Blinky.bmp");
 			fantasma2Texture = new Texture();
@@ -161,19 +173,19 @@ bool GameManager::onInit() {
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta03.png"));
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta04.png"));
 
-			gMonedaTexture = loadTexture("Resources/point.bmp");
-			if (gMonedaTexture == NULL)
-			{
-				cout << "Fallo en la carga de la textura" << endl;
-				success = false;
-			}
+			//gMonedaTexture = loadTexture("Resources/point.bmp");
+			//if (gMonedaTexture == NULL)
+			//{
+			//	cout << "Fallo en la carga de la textura" << endl;
+			//	success = false;
+			//}
 
-			gSuperMonedaTexture = loadTexture("Resources/point2.bmp");
-			if (gSuperMonedaTexture == NULL)
-			{
-				cout << "Fallo en la carga de la textura" << endl;
-				success = false;
-			}
+			//SuperMonedaTexture = loadTexture("Resources/point2.bmp");
+			//if (gSuperMonedaTexture == NULL)
+			//{
+			//	cout << "Fallo en la carga de la textura" << endl;
+			//	success = false;
+			//}
 		}
 	}
 
@@ -189,6 +201,7 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
+	pacman->update();
 	pacman->render();
 	/*fantasma->render();
 	fruta->render();

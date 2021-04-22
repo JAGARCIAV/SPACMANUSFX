@@ -4,9 +4,8 @@
 
 #include <SDL.h>
 
-
 #include "GameObject.h"
-
+#include "Texture.h"
 
 using namespace std;
 
@@ -20,16 +19,26 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
-public:
-	// Renderizador de la ventana
-	SDL_Renderer* renderer = nullptr;
+	Texture* textura;
 
-	// Textura grafica de pacman;
-	SDL_Texture* pacmanTexture = nullptr;
+	int numeroFrame;
+	int contadorFrames;
+	const int framesMovimiento = 2;
+
+	int posicionXEnTextura;
+	int posicionYEnTextura;
+public:
+	//// Renderizador de la ventana
+	//SDL_Renderer* renderer = nullptr;
+
+	//// Textura grafica de pacman;
+	//SDL_Texture* pacmanTexture = nullptr;
 
 public:
 	//Constructores y destructores
-	Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	//Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+
 	//~Pacman();
 
 	//Metodos accesores
@@ -51,5 +60,6 @@ public:
 	// Renderizar imagen pacman
 	void render();
 
-};
+	void update();
 
+};

@@ -1,17 +1,32 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-Pacman::Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+//Pacman::Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron):
+//	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+//{
+//	// Inicializa propiedade de de pacman
+//	velocidadX = 0;
+//	velocidadY = 0;
+//	velocidadPatron = _velocidadPatron;
+//	renderer = _renderer;
+//	pacmanTexture = _pacmanTexture;
+//}
+
+Pacman::Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	// Inicializa propiedade de de pacman
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
-	renderer = _renderer;
-	pacmanTexture = _pacmanTexture;
+	textura = _textura;
+	numeroFrame = 0;
+	contadorFrames = 0;
+	posicionXEnTextura = 0;
+	posicionYEnTextura = 0;
+	//renderer = _renderer;
+	//pacmanTexture = _pacmanTexture;
 }
-
 
 void Pacman::handleEvent(SDL_Event& e)
 {
@@ -21,10 +36,26 @@ void Pacman::handleEvent(SDL_Event& e)
 		// Se ajusta la velocidad
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_UP: velocidadY -= velocidadPatron; break;
-		case SDLK_DOWN: velocidadY += velocidadPatron; break;
-		case SDLK_LEFT: velocidadX -= velocidadPatron; break;
-		case SDLK_RIGHT: velocidadX += velocidadPatron; break;
+		case SDLK_UP:
+			velocidadY -= velocidadPatron;
+			posicionXEnTextura = 50;
+			posicionYEnTextura = 25;
+			break;
+		case SDLK_DOWN:
+			velocidadY += velocidadPatron;
+			posicionXEnTextura = 50;
+			posicionYEnTextura = 0;
+			break;
+		case SDLK_LEFT:
+			velocidadX -= velocidadPatron;
+			posicionXEnTextura = 0;
+			posicionYEnTextura = 0;
+			break;
+		case SDLK_RIGHT:
+			velocidadX += velocidadPatron;
+			posicionXEnTextura = 0;
+			posicionYEnTextura = 25;
+			break;
 		}
 	}
 	// Si se ha soltado una tecla
@@ -67,9 +98,19 @@ void Pacman::move()
 
 void Pacman::render()
 {
-	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
+	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
 
-	//Renderizar en la pantalla
-	SDL_RenderCopyEx(renderer, pacmanTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
+	//Render to screen
+	textura->render(posicionX, posicionY, &renderQuad);
 }
 
+void Pacman::update() {
+	contadorFrames++;
+	numeroFrame = contadorFrames / 8;
+
+	if (numeroFrame > framesMovimiento - 1) {
+		numeroFrame = 0;
+		contadorFrames = 0;
+	}
+
+}
