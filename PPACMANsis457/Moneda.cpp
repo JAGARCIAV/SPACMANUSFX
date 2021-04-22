@@ -26,7 +26,7 @@ Moneda::Moneda(Texture* _texture, int _posicionX, int _posicionY, int _ancho, in
 //}
 void Moneda::render()
 {
-	SDL_Rect renderQuad = { 25 * numeroFrame, 25, ancho, alto };
+	SDL_Rect renderQuad = { 25 * numeroFrame, 50, ancho, alto };
 
 	//Render to screen
 	texture->render(posicionX, posicionY, &renderQuad);

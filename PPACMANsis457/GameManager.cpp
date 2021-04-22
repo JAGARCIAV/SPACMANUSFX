@@ -8,7 +8,7 @@ GameManager::GameManager() {
 	gScreenSurface = nullptr;
 	gPacmanTexture = nullptr;
 	monedaTextura = nullptr;
-
+	SuperMonedaTextura = nullptr;
 	pacmanTextura = nullptr;
 
 	/*for (int i = 0; i <= 3; i++)
@@ -51,11 +51,11 @@ int GameManager::onExecute() {
 
 	}
 
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//	actoresJuego.push_back(new Moneda(SuperMonedaTextura, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
-	//}
+	for (int i = 0; i < 4; i++)
+	{
+		//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+		actoresJuego.push_back(new Moneda(SuperMonedaTextura, 50 + (i * 50), 25 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+	}
 
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		cout << actoresJuego[i]->getIdObjeto() << endl;
@@ -149,7 +149,10 @@ bool GameManager::onInit() {
 			Texture::renderer = gRenderer;
 
 			monedaTextura = new Texture();
-			monedaTextura->loadFromImage("Resources/Moneda13.bmp"); //moneda mientras en fantasma
+			monedaTextura->loadFromImage("Resources/Moneda14.bmp"); 
+
+			SuperMonedaTextura = new Texture();
+			SuperMonedaTextura->loadFromImage("Resources/Moneda13.bmp");
 
 			pacmanTextura = new Texture();
 			pacmanTextura->loadFromImage("Resources/PacMan.bmp");
@@ -180,12 +183,6 @@ bool GameManager::onInit() {
 			//	success = false;
 			//}
 
-			//SuperMonedaTexture = loadTexture("Resources/point2.bmp");
-			//if (gSuperMonedaTexture == NULL)
-			//{
-			//	cout << "Fallo en la carga de la textura" << endl;
-			//	success = false;
-			//}
 		}
 	}
 

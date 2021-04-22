@@ -42,6 +42,7 @@ private:
     //SDL_Texture* SuperMonedaTexture;
 
     Texture* monedaTextura;
+    Texture* SuperMonedaTextura;
     Texture* pacmanTextura;
     Texture* fantasma1Texture = nullptr;
     Texture* fantasma2Texture = nullptr;
@@ -65,7 +66,7 @@ public:
     Fantasma* fantasma3;
     Fruta* fruta;
     vector<Moneda*> monedas;
-    //vector<Moneda*> superMonedas;
+    vector<Moneda*> superMonedas;
     vector<GameObject*> actoresJuego;
 public:
     GameManager();

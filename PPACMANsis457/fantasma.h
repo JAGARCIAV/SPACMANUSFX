@@ -26,7 +26,7 @@ private:
 
 	int numeroFrame;
 	int contadorFrames;
-	const int framesMovimiento = 2;
+	const int framesMovimiento = 4;
 
 	//// Renderizador de la ventana
 	//SDL_Renderer* renderer = nullptr;
