@@ -146,6 +146,7 @@
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="resource.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="pacman.cpp" />

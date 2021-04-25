@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include "GameObject.h"
 #include "Texture.h"
+#include "TextureManager.h"
+
 
 enum PODER_MONEDA {
     PODER_MONEDA_NINGUNO,
