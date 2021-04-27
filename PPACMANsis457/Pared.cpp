@@ -16,7 +16,7 @@ void Pared::render() {
 	////Render to screen
 	//SDL_RenderCopyEx(renderer, monedaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
 
-	SDL_Rect renderQuad = { 0, 25, getAncho(), getAlto() };
+	SDL_Rect renderQuad = { 0, 0, getAncho(), getAlto() };
 
 	//Render to screen
 	paredTexture->render(getPosicionX(), getPosicionY(), &renderQuad);

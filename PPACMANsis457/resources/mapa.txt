@@ -1,15 +1,24 @@
-xxxxxxxxxxxxxxxxxxxx
-x..................x
-x.xxxxxxxxxxxxxxxx.x
-x.x   b b  b b   x.x
-x.xxxxxxxxxxxxxxxx.x
-x..................x
-x.x.x.x.x.x.x.x.x..x
-x.x.x.x.x.x.x.x.xxxx
-x.x.x.x.x.x.x.x.x..x
-x.xxxxxxxxxxxxxxx..x
-x.....p.......x....x
-xxxxx...xxx...xxxxxx
-x.......xxx........x
-x.......xxx........x
-x..x..x.....x..x..xx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+x0............................0x
+x.xxx...x.x........xxx.....xxx.x
+x.x.....xxx........x.x.....x...x
+x.x.........xxxxxx.........x...x
+x....x.........................x
+x.x..x..xxxxx   xxxxx....xxx...x
+x.......x   bfgh    x....x0....x
+x...x...xxxxxxxxxxxxx....xxx...x
+xxxxx..........................x
+x0......xxxx...................x
+x.......x.x........xxxx..xxx...x
+x.x.....x.x........x..x..x x...x
+x..............................x
+x.......xxxxxxx....xxxx..xxx...x
+x.x.....x..x..p..xxx..x..x x...x
+x.x.x......x...................x
+x...x..............xxxx..xxx...x
+x.xxx...x x........x..x..x x...x
+x..x..x.x......................x
+x..x..x.xxxx...x...xxxx..xxx...x
+x..xxxx........x...............x
+x0......xxxx...x...xxxx..xxx..0x
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
