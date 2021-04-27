@@ -3,7 +3,7 @@
 #include <string>
 #include <SDL.h>
 #include "GameObject.h"
-#include "TextureManager.h"
+
 #include "Texture.h"
 
 using namespace std;

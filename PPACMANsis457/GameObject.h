@@ -59,6 +59,7 @@ public:
 	virtual void move() {};
 	virtual void update() { /*No se hace nada*/ };
 	virtual void mostrar() {};
+	virtual void handleEvent(SDL_Event& e) {};
 };
 
 

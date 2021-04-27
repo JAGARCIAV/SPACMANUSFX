@@ -1,7 +1,7 @@
 xxxxxxxxxxxxxxxxxxxx
 x..................x
 x.xxxxxxxxxxxxxxxx.x
-x.x       b      x.x
+x.x   b b  b b   x.x
 x.xxxxxxxxxxxxxxxx.x
 x..................x
 x.x.x.x.x.x.x.x.x..x

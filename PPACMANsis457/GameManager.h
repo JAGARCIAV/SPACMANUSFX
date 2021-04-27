@@ -13,7 +13,7 @@
 #include "Fruta.h"
 #include "Moneda.h"
 #include "Texture.h"
-
+#include "MapGenerator.h"
 using namespace std;
 
 
@@ -36,17 +36,17 @@ private:
     SDL_Surface* gScreenSurface;
 
     //The images we will load and show on the screen
-    SDL_Texture* gPacmanTexture;
-    vector<SDL_Texture*> gFrutasTextures;
+   // SDL_Texture* gPacmanTexture;
+    //vector<SDL_Texture*> gFrutasTextures;
     //SDL_Texture* MonedaTexture;
     //SDL_Texture* SuperMonedaTexture;
 
-    Texture* monedaTextura;
-    Texture* SuperMonedaTextura;
-    Texture* pacmanTextura;
-    Texture* fantasma1Texture = nullptr;
-    Texture* fantasma2Texture = nullptr;
-    Texture* fantasma3Texture = nullptr;
+    //Texture* monedaTextura;
+    //Texture* SuperMonedaTextura;
+    //Texture* pacmanTextura;
+    //Texture* fantasma1Texture = nullptr;
+    //Texture* fantasma2Texture = nullptr;
+    //Texture* fantasma3Texture = nullptr;
 
 
 
@@ -61,13 +61,15 @@ public:
     Pacman* pacman;
 
     //vector<Fantasma*> fantasma;
-    Fantasma* fantasma;
     Fantasma* fantasma1;
+    Fantasma* fantasma2;
     Fantasma* fantasma3;
+    Fantasma* fantasma4;
     Fruta* fruta;
     vector<Moneda*> monedas;
     vector<Moneda*> superMonedas;
     vector<GameObject*> actoresJuego;
+    MapGenerator* generadorNivelJuego;
 public:
     GameManager();
     int onExecute();
