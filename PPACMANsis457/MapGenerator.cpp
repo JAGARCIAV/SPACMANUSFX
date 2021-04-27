@@ -1,6 +1,6 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(Texture* _texture, int _anchoPantalla, int _altoPantalla, int _numeroFrame, int  _contadorFrames)
 {
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
@@ -54,7 +54,7 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'x':
-				newObject = new Pared(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject = new Pared(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
 			
 
 
@@ -62,28 +62,28 @@ bool MapGenerator::load(string path)
 				break;
 
 			case '.':
-				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
 				break;
 			case '0':
-				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
 				break;
 
 				//pacman
 			case 'p':
-				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5, _numeroFrame, _contadorFrames);
 				break;
 				//fantasmas
 			case 'b':
-				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				//newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
 				break;
 			case 'f':
-				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				//newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
 				break;
 			case 'g':
-				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				//newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
 				break;
 			case 'h':
-				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				//newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
 				break;
 			}
 

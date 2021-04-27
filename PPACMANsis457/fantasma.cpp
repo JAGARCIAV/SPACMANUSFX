@@ -15,8 +15,8 @@ using namespace std;
 //	
 //}
 
-Fantasma::Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(string path, Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron, int _numeroFrame, int _contadorFrames) :
+	GameObject(_texture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _numeroFrame, _contadorFrames)
 {
 	// Inicializa propiedade de de pacman
 	posicionXDestino = getPosicionX();
@@ -31,8 +31,8 @@ Fantasma::Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int 
 }
 
 
-Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(Texture* _fantasmaTexture, Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron,int _numeroFrame, int _contadorFrames) :
+	GameObject(_texture,_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _numeroFrame,  _contadorFrames)
 {
 	// Inicializa propiedade de de pacman
 	posicionXDestino = getPosicionX();
@@ -108,14 +108,14 @@ void Fantasma::move()
 	}
 }
 
-void Fantasma::render()
-{
-	SDL_Rect renderQuad = { 25 * numeroFrame, 25, getAncho(), getAlto() };
-
-	//Render to screen
-	fantasmaTexture->render(getPosicionX(), getPosicionY(), &renderQuad);
-	//SDL_RenderCopyEx(renderer, fantasmaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
-}
+//void Fantasma::render()
+//{
+//	SDL_Rect renderQuad = { 25 * numeroFrame, 25, getAncho(), getAlto() };
+//
+//	//Render to screen
+//	fantasmaTexture->render(getPosicionX(), getPosicionY(), &renderQuad);
+//	//SDL_RenderCopyEx(renderer, fantasmaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
+//}
 
 void Fantasma::update() {
 	contadorFrames++;

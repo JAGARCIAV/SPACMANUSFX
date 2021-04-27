@@ -38,7 +38,8 @@ public:
 
 public:
 	//Constructores y destructores
-	Fruta(SDL_Renderer* _renderer, vector<SDL_Texture*> _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(SDL_Renderer* _renderer, vector<SDL_Texture*> _frutasTextures, Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto,
+		int _anchoPantalla, int _altoPantalla,int _numeroFrame, int _contadorFrames);
 	//~Fruta();
 
 	//Metodos accesores

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-Fruta::Fruta(SDL_Renderer* _renderer, vector<SDL_Texture*> _frutasTextures, int _posicionX, int _posicionY,
-	int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla), renderer(_renderer) {
+Fruta::Fruta(SDL_Renderer* _renderer, vector<SDL_Texture*> _frutasTextures, Texture* _texture, int _posicionX, int _posicionY,
+	int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _numeroFrame, int _contadorFrames) :
+	GameObject(_texture,_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _numeroFrame, _contadorFrames), renderer(_renderer) {
 	// Inicializa propiedade de la fruta
 	tipoFruta = TIPO_FRUTA_GUINDA;
 

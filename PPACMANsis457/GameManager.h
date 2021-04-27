@@ -20,7 +20,9 @@ using namespace std;
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-
+const int numeroFrame=0;
+const int contadorFrames=0;
+//Texture* texture = nullptr;///////////PROBLEMA AQUI no pude
 class GameManager
 {
 private:
@@ -61,11 +63,11 @@ public:
     Pacman* pacman;
 
     //vector<Fantasma*> fantasma;
-    Fantasma* fantasma1;
-    Fantasma* fantasma2;
-    Fantasma* fantasma3;
-    Fantasma* fantasma4;
-    Fruta* fruta;
+    vector<Fantasma*> fantasma1;
+    vector<Fantasma*> fantasma2;
+    vector<Fantasma*> fantasma3;
+    vector<Fantasma*> fantasma4;
+    vector<Fruta*> fruta;
     vector<Moneda*> monedas;
     vector<Moneda*> superMonedas;
     vector<GameObject*> actoresJuego;
@@ -80,7 +82,7 @@ public:
     void onLoop();
     void onRender();
     void onCleanup();
-    SDL_Texture* loadTexture(string path);
+    Texture* loadTexture(string path);
 };
 
 

@@ -39,10 +39,13 @@ private:
 	Texture* superMonedaTexture;
 	Texture* paredTexture;
 
+	Texture* _texture;
 	int anchoPantalla;
 	int altoPantalla;
+	int _numeroFrame;
+	int _contadorFrames;
 public:
-	MapGenerator(int _anchoPantalla, int _altoPantalla);
+	MapGenerator(Texture* _texture, int _anchoPantalla, int _altoPantalla, int _numeroFrame, int _contadorFrames);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

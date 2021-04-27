@@ -12,14 +12,15 @@
 //	pacmanTexture = _pacmanTexture;
 //}
 
-Pacman::Pacman(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto,
+	int _anchoPantalla, int _altoPantalla, int _velocidadPatron, int _numeroFrame, int _contadorFrames) :
+	GameObject(_texture,_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _numeroFrame, _contadorFrames)
 {
 	// Inicializa propiedade de de pacman
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
-	textura = _textura;
+	texture = _texture;
 	numeroFrame = 0;
 	contadorFrames = 0;
 	posicionXEnTextura = 0;
@@ -96,13 +97,13 @@ void Pacman::move()
 	}
 }
 
-void Pacman::render()
-{
-	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
-
-	//Render to screen
-	textura->render(posicionX, posicionY, &renderQuad);
-}
+//void Pacman::render()
+//{
+//	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
+//
+//	//Render to screen
+//	texture->render(posicionX, posicionY, &renderQuad);
+//}
 
 void Pacman::update() {
 	contadorFrames++;

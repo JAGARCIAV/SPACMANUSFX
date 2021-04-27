@@ -53,7 +53,7 @@ int GameManager::onExecute() {
 
 	srand(time(NULL));
 
-	generadorNivelJuego = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
+	generadorNivelJuego = new MapGenerator(texture, SCREEN_WIDTH, SCREEN_HEIGHT, numeroFrame, contadorFrames);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 

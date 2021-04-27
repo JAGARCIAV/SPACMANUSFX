@@ -14,8 +14,7 @@ enum PODER_MONEDA {
 };
 
 
-class Moneda :
-    public GameObject
+class Moneda :public GameObject
 {
 private:
     int valor;
@@ -24,9 +23,12 @@ private:
 
     Texture* texture;
 
-    int numeroFrame;
-    int contadorFrames;
-    const int framesMovimiento = 2;
+    //int numeroFrame; //laboratorio N°4
+    //int contadorFrames; //laboratorio N°4
+
+    const int framesMovimiento = 2; 
+
+
     //public:
     //    // Renderizador de la ventana
     //    SDL_Renderer* renderer = nullptr;
@@ -36,7 +38,8 @@ private:
 
 public:
     //Moneda(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
-    Moneda(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    Moneda(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto,
+        int _anchoPantalla, int _altoPantalla,int _numeroFrame, int _contadorFrames);
 
 
 

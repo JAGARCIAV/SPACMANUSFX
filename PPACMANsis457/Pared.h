@@ -23,7 +23,8 @@ private:
     Texture* paredTexture;
 
 public:
-    Pared(Texture* _paredTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    Pared(Texture* _paredTexture, int _posicionX, int _posicionY, int _ancho, int _alto,
+        int _anchoPantalla, int _altoPantalla, int _numeroFrame, int _contadorFrames);
 
     int getValor() { return valor; }
   //  PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }

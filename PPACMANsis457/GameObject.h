@@ -14,17 +14,18 @@ protected:
 	int idObjeto;
 	int posicionX;
 	int posicionY;
-
 	// Ancho y Alto de la imagen del objeto en pixeles
 	int ancho;
 	int alto;
-
 	// Ancho y alto de la pantalla del juego
 	int anchoPantalla;
 	int altoPantalla;
-
 	// Si el objeto es visible
 	bool visible;
+	
+	Texture* texture;
+	int numeroFrame;
+	int contadorFrames;
 
 	Texture* texturaObjeto;
 public:
@@ -32,7 +33,8 @@ public:
 
 public:
 	//Constructores y destructores
-	GameObject(int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	GameObject(Texture* _texture,int _posicionX, int _posicionY, int _ancho, int _alto,
+	int _anchoPantalla, int _altoPantalla,int _numeroFrame, int _contadorFrames);
 
 	//Metodos accesores
 	int getIdObjeto() { return idObjeto; }
@@ -56,6 +58,8 @@ public:
 
 	// Renderizar imagen
 	virtual void render();
+
+
 	virtual void move() {};
 	virtual void update() { /*No se hace nada*/ };
 	virtual void mostrar() {};

@@ -27,8 +27,8 @@ class Fantasma : public GameObject {
 
 		Texture* fantasmaTexture = nullptr;
 
-		int numeroFrame;
-		int contadorFrames;
+		//int numeroFrame; //laboratorio N°4
+		//int contadorFrames; //laboratorio N°4
 
 		const int framesMovimiento = 4;
 
@@ -41,8 +41,8 @@ class Fantasma : public GameObject {
 	public:
 		//Constructores y destructores
 		//Fantasma(SDL_Renderer* _renderer, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-		Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-		Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+		Fantasma(string path, Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron, int _numeroFrame, int _contadorFrames);
+		Fantasma(Texture* _fantasmaTexture, Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron, int _numeroFrame, int _contadorFrames);
 
 		
 		//~Fantasma();
