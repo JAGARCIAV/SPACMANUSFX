@@ -13,7 +13,7 @@ GameObject::GameObject(Texture* _texture, int _posicionX, int _posicionY, int _a
 	visible = true;
 	numeroObjetosCreados++;
 	idObjeto = numeroObjetosCreados;
-	texture = _texture;
+	
 	numeroFrame = _numeroFrame;
 	contadorFrames = _contadorFrames;
 }

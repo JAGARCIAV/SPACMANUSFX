@@ -23,7 +23,7 @@ protected:
 	// Si el objeto es visible
 	bool visible;
 	
-	Texture* texture;
+
 	int numeroFrame;
 	int contadorFrames;
 
