@@ -1,6 +1,6 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(Texture* _texture, int _anchoPantalla, int _altoPantalla, int _numeroFrame, int  _contadorFrames)
+MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 {
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
@@ -54,41 +54,47 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'x':
-				newObject = new Pared(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
-			
-
-
-				//newObject = new Wall(tile, pTextureManager->Get("wall"));
+				newObject = new Moneda(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(1);
 				break;
 
 			case '.':
-				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
+				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(2);
 				break;
 			case '0':
-				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, _numeroFrame, _contadorFrames);
-				break;
 
+				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(2);
+				break;
 				//pacman
 			case 'p':
-				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5, _numeroFrame, _contadorFrames);
+
+				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				newObject->setParametrosAnimacion(2);
 				break;
 				//fantasmas
 			case 'b':
-				//newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
+				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+
 				break;
 			case 'f':
-				//newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
+				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
 				break;
 			case 'g':
-				//newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
+				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
 				break;
 			case 'h':
-				//newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3, _numeroFrame, _contadorFrames);
+				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
 				break;
 			}
 
 			// If the object was created, add it to the vector
-			if (newObject != NULL)
+			if (newObject != nullptr)
 				vectorObjetosJuego.push_back(newObject);
 		}
 

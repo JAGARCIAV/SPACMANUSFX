@@ -1,32 +1,15 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-//Pacman::Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron):
-//	GameObject(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
-//{
-//	// Inicializa propiedade de de pacman
-//	velocidadX = 0;
-//	velocidadY = 0;
-//	velocidadPatron = _velocidadPatron;
-//	renderer = _renderer;
-//	pacmanTexture = _pacmanTexture;
-//}
-
-Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto,
-	int _anchoPantalla, int _altoPantalla, int _velocidadPatron, int _numeroFrame, int _contadorFrames) :
-	GameObject(_texture,_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _numeroFrame, _contadorFrames)
+Pacman::Pacman(Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	// Inicializa propiedade de de pacman
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
-	texture = _texture;
-	numeroFrame = 0;
-	contadorFrames = 0;
 	posicionXEnTextura = 0;
 	posicionYEnTextura = 0;
-	//renderer = _renderer;
-	//pacmanTexture = _pacmanTexture;
 }
 
 void Pacman::handleEvent(SDL_Event& e)
@@ -95,23 +78,4 @@ void Pacman::move()
 		// mover atra
 		posicionY -= velocidadY;
 	}
-}
-
-//void Pacman::render()
-//{
-//	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
-//
-//	//Render to screen
-//	texture->render(posicionX, posicionY, &renderQuad);
-//}
-
-void Pacman::update() {
-	contadorFrames++;
-	numeroFrame = contadorFrames / 8;
-
-	if (numeroFrame > framesMovimiento - 1) {
-		numeroFrame = 0;
-		contadorFrames = 0;
-	}
-
 }

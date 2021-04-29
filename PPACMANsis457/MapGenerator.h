@@ -10,7 +10,7 @@
 #include "Fantasma.h"
 #include "Pacman.h"
 #include "Fruta.h"
-#include "Pared.h"
+
 
 using namespace std;
 
@@ -27,7 +27,7 @@ private:
 	const string pathFruta = "Resources/Frutas.png";
 	const string pathMoneda = "Resources/Moneda14.bmp";
 	const string pathSuperMoneda = "Resources/Moneda13.bmp";
-	const string pathPared = "Resources/Wall_sprite.bmp";
+	const string pathPared = "Resources/Wall.bmp";
 
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
@@ -39,13 +39,10 @@ private:
 	Texture* superMonedaTexture;
 	Texture* paredTexture;
 
-	Texture* _texture;
 	int anchoPantalla;
 	int altoPantalla;
-	int _numeroFrame;
-	int _contadorFrames;
 public:
-	MapGenerator(Texture* _texture, int _anchoPantalla, int _altoPantalla, int _numeroFrame, int _contadorFrames);
+	MapGenerator(int _anchoPantalla, int _altoPantalla);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

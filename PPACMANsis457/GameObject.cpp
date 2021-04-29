@@ -2,8 +2,7 @@
 
 int GameObject::numeroObjetosCreados = 0;
 
-GameObject::GameObject(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto,
-	int _anchoPantalla, int _altoPantalla, int _numeroFrame, int _contadorFrames) {
+GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) {
 	posicionX = _posicionX;
 	posicionY = _posicionY;
 	ancho = _ancho;
@@ -13,16 +12,27 @@ GameObject::GameObject(Texture* _texture, int _posicionX, int _posicionY, int _a
 	visible = true;
 	numeroObjetosCreados++;
 	idObjeto = numeroObjetosCreados;
-	
-	numeroFrame = _numeroFrame;
-	contadorFrames = _contadorFrames;
+	textura = _textura;
+	numeroFrame = 0;
+	contadorFrames = 0;
+	framesMovimiento = 1;
 }
 
 void GameObject::render()
-
 {
-	SDL_Rect renderQuad = { 25 * numeroFrame, 50, ancho, alto };
+	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
 
-	//Render to screen
-	texture->render(posicionX, posicionY, &renderQuad);
-};
+	// Renderizar en la pantalla
+	textura->render(getPosicionX(), getPosicionY(), &renderQuad);
+}
+
+void GameObject::update() {
+	contadorFrames++;
+	numeroFrame = contadorFrames / 8;
+
+	if (numeroFrame > framesMovimiento - 1) {
+		numeroFrame = 0;
+		contadorFrames = 0;
+	}
+
+}
