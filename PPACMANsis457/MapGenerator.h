@@ -19,14 +19,18 @@ class MapGenerator
 private:
 	vector<GameObject*> vectorObjetosJuego;
 
-	const string pathPacman = "Resources/PacMan.bmp";
-	const string pathFantasma1 = "Resources/Blinky.bmp";
-	const string pathFantasma2 = "Resources/Clyde.bmp";
-	const string pathFantasma3 = "Resources/Inkey.bmp";
-	const string pathFantasma4 = "Resources/Pinky.bmp";
+	const string pathPacman = "Resources/AurelioSol.png";
+
+	const string pathFantasma1 = "Resources/Azul.png";
+	const string pathFantasma2 = "Resources/Verde.png";
+	const string pathFantasma3 = "Resources/rojo.png";
+	const string pathFantasma4 = "Resources/Morado.png";
+
 	const string pathFruta = "Resources/Frutas.png";
-	const string pathMoneda = "Resources/Moneda14.bmp";
-	const string pathSuperMoneda = "Resources/Moneda13.bmp";
+
+	const string pathMoneda = "Resources/Monedas.png";
+	const string pathSuperMoneda = "Resources/SuperMoneda.png";
+
 	const string pathPared = "Resources/Wall.bmp";
 
 	Texture* pacmanTexture;

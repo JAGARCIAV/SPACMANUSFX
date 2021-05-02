@@ -19,6 +19,7 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
+
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
@@ -46,8 +47,8 @@ public:
 	// Mover pacman
 	void move();
 	// Renderizar imagen pacman
-	//void render();
-	//void update();
+	void rendere();
+	void updatee();
 
 };
 

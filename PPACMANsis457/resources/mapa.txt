@@ -1,24 +1,22 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-x0............................0x
-x.xxx...x.x........xxx.....xxx.x
-x.x.....xxx........x.x.....x...x
-x.x.........xxxxxx.........x...x
-x....x.........................x
-x.x..x..xxxxx   xxxxx....xxx...x
-x.......x   bfgh    x....x0....x
-x...x...xxxxxxxxxxxxx....xxx...x
-xxxxx..........................x
-x0......xxxx...................x
-x.......x.x........xxxx..xxx...x
-x.x.....x.x........x..x..x.x...x
-x..............................x
-x.......xxxxxxx....xxxx..xxx...x
-x.x.....x..x..p..xxx..x..x.x...x
-x.x.x......x...................x
-x...x..............xxxx..xxx...x
-x.xxx...x.x........x..x..x.x...x
-x..x..x.x......................x
-x..x..x.xxxx...x...xxxx..xxx...x
-x..xxxx........x...............x
-x0......xxxx...x...xxxx..xxx..0x
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W,C,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,C,W
+W,-WWWWWWWWWWWWW-WWWWWWWWWWWWW-,W,-WWWWWWWWWWWWW-,WWWWWWWWWWW,-,W
+W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W
+W,-WWWWWWWWWWWWW-,W,-,WWWWWWWWWWWWWWWWWWWWW,-,W,-,WWWWWWWWWWW,-,W
+W,-,-,-,-,-,-,-,-,W,-,-,-,-,-,-,W,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,W
+W,W,W,W,W,W,W-W,-,WWWWWWWWWWWW-,W,-,WWWWWWWWWWW,-,W-W,W,W,W,W,W,W
+W, - , - , - ,W,-,W,-,-,-,-,-,-,C,-,-,-,-,-,-,W,-,W, - , - , - ,W 
+WWWWWWWWWWWWWWWW-,W,-,WWWWWWT,T,T,T,TWWWWWW,-,W,-,WWWWWWWWWWWWWWW
+-,-,-,-,-,-,-,-,-,-,-,W, , , , , , , , , ,W,-,-,-,-,-,-,-,-,-,-,-
+WWWWWWWWWWWWWWWW-,W,-,W, ,G, ,H,I, , ,J, ,W,-,W,-,WWWWWWWWWWWWWWW
+W,-,-,-,-,-,-,-,-,-,-,W, , , , , , , , , ,W,-,-,-,-,-,-,-,-,-,-,W
+W,W,W,W,W,W,W,W,-,W,-,WWWWWWWWWWWWWWWWWWWWW,-,W,-,W,W,W,W,W,W,W,W
+W, , , , , , ,W,-,W,-,-,-,-,-,-,Y,-,-,-,-,-,-,W,-,W, , , , , , ,W
+WWWWWWWWWWWWWWWW-,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,-WWWWWWWWWWWWWWWW
+W,-,-,-,-,-,-,-,-,W,P,-,-,-,-,-,W,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,W
+W,-,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,-,W
+W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W
+W,-WWWWWWWWWWWWW-,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,-WWWWWWWWWWWWW-,W
+W,C,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,C,W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW

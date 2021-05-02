@@ -60,7 +60,7 @@ public:
 	void setVisible(bool _visible) { visible = _visible; }
 
 	// Metodos varios
-	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
+	virtual void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 
 	// Renderizar imagen
 	virtual void render();

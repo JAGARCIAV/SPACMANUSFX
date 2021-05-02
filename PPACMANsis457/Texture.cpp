@@ -100,6 +100,24 @@ void Texture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* cent
 	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, renderFlip);
 }
 
+void Texture::rendere(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
+{
+	// Return if the renderer was not set
+	if (renderer == nullptr)
+		return;
+
+	SDL_Rect renderQuad = { x, y, getAncho(), getAlto() };
+
+	if (clip != NULL) {
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+
+	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, renderFlip);
+}
+
+
+
 void Texture::setColor(Uint8 red, Uint8 green, Uint8 blue)
 {
 	SDL_SetTextureColorMod(texture, red, green, blue);

@@ -106,6 +106,8 @@ void GameManager::onRender() {
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		actoresJuego[i]->update();
 		actoresJuego[i]->render();
+		//
+		//actoresJuego[i]->rendere();
 	}
 };
 

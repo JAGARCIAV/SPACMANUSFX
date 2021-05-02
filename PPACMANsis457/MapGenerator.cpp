@@ -15,8 +15,10 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	fantasma3Texture->loadFromImage(pathFantasma3);
 	fantasma4Texture = new Texture();
 	fantasma4Texture->loadFromImage(pathFantasma4);
+
 	frutaTexture = new Texture();
 	frutaTexture->loadFromImage(pathFruta);
+
 	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
 	superMonedaTexture = new Texture();
@@ -53,42 +55,47 @@ bool MapGenerator::load(string path)
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
-			case 'x':
+			case 'W':
 				newObject = new Moneda(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(1);
 				break;
 
-			case '.':
+
+			case '-':
 				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(2);
+				newObject->setParametrosAnimacion(7);
 				break;
-			case '0':
+			case 'C':
 
 				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(2);
+				newObject->setParametrosAnimacion(9);
 				break;
 				//pacman
-			case 'p':
+			case 'P':
 
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				newObject->setParametrosAnimacion(2);
 				break;
 				//fantasmas
-			case 'b':
+			case 'G':
 				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				newObject->setParametrosAnimacion(6);
 
 				break;
-			case 'f':
+			case 'H':
 				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				newObject->setParametrosAnimacion(6);
 				break;
-			case 'g':
+			case 'J':
 				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(4);
+				newObject->setParametrosAnimacion(6);
 				break;
-			case 'h':
+			case 'I':
 				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(6);
+				break;
+			case 'Y':
+				newObject = new Fruta(frutaTextura, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			}

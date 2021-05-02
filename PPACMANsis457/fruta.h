@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <SDL.h>
-
 #include "GameObject.h"
 
 using namespace std;
@@ -32,7 +31,7 @@ private:
 public:
 	//Constructores y destructores
 
-	Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto,
+	Fruta(Texture* _frutasTextura, int _posicionX, int _posicionY, int _ancho, int _alto,
 		int _anchoPantalla, int _altoPantalla);
 
 	//~Fruta();

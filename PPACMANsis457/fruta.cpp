@@ -3,8 +3,9 @@
 
 using namespace std;
 
-Fruta::Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY,
-	int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
+Fruta::Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY,int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
+
+	/*Fruta(Texture* _frutaTexture, int _posicionX, int _posicionY, int _ancho, int _alto,int _anchoPantalla, int _altoPantalla);*/
 	GameObject(_frutaTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
 	// Inicializa propiedade de la fruta
 	tipoFruta = TIPO_FRUTA_GUINDA;

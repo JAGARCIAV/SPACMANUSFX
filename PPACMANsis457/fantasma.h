@@ -52,4 +52,6 @@ public:
 
 	// Actualizar datos fantasma
 	//void update() override;
+
+
 };

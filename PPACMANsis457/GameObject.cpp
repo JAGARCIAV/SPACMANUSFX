@@ -18,6 +18,7 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _a
 	framesMovimiento = 1;
 }
 
+
 void GameObject::render()
 {
 	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
