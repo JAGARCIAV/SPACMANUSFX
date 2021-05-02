@@ -95,7 +95,7 @@ bool MapGenerator::load(string path)
 				newObject->setParametrosAnimacion(6);
 				break;
 			case 'Y':
-				newObject = new Fruta(frutaTextura, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			}
