@@ -34,6 +34,8 @@ protected:
 	int contadorFrames;
 	int framesMovimiento;
 
+	int escudo;
+
 public:
 	static int numeroObjetosCreados;
 
@@ -50,6 +52,7 @@ public:
 	int getAnchoPantalla() { return anchoPantalla; }
 	int getAltoPantalla() { return altoPantalla; }
 	bool getVisible() { return visible; }
+	int getEscudo() { return escudo; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
@@ -58,7 +61,7 @@ public:
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
-
+	void setEscudo(int _escudo) { escudo = _escudo; }
 	// Metodos varios
 	virtual void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 

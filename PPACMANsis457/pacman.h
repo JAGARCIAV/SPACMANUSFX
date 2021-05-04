@@ -47,8 +47,8 @@ public:
 	// Mover pacman
 	void move();
 	// Renderizar imagen pacman
-	void rendere();
-	void updatee();
+	void render();
+	void update();
 
 };
 

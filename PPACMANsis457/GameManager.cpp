@@ -1,5 +1,5 @@
 #include "GameManager.h"
-
+#include "pacman.h"
 using namespace std;
 
 GameManager::GameManager() {
@@ -15,6 +15,15 @@ int GameManager::onExecute() {
 	}
 
 	srand(time(NULL));
+	
+	Texture* texturaPacmanAux;
+	texturaPacmanAux = new Texture();
+	texturaPacmanAux->loadFromImage("Resources/burbuja.png");
+	pacmanAux = new Pacman(texturaPacmanAux, 700, 250, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,20);
+
+
+
+
 
 	generadorNivelJuego = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
@@ -103,6 +112,8 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
+	pacmanAux->render();
+
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		actoresJuego[i]->update();
 		actoresJuego[i]->render();

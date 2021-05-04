@@ -15,9 +15,11 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	fantasma3Texture->loadFromImage(pathFantasma3);
 	fantasma4Texture = new Texture();
 	fantasma4Texture->loadFromImage(pathFantasma4);
-
 	frutaTexture = new Texture();
 	frutaTexture->loadFromImage(pathFruta);
+
+	brujaTexture = new Texture();
+	brujaTexture->loadFromImage(pathBruja);
 
 	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
@@ -60,21 +62,16 @@ bool MapGenerator::load(string path)
 				newObject->setParametrosAnimacion(1);
 				break;
 
-
-			case '-':
-				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(7);
-				break;
 			case 'C':
 
 				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(9);
+				newObject->setParametrosAnimacion(3);
 				break;
 				//pacman
 			case 'P':
 
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				newObject->setParametrosAnimacion(2);
+				newObject->setParametrosAnimacion(3);
 				break;
 				//fantasmas
 			case 'G':
@@ -95,8 +92,15 @@ bool MapGenerator::load(string path)
 				newObject->setParametrosAnimacion(6);
 				break;
 			case 'Y':
-				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(3);
+				break;
+			case 'ñ':
+				newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
 				newObject->setParametrosAnimacion(4);
+			case '-':
+				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(7);
 				break;
 			}
 

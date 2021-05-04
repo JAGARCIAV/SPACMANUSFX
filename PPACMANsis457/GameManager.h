@@ -11,9 +11,11 @@
 #include "Pacman.h"
 #include "Fantasma.h"
 #include "Fruta.h"
+#include "Bruja.h"
 #include "Moneda.h"
 #include "Texture.h"
 #include "MapGenerator.h"
+
 
 using namespace std;
 
@@ -33,6 +35,9 @@ private:
     //The window renderer
     SDL_Renderer* gRenderer;
 
+    Pacman* pacmanAux;
+    Fantasma* fantasmaAux;
+
 public:
     vector<GameObject*> actoresJuego;
     MapGenerator* generadorNivelJuego;
@@ -46,5 +51,11 @@ public:
     void onRender();
     void onRendere();
     void onCleanup();
+
+    template<class T>
+    int getEscudoTranformado(T* _objeto) {
+        return _objeto->getEscudo()*10;
+    }
 };
+
 

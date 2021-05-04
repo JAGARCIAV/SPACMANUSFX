@@ -23,12 +23,12 @@ void Pacman::handleEvent(SDL_Event& e)
 		{
 		case SDLK_UP:
 			velocidadY -= velocidadPatron;
-			posicionXEnTextura = 50;
+			posicionXEnTextura = 75;
 			posicionYEnTextura = 25;
 			break;
 		case SDLK_DOWN:
 			velocidadY += velocidadPatron;
-			posicionXEnTextura = 50;
+			posicionXEnTextura = 75;
 			posicionYEnTextura = 0;
 			break;
 		case SDLK_LEFT:
@@ -81,7 +81,7 @@ void Pacman::move()
 	}
 }
 
-void Pacman::rendere()
+void Pacman::render()
 {
 	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
 
@@ -89,7 +89,7 @@ void Pacman::rendere()
 	textura->rendere(posicionX, posicionY, &renderQuad);
 }
 
-void Pacman::updatee() {
+void Pacman::update() {
 	contadorFrames++;
 	numeroFrame = contadorFrames / 8;
 

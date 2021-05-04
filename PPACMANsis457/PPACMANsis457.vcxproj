@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bruja.h" />
     <ClInclude Include="fantasma.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
@@ -150,10 +151,12 @@
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="Pila.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bruja.cpp" />
     <ClCompile Include="fantasma.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -163,6 +166,7 @@
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>

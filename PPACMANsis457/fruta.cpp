@@ -25,10 +25,10 @@ void Fruta::mostrar()
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;
 		if (contadorTiempoNoVisible >= tiempoNoVisible) {
-			posicionX = 1 + rand() % anchoPantalla;
-			posicionY = 1 + rand() % altoPantalla;
-			contadorTiempoVisible = 0;
-			contadorTiempoNoVisible = 0;
+			//posicionX = 1 + rand() % anchoPantalla;
+			//posicionY = 1 + rand() % altoPantalla;
+			//contadorTiempoVisible = 0;
+			//contadorTiempoNoVisible = 0;
 			visible = true;
 			//numeroFrutaVisible = rand() % frutasTextures.size();
 			numeroFrutaVisible = rand() % 4;
