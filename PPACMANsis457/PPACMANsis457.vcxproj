@@ -154,6 +154,8 @@
     <ClInclude Include="Pila.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileGraph.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bruja.cpp" />
@@ -168,9 +170,8 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="PPACMANsis457.rc" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

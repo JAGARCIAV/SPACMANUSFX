@@ -27,21 +27,26 @@ int GameManager::onExecute() {
 
 	generadorNivelJuego = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
-	generadorNivelJuego->populate(actoresJuego);
+	generadorNivelJuego->populate(listaActoresJuego);
+
+
 
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
 		while (SDL_PollEvent(&Event)) {
 			onEvent(&Event);
-			for (int i = 0; i < actoresJuego.size(); i++) {
-				actoresJuego[i]->handleEvent(Event);
+			//for (int i = 0; i < actoresJuego.size(); i++) {
+			//	actoresJuego[i]->handleEvent(Event);
+			//}
+			for (auto ilvo = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
+				((GameObject*)*ilvo)->handleEvent(Event);
 			}
 		}
 
-		for (int i = 0; i < actoresJuego.size(); i++) {
-			actoresJuego[i]->move();
-			actoresJuego[i]->mostrar();
+		for (auto ilvo  = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
+			((GameObject*)*ilvo)->move();
+			((GameObject*)*ilvo)->mostrar();
 		}
 
 
@@ -114,9 +119,9 @@ void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacmanAux->render();
 
-	for (int i = 0; i < actoresJuego.size(); i++) {
-		actoresJuego[i]->update();
-		actoresJuego[i]->render();
+	for (auto ilvo = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
+		((GameObject*)*ilvo)->update();
+		((GameObject*)*ilvo)->render();
 		//
 		//actoresJuego[i]->rendere();
 	}

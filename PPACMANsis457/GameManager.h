@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
+#include <list>
+
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -22,7 +24,7 @@ using namespace std;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 1625;
-const int SCREEN_HEIGHT = 550;
+const int SCREEN_HEIGHT = 525;
 
 class GameManager
 {
@@ -39,7 +41,9 @@ private:
     Fantasma* fantasmaAux;
 
 public:
-    vector<GameObject*> actoresJuego;
+   // vector<GameObject*> actoresJuego;
+    list<GameObject*> listaActoresJuego;
+
     MapGenerator* generadorNivelJuego;
 
 public:

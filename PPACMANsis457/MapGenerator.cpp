@@ -57,21 +57,17 @@ bool MapGenerator::load(string path)
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
-			case 'W':
-				newObject = new Moneda(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(1);
-				break;
 
 			case 'C':
 
 				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(3);
+				newObject->setParametrosAnimacion(9);
 				break;
 				//pacman
 			case 'P':
 
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				newObject->setParametrosAnimacion(3);
+				newObject->setParametrosAnimacion(2);
 				break;
 				//fantasmas
 			case 'G':
@@ -93,20 +89,27 @@ bool MapGenerator::load(string path)
 				break;
 			case 'Y':
 				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(3);
-				break;
-			case 'ñ':
-				newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
 				newObject->setParametrosAnimacion(4);
+				break;
+			//case 'ñ':
+			//	newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
+			//	newObject->setParametrosAnimacion(4);
+			//	break;
 			case '-':
-				newObject = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject = new Moneda(monedaTexture,  x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(7);
+				break;
+			case 'W':
+				newObject = new Moneda(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(1);
 				break;
 			}
 
 			// If the object was created, add it to the vector
 			if (newObject != nullptr)
-				vectorObjetosJuego.push_back(newObject);
+
+				//vectorObjetosJuego.push_back(newObject);
+				listaObjetosJuegos.push_back(newObject);
 		}
 
 		y++;
@@ -118,9 +121,17 @@ bool MapGenerator::load(string path)
 	return true;
 }
 
-void MapGenerator::populate(std::vector<GameObject*>& _vectorObjetosJuegoGM)
+//void MapGenerator::populate(std::list<GameObject*>& _vectorObjetosJuegoGM)
+void MapGenerator::populate(std::list<GameObject*>& _listaObjetosJuegoGM)
 {
-	for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
-		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+
+	//for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
+	//	_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+	//}
+
+	for (auto ilvo = listaObjetosJuegos.begin(); ilvo != listaObjetosJuegos.end(); ilvo++) {
+		_listaObjetosJuegoGM.push_back(*ilvo);
 	}
+
+
 }

@@ -23,12 +23,12 @@ void Pacman::handleEvent(SDL_Event& e)
 		{
 		case SDLK_UP:
 			velocidadY -= velocidadPatron;
-			posicionXEnTextura = 75;
+			posicionXEnTextura = 50;
 			posicionYEnTextura = 25;
 			break;
 		case SDLK_DOWN:
 			velocidadY += velocidadPatron;
-			posicionXEnTextura = 75;
+			posicionXEnTextura = 50;
 			posicionYEnTextura = 0;
 			break;
 		case SDLK_LEFT:

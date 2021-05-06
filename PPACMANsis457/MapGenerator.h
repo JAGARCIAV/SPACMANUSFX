@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<vector>
+#include<list>
 #include<string>
 #include <fstream>
 
@@ -18,23 +19,20 @@ using namespace std;
 class MapGenerator
 {
 private:
-	vector<GameObject*> vectorObjetosJuego;
+	//vector<GameObject*> vectorObjetosJuego;
+	list<GameObject*> listaObjetosJuegos;
 
-	const string pathPacman = "Resources/PersonaCC3.png";
+	const string pathPacman = "Resources/AurelioSol2.png";
 
-	const string pathFantasma1 = "Resources/VERDE1.png";
-	const string pathFantasma2 = "Resources/LILA2.png";
-	const string pathFantasma3 = "Resources/LECHUGA4.png";
-	const string pathFantasma4 = "Resources/CELESTE3.png";
-
-	const string pathFruta = "Resources/vacuna.png";
-
+	const string pathFantasma1 = "Resources/Azul.png";
+	const string pathFantasma2 = "Resources/Morado.png";
+	const string pathFantasma3 = "Resources/Rojo.png";
+	const string pathFantasma4 = "Resources/Verde.png";
+	const string pathFruta = "Resources/Frutas.png";
 	const string pathBruja = "Resources/Bruja1.png";
-
 	const string pathMoneda = "Resources/monedas.png";
-	const string pathSuperMoneda = "Resources/GRANDE.png";
-
-	const string pathPared = "Resources/planta.png";
+	const string pathSuperMoneda = "Resources/SuperMoneda.png";
+	const string pathPared = "Resources/Muros.png";
 
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
@@ -57,7 +55,11 @@ public:
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);
 
+	//void populate(std::list<GameObject*>& _vectorObjetosJuegoGM);
+
 	// carga los objetos generados por la clase MapGeneratos a un array de punteros a objetos GameObject*
-	void populate(vector<GameObject*>& _vectorObjetosJuegoGM);
+	//void populate(vector<GameObject*>& _vectorObjetosJuegoGM);
+	void populate(list<GameObject*>& _listaObjetosJuegoGM);
+
 };
 
