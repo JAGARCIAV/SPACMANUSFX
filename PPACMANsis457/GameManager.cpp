@@ -16,10 +16,10 @@ int GameManager::onExecute() {
 
 	srand(time(NULL));
 	
-	Texture* texturaPacmanAux;
-	texturaPacmanAux = new Texture();
-	texturaPacmanAux->loadFromImage("Resources/burbuja.png");
-	pacmanAux = new Pacman(texturaPacmanAux, 700, 250, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,20);
+	//Texture* texturaPacmanAux;
+	//texturaPacmanAux = new Texture();
+	//texturaPacmanAux->loadFromImage("Resources/burbuja.png");
+	//pacmanAux = new Pacman(texturaPacmanAux, 700, 250, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,20);
 
 
 
@@ -117,7 +117,7 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
-	pacmanAux->render();
+	//pacmanAux->render();
 
 	for (auto ilvo = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
 		((GameObject*)*ilvo)->update();

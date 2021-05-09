@@ -91,10 +91,10 @@ bool MapGenerator::load(string path)
 				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(4);
 				break;
-			//case 'ñ':
-			//	newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
-			//	newObject->setParametrosAnimacion(4);
-			//	break;
+			case 'ñ':
+				newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
+				newObject->setParametrosAnimacion(4);
+				break;
 			case '-':
 				newObject = new Moneda(monedaTexture,  x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(7);
