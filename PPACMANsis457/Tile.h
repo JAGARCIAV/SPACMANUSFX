@@ -6,14 +6,12 @@ class Fantasma;
 class Fruta;
 class Moneda;
 class Pared;
-class Bruja;
 
 class Tile
 {
 private:
 	Pacman* pacman;
 	Fantasma* fantasma;
-	Bruja* bruja;
 	Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
@@ -34,10 +32,8 @@ public:
 	Fruta* getFruta() { return fruta; }
 	Moneda* getMoneda() { return moneda; }
 	Pared* getPared() { return pared; }
-	Bruja* getBruja() { return bruja; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
-
 
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
 	void setFantasma(Fantasma* _fantasma) { fantasma = _fantasma; }
@@ -46,6 +42,6 @@ public:
 	void setPared(Pared* _pared) { pared = _pared; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
-	void setBruja(Bruja* _bruja) { bruja = _bruja; }
+
 };
 

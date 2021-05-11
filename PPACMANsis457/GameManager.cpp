@@ -1,5 +1,5 @@
 #include "GameManager.h"
-#include "pacman.h"
+
 using namespace std;
 
 GameManager::GameManager() {
@@ -14,41 +14,24 @@ int GameManager::onExecute() {
 		return -1;
 	}
 
-	srand(time(NULL));
-	
-	//Texture* texturaPacmanAux;
-	//texturaPacmanAux = new Texture();
-	//texturaPacmanAux->loadFromImage("Resources/burbuja.png");
-	//pacmanAux = new Pacman(texturaPacmanAux, 700, 250, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,20);
+	srand(time(nullptr));
 
+	TileGraph tileGraphGM(65, 21);
 
-
-
-
-	generadorNivelJuego = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
+	GameObject::tileGraph = &tileGraphGM;
+	generadorNivelJuego = new MapGenerator(&tileGraphGM, SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
-	generadorNivelJuego->populate(listaActoresJuego);
-
-
+	generadorNivelJuego->populate(actoresJuego);
 
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
 		while (SDL_PollEvent(&Event)) {
 			onEvent(&Event);
-			//for (int i = 0; i < actoresJuego.size(); i++) {
-			//	actoresJuego[i]->handleEvent(Event);
-			//}
-			for (auto ilvo = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
-				((GameObject*)*ilvo)->handleEvent(Event);
+			for (int i = 0; i < actoresJuego.size(); i++) {
+				actoresJuego[i]->handleEvent(&Event);
 			}
 		}
-
-		for (auto ilvo  = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
-			((GameObject*)*ilvo)->move();
-			((GameObject*)*ilvo)->mostrar();
-		}
-
 
 		////Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
@@ -117,13 +100,9 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
-	//pacmanAux->render();
-
-	for (auto ilvo = listaActoresJuego.begin(); ilvo != listaActoresJuego.end(); ++ilvo) {
-		((GameObject*)*ilvo)->update();
-		((GameObject*)*ilvo)->render();
-		//
-		//actoresJuego[i]->rendere();
+	for (int i = 0; i < actoresJuego.size(); i++) {
+		actoresJuego[i]->update();
+		actoresJuego[i]->render();
 	}
 };
 

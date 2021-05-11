@@ -1,7 +1,9 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, int _anchoPantalla, int _altoPantalla)
 {
+	tileGraph = _tileGraph;
+
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 
@@ -17,10 +19,6 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	fantasma4Texture->loadFromImage(pathFantasma4);
 	frutaTexture = new Texture();
 	frutaTexture->loadFromImage(pathFruta);
-
-	brujaTexture = new Texture();
-	brujaTexture->loadFromImage(pathBruja);
-
 	monedaTexture = new Texture();
 	monedaTexture->loadFromImage(pathMoneda);
 	superMonedaTexture = new Texture();
@@ -52,64 +50,56 @@ bool MapGenerator::load(string path)
 		vector<char> chars(line.begin(), line.end());
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
-			GameObject* newObject = nullptr;
+			GameObject* objetoNuevo = nullptr;
+			Tile* tileNuevo = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
 
+			case '-':
+				objetoNuevo = new Moneda(tileNuevo, monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(7);
+				break;
 			case 'C':
-
-				newObject = new Moneda(superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(9);
-				break;
-				//pacman
-			case 'P':
-
-				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				newObject->setParametrosAnimacion(2);
-				break;
-				//fantasmas
-			case 'G':
-				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(6);
-
-				break;
-			case 'H':
-				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(6);
-				break;
-			case 'J':
-				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(6);
-				break;
-			case 'I':
-				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
-				newObject->setParametrosAnimacion(6);
+				objetoNuevo = new Moneda(tileNuevo, superMonedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(9);
 				break;
 			case 'Y':
-				newObject = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(4);
+				objetoNuevo = new Fruta(frutaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'ñ':
-				newObject = new Bruja(brujaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla,3);
-				newObject->setParametrosAnimacion(4);
+			case 'P':
+				objetoNuevo = new Pacman(tileNuevo, pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo->setParametrosAnimacion(2);
+				cout << tileNuevo->getPosicionX() << "----" << tileNuevo->getPosicionY() << endl;
 				break;
-			case '-':
-				newObject = new Moneda(monedaTexture,  x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(7);
+			case 'G':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(6);
+				break;
+			case 'I':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(6);
+				break;
+			case 'H':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(6);
+				break;
+			case 'J':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(6);
 				break;
 			case 'W':
-				newObject = new Moneda(paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(1);
+				objetoNuevo = new Pared(tileNuevo, paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo->setParametrosAnimacion(1);
 				break;
 			}
 
 			// If the object was created, add it to the vector
-			if (newObject != nullptr)
-
-				//vectorObjetosJuego.push_back(newObject);
-				listaObjetosJuegos.push_back(newObject);
+			if (objetoNuevo != nullptr) {
+				vectorObjetosJuego.push_back(objetoNuevo);
+			}
 		}
 
 		y++;
@@ -121,17 +111,14 @@ bool MapGenerator::load(string path)
 	return true;
 }
 
-//void MapGenerator::populate(std::list<GameObject*>& _vectorObjetosJuegoGM)
-void MapGenerator::populate(std::list<GameObject*>& _listaObjetosJuegoGM)
+void MapGenerator::populate(std::vector<GameObject*>& _vectorObjetosJuegoGM)
 {
+	/*for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
+		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+	}*/
 
-	//for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
-	//	_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
-	//}
-
-	for (auto ilvo = listaObjetosJuegos.begin(); ilvo != listaObjetosJuegos.end(); ilvo++) {
-		_listaObjetosJuegoGM.push_back(*ilvo);
+	for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
+		_vectorObjetosJuegoGM.push_back(*ivoj);
 	}
-
 
 }

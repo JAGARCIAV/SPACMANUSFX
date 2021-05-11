@@ -1,6 +1,5 @@
 #include "TileGraph.h"
 
-
 TileGraph::TileGraph()
 {
 	//tiles = nullptr;
@@ -11,16 +10,9 @@ TileGraph::TileGraph()
 
 TileGraph::TileGraph(int _anchoTileGraph, int _altoTileGraph)
 {
-	// Crear un array dinamico de Tile
-	//tiles = new Tile[_anchoTileGraph * _altoTileGraph];
-
-	// Set position of all tiles
-	// NOTE: This could propably be also made with constructor
 	for (int y = 0; y < _altoTileGraph; y++) {
 		for (int x = 0; x < _anchoTileGraph; x++) {
-			//tiles[x + (y * _anchoTileGraph)].setPosicionX(x);
-			//tiles[x + (y * _anchoTileGraph)].setPosicionY(y);
-			listaTilesGraph.push_back(new Tile(x, y));
+			vectorTilesGraph.push_back(new Tile(x, y));
 		}
 	}
 
@@ -28,26 +20,15 @@ TileGraph::TileGraph(int _anchoTileGraph, int _altoTileGraph)
 	altoTileGraph = _altoTileGraph;
 }
 
-void TileGraph::configurar(int _anchoTileGraph, int _altoTileGraph)
+void TileGraph::reconfigurar(int _anchoTileGraph, int _altoTileGraph)
 {
-	// If the TileGraph is not empty, empty it
-	//Si TileGraph no está vacío, vacíelo. tile=losas
-	//if (tiles != nullptr)
-		//delete[] tiles;
+	if (!vectorTilesGraph.empty())
+		vectorTilesGraph.clear();
 
-	//tiles = new Tile[_anchoTileGraph * _altoTileGraph];
-
-	if(!listaTilesGraph.empty())
-		listaTilesGraph.clear();
-
-	// Set position of all tiles
-	// NOTE: This could propably be also made with constructor
+	// Establece la posicion de todos los tiles
 	for (int y = 0; y < _altoTileGraph; y++) {
 		for (int x = 0; x < _anchoTileGraph; x++) {
-			//tiles[x + (y * _anchoTileGraph)].setPosicionX(x);
-			//tiles[x + (y * _anchoTileGraph)].setPosicionY(y);
-			
-			listaTilesGraph.push_back(new Tile(x, y));
+			vectorTilesGraph.push_back(new Tile(x, y));
 		}
 	}
 
@@ -57,76 +38,7 @@ void TileGraph::configurar(int _anchoTileGraph, int _altoTileGraph)
 
 TileGraph::~TileGraph()
 {
-	//delete tiles;
-}
-int a = 0;
-Tile* TileGraph::getTileEn(int x, int y)
-{
-	int indice = getIndice(x, y);
-	for (auto inv = listaTilesGraph.begin(); inv != listaTilesGraph.end();++inv) {
-		listaTilesGraph.push_back(*inv);
-		if (a == indice) {
-			return (*inv);
-		}
-		a++;
-	}
-	//if (indice < 0)
-	//	return nullptr;
-	//return vectorTilesGraph[indice];
-	return nullptr;
-}
-
-array<Tile*, 4> TileGraph::get4Vecinos(Tile* tile)
-{
-	std::array<Tile*, 4> Vecinos;
-
-	int x = tile->getPosicionX();
-	int y = tile->getPosicionY();
-
-	Vecinos[0] = getTileEn(x, y + 1);		// N
-	Vecinos[1] = getTileEn(x + 1, y);		// E
-	Vecinos[2] = getTileEn(x, y - 1);		// S
-	Vecinos[3] = getTileEn(x - 1, y);		// _anchoTileGraph
-
-	return Vecinos;
-}
-
-array<Tile*, 8> TileGraph::get8Vecinos(Tile* tile)
-{
-	std::array<Tile*, 8> Vecinos;
-
-	int x = tile->getPosicionX();
-	int y = tile->getPosicionY();
-
-	Vecinos[0] = getTileEn(x, y + 1);		// N
-	Vecinos[1] = getTileEn(x + 1, y);		// E
-	Vecinos[2] = getTileEn(x, y - 1);		// S
-	Vecinos[3] = getTileEn(x - 1, y);		// _anchoTileGraph
-	Vecinos[4] = getTileEn(x + 1, y + 1);	// NE
-	Vecinos[5] = getTileEn(x - 1, y + 1);	// SE
-	Vecinos[6] = getTileEn(x - 1, y - 1);	// SW
-	Vecinos[7] = getTileEn(x + 1, y - 1);	// NW
-
-	return Vecinos;
-}
-
-Pacman* TileGraph::getPacman()
-{
-	for (auto  inv =listaTilesGraph.begin(); inv != listaTilesGraph.end(); ++inv) {
-		if ((*inv)->getPacman())
-			return (*inv)->getPacman();
-	}
-
-	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
-
-		Tile newTile = vectorTilesGraph[i];
-
-		if (newTile.getPacman() != nullptr)
-			return newTile.getPacman();
-	}*/
-
-
-	return nullptr;
+	vectorTilesGraph.clear();
 }
 
 int TileGraph::getIndice(int x, int y)
@@ -139,3 +51,66 @@ int TileGraph::getIndice(int x, int y)
 
 	return x + y * anchoTileGraph;
 }
+
+Tile* TileGraph::getTileEn(int _x, int _y)
+{
+	int indice = getIndice(_x, _y);
+	if (indice < 0)
+		return nullptr;
+
+	return vectorTilesGraph[indice];
+}
+
+array<Tile*, 4> TileGraph::get4Vecinos(Tile* _tile)
+{
+	array<Tile*, 4> vecinos;
+
+	int x = _tile->getPosicionX();
+	int y = _tile->getPosicionY();
+
+	vecinos[0] = getTileEn(x, y + 1);		// N
+	vecinos[1] = getTileEn(x + 1, y);		// E
+	vecinos[2] = getTileEn(x, y - 1);		// S
+	vecinos[3] = getTileEn(x - 1, y);		// W
+
+	return vecinos;
+}
+
+array<Tile*, 8> TileGraph::get8Vecinos(Tile* _tile)
+{
+	array<Tile*, 8> vecinos;
+
+	int x = _tile->getPosicionX();
+	int y = _tile->getPosicionY();
+
+	vecinos[0] = getTileEn(x, y + 1);		// N
+	vecinos[1] = getTileEn(x + 1, y);		// E
+	vecinos[2] = getTileEn(x, y - 1);		// S
+	vecinos[3] = getTileEn(x - 1, y);		// W
+	vecinos[4] = getTileEn(x + 1, y + 1);	// NE
+	vecinos[5] = getTileEn(x - 1, y + 1);	// SE
+	vecinos[6] = getTileEn(x - 1, y - 1);	// SW
+	vecinos[7] = getTileEn(x + 1, y - 1);	// NW
+
+	return vecinos;
+}
+
+Pacman* TileGraph::getPacman()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getPacman() != nullptr) {
+			return (*ivtg)->getPacman();
+		}
+	}
+
+	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
+
+		Tile* tileNuevo = vectorTilesGraph[i];
+
+		if (tileNuevo->getPacman() != nullptr)
+			return tileNuevo->getPacman();
+	}*/
+
+	return nullptr;
+}
+

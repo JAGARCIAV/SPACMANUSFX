@@ -2,8 +2,14 @@
 #include <iostream>
 #include <string>
 #include <SDL.h>
+#include <algorithm>
+
 #include "GameObject.h"
 #include "Texture.h"
+#include "Tile.h"
+#include "TileGraph.h"
+#include "MoveDirection.h"
+
 
 using namespace std;
 
@@ -15,20 +21,23 @@ private:
 
 	//Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
-	int incrementoX;
-	int incrementoY;
+
 	int posicionXDestino;
 	int posicionYDestino;
 
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
+	Tile* tileActual;
+	Tile* tileSiguiente;
 
+	MoveDirection direccionActual;
+	MoveDirection direccionSiguiente;
+
+	bool tratarDeMover(MoveDirection _direccionNueva);
 public:
 	//Constructores y destructores
-	//Fantasma(string path, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto,
-		int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	//~Fantasma();
 
 	//Metodos accesores
@@ -36,23 +45,17 @@ public:
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }
+	Tile* getTile() { return tileActual; }
+	Tile* getTileSiguiente() { return tileSiguiente; }
 
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+	void setTile(Tile* _tileNuevo);
+	void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
 
 	// Metodos varios
 
-	// Manejador de eventos del fantasma
-	//void handleEvent(SDL_Event& e);
-
-	// Mover fantasma
-	void move();
-	// Renderizar imagen fantasma
-	//void render() override;
-
 	// Actualizar datos fantasma
-	//void update() override;
-
-
+	void update() override;
 };
