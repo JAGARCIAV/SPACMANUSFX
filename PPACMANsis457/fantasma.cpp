@@ -28,8 +28,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 	posicionXDestino = getPosicionX();
 	posicionYDestino = getPosicionY();
 
-	velocidadX = 1;
-	velocidadY = 1;
+	velocidadX = 0;
+	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
 }
 
