@@ -5,6 +5,8 @@
 #include<list>
 #include<string>
 #include <fstream>
+#include<SDL_image.h>
+
 
 #include "GameObject.h"
 #include "Texture.h"
@@ -25,7 +27,7 @@ private:
 	vector<GameObject*> vectorObjetosJuego;
 	TileGraph* tileGraph;
 
-	const string pathPacman = "AurelioSol.png";
+	const string pathPacman = "PacMan.bmp";
 	const string pathFantasma1 = "Resources/Morado.png";
 	const string pathFantasma2 = "Resources/Verde.png";
 	const string pathFantasma3 = "Resources/Rojo.png";

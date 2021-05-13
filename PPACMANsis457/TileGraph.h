@@ -4,6 +4,8 @@
 #include <iostream>
 #include <array>
 #include "Tile.h"
+#include<SDL_image.h>
+#include <SDL.h>
 
 using namespace std;
 
