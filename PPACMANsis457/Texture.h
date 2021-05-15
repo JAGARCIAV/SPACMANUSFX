@@ -14,14 +14,14 @@ class Texture
 private:
 	// Textura actual
 	SDL_Texture* texture;
-	map<string, Texture*> mapTexturas;
+	//map<string, Texture*> mapTexturas;
 
 	//Texture* textureAnimationManager;
 	//Texture* texture;
 
 	map<string, vector<SDL_Rect*>> mapCuadrosAnimacion;
 
-	const string pathPacman = "Resources/AurelioSol.png";
+	/*const string pathPacman = "Resources/AurelioSol.png";
 	const string pathFantasma1 = "Resources/AZULGR.png";
 	const string pathFantasma2 = "Resources/VERDEGR.png";
 	const string pathFantasma3 = "Resources/NARANJAGR.png";
@@ -40,6 +40,7 @@ private:
 	Texture* monedaTexture;
 	Texture* superMonedaTexture;
 	Texture* paredTexture;
+	*/
 	int ancho;
 	int alto;
 
@@ -57,8 +58,8 @@ public:
 
 	vector<SDL_Rect*> getCuadrosAnimacion(string _key) { return mapCuadrosAnimacion[_key]; }
 
-	Texture* getTexture(string _key) { return mapTexturas[_key]; }
-	void addTexture(string _key, Texture* _texture);
+	//Texture* getTexture(string _key) { return mapTexturas[_key]; }
+	//void addTexture(string _key, Texture* _texture);
 	void free();
 
 	//void setTexture(Texture* _textura) { texture = _textura; }
@@ -86,7 +87,7 @@ public:
 	void setAlpha(Uint8 alpha);
 
 	// Free assets
-	void free();
+	//void free();
 
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }

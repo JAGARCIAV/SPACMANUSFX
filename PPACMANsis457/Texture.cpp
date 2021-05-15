@@ -9,11 +9,6 @@ Texture::Texture()
 	alto = 0;
 }
 
-Texture::~Texture()
-{
-	free();
-}
-
 bool Texture::loadFromImage(std::string path, Uint8 r, Uint8 g, Uint8 b)
 {
 	// Free the previous texture
@@ -115,6 +110,47 @@ void Texture::setAlpha(Uint8 alpha)
 	SDL_SetTextureAlphaMod(texture, alpha);
 }
 
+//Texture::Texture()
+//{
+	//pacmanTexture = new Texture();
+	//pacmanTexture->loadFromImage(pathPacman);
+	//addTexture("pacman", pacmanTexture);
+	//fantasma1Texture = new Texture();
+	//fantasma1Texture->loadFromImage(pathFantasma1);
+	//addTexture("fantasma1", fantasma1Texture);
+	//fantasma2Texture = new Texture();
+	//fantasma2Texture->loadFromImage(pathFantasma2);
+	//addTexture("fantasma2", fantasma2Texture);
+	//fantasma3Texture = new Texture();
+	//fantasma3Texture->loadFromImage(pathFantasma3);
+	//addTexture("fantasma3", fantasma3Texture);
+	//fantasma4Texture = new Texture();
+	//fantasma4Texture->loadFromImage(pathFantasma4);
+	//addTexture("fantasma4", fantasma4Texture);
+	//frutaTexture = new Texture();
+	//frutaTexture->loadFromImage(pathFruta);
+	//addTexture("fruta", frutaTexture);
+	//monedaTexture = new Texture();
+	//monedaTexture->loadFromImage(pathMoneda);
+	//addTexture("moneda", monedaTexture);
+	//superMonedaTexture = new Texture();
+	//superMonedaTexture->loadFromImage(pathSuperMoneda);
+	//addTexture("supermoneda", superMonedaTexture);
+	//paredTexture = new Texture();
+	//paredTexture->loadFromImage(pathPared);
+	//addTexture("pared", paredTexture);
+//}
+
+Texture::~Texture() {
+	free();
+}
+
+//void Texture::addTexture(string _key, Texture* _texture)
+//{
+//	map[_key] = _texture;
+//}
+//
+
 void Texture::free()
 {
 	if (texture != nullptr) {
@@ -126,55 +162,6 @@ void Texture::free()
 		alto = 0;
 	}
 }
-
-Texture::Texture()
-{
-	pacmanTexture = new Texture();
-	pacmanTexture->loadFromImage(pathPacman);
-	addTexture("pacman", pacmanTexture);
-	fantasma1Texture = new Texture();
-	fantasma1Texture->loadFromImage(pathFantasma1);
-	addTexture("fantasma1", fantasma1Texture);
-	fantasma2Texture = new Texture();
-	fantasma2Texture->loadFromImage(pathFantasma2);
-	addTexture("fantasma2", fantasma2Texture);
-	fantasma3Texture = new Texture();
-	fantasma3Texture->loadFromImage(pathFantasma3);
-	addTexture("fantasma3", fantasma3Texture);
-	fantasma4Texture = new Texture();
-	fantasma4Texture->loadFromImage(pathFantasma4);
-	addTexture("fantasma4", fantasma4Texture);
-	frutaTexture = new Texture();
-	frutaTexture->loadFromImage(pathFruta);
-	addTexture("fruta", frutaTexture);
-	monedaTexture = new Texture();
-	monedaTexture->loadFromImage(pathMoneda);
-	addTexture("moneda", monedaTexture);
-	superMonedaTexture = new Texture();
-	superMonedaTexture->loadFromImage(pathSuperMoneda);
-	addTexture("supermoneda", superMonedaTexture);
-	paredTexture = new Texture();
-	paredTexture->loadFromImage(pathPared);
-	addTexture("pared", paredTexture);
-}
-Texture::~Texture() {
-	free();
-}
-
-void Texture::addTexture(string _key, Texture* _texture)
-{
-	mapTexturas[_key] = _texture;
-}
-
-void Texture::free()
-{
-	//for (auto elementoMapTexturas : mapTexturas) {
-	for (pair<string, Texture*> elementoMapTexturas : mapTexturas) {
-		//delete elementoMapTexturas.second;
-		mapTexturas.erase(elementoMapTexturas.first);
-	}
-}
-
 
 
 void Texture::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
@@ -190,5 +177,5 @@ void Texture::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
 		vca.push_back(_cuadroAnimacion);
 		mapCuadrosAnimacion[_key] = vca;
 	}
-
 }
+
