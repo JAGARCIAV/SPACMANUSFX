@@ -9,36 +9,35 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
-
+#include "TextureAnimationManager.h" 
 
 using namespace std;
 
-class Fantasma : public GameObject {
+class Fantasma : public GameObject
+{
 private:
-	//Velocidad en eje X y Y
-	int velocidadX;
-	int velocidadY;
-
-	//Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidadPatron;
-
-	int posicionXDestino;
-	int posicionYDestino;
-
-	int incrementoPosicionX;
-	int incrementoPosicionY;
-
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
-	bool tratarDeMover(MoveDirection _direccionNueva);
+	// Velocidad en eje X e Y
+	int velocidadX;
+	int velocidadY;
+
+	// Velocidad a la que mueve el fantasma en cualquier eje
+	int velocidadPatron;
+
+	int posicionXEnTextura;
+	int posicionYEnTextura;
+
+	TextureAnimationManager* textureAnimationManager;
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Fantasma();
+	Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+
+	//~Pacman();
 
 	//Metodos accesores
 
@@ -52,10 +51,18 @@ public:
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
+	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
+
 
 	// Metodos varios
+	bool tratarDeMover(MoveDirection _direccionNueva);
 
-	// Actualizar datos fantasma
+	// Manejador de eventos de pacman
+	void handleEvent(SDL_Event* event) override;
+	// Mover pacman
 	void update() override;
+	// Renderizar imagen pacman
+	void render() override;
+	//void update();
+
 };

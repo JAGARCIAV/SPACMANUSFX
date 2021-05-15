@@ -54,19 +54,19 @@ bool MapGenerator::load(string path)
 
 			case 'J':
 				objetoNuevo = new Fantasma(tileNuevo, textureAnimationManager->getTexture("fantasma1"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
-				objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'I':
 				objetoNuevo = new Fantasma(tileNuevo, textureAnimationManager->getTexture("fantasma2"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
-				objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'H':
 				objetoNuevo = new Fantasma(tileNuevo, textureAnimationManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
-				objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'G':
 				objetoNuevo = new Fantasma(tileNuevo, textureAnimationManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
-				objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'W':
 				objetoNuevo = new Pared(tileNuevo, textureAnimationManager->getTexture("pared"), x * Tile::altoTile, y * Tile::altoTile, 25, 25, anchoPantalla, altoPantalla);

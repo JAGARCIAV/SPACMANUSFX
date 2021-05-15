@@ -5,9 +5,6 @@ TextureAnimationManager::TextureAnimationManager()
 	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacman);
 	addTexture("pacman", pacmanTexture);
-
-
-
 	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
 	addTexture("fantasma1", fantasma1Texture);
