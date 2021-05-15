@@ -154,7 +154,6 @@
     <ClInclude Include="Pila.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureAnimationManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
   </ItemGroup>
@@ -170,7 +169,6 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureAnimationManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>

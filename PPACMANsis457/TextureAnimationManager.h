@@ -42,6 +42,7 @@ private:
 
 
 		Texture* getTexture() { return textureAnimationManager; }
+
 		vector<SDL_Rect*> getCuadrosAnimacion(string _key) { return mapCuadrosAnimacion[_key]; }
 
 		Texture* getTexture(string _key) { return mapTexturas[_key]; }
