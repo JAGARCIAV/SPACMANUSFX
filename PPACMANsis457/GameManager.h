@@ -15,6 +15,7 @@
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
+#include "TextureManager.h"
 
 using namespace std;
 
@@ -34,9 +35,9 @@ private:
     //The window renderer
     SDL_Renderer* gRenderer;
 
-public:
     vector<GameObject*> actoresJuego;
     MapGenerator* generadorNivelJuego;
+    TextureManager* textureManager;
 public:
     GameManager();
     int onExecute();

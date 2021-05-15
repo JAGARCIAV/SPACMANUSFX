@@ -1,21 +1,21 @@
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W,C,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,C,W
-W,-WWWWWWWWWWWW  WWWWWWWWWWWWW-,W,-WWWWWWWWWWWWW ,WWWWWWWWWWWWW-W
-W,-,-,-,-,-,-,-,-,-W-,-,-,-,-,-,-,-,-,-,-,-W-,-,-,-,-,-,-,-,-,W-W
-W,-WWWWWWWWWWWW  W,-,WWWWWWWWWWWWWWWWWWWWW,-,W, ,WWWW,WWWWWWW-W-W
-W,-,-,-,-,-,-,-,-W,-,-,-,-,-,-, W,-,-,-,-,-,W,-,-,-,-,-W-,-W-W-W
-W,W,W,W,W,W,W,W, WWWWWWWWWWWWW-,W,-,WWWWWWWWWWW, ,W-W,W,W,W,W,W,W
-W, - , - , - ,W,-,W,-,-,-,-,-,-,C,-,-,-,-,-,-,W,-,W, - , - , - ,W 
-WWWWWWWWWWWWWWW  ,W,-,WWWWWWT,T,T,T,TWWWWWW,-,W, ,WWWWWWWWWWWWWWW
--,-,-,-,-,-,-,-,-,-,-,W, , , , ,W, , , , ,W,-,-,-,-,-,-,-,-,-,-,-
-WWWWWWWWWWWWWWW  ,W,-,W, ,G, ,H,W,I, ,J, ,W,-,W, ,WWWWWWWWWWWWWWW
-W,-,-,-,-,-,-,-,-,-,-,W, , , , ,W, , , , ,W,-,-,-,-,-,-,-,-,-,-,W
-W, WWWWW-WWWWWW, ,W,-,WWWWWWWWWWWWWWWWWWWWW,-,W, ,W,W,W,W,W,W,W,W
-W,-, ,-, ,-, ,W,-,W,-,-,-,-,-,-,Y,-,-,-,-,-,-,W,-,W, ,-, ,-, ,-,W
-WWWWWWWWWWWWWWW  ,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,  WWWWWWWWWWWWWWW
-W,-,-,-,-,-,-,-,-,W P -,-,-,-,-,W,-,-,-,-,-,-,W,-,-,-ñ-,-,-,-,-,W
-W,-,W,W,W,W,W,W, ,W,-,W,W,W,W,W,W,W,W,W,W,W,-,W, ,W,W,W,W,W,W,-,W
-W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W
-W,-WWWWWWWWWWWW -,W,W,W,W,W,W,-,W,-,W,W,W,W,W,W,- WWWWWWWWWWWW-,W
-W,C,-,-,-,-,-,-,-,-,-,-,-,-,-,-,W,-,-,-,-,-,-,-,-,-,-,-,-,-,-,C,W
+WC------------------------------W------------------------------CW
+W-WWWWWWWWWWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWWWWWWWWWW-W
+W--------W-------W----------------------------W---------W-------W
+W-WWWW-WWW-WWWWW-W---WWWWWWWWWWWWWWWWWWWWWW---W-WWWWW-WWWW-WWWW-W
+W----W---------W----------------W---------------W---------------W
+W-WWWWWWW-WWWWWW WWWWWWWWWWWWW-,W,-,WWWWWWWWWWW-WWWWWWW-WWWWWWWWW
+W--------------W-W--------------C-------------W-W---------------W 
+WWW-WWWWWWWWWW-W-WWW-WWWWWWW         WWWWWWW-WW-WWWWW-WWWWWWWWWWW
+-------------W--------W         W         W----------------------
+WWWWWWWWWWWWWW-W--W---W  ,G, ,H,W,I, ,J,  W---W-WWWWWWWWWWWWWWWWW
+W-------------------W-W         W         W-W---W---------------W
+W-WWWWWW-WWWWWWWW-WWW-WWWWWWWWWWWWWWWWWWWWW-WWW-W-WWWWWWW-WWWWWWW
+W---------------W-W-------------Y-------------W---------W-------W
+WWWWWWWWWWWWWWWWW-W-WWWWWWWWWW-WWW-WWWWWWWWWW-W-WWWWW-WWWWWWW-WWW
+W-----------------WP------------W------------pW----------W------W
+W---WWWWWWWWWWW-W-WW-WWWWWWWWWWWWWWWWWWWWWWW-WW-WWWWWWWWWWWWWWW-W
+W-------W-------W---------------------------------------W-------W
+W-WWWWWWWWWW-WWWW-WWWWWWWWWWWWW-W-WWWWWWWWWWWWWW-W-WWWWWWWWWWWW-W
+WC--------------W--------------------------------W-------------CW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW

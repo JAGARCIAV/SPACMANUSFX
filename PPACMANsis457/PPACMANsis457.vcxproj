@@ -142,7 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bruja.h" />
     <ClInclude Include="fantasma.h" />
     <ClInclude Include="fruta.h" />
     <ClInclude Include="GameManager.h" />
@@ -155,11 +154,12 @@
     <ClInclude Include="Pila.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bruja.cpp" />
     <ClCompile Include="fantasma.cpp" />
     <ClCompile Include="fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -171,6 +171,8 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureAnimation.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>

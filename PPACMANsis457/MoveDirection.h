@@ -6,3 +6,4 @@ enum MoveDirection {
 	MOVE_RIGHT,
 	MOVE_STILL
 };
+
