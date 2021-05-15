@@ -15,7 +15,9 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "TextureAnimation.h"
+//#include "TextureAnimation.h"
+#include "TextureAnimationManager.h"
+
 using namespace std;
 
 class MapGenerator
@@ -23,13 +25,13 @@ class MapGenerator
 private:
 	vector<GameObject*> vectorObjetosJuego;
 	TileGraph* tileGraph;
-	TextureManager* textureManager;
+	TextureAnimationManager* textureAnimationManager;
 
 
 	int anchoPantalla;
 	int altoPantalla;
 public:
-	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla);
+	MapGenerator(TileGraph* _tileGraph, TextureAnimationManager* _textureAnimationManager, int _anchoPantalla, int _altoPantalla);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

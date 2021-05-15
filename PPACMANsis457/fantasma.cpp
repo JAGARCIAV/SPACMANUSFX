@@ -21,8 +21,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 		posicionY = 0;
 	}
 
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
+	direccionActual = MOVE_d;
+	direccionSiguiente = MOVE_d;
 
 	// Inicializa propiedade de de pacman
 	posicionXDestino = getPosicionX();
@@ -53,16 +53,16 @@ bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
 	Tile* tileDestino = nullptr;
 
 	switch (_direccionNueva) {
-	case MOVE_UP:
+	case MOVE_w:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
 		break;
-	case MOVE_DOWN:
+	case MOVE_s:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
 		break;
-	case MOVE_LEFT:
+	case MOVE_a:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
 		break;
-	case MOVE_RIGHT:
+	case MOVE_d:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
 		break;
 	}
@@ -104,24 +104,24 @@ void Fantasma::update()
 	}
 	else {
 		switch (direccionActual) {
-		case MOVE_UP:
+		case MOVE_w:
 			posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
-		case MOVE_DOWN:
+		case MOVE_s:
 			posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
-		case MOVE_RIGHT:
+		case MOVE_a:
 			posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
-		case MOVE_LEFT:
+		case MOVE_d:
 			posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
 
-		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+		if ((direccionActual == MOVE_s || direccionActual == MOVE_w) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
-		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+		if ((direccionActual == MOVE_a || direccionActual == MOVE_d) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 
 	}

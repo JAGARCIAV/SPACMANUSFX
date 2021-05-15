@@ -15,7 +15,9 @@
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
-#include "TextureManager.h"
+//#include "TextureManager.h"
+#include "TextureAnimationManager.h"
+
 
 using namespace std;
 
@@ -37,7 +39,7 @@ private:
 
     vector<GameObject*> actoresJuego;
     MapGenerator* generadorNivelJuego;
-    TextureManager* textureManager;
+    TextureAnimationManager* textureAnimationManager;
 public:
     GameManager();
     int onExecute();

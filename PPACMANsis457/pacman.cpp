@@ -3,16 +3,16 @@
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
-	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_texturaPacman);
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+	textureAnimationManager = new TextureAnimationManager();
+	textureAnimationManager->setTexture(_texturaPacman);
+	textureAnimationManager->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+	textureAnimationManager->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -28,8 +28,8 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionY = 0;
 	}
 
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
+	direccionActual = MOVE_d;
+	direccionSiguiente = MOVE_d;
 
 
 	// Inicializa propiedade de de pacman
@@ -64,19 +64,19 @@ void Pacman::handleEvent(SDL_Event* event)
 		{
 			// Move up
 		case SDLK_UP:
-		case SDLK_w: direccionSiguiente = MOVE_UP; break;
+		case SDLK_w: direccionSiguiente = MOVE_w; break;
 
 			// Move down
 		case SDLK_DOWN:
-		case SDLK_s: direccionSiguiente = MOVE_DOWN; break;
+		case SDLK_s: direccionSiguiente = MOVE_s; break;
 
 			// Move left
 		case SDLK_LEFT:
-		case SDLK_a: direccionSiguiente = MOVE_LEFT; break;
+		case SDLK_a: direccionSiguiente = MOVE_a; break;
 
 			// Move right
 		case SDLK_RIGHT:
-		case SDLK_d: direccionSiguiente = MOVE_RIGHT; break;
+		case SDLK_d: direccionSiguiente = MOVE_d; break;
 		}
 	}
 }
@@ -89,16 +89,16 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 	switch (_direccionNueva)
 	{
-	case MOVE_UP:
+	case MOVE_w:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
 		break;
-	case MOVE_DOWN:
+	case MOVE_s:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
 		break;
-	case MOVE_LEFT:
+	case MOVE_a:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
 		break;
-	case MOVE_RIGHT:
+	case MOVE_d:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
 		break;
 	}
@@ -158,24 +158,24 @@ void Pacman::update()
 	else {
 		switch (direccionActual)
 		{
-		case MOVE_UP:
+		case MOVE_w:
 			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
-		case MOVE_DOWN:
+		case MOVE_s:
 			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
-		case MOVE_LEFT:
+		case MOVE_a:
 			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
-		case MOVE_RIGHT:
+		case MOVE_d:
 			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
 
-		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
+		if ((direccionActual == MOVE_s || direccionActual == MOVE_w) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
-		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
+		if ((direccionActual == MOVE_a || direccionActual == MOVE_d) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 	}
 }
@@ -185,19 +185,19 @@ void Pacman::render()
 	SDL_Rect* cuadroAnimacion = new SDL_Rect();
 
 	switch (direccionActual) {
-	case MOVE_UP:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
+	case MOVE_w:
+		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
-	case MOVE_DOWN:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("abajo")[numeroFrame];
+	case MOVE_s:
+		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
-	case MOVE_LEFT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("izquierda")[numeroFrame];
+	case MOVE_a:
+		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
-	case MOVE_RIGHT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
+	case MOVE_d:
+		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
 
-	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	textureAnimationManager->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
