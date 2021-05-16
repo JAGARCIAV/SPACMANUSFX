@@ -1,15 +1,16 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <SDL.h>
 #include <algorithm>
+
+#include <SDL.h>
 
 #include "GameObject.h"
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
-#include "TextureManager.h"
+#include "TextureManager.h" 
 
 
 
@@ -34,7 +35,6 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	//Texture* texture;
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);

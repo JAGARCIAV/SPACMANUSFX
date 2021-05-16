@@ -27,7 +27,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
-
+	 
 	direccionActual = MOVE_d;
 	direccionSiguiente = MOVE_d;
 
