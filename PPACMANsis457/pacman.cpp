@@ -40,6 +40,11 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	posicionYEnTextura = 0;
 }
 
+Pacman::~Pacman()
+{
+	Free();
+}
+
 void Pacman::setTile(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
@@ -56,6 +61,7 @@ void Pacman::setTile(Tile* _tileNuevo) {
 	}
 
 }
+
 
 void Pacman::handleEvent(SDL_Event* event)
 {
@@ -254,4 +260,17 @@ void Pacman::render()
 	}
 
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+}
+
+void Pacman::Delete()
+{
+	// Calling the base function
+	GameObject::Delete();
+
+	tileActual->setPacman(NULL);
+}
+
+SDL_Rect Pacman::GetCollider()
+{
+	return collider;
 }

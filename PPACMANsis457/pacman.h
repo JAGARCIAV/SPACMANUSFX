@@ -18,6 +18,13 @@ using namespace std;
 class Pacman : public GameObject
 {
 private:
+
+	// Check if pacman is colliding with other collider
+	bool CheckForCollision(const SDL_Rect& otherCollider);
+
+	// Check if given collider is colliding with another collider
+	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
+
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -34,26 +41,16 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	// Returns collider
-	SDL_Rect GetCollider();
-
-	// Returns position
-	SDL_Point GetPosition();
 
 	SDL_Rect collider;
-	
+
+
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Pacman();
+	~Pacman();
 	
-	// Check if pacman is colliding with other collider
-	bool CheckForCollision(const SDL_Rect& otherCollider);
 
-	// Check if given collider is colliding with another collider
-	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
-
-	
 
 	//Metodos accesores
 	int getVelocidadX() { return velocidadX; }
@@ -63,7 +60,8 @@ public:
 	Tile* getTileSiguiente() { return tileSiguiente; }
 
 
-
+	// Mark the object to be deleted
+	void Delete();
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
@@ -83,6 +81,12 @@ public:
 	// Renderizar imagen pacman
 	void render() override;
 	//void update();
+
+	// Returns collider
+	SDL_Rect GetCollider();
+
+
+
 
 };
 

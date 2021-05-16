@@ -44,3 +44,12 @@ void GameObject::Delete()
 {
 	toDelete = true;
 }
+
+void GameObject::Free() {}
+SDL_Rect GameObject::GetCollider() { return { 0,0,0,0 }; }
+GameObject::~GameObject() {}
+
+bool GameObject::ToDelete() const
+{
+	return toDelete;
+};

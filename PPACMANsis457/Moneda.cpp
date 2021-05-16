@@ -29,10 +29,10 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	tiempoPoderMoneda = 0;
 }
 
-//Moneda::~Moneda()
-//{
-//	Free();
-//}
+Moneda::~Moneda()
+{
+	Free();
+}
 
 void Moneda::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
@@ -57,10 +57,10 @@ void Moneda::Delete()
 	// Calling the base function
 	GameObject::Delete();
 
-	tileActual->setMoneda(NULL);
+	tileActual->setMoneda(nullptr);
 }
 
-SDL_Rect Moneda::GetCollider()
+SDL_Rect Moneda::getCollider()
 {
 	return collider;
 }

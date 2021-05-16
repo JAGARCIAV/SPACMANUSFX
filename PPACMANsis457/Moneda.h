@@ -26,6 +26,7 @@ private:
 
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    ~Moneda();
 
     // Prefixed width and height of a wall
     static const int Width = 3;
@@ -35,7 +36,7 @@ public:
 
     void Delete();
 
-    SDL_Rect GetCollider();
+    SDL_Rect getCollider();
 
 
     int getValor() { return valor; }
