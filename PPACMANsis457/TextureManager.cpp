@@ -5,9 +5,6 @@ TextureManager::TextureManager()
 	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacman);
 	addTexture("pacman", pacmanTexture);
-
-
-
 	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
 	addTexture("fantasma1", fantasma1Texture);
@@ -34,8 +31,10 @@ TextureManager::TextureManager()
 	addTexture("pared", paredTexture);
 }
 
+//DESTRUCTOR
 TextureManager::~TextureManager() {
 	free();
+
 }
 
 void TextureManager::addTexture(string _key, Texture* _texture)

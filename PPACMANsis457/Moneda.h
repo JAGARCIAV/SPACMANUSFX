@@ -26,6 +26,9 @@ private:
 
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+ 
+    //DESTRUCTOR
+    Moneda();
     ~Moneda();
 
     // Prefixed width and height of a wall
@@ -48,7 +51,7 @@ public:
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
-
+    void free();
     //void render();
 
 };

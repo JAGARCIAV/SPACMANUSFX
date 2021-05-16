@@ -6,10 +6,12 @@ using namespace std;
 class TextureManager
 {
 private:
+	//MAPA PARA GUARDAR LOS STRING O ADMINISTRADOR DE TEXTURA
 	map<string, Texture*> mapTexturas;
+
 	Texture* textureManager;
 
-
+	// string de las clases 
 	const string pathPacman = "Resources/AurelioSol.png";
 	const string pathFantasma1 = "Resources/AZULGR.png";
 	const string pathFantasma2 = "Resources/VERDEGR.png";
@@ -19,7 +21,8 @@ private:
 	const string pathMoneda = "Resources/Monedas.png";
 	const string pathSuperMoneda = "Resources/SuperMoneda.png";
 	const string pathPared = "Resources/Muro.png";
-
+	
+	//TEXTURAS DEL LAS CLASES con un puntero direcionamos a cada clase
 	Texture* pacmanTexture;
 	Texture* fantasma1Texture;
 	Texture* fantasma2Texture;
@@ -30,10 +33,20 @@ private:
 	Texture* superMonedaTexture;
 	Texture* paredTexture;
 public:
+	//METODOS 
+	
+	//CONSTRUCTOR
 	TextureManager();
+
+	//DESTRUCTOR
 	~TextureManager();
 
+	//metodo getTexture OBTENER textura, me devuelve una textura con puntero, como estamos trabajando con map tenemos que devolver una llave;
+	//retorna mapTExtura, y me debuelve la llave
+	//pares de valores
 	Texture* getTexture(string _key) { return mapTexturas[_key]; }
+
+	//metodo addTexture Paso un estrin con la llave
 	void addTexture(string _key, Texture* _texture);
 	void free();
 

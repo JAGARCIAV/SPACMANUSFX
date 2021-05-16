@@ -21,7 +21,7 @@
 
 using namespace std;
 
-class MapGenerator
+class MapGenerator //encargado de crear las clases
 {
 private:
 	vector<GameObject*> vectorObjetosJuego;

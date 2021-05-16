@@ -7,7 +7,7 @@ using namespace std;
 
 class TileGraph;
 
-class GameObject
+class GameObject//de aqui desienden las clases
 {
 public:
 	string nombre;

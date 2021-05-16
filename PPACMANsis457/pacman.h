@@ -73,7 +73,6 @@ public:
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
-	void free();
 	// Manejador de eventos de pacman
 	void handleEvent(SDL_Event* event) override;
 	// Mover pacman

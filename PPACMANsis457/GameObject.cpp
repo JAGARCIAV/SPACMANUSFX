@@ -50,6 +50,7 @@ void GameObject::Delete()
 }
 
 void GameObject::Free() {}
+
 SDL_Rect GameObject::getCollider() { return { 0,0,0,0 }; }
 GameObject::~GameObject() {}
 

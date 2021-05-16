@@ -40,6 +40,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	posicionYEnTextura = 0;
 }
 
+//DESTRUCTOR
 Pacman::~Pacman()
 {
 	Free();

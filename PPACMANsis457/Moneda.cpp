@@ -29,10 +29,12 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	tiempoPoderMoneda = 0;
 }
 
+//DESTRUCTOR
 Moneda::~Moneda()
 {
 	Free();
 }
+
 
 void Moneda::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {

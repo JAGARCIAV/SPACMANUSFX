@@ -9,7 +9,7 @@
 // #include <SDL_image.h>
 
 using namespace std;
-class Texture
+class Texture //Es el que nos permite manejar las imagenes
 {
 private:
 	// Textura actual
@@ -21,34 +21,21 @@ private:
 	int alto;
 
 public:
-	// Static SDL_Renderer so we don't have to ask for it
-	// when creating the texture or when rendering
-	// TODO: Temporary solution, should be removed after implementation of Game class
+
 	static SDL_Renderer* renderer;
 
 	Texture();
+	//destructor
 	~Texture();
-
-
-	//Texture* getTexture() { return texture; }
-
-
-
 
 	vector<SDL_Rect*> getCuadrosAnimacion(string _key) { return mapCuadrosAnimacion[_key]; }
 
-	//Texture* getTexture(string _key) { return mapTexturas[_key]; }
-	//void addTexture(string _key, Texture* _texture);
 	void free();
 
-	//void setTexture(Texture* _textura) { texture = _textura; }
 	void setCuadrosAnimacion(string _key, vector<SDL_Rect*> _vectorCuadrosAnimacion) {
 		mapCuadrosAnimacion[_key] = _vectorCuadrosAnimacion;
 	}
 	void addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion);
-
-
-
 
 	// Load texture from file
 	bool loadFromImage(std::string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);

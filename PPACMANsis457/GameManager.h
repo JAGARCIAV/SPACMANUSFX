@@ -27,7 +27,7 @@ using namespace std;
 const int SCREEN_WIDTH = 1625;
 const int SCREEN_HEIGHT = 525;
 
-class GameManager
+class GameManager //El que controla las clases
 {
 private:
     bool juego_en_ejecucion;
