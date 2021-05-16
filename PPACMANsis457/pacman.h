@@ -33,7 +33,7 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	Texture* texture;
+	//Texture* texture;
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
@@ -48,11 +48,15 @@ public:
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 
+
+
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
+
+
 
 
 	// Metodos varios

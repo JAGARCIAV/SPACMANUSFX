@@ -34,10 +34,10 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	Texture* texture;
+	//Texture* texture;
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	//~Pacman();
 

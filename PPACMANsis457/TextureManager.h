@@ -8,21 +8,19 @@ class TextureManager
 private:
 	map<string, Texture*> mapTexturas;
 	Texture* textureManager;
+
+
 	const string pathPacman = "Resources/AurelioSol.png";
-
-
-	const string pathFantasma1 = "Resources/AZULG.png";
-	const string pathFantasma2 = "Resources/VERDEG.png";
-	const string pathFantasma3 = "Resources/NARANJAG.png";
-	const string pathFantasma4 = "Resources/PLOMOG.png";
+	const string pathFantasma1 = "Resources/AZULGR.png";
+	const string pathFantasma2 = "Resources/VERDEGR.png";
+	const string pathFantasma3 = "Resources/NARANJAGR.png";
+	const string pathFantasma4 = "Resources/PLOMOGR.png";
 	const string pathFruta = "Resources/Frutas.png";
 	const string pathMoneda = "Resources/Monedas.png";
 	const string pathSuperMoneda = "Resources/SuperMoneda.png";
 	const string pathPared = "Resources/Muro.png";
 
 	Texture* pacmanTexture;
-
-
 	Texture* fantasma1Texture;
 	Texture* fantasma2Texture;
 	Texture* fantasma3Texture;
