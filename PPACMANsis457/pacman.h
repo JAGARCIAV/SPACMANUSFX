@@ -9,6 +9,7 @@
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
+#include "Moneda.h"
 #include "MoveDirection.h"
 #include "TextureManager.h" 
 
@@ -33,15 +34,28 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	//Texture* texture;
+	// Returns collider
+	SDL_Rect GetCollider();
+
+	// Returns position
+	SDL_Point GetPosition();
+
+	SDL_Rect collider;
+	
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-
 	//~Pacman();
+	
+	// Check if pacman is colliding with other collider
+	bool CheckForCollision(const SDL_Rect& otherCollider);
+
+	// Check if given collider is colliding with another collider
+	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
+
+	
 
 	//Metodos accesores
-
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }

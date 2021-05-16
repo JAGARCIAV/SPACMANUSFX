@@ -17,6 +17,8 @@ class Moneda :
     public GameObject
 {
 private:
+    SDL_Rect collider;
+
     int valor;
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
@@ -24,6 +26,17 @@ private:
 
 public:
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+
+    // Prefixed width and height of a wall
+    static const int Width = 3;
+    static const int Height = 3;
+    
+    static const int Margin = 11;
+
+    void Delete();
+
+    SDL_Rect GetCollider();
+
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }

@@ -120,23 +120,75 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 	return true;
 }
 
+bool Pacman::CheckForCollision(const SDL_Rect& otherCollider)
+{
+	if (otherCollider.x > collider.x + collider.w) {
+		//printf("1");
+		return false;
+	}
+
+	if (otherCollider.y > collider.y + collider.h) {
+		//printf("2");
+		return false;
+	}
+
+	if (otherCollider.x + otherCollider.w < collider.x) {
+		//printf("3");
+		return false;
+	}
+
+	if (otherCollider.y + otherCollider.h < collider.y) {
+		//printf("4");
+		return false;
+	}
+
+	return true;
+}
+
+bool Pacman::CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider)
+{
+	if (otherCollider.x > collider.x + collider.w) {
+		//printf("1");
+		return false;
+	}
+
+	if (otherCollider.y > collider.y + collider.h) {
+		//printf("2");
+		return false;
+	}
+
+	if (otherCollider.x + otherCollider.w < collider.x) {
+		//printf("3");
+		return false;
+	}
+
+	if (otherCollider.y + otherCollider.h < collider.y) {
+		//printf("4");
+		return false;
+	}
+
+	return true;
+}
+
+
+
 void Pacman::update()
 {
-	//
-	//// Check for collision with point
-	//// NOTE: Should this be nextTile?
-	//if (currTile != NULL && currTile->GetPoint() != NULL) {
-	//	SDL_Rect eatingHole = {
-	//		position.x + Point::Margin,
-	//		position.y + Point::Margin,
-	//		Point::Width,
-	//		Point::Height,
-	//	};
+	
+	// Check for collision with point
+	// NOTE: Should this be nextTile?
+	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		SDL_Rect eatingHole = {
+			posicionX + Moneda::Margin,
+			posicionY + Moneda::Margin,
+			Moneda::Width,
+			Moneda::Height,
+		};
 
-	//	if (CheckForCollision(eatingHole, nextTile->GetPoint()->GetCollider())) {
-	//		nextTile->GetPoint()->Delete();
-	//	}
-	//}
+		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
+			tileSiguiente->getMoneda()->Delete();
+		}
+	}
 
 
 	// Animacion de pacman

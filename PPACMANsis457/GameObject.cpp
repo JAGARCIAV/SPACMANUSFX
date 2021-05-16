@@ -39,3 +39,8 @@ void GameObject::update() {
 	}
 
 }
+
+void GameObject::Delete()
+{
+	toDelete = true;
+}

@@ -152,7 +152,6 @@
     <ClInclude Include="pacman.h" />
     <ClInclude Include="Pared.h" />
     <ClInclude Include="Pila.h" />
-    <ClInclude Include="Point.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
@@ -170,7 +169,6 @@
     <ClCompile Include="pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
-    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
