@@ -40,13 +40,17 @@ void GameObject::update() {
 
 }
 
+void HandleEvent(SDL_Event* event) {};
+
+
+
 void GameObject::Delete()
 {
 	toDelete = true;
 }
 
 void GameObject::Free() {}
-SDL_Rect GameObject::GetCollider() { return { 0,0,0,0 }; }
+SDL_Rect GameObject::getCollider() { return { 0,0,0,0 }; }
 GameObject::~GameObject() {}
 
 bool GameObject::ToDelete() const

@@ -83,7 +83,7 @@ public:
 	//void update();
 
 	// Returns collider
-	SDL_Rect GetCollider();
+	SDL_Rect getCollider();
 
 
 

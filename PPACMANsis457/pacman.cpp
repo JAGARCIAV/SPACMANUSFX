@@ -191,7 +191,7 @@ void Pacman::update()
 			Moneda::Height,
 		};
 
-		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
+		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->getCollider())) {
 			tileSiguiente->getMoneda()->Delete();
 		}
 	}
@@ -270,7 +270,7 @@ void Pacman::Delete()
 	tileActual->setPacman(NULL);
 }
 
-SDL_Rect Pacman::GetCollider()
+SDL_Rect Pacman::getCollider()
 {
 	return collider;
 }

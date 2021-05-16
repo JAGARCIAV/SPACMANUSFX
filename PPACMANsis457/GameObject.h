@@ -39,13 +39,15 @@ protected:
 	int numeroFrame;
 	int contadorFrames;
 	int framesMovimiento;
+
+
 	bool toDelete;
 
 
 public:
 	//Constructores y destructores
 	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
-
+	virtual ~GameObject();
 	//Metodos accesores
 	int getIdObjeto() { return idObjeto; }
 	int getPosicionX() { return posicionX; }
@@ -73,15 +75,12 @@ public:
 	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 
 	// Renderizar imagen
+	virtual void handleEvent(SDL_Event* event) {};
 	virtual void render();
 	virtual void update();
-	virtual void handleEvent(SDL_Event* event) {};
-
-
 	virtual void Free();
-	virtual SDL_Rect GetCollider();
+	virtual SDL_Rect getCollider();
 
-	virtual ~GameObject();
 
 	// Mark the object to be deleted
 	virtual void Delete();
