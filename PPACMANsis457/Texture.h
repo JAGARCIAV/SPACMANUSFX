@@ -14,33 +14,9 @@ class Texture
 private:
 	// Textura actual
 	SDL_Texture* texture;
-	//map<string, Texture*> mapTexturas;
-
-	//Texture* textureAnimationManager;
-	//Texture* texture;
 
 	map<string, vector<SDL_Rect*>> mapCuadrosAnimacion;
 
-	/*const string pathPacman = "Resources/AurelioSol.png";
-	const string pathFantasma1 = "Resources/AZULGR.png";
-	const string pathFantasma2 = "Resources/VERDEGR.png";
-	const string pathFantasma3 = "Resources/NARANJAGR.png";
-	const string pathFantasma4 = "Resources/PLOMOGR.png";
-	const string pathFruta = "Resources/Frutas.png";
-	const string pathMoneda = "Resources/Monedas.png";
-	const string pathSuperMoneda = "Resources/SuperMoneda.png";
-	const string pathPared = "Resources/Muro.png";
-
-	Texture* pacmanTexture;
-	Texture* fantasma1Texture;
-	Texture* fantasma2Texture;
-	Texture* fantasma3Texture;
-	Texture* fantasma4Texture;
-	Texture* frutaTexture;
-	Texture* monedaTexture;
-	Texture* superMonedaTexture;
-	Texture* paredTexture;
-	*/
 	int ancho;
 	int alto;
 
@@ -56,6 +32,9 @@ public:
 
 	//Texture* getTexture() { return texture; }
 
+
+
+
 	vector<SDL_Rect*> getCuadrosAnimacion(string _key) { return mapCuadrosAnimacion[_key]; }
 
 	//Texture* getTexture(string _key) { return mapTexturas[_key]; }
@@ -67,6 +46,9 @@ public:
 		mapCuadrosAnimacion[_key] = _vectorCuadrosAnimacion;
 	}
 	void addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion);
+
+
+
 
 	// Load texture from file
 	bool loadFromImage(std::string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);

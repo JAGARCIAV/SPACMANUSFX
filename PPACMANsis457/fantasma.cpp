@@ -3,16 +3,16 @@
 Fantasma::Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
-	textureAnimationManager = new TextureAnimationManager();
-	textureAnimationManager->setTexture(_texturaPacman);
-	textureAnimationManager->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	textureAnimationManager->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+	texture = new Texture();
+	//texture->setTexture(_texturaPacman);
+	texture->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+	texture->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	texture->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+	texture->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+	texture->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+	texture->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+	texture->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+	texture->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -172,18 +172,18 @@ void Fantasma::render()
 
 	switch (direccionActual) {
 	case MOVE_w:
-		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("arriba")[numeroFrame];
+		cuadroAnimacion = texture->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
 	case MOVE_s:
-		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("abajo")[numeroFrame];
+		cuadroAnimacion = texture->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
 	case MOVE_a:
-		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("izquierda")[numeroFrame];
+		cuadroAnimacion = texture->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
 	case MOVE_d:
-		cuadroAnimacion = textureAnimationManager->getCuadrosAnimacion("derecha")[numeroFrame];
+		cuadroAnimacion = texture->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
 
-	textureAnimationManager->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	texture->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }

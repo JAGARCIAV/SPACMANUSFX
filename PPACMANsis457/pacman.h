@@ -10,7 +10,7 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
-#include "TextureAnimationManager.h" 
+#include "TextureManager.h" 
 
 using namespace std;
 
@@ -33,7 +33,7 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	TextureAnimationManager* textureAnimationManager;
+	Texture* texture;
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);

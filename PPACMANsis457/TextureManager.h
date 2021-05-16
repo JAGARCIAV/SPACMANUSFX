@@ -7,7 +7,7 @@ class TextureManager
 {
 private:
 	map<string, Texture*> mapTexturas;
-
+	Texture* textureManager;
 	const string pathPacman = "Resources/AurelioSol.png";
 
 
@@ -39,6 +39,6 @@ public:
 	void addTexture(string _key, Texture* _texture);
 	void free();
 
-
+	
 };
 
