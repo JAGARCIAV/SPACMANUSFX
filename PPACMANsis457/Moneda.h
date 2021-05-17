@@ -33,7 +33,7 @@ public:
     static const int Margin = 11;
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
  
-    //DESTRUCTOR
+    //DESTRUCTOR de moneda
     ~Moneda();
 
     // Marque el objeto a eliminar
