@@ -27,6 +27,9 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
+
+	collider.w = Width;
+	collider.h = Height;
 	 
 	direccionActual = MOVE_d;
 	direccionSiguiente = MOVE_d;
@@ -127,6 +130,9 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 	return true;
 }
 
+
+//COLISION
+
 bool Pacman::CheckForCollision(const SDL_Rect& otherCollider)
 {
 	if (otherCollider.x > collider.x + collider.w) {
@@ -151,6 +157,8 @@ bool Pacman::CheckForCollision(const SDL_Rect& otherCollider)
 
 	return true;
 }
+
+//COLISION2
 
 bool Pacman::CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider)
 {
@@ -265,13 +273,18 @@ void Pacman::render()
 
 void Pacman::Delete()
 {
-	// Calling the base function
+	// Llamar a la función base
 	GameObject::Delete();
 
 	tileActual->setPacman(NULL);
 }
 
-SDL_Rect Pacman::getCollider()
+SDL_Rect Pacman::GetCollider()
 {
 	return collider;
+}
+
+SDL_Point Pacman::GetPosition()
+{
+	return position;
 }

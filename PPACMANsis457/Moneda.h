@@ -17,6 +17,7 @@ class Moneda :
     public GameObject
 {
 private:
+    SDL_Point position;
     SDL_Rect collider;
 
     int valor;
@@ -25,22 +26,25 @@ private:
     Tile* tileActual;
 
 public:
+    // Prefixed width and height of a wall
+    static const int Width = 3;
+    static const int Height = 3;
+
+    static const int Margin = 11;
     Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
  
     //DESTRUCTOR
     Moneda();
     ~Moneda();
 
-    // Prefixed width and height of a wall
-    static const int Width = 3;
-    static const int Height = 3;
-    
-    static const int Margin = 11;
-
+    // Marque el objeto a eliminar
     void Delete();
 
+    // Colisionador de devoluciones
     SDL_Rect getCollider();
 
+    // Posición de devoluciones
+    SDL_Point getPosition();
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
@@ -51,8 +55,9 @@ public:
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
-    void free();
-    //void render();
+
+    //// Devuelve el azulejo de la pared
+    //Tile* getTile();
 
 };
 

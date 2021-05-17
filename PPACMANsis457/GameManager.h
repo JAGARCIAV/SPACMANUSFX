@@ -44,6 +44,7 @@ private:
     TextureManager* textureManager;
 public:
     GameManager();
+    ~GameManager();
     int onExecute();
     bool onInit();
     void onEvent(SDL_Event* Event);

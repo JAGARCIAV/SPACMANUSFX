@@ -82,10 +82,10 @@ public:
 	virtual SDL_Rect getCollider();
 
 
-	// Mark the object to be deleted
+	// Marque el objeto a eliminar
 	virtual void Delete();
 
-	// Returns true if the objects is marked for deletion
+	// Devuelve verdadero si los objetos están marcados para su eliminación
 	bool ToDelete() const;
 
 };

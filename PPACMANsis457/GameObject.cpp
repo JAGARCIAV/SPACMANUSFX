@@ -21,6 +21,8 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _a
 	framesMovimiento = 1;
 }
 
+
+
 void GameObject::render()
 {
 	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
@@ -42,17 +44,15 @@ void GameObject::update() {
 
 void HandleEvent(SDL_Event* event) {};
 
+void GameObject::Free() {}
 
+SDL_Rect GameObject::getCollider() { return { 0,0,0,0 }; }
+GameObject::~GameObject() {}
 
 void GameObject::Delete()
 {
 	toDelete = true;
 }
-
-void GameObject::Free() {}
-
-SDL_Rect GameObject::getCollider() { return { 0,0,0,0 }; }
-GameObject::~GameObject() {}
 
 bool GameObject::ToDelete() const
 {

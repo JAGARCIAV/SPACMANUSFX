@@ -16,7 +16,7 @@ int GameManager::onExecute() {
 
 	srand(time(nullptr));
 
-	TileGraph tileGraphGM(65, 21);
+	TileGraph tileGraphGM(20, 15);
 	textureManager = new TextureManager();
 	GameObject::tileGraph = &tileGraphGM;
 	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -26,29 +26,25 @@ int GameManager::onExecute() {
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
+
+		// Remove all objects marked for deletion from gameobjects vector
+		for (int i = 0; i < actoresJuego.size(); i++) {
+			if (actoresJuego[i]->getEliminar()) {
+				//delete &actoresJuego[i];
+				//removerDeVector(actoresJuego, *actoresJuego[i]);
+				cout << "Aqui" << endl;
+				cout << actoresJuego[i]->getIdObjeto();
+			}
+		}
+
 		while (SDL_PollEvent(&Event)) {
 			onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
 				actoresJuego[i]->handleEvent(&Event);
 			}
 		}
-
-		////Clear screen
-		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
-		SDL_RenderClear(gRenderer);
-
-		//Update screen
-
-		onLoop();
-		onRender();
-		SDL_RenderPresent(gRenderer);
 	}
-
-	onCleanup();
-
-	return 0;
 }
-
 bool GameManager::onInit() {
 	//Initialization flag
 	bool success = true;
@@ -110,3 +106,5 @@ void GameManager::onCleanup() {
 
 	SDL_Quit();
 };
+
+GameManager::~GameManager() {}

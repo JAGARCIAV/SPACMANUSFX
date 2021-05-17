@@ -19,10 +19,14 @@ class Pacman : public GameObject
 {
 private:
 
-	// Check if pacman is colliding with other collider
+	// Intenta mover el pacman en la dirección deseada
+	// Devuelve verdadero si tiene éxito, falso en caso contrario
+	bool TryToMove(MoveDirection direction);
+
+	// Compruebe si pacman está colisionando con otro colisionador
 	bool CheckForCollision(const SDL_Rect& otherCollider);
 
-	// Check if given collider is colliding with another collider
+	// Compruebe si el colisionador dado está colisionando con otro colisionador
 	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 
 	Tile* tileActual;
@@ -41,7 +45,7 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-
+	SDL_Point position;
 	SDL_Rect collider;
 
 
@@ -50,6 +54,8 @@ public:
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	~Pacman();
 	
+	static const int Width = 25;
+	static const int Height = 25;
 
 
 	//Metodos accesores
@@ -75,14 +81,28 @@ public:
 	bool tratarDeMover(MoveDirection _direccionNueva);
 	// Manejador de eventos de pacman
 	void handleEvent(SDL_Event* event) override;
-	// Mover pacman
+
+
+	// Actualiza la posición y comprueba la colisión.
 	void update() override;
+
+
 	// Renderizar imagen pacman
 	void render() override;
-	//void update();
 
-	// Returns collider
-	SDL_Rect getCollider();
+	// Marque el objeto a eliminar
+	void Delete();
+
+	// Colisionador de devoluciones
+	SDL_Rect GetCollider();
+
+	// Posición de devoluciones
+	SDL_Point GetPosition();
+
+	// Devuelve la ficha de pacman
+	Tile* GetTile();
+
+
 
 
 

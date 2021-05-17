@@ -22,19 +22,16 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	collider.x = posicionX;
 	collider.y = posicionY;
 
-
 	// Inicializa propiedade de de pacman
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
 }
 
-//DESTRUCTOR
 Moneda::~Moneda()
 {
 	Free();
 }
-
 
 void Moneda::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
@@ -54,15 +51,27 @@ void Moneda::setTile(Tile* _tileNuevo) {
 	}
 }
 
+
+
 void Moneda::Delete()
 {
-	// Calling the base function
+	// Llamar a la función base
 	GameObject::Delete();
 
-	tileActual->setMoneda(nullptr);
+	tileActual->setMoneda(NULL);
 }
 
 SDL_Rect Moneda::getCollider()
 {
 	return collider;
+}
+
+SDL_Point Moneda::getPosition()
+{
+	return position;
+}
+
+Tile* Moneda::getTile()
+{
+	return tileActual;
 }
