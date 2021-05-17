@@ -147,6 +147,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="Misc.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="pacman.h" />
