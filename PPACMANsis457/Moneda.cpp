@@ -52,7 +52,7 @@ void Moneda::setTile(Tile* _tileNuevo) {
 }
 
 
-//colision
+//colisiones
 void Moneda::Delete()
 {
 	// Llamar a la función base
