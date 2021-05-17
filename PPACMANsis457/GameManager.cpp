@@ -45,6 +45,7 @@ int GameManager::onExecute() {
 		}
 	}
 }
+
 bool GameManager::onInit() {
 	//Initialization flag
 	bool success = true;
