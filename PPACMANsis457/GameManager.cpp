@@ -26,7 +26,6 @@ int GameManager::onExecute() {
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
-
 		// Remove all objects marked for deletion from gameobjects vector
 		for (int i = 0; i < actoresJuego.size(); i++) {
 			if (actoresJuego[i]->getEliminar()) {
@@ -43,7 +42,21 @@ int GameManager::onExecute() {
 				actoresJuego[i]->handleEvent(&Event);
 			}
 		}
+
+		////Clear screen
+		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
+		SDL_RenderClear(gRenderer);
+
+		//Update screen
+
+		onLoop();
+		onRender();
+		SDL_RenderPresent(gRenderer);
 	}
+
+	onCleanup();
+
+	return 0;
 }
 
 bool GameManager::onInit() {
