@@ -71,7 +71,7 @@ SDL_Point Moneda::getPosition()
 	return position;
 }
 
-Tile* Moneda::getTile()
-{
-	return tileActual;
-}
+//Tile* Moneda::getTile()
+//{
+//	return tileActual;
+//}

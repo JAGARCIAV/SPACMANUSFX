@@ -67,7 +67,7 @@ public:
 
 
 	// Mark the object to be deleted
-	void Delete();
+	//void Delete();
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
