@@ -221,7 +221,7 @@ void Fantasma::update()
 	else {
 		direccionSiguiente = MoveDirection(rand() % 4);
 	}
-
+	//s
 	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
 		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
 			direccionActual = direccionSiguiente;
