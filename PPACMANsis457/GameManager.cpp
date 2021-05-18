@@ -29,10 +29,7 @@ int GameManager::onExecute() {
 		// Remove all objects marked for deletion from gameobjects vector
 		for (int i = 0; i < actoresJuego.size(); i++) {
 			if (actoresJuego[i]->getEliminar()) {
-				//delete &actoresJuego[i];
-				//removerDeVector(actoresJuego, *actoresJuego[i]);
-				cout << "Aqui" << endl;
-				cout << actoresJuego[i]->getIdObjeto();
+				actoresJuego.erase(remove(actoresJuego.begin(), actoresJuego.end(), actoresJuego[i]), actoresJuego.end());
 			}
 		}
 

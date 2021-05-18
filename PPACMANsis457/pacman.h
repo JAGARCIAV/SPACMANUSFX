@@ -45,8 +45,6 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	SDL_Point position;
-	SDL_Rect collider;
 
 
 public:
@@ -94,10 +92,10 @@ public:
 	void Delete();
 
 	// Colisionador de devoluciones
-	SDL_Rect GetCollider();
+	//SDL_Rect GetCollider() override;
 
-	// Posición de devoluciones
-	SDL_Point GetPosition();
+	//// Posición de devoluciones
+	//SDL_Point GetPosition();
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();

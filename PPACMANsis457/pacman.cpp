@@ -3,7 +3,7 @@
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
-	_texturaPacman = new Texture();
+	//_texturaPacman = new Texture();
 	//texture->setTexture(_texturaPacman);
 	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
@@ -193,14 +193,15 @@ void Pacman::update()
 	// Check for collision with point
 	// NOTE: Should this be nextTile?
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		cout << "Aqui" << endl;
 		SDL_Rect eatingHole = {
-			posicionX + Moneda::Margin,
-			posicionY + Moneda::Margin,
-			Moneda::Width,
-			Moneda::Height,
+			posicionX /*+ Moneda::Margin*/,
+			posicionY /*+ Moneda::Margin*/,
+			ancho,
+			alto,
 		};
 
-		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->getCollider())) {
+		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
 			tileSiguiente->getMoneda()->Delete();
 		}
 	}
@@ -241,6 +242,10 @@ void Pacman::update()
 			break;
 		}
 
+		collider.x = posicionX;
+		collider.y = posicionY;
+
+
 		if ((direccionActual == MOVE_s || direccionActual == MOVE_w) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
@@ -276,15 +281,10 @@ void Pacman::Delete()
 	// Llamar a la función base
 	GameObject::Delete();
 
-	tileActual->setPacman(NULL);
+	tileActual->setPacman(nullptr);
 }
 
-SDL_Rect Pacman::GetCollider()
-{
-	return collider;
-}
-
-SDL_Point Pacman::GetPosition()
-{
-	return position;
-}
+//SDL_Rect Pacman::GetCollider()
+//{
+//	return collider;
+//}

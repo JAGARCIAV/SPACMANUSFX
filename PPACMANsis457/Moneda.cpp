@@ -16,8 +16,8 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 		posicionY = 0;
 	}
 
-	collider.w = Width;
-	collider.h = Height;
+	collider.w = ancho;
+	collider.h = alto;
 
 	collider.x = posicionX;
 	collider.y = posicionY;
@@ -58,18 +58,9 @@ void Moneda::Delete()
 	// Llamar a la función base
 	GameObject::Delete();
 
-	tileActual->setMoneda(NULL);
+	tileActual->setMoneda(nullptr);
 }
 
-SDL_Rect Moneda::getCollider()
-{
-	return collider;
-}
-
-SDL_Point Moneda::getPosition()
-{
-	return position;
-}
 
 //Tile* Moneda::getTile()
 //{

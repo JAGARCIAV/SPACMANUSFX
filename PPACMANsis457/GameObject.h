@@ -43,6 +43,7 @@ protected:
 
 	bool toDelete;
 
+	SDL_Rect collider;
 
 public:
 	//Constructores y destructores
@@ -79,8 +80,7 @@ public:
 	virtual void render();
 	virtual void update();
 	virtual void Free();
-	virtual SDL_Rect getCollider();
-
+	virtual SDL_Rect GetCollider() { return collider; }
 
 	// Marque el objeto a eliminar
 	virtual void Delete();

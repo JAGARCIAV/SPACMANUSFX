@@ -19,6 +19,7 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _a
 	numeroFrame = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
+	collider = SDL_Rect({ 0,0,0,0 });
 }
 
 
@@ -46,15 +47,14 @@ void HandleEvent(SDL_Event* event) {};
 
 void GameObject::Free() {}
 
-SDL_Rect GameObject::getCollider() { return { 0,0,0,0 }; }
 GameObject::~GameObject() {}
 
 void GameObject::Delete()
 {
-	toDelete = true;
+	eliminar = true;
 }
 
 bool GameObject::ToDelete() const
 {
-	return toDelete;
+	return eliminar;
 };

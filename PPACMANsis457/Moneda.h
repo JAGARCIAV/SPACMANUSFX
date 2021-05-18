@@ -17,9 +17,6 @@ class Moneda :
     public GameObject
 {
 private:
-    SDL_Point position;
-    SDL_Rect collider;
-
     int valor;
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
@@ -39,12 +36,7 @@ public:
     // Marque el objeto a eliminar
     void Delete();
 
-    // Colisionador de devoluciones
-    SDL_Rect getCollider();
-
-    // Posición de devoluciones
-    SDL_Point getPosition();
-
+ 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
