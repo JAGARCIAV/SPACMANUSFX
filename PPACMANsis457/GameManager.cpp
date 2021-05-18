@@ -26,7 +26,8 @@ int GameManager::onExecute() {
 	SDL_Event Event;
 
 	while (juego_en_ejecucion) {
-		// Remove all objects marked for deletion from gameobjects vector
+
+		// Elimina todos los objetos marcados para su eliminación del vector gameobjects
 		for (int i = 0; i < actoresJuego.size(); i++) {
 			if (actoresJuego[i]->getEliminar()) {
 				actoresJuego.erase(remove(actoresJuego.begin(), actoresJuego.end(), actoresJuego[i]), actoresJuego.end());

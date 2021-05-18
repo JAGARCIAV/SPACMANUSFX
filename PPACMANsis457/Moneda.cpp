@@ -15,11 +15,15 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
-
+	//colisionador ancho
 	collider.w = ancho;
+	//colisionador alto
 	collider.h = alto;
 
+	//colisionador posicionX
 	collider.x = posicionX;
+
+	//colisionador posicionY
 	collider.y = posicionY;
 
 	// Inicializa propiedade de de pacman
@@ -28,6 +32,7 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	tiempoPoderMoneda = 0;
 }
 
+//DESTRUCTOR y deja un espacio libre 
 Moneda::~Moneda()
 {
 	Free();
@@ -60,9 +65,3 @@ void Moneda::Delete()
 
 	tileActual->setMoneda(nullptr);
 }
-
-
-//Tile* Moneda::getTile()
-//{
-//	return tileActual;
-//}

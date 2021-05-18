@@ -40,12 +40,15 @@ protected:
 	int contadorFrames;
 	int framesMovimiento;
 
-
+	//propiedades de borrar
 	bool toDelete;
 
+	//propiedad de colision
 	SDL_Rect collider;
 
 public:
+
+	
 	//Constructores y destructores
 	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 	virtual ~GameObject();
@@ -79,7 +82,11 @@ public:
 	virtual void handleEvent(SDL_Event* event) {};
 	virtual void render();
 	virtual void update();
+
+	//Liberar espacio
 	virtual void Free();
+	
+	//colisionador
 	virtual SDL_Rect GetCollider() { return collider; }
 
 	// Marque el objeto a eliminar

@@ -9,6 +9,7 @@
 // #include <SDL_image.h>
 
 using namespace std;
+
 class Texture //Es el que nos permite manejar las imagenes
 {
 private:

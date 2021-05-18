@@ -27,7 +27,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
-
+	//Colisionador ancho y alto 
 	collider.w = Width;
 	collider.h = Height;
 	 
@@ -43,7 +43,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	posicionYEnTextura = 0;
 }
 
-//DESTRUCTOR
+//DESTRUCTOR y deja un espacio libre 
 Pacman::~Pacman()
 {
 	Free();
@@ -132,9 +132,10 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 
 //COLISION
-
+//comprobacion de que esta colisionando
 bool Pacman::CheckForCollision(const SDL_Rect& otherCollider)
-{
+
+{	//otro colisionador.x > colisionador.x + colisionador.w
 	if (otherCollider.x > collider.x + collider.w) {
 		//printf("1");
 		return false;
@@ -158,8 +159,9 @@ bool Pacman::CheckForCollision(const SDL_Rect& otherCollider)
 	return true;
 }
 
-//COLISION2
+//COLISION 2
 
+//comprobando si colisiono, el OtroColisionador
 bool Pacman::CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider)
 {
 	if (otherCollider.x > collider.x + collider.w) {
@@ -190,13 +192,16 @@ bool Pacman::CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCo
 void Pacman::update()
 {
 	
-	// Check for collision with point
-	// NOTE: Should this be nextTile?
+	// Compruebe si hay colisión con el punto
+
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
-		cout << "Aqui" << endl;
+	
+		cout << "Aqui = :"<<endl;
+
+	
 		SDL_Rect eatingHole = {
-			posicionX /*+ Moneda::Margin*/,
-			posicionY /*+ Moneda::Margin*/,
+			posicionX ,
+			posicionY ,
 			ancho,
 			alto,
 		};
@@ -276,6 +281,7 @@ void Pacman::render()
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
+//BORRAR 
 void Pacman::Delete()
 {
 	// Llamar a la función base
@@ -284,7 +290,4 @@ void Pacman::Delete()
 	tileActual->setPacman(nullptr);
 }
 
-//SDL_Rect Pacman::GetCollider()
-//{
-//	return collider;
-//}
+

@@ -49,10 +49,14 @@ void GameObject::Free() {}
 
 GameObject::~GameObject() {}
 
+
+
+//funcion para eliminar clase que contenga delete=borrar
 void GameObject::Delete()
 {
 	eliminar = true;
 }
+// Devuelve verdadero si los objetos están marcados para su eliminación
 
 bool GameObject::ToDelete() const
 {

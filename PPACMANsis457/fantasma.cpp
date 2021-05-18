@@ -376,4 +376,6 @@ void Fantasma::render()
 	}
 
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	//texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+
 }

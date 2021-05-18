@@ -18,10 +18,11 @@ using namespace std;
 class Pacman : public GameObject
 {
 private:
-
+	//PROPIEDADES
+	
 	// Intenta mover el pacman en la dirección deseada
 	// Devuelve verdadero si tiene éxito, falso en caso contrario
-	bool TryToMove(MoveDirection direction);
+	//bool TryToMove(MoveDirection direction);
 
 	// Compruebe si pacman está colisionando con otro colisionador
 	bool CheckForCollision(const SDL_Rect& otherCollider);
@@ -48,6 +49,8 @@ private:
 
 
 public:
+	//METODOS 
+	
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	~Pacman();
@@ -90,12 +93,6 @@ public:
 
 	// Marque el objeto a eliminar
 	void Delete();
-
-	// Colisionador de devoluciones
-	//SDL_Rect GetCollider() override;
-
-	//// Posición de devoluciones
-	//SDL_Point GetPosition();
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();
