@@ -9,6 +9,7 @@
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
+#include "Pacman.h"
 #include "MoveDirection.h"
 #include "TextureManager.h" 
 
@@ -19,6 +20,13 @@ using namespace std;
 class Fantasma : public GameObject
 {
 private:
+	//PROPIEDADES
+	
+	// Compruebe si pacman está colisionando con otro colisionador
+	bool CheckForCollision(const SDL_Rect& otherCollider);
+
+	// Compruebe si el colisionador dado está colisionando con otro colisionador
+	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -35,11 +43,16 @@ private:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
+
+
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-	//~Pacman();
+	~Fantasma();
+
+	static const int Width = 25;
+	static const int Height = 25;
 
 	//Metodos accesores
 
@@ -65,6 +78,11 @@ public:
 	void update() override;
 	// Renderizar imagen pacman
 	void render() override;
-	//void update();
+	
+	// Marque el objeto a eliminar
+	void Delete();
+
+	// Devuelve la ficha de pacman
+	Tile* GetTile();
 
 };
