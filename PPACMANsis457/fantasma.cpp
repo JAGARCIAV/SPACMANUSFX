@@ -208,8 +208,10 @@ void Fantasma::update()
 			alto,
 		};
 
-		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
+		if (CheckForCollision(eatingHole, tileSiguiente->getPacman()->GetCollider())) {
 			tileSiguiente->getPacman()->Delete();
+			
+
 		}
 	}
 

@@ -216,6 +216,7 @@ void Pacman::update()
 
 		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
 			tileSiguiente->getMoneda()->Delete();
+
 		}
 	}
 
