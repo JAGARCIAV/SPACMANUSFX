@@ -2,14 +2,17 @@
 #include "GameManager.h"
 #include "GameObject.h"
 #include "map"
-#include "Misc.h"
+//#include "Misc.h"
 
 #include<vector>
 
 using namespace std;
 vector<GameObject*> gGameObjectList;
 
-
+void removeFromVector(std::vector<GameObject*>& list, GameObject& objectToRemove)
+{
+	list.erase(std::remove(list.begin(), list.end(), &objectToRemove), list.end());
+}
 
 int main(int argc, char* argv[]) {
 
