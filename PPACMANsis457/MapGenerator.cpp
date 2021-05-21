@@ -47,7 +47,7 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(7);
 				break;
 			case 'Y':
-				objetoNuevo = new Fruta(textureManager->getTexture("fruta"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo = new Fruta(tileNuevo, textureManager->getTexture("fruta"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				objetoNuevo->setParametrosAnimacion(4);
 
 				break;
@@ -87,7 +87,7 @@ bool MapGenerator::load(string path)
 		y++;
 	}
 
-	// Close the file
+	// Close the filee
 	file.close();
 
 	return true;

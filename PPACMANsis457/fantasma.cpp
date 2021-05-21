@@ -2,10 +2,10 @@
 
 #include <stdio.h>
 #include "Fantasma.h"
-Fantasma::Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+	GameObject(_texturaFantasma, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
-	_texturaPacman = new Texture();
+	_texturaFantasma = new Texture();
 	//texture->setTexture(_texturaPacman);
 	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
@@ -15,6 +15,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _po
 	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
 	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
 	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+
+
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -35,8 +37,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _po
 
 
 
-	direccionActual = MOVE_d;
-	direccionSiguiente = MOVE_d;
+	direccionActualf = MOVE_d;
+	direccionSiguientef = MOVE_d;
 
 
 	// Inicializa propiedade de de pacman
@@ -70,29 +72,29 @@ void Fantasma::setTile(Tile* _tileNuevo) {
 
 }
 
-void Fantasma::handleEvent(SDL_Event* event)
-{
-	if (event->type == SDL_KEYDOWN && event->key.repeat == 0) {
-		switch (event->key.keysym.sym)
-		{
-			// Move up
-		case SDLK_UP:
-		case SDLK_w: direccionSiguiente = MOVE_w; break;
+//void Fantasma::handleEvent(SDL_Event* event)
+//{
+	//if (event->type == SDL_KEYDOWN && event->key.repeat == 0) {
+	//	switch (event->key.keysym.sym)
+	//	{
+	//		// Move up
+	//	case SDLK_UP:
+	//	case SDLK_w: direccionSiguientef = MOVE_w; break;
 
-			// Move down
-		case SDLK_DOWN:
-		case SDLK_s: direccionSiguiente = MOVE_s; break;
+	//		// Move down
+	//	case SDLK_DOWN:
+	//	case SDLK_s: direccionSiguientef = MOVE_s; break;
 
-			// Move left
-		case SDLK_LEFT:
-		case SDLK_a: direccionSiguiente = MOVE_a; break;
+	//		// Move left
+	//	case SDLK_LEFT:
+	//	case SDLK_a: direccionSiguientef = MOVE_a; break;
 
-			// Move right
-		case SDLK_RIGHT:
-		case SDLK_d: direccionSiguiente = MOVE_d; break;
-		}
-	}
-}
+	//		// Move right
+	//	case SDLK_RIGHT:
+	//	case SDLK_d: direccionSiguientef = MOVE_d; break;
+	//	}
+	//}
+//}
 
 bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
 {
@@ -198,7 +200,9 @@ void Fantasma::update()
 
 	if (tileActual != nullptr && tileActual->getPacman() != nullptr) {
 
-		cout << "MUERTE = :" << endl;
+		cout << "MUERTE  = :" << endl;
+
+
 
 
 		SDL_Rect eatingHole = {
@@ -207,26 +211,33 @@ void Fantasma::update()
 			ancho,
 			alto,
 		};
-
+		////////////////
 		if (CheckForCollision(eatingHole, tileSiguiente->getPacman()->GetCollider())) {
 			tileSiguiente->getPacman()->Delete();
 			
 
 		}
+		//////////////////////////
+
+
 	}
+
+
+
+	
 
 	if (enMovimiento) {
 		GameObject::update();
 	}
 	else {
-		direccionSiguiente = MoveDirection(rand() % 4);
+		direccionSiguientef = MoveDirection(rand() % 4);
 	}
 	//ss
 	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
-		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
-			direccionActual = direccionSiguiente;
+		if (direccionSiguientef != direccionActualf && tratarDeMover(direccionSiguientef))
+			direccionActualf = direccionSiguientef;
 		else
-			tratarDeMover(direccionActual);
+			tratarDeMover(direccionActualf);
 
 		if (tileSiguiente == nullptr)
 			enMovimiento = false;
@@ -234,7 +245,7 @@ void Fantasma::update()
 			enMovimiento = true;
 	}
 	else {
-		switch (direccionActual) {
+		switch (direccionActualf) {
 		case MOVE_w:
 			posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
@@ -249,10 +260,10 @@ void Fantasma::update()
 			break;
 		}
 
-		if ((direccionActual == MOVE_s || direccionActual == MOVE_w) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+		if ((direccionActualf == MOVE_s || direccionActualf == MOVE_w) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
-		if ((direccionActual == MOVE_d || direccionActual == MOVE_a) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+		if ((direccionActualf == MOVE_d || direccionActualf == MOVE_a) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 
 	}
@@ -263,7 +274,7 @@ void Fantasma::render()
 {
 	SDL_Rect* cuadroAnimacion = new SDL_Rect();
 
-	switch (direccionActual) {
+	switch (direccionActualf) {
 	case MOVE_w:
 		cuadroAnimacion = textura->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
@@ -286,8 +297,10 @@ void Fantasma::render()
 //BORRAR 
 void Fantasma::Delete()
 {
+
+
 	// Llamar a la función base
 	GameObject::Delete();
 
-	tileActual->setPacman(nullptr);
+	tileActual->setFantasma(nullptr);
 }

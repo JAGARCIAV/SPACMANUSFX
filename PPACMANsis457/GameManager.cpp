@@ -49,6 +49,7 @@ int GameManager::onExecute() {
 
 		onLoop();
 		onRender();
+	
 		SDL_RenderPresent(gRenderer);
 	}
 

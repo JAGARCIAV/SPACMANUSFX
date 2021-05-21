@@ -82,10 +82,12 @@ public:
 	virtual void handleEvent(SDL_Event* event) {};
 	virtual void render();
 	virtual void update();
+	//virtual void Muerte();
 
 	//Liberar espacio
 	virtual void Free();
 	
+
 	//colisionador
 	virtual SDL_Rect GetCollider() { return collider; }
 

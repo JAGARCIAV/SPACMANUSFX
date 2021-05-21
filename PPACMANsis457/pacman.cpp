@@ -14,6 +14,12 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
 	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
+	textura->addCuadroAnimacion("muerte", new SDL_Rect({ 0, 50, 25, 25 }));
+	textura->addCuadroAnimacion("muerte", new SDL_Rect({ 25, 50, 25, 25 }));
+	textura->addCuadroAnimacion("muerte", new SDL_Rect({ 50, 50, 25, 25 }));
+	textura->addCuadroAnimacion("muerte", new SDL_Rect({ 75, 50, 25, 25 }));
+
+
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -204,7 +210,7 @@ void Pacman::update()
 
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
 	
-		cout << "Aqui = :"<<endl;
+		cout << "aqui Moneda = :"<<endl;
 
 	
 		SDL_Rect eatingHole = {
@@ -216,6 +222,24 @@ void Pacman::update()
 
 		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
 			tileSiguiente->getMoneda()->Delete();
+
+		}
+	}
+
+	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
+
+		cout << "Aqui Fruta = :" << endl;
+
+
+		SDL_Rect eatingHole = {
+			posicionX ,
+			posicionY ,
+			ancho,
+			alto,
+		};
+
+		if (CheckForCollision(eatingHole, tileSiguiente->getFruta()->GetCollider())) {
+			tileSiguiente->getFruta()->Delete();
 
 		}
 	}
@@ -287,16 +311,32 @@ void Pacman::render()
 		break;
 	}
 
+
+	//if (!(tileActual != nullptr && tileActual->getPacman() != nullptr)) {
+	//	cuadroAnimacion = textura->getCuadrosAnimacion("muerte")[numeroFrame];
+
+	//}
+
+
+	
+	//cuadroAnimacion = textura->getCuadrosAnimacion("muerte")[numeroFrame];
+
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
 //BORRAR 
 void Pacman::Delete()
 {
+		//cout << "Aqui Muerte= :" << endl;
+
 	// Llamar a la función base
 	GameObject::Delete();
 
 	tileActual->setPacman(nullptr);
 }
+
+
+
+
 
 

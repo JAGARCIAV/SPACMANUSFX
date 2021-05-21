@@ -30,8 +30,8 @@ private:
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
-	MoveDirection direccionActual;
-	MoveDirection direccionSiguiente;
+	MoveDirection direccionActualf;
+	MoveDirection direccionSiguientef;
 
 	// Velocidad en eje X e Y
 	int velocidadX;
@@ -73,7 +73,8 @@ public:
 	bool tratarDeMover(MoveDirection _direccionNueva);
 
 	// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;
+	//void handleEvent(SDL_Event* event) override;
+	// 
 	// Mover pacman
 	void update() override;
 	// Renderizar imagen pacman

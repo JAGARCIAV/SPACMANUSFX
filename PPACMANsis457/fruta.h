@@ -1,8 +1,17 @@
 #pragma once
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 #include <SDL.h>
+
 #include "GameObject.h"
+#include "Texture.h"
+#include "Tile.h"
+#include "TileGraph.h"
+#include "Pacman.h"
+#include "TextureManager.h" 
 
 using namespace std;
 
@@ -23,28 +32,36 @@ private:
 
 	int tiempoVisible;
 	int tiempoNoVisible;
-
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 	int numeroFrutaVisible;
 
+	Tile* tileActual;
+
 public:
+
+	Texture* FrutaSurface = nullptr;
+
+	static const int Width = 25;
+	static const int Height = 25;
+
+	static const int Margin = 11;
 	//Constructores y destructores
 
-	Fruta(Texture* _frutasTextura, int _posicionX, int _posicionY, int _ancho, int _alto,
-		int _anchoPantalla, int _altoPantalla);
-
-	//~Fruta();
+	Fruta(Tile* _tile, Texture* _frutasTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	~Fruta();
 
 	//Metodos accesores
 
 	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoNoVisible() { return tiempoNoVisible; }
+	Tile* getTile() { return tileActual; }
 
 	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
+	void setTile(Tile* _tileNuevo);
 
 	// Metodos varios
 
@@ -53,6 +70,14 @@ public:
 
 	// Mostrar u ocultar fruta
 	void mostrar();
+
+	// Marque el objeto a eliminar
+	void Delete();
+
+	// Devuelve la ficha de pacman
+	Tile* GetTile();
+
+	//void render();
 
 };
 

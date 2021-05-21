@@ -36,19 +36,19 @@ public:
     // Marque el objeto a eliminar
     void Delete();
 
- 
+
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
     Tile* getTile() { return tileActual; }
+
 
     void setValor(int _valor) { valor = _valor; }
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
 
-    //// Devuelve el azulejo de la pared
-    //Tile* getTile();
+ 
 
 };
 

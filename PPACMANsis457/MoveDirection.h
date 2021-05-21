@@ -4,6 +4,9 @@ enum MoveDirection {
 	MOVE_s,
 	MOVE_a,
 	MOVE_d,
-	MOVE_STILL
+	MOVE_STILL,
+	MOVE_M
 };
+
+
 
