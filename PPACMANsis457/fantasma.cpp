@@ -212,8 +212,8 @@ void Fantasma::update()
 			alto,
 		};
 		////////////////
-		if (CheckForCollision(eatingHole, tileSiguiente->getPacman()->GetCollider())) {
-			tileSiguiente->getPacman()->Delete();
+		if (CheckForCollision(eatingHole, tileActual->getPacman()->GetCollider())) {
+			tileActual->getPacman()->Delete();
 			
 
 		}
