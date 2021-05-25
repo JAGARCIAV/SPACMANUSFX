@@ -12,6 +12,7 @@
 #include "Pacman.h"
 #include "MoveDirection.h"
 #include "TextureManager.h" 
+#include "PathFinder.h"
 
 
 
@@ -22,16 +23,16 @@ class Fantasma : public GameObject
 private:
 	//PROPIEDADES
 	
-	// Compruebe si pacman está colisionando con otro colisionador
-	bool CheckForCollision(const SDL_Rect& otherCollider);
+	//// Compruebe si pacman está colisionando con otro colisionador
+	//bool CheckForCollision(const SDL_Rect& otherCollider);
 
-	// Compruebe si el colisionador dado está colisionando con otro colisionador
-	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
+	//// Compruebe si el colisionador dado está colisionando con otro colisionador
+	//bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
-	MoveDirection direccionActualf;
-	MoveDirection direccionSiguientef;
+	MoveDirection direccionActual;
+	MoveDirection direccionSiguiente;
 
 	// Velocidad en eje X e Y
 	int velocidadX;
@@ -40,10 +41,18 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
+	int posicionXDestino;
+	int posicionYDestino;
+
+	int incrementoPosicionX;
+	int incrementoPosicionY;
+
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
+	//bool tratarDeMover(MoveDirection _direccionNueva);
 
+	vector<Tile*> camino;
 
 public:
 	//Constructores y destructores
@@ -70,7 +79,7 @@ public:
 
 
 	// Metodos varios
-	bool tratarDeMover(MoveDirection _direccionNueva);
+
 
 	// Manejador de eventos de pacman
 	//void handleEvent(SDL_Event* event) override;
@@ -81,9 +90,10 @@ public:
 	void render() override;
 	
 	// Marque el objeto a eliminar
-	void Delete();
+	void Delete() override;
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();
 
+	static bool AvoidInPathFinder(Tile* _tile);
 };

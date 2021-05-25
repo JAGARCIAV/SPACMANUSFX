@@ -24,6 +24,9 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _
 	if (tileActual != nullptr) {
 		tileActual->setFantasma(this);
 
+		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
+
+
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
@@ -32,16 +35,21 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _
 		posicionY = 0;
 	}
 	//Colisionador ancho y alto 
-	collider.w = Width;
-	collider.h = Height;
+	collider->w = Width;
+	collider->h = Height;
 
 
 
-	direccionActualf = MOVE_d;
-	direccionSiguientef = MOVE_d;
+	direccionActual = MOVE_RIGHT;
+	direccionSiguiente = MOVE_RIGHT;
+
+
 
 
 	// Inicializa propiedade de de pacman
+	posicionXDestino = getPosicionX();
+	posicionYDestino = getPosicionY();
+
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
@@ -72,233 +80,176 @@ void Fantasma::setTile(Tile* _tileNuevo) {
 
 }
 
-//void Fantasma::handleEvent(SDL_Event* event)
+
+
+//bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
 //{
-	//if (event->type == SDL_KEYDOWN && event->key.repeat == 0) {
-	//	switch (event->key.keysym.sym)
-	//	{
-	//		// Move up
-	//	case SDLK_UP:
-	//	case SDLK_w: direccionSiguientef = MOVE_w; break;
-
-	//		// Move down
-	//	case SDLK_DOWN:
-	//	case SDLK_s: direccionSiguientef = MOVE_s; break;
-
-	//		// Move left
-	//	case SDLK_LEFT:
-	//	case SDLK_a: direccionSiguientef = MOVE_a; break;
-
-	//		// Move right
-	//	case SDLK_RIGHT:
-	//	case SDLK_d: direccionSiguientef = MOVE_d; break;
-	//	}
-	//}
+//	Tile* tileDestino = nullptr;
+//
+//	// Retorna el tile destino dependiendo de la direccion de movimiento
+//
+//	switch (_direccionNueva)
+//	{
+//	case MOVE_UP:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
+//		break;
+//	case MOVE_DOWN:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
+//		break;
+//	case MOVE_LEFT:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
+//		break;
+//	case MOVE_RIGHT:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
+//		break;
+//	}
+//
+//	// Si el tile destino es nullptr, no se puede avanzar ahi
+//	if (tileDestino == nullptr) {
+//		setTileSiguiente(nullptr);
+//		return false;
+//	}
+//
+//	// Si el tile destino es una pared, no se puede avanzar ahi
+//	if (tileDestino->getPared() != nullptr) {
+//		setTileSiguiente(nullptr);
+//		return false;
+//	}
+//
+//	setTileSiguiente(tileDestino);
+//
+//	return true;
 //}
 
-bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
-{
-	Tile* tileDestino = nullptr;
 
-	// Retorna el tile destino dependiendo de la direccion de movimiento
-
-	switch (_direccionNueva)
-	{
-	case MOVE_w:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
-		break;
-	case MOVE_s:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
-		break;
-	case MOVE_a:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
-		break;
-	case MOVE_d:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
-		break;
-	}
-
-	// Si el tile destino es nullptr, no se puede avanzar ahi
-	if (tileDestino == nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	// Si el tile destino es una pared, no se puede avanzar ahi
-	if (tileDestino->getPared() != nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	setTileSiguiente(tileDestino);
-
-	return true;
-}
-
-
-//COLISION FUNCION 1
-
-//comprobacion de que esta colisionando
-bool Fantasma::CheckForCollision(const SDL_Rect& otherCollider)
-
-{	//otro colisionador.x > colisionador.x + colisionador.w
-	if (otherCollider.x > collider.x + collider.w) {
-		//printf("1");
-		return false;
-	}
-
-	if (otherCollider.y > collider.y + collider.h) {
-		//printf("2");
-		return false;
-	}
-
-	if (otherCollider.x + otherCollider.w < collider.x) {
-		//printf("3");
-		return false;
-	}
-
-	if (otherCollider.y + otherCollider.h < collider.y) {
-		//printf("4");
-		return false;
-	}
-
-	return true;
-}
-
-//COLISION 2
-
-//comprobando si colisiono, el OtroColisionador
-bool Fantasma::CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider)
-{
-	if (otherCollider.x > collider.x + collider.w) {
-		//printf("1");
-		return false;
-	}
-
-	if (otherCollider.y > collider.y + collider.h) {
-		//printf("2");
-		return false;
-	}
-
-	if (otherCollider.x + otherCollider.w < collider.x) {
-		//printf("3");
-		return false;
-	}
-
-	if (otherCollider.y + otherCollider.h < collider.y) {
-		//printf("4");
-		return false;
-	}
-
-	return true;
-}
 
 void Fantasma::update()
 {
 
+	//IA
+	Pacman* pacman = tileGraph->getPacman();
+
 	// Compruebe si hay colisión con el punto
 
-	if (tileActual != nullptr && tileActual->getPacman() != nullptr) {
+	if (pacman != nullptr) {
 
-		cout << "MUERTE  = :" << endl;
+		if (tileActual == tileSiguiente) {
+			// Get a camino to Pacman using A* algorithm
+			PathFinder astar(tileGraph);
+			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
+			tileSiguiente = camino[1];
 
+			// All we really want to do after this is check the direction the NPC should go
+			if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_RIGHT;
 
+			else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_LEFT;
 
-		SDL_Rect eatingHole = {
-			posicionX ,
-			posicionY ,
-			ancho,
-			alto,
-		};
-		////////////////
-		if (CheckForCollision(eatingHole, tileActual->getPacman()->GetCollider())) {
-			tileActual->getPacman()->Delete();
+			else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_UP;
+
+			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_DOWN;
+
+			// Check if Fantasma collides with Pacman, if so delete Pacman
+			// TODO: There should be a Kill() method within Pacman, which will play death animation
+			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
+				
+				
+				//if (tileActual != nullptr && tileActual->getPacman() != nullptr) {
+
+				//	cout << "MUERTE  = :" << endl;
+
+				//	SDL_Rect* eatingHole = new SDL_Rect({
+				//		posicionX ,
+				//		posicionY ,
+				//		ancho,
+				//		alto,
+				//	});
+
+				//	if (CheckForCollision(eatingHole, tileActual->getPacman()->GetCollider())) {
+				//		tileActual->getPacman()->Delete();
+				//	}
+
+				//}
+				
+				
+				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->GetCollider())) {
+					tile->getPacman()->Delete();
+					cout << "MUERTE  = :" << endl;
+				}
+
+			}
+			
+		}
 			
 
-		}
-		//////////////////////////
 
+
+
+
+			////IA
+
+			switch (direccionActual) {
+			case MOVE_UP:
+				posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_DOWN:
+				posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_LEFT:
+				posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
+			case MOVE_RIGHT:
+				posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
+			}
+
+			if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+				setTile(tileSiguiente);
+
+			if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+				setTile(tileSiguiente);
 
 	}
-
-
 
 	
-
-	if (enMovimiento) {
-		GameObject::update();
-	}
-	else {
-		direccionSiguientef = MoveDirection(rand() % 4);
-	}
-	//ss
-	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
-		if (direccionSiguientef != direccionActualf && tratarDeMover(direccionSiguientef))
-			direccionActualf = direccionSiguientef;
-		else
-			tratarDeMover(direccionActualf);
-
-		if (tileSiguiente == nullptr)
-			enMovimiento = false;
-		else
-			enMovimiento = true;
-	}
-	else {
-		switch (direccionActualf) {
-		case MOVE_w:
-			posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_s:
-			posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_a:
-			posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
-		case MOVE_d:
-			posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
-		}
-
-		if ((direccionActualf == MOVE_s || direccionActualf == MOVE_w) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
-			setTile(tileSiguiente);
-
-		if ((direccionActualf == MOVE_d || direccionActualf == MOVE_a) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
-			setTile(tileSiguiente);
-
-	}
-
 }
 
 void Fantasma::render()
 {
 	SDL_Rect* cuadroAnimacion = new SDL_Rect();
 
-	switch (direccionActualf) {
-	case MOVE_w:
+	switch (direccionActual) {
+	case MOVE_UP:
 		cuadroAnimacion = textura->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
-	case MOVE_s:
+	case MOVE_DOWN:
 		cuadroAnimacion = textura->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
-	case MOVE_a:
+	case MOVE_LEFT:
 		cuadroAnimacion = textura->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
-	case MOVE_d:
+	case MOVE_RIGHT:
 		cuadroAnimacion = textura->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
-
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
-	//texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+}
 
+bool Fantasma::AvoidInPathFinder(Tile* _tile)
+{
+	if (_tile->getPared() != nullptr)
+		return true;
+	return false;
 }
 
 //BORRAR 
 void Fantasma::Delete()
 {
-
-
 	// Llamar a la función base
 	GameObject::Delete();
 

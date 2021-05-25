@@ -19,7 +19,7 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _a
 	numeroFrame = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
-	collider = SDL_Rect({ 0,0,0,0 });
+	collider = new SDL_Rect({ _posicionX, _posicionY, _ancho, _alto });
 }
 
 
@@ -30,6 +30,62 @@ void GameObject::render()
 
 	// Renderizar en la pantalla
 	textura->render(getPosicionX(), getPosicionY(), &renderQuad);
+}
+
+//COLISION 1
+//comprobacion de que esta colisionando
+bool GameObject::CheckForCollision(const SDL_Rect* otherCollider)
+
+{	//otro colisionador.x > colisionador.x + colisionador.w
+	if (otherCollider->x > collider->x + collider->w) {
+		//printf("1");
+		return false;
+	}
+
+	if (otherCollider->y > collider->y + collider->h) {
+		//printf("2");
+		return false;
+	}
+
+	if (otherCollider->x + otherCollider->w < collider->x) {
+		//printf("3");
+		return false;
+	}
+
+	if (otherCollider->y + otherCollider->h < collider->y) {
+		//printf("4");
+		return false;
+	}
+
+	return true;
+}
+
+//COLISION 2
+
+//comprobando si colisiono, el OtroColisionador
+bool GameObject::CheckForCollision(const SDL_Rect* collider, const SDL_Rect* otherCollider)
+{
+	if (otherCollider->x > collider->x + collider->w) {
+		//printf("1");
+		return false;
+	}
+
+	if (otherCollider->y > collider->y + collider->h) {
+		//printf("2");
+		return false;
+	}
+
+	if (otherCollider->x + otherCollider->w < collider->x) {
+		//printf("3");
+		return false;
+	}
+
+	if (otherCollider->y + otherCollider->h < collider->y) {
+		//printf("4");
+		return false;
+	}
+
+	return true;
 }
 
 void GameObject::update() {

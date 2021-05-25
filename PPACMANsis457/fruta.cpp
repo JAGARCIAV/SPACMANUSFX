@@ -41,15 +41,15 @@ Fruta::Fruta(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicion
 		posicionY = 0;
 	}
 	//colisionador ancho
-	collider.w = ancho;
+	collider->w = ancho;
 	//colisionador alto
-	collider.h = alto;
+	collider->h = alto;
 
 	//colisionador posicionX
-	collider.x = posicionX;
+	collider->x = posicionX;
 
 	//colisionador posicionY
-	collider.y = posicionY;
+	collider->y = posicionY;
 
 
 
@@ -102,8 +102,8 @@ void Fruta::setTile(Tile* _tileNuevo) {
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 
-		collider.x = posicionX;
-		collider.y = posicionY;
+		collider->x = posicionX;
+		collider->y = posicionY;
 	}
 
 }

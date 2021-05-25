@@ -50,8 +50,6 @@ public:
     void onEvent(SDL_Event* Event);
     void onLoop();
     void onRender();
-
-
     void onCleanup();
    
 

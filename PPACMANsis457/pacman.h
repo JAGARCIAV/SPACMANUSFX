@@ -26,11 +26,11 @@ private:
 	// Devuelve verdadero si tiene éxito, falso en caso contrario
 	//bool TryToMove(MoveDirection direction);
 
-	// Compruebe si pacman está colisionando con otro colisionador
-	bool CheckForCollision(const SDL_Rect& otherCollider);
+	//// Compruebe si pacman está colisionando con otro colisionador
+	//bool CheckForCollision(const SDL_Rect& otherCollider);
 
-	// Compruebe si el colisionador dado está colisionando con otro colisionador
-	bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
+	//// Compruebe si el colisionador dado está colisionando con otro colisionador
+	//bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
@@ -47,16 +47,6 @@ private:
 
 	int posicionXEnTextura;
 	int posicionYEnTextura;
-
-	//int pacmanX;
-	//int pacmanY;
-	//int getPacmanX() { return pacmanX; }
-	//int getPacmanY() { return pacmanY; }
-	//void setPacmanX(int _pacmanX) { pacmanX = _pacmanX; }
-	//void setPacmanY(int _pacmanY) { pacmanY = _pacmanY; }
-
-
-
 public:
 	//METODOS 
 	
@@ -103,7 +93,7 @@ public:
 	//void Muerte() override;
 
 	// Marque el objeto a eliminar
-	void Delete();
+	void Delete()override;
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();

@@ -44,7 +44,7 @@ protected:
 	bool toDelete;
 
 	//propiedad de colision
-	SDL_Rect collider;
+	SDL_Rect* collider;
 
 public:
 
@@ -72,7 +72,7 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 	void setEliminar(bool _eliminar) { eliminar = _eliminar; }
-	void eliminarGameObject() { eliminar = true; }
+	//void eliminarGameObject() { eliminar = true; }
 	void setEnMovimiento(bool _enMovimiento) { enMovimiento = _enMovimiento; }
 
 	// Metodos varios
@@ -89,7 +89,9 @@ public:
 	
 
 	//colisionador
-	virtual SDL_Rect GetCollider() { return collider; }
+	virtual SDL_Rect* GetCollider() { return  collider; }
+	bool CheckForCollision(const SDL_Rect* otherCollider);
+	bool CheckForCollision(const SDL_Rect* collider, const SDL_Rect* otherCollider);
 
 	// Marque el objeto a eliminar
 	virtual void Delete();

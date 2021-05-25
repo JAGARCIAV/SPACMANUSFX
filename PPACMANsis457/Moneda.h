@@ -34,7 +34,7 @@ public:
     ~Moneda();
 
     // Marque el objeto a eliminar
-    void Delete();
+    void Delete()override;
 
 
     int getValor() { return valor; }

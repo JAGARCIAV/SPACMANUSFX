@@ -72,7 +72,7 @@ public:
 	void mostrar();
 
 	// Marque el objeto a eliminar
-	void Delete();
+	void Delete()override;
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();

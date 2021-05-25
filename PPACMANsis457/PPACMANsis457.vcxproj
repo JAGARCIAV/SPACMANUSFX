@@ -151,7 +151,9 @@
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="pacman.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="PathFinder.h" />
     <ClInclude Include="Pila.h" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
@@ -168,6 +170,7 @@
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
