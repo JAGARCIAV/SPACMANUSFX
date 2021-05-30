@@ -22,15 +22,7 @@ class Pacman : public GameObject
 private:
 	//PROPIEDADES
 	
-	// Intenta mover el pacman en la dirección deseada
-	// Devuelve verdadero si tiene éxito, falso en caso contrario
-	//bool TryToMove(MoveDirection direction);
 
-	//// Compruebe si pacman está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& otherCollider);
-
-	//// Compruebe si el colisionador dado está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 
 	Tile* tileActual;
 	Tile* tileSiguiente;

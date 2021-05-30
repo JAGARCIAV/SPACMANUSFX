@@ -115,3 +115,22 @@ Pacman* TileGraph::getPacman()
 	return nullptr;
 }
 
+Fantasma* TileGraph::getFantasma()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getFantasma() != nullptr) {
+			return (*ivtg)->getFantasma();
+		}
+	}
+
+	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
+
+		Tile* tileNuevo = vectorTilesGraph[i];
+
+		if (tileNuevo->getPacman() != nullptr)
+			return tileNuevo->getPacman();
+	}*/
+
+	return nullptr;
+}
+

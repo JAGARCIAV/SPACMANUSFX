@@ -82,44 +82,7 @@ void Poder::setTile(Tile* _tileNuevo) {
 
 
 
-bool Poder::tratarDeMover(MoveDirection _direccionNueva)
-{
-	Tile* tileDestino = nullptr;
 
-	// Retorna el tile destino dependiendo de la direccion de movimiento
-
-	switch (_direccionNueva)
-	{
-	case MOVE_UP:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
-		break;
-	case MOVE_DOWN:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
-		break;
-	case MOVE_LEFT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
-		break;
-	case MOVE_RIGHT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
-		break;
-	}
-
-	// Si el tile destino es nullptr, no se puede avanzar ahi
-	if (tileDestino == nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	// Si el tile destino es una pared, no se puede avanzar ahi
-	if (tileDestino->getPared() != nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	setTileSiguiente(tileDestino);
-
-	return true;
-}
 
 
 
@@ -127,17 +90,18 @@ void Poder::update()
 {
 
 	//IA
-	Pacman* pacman = tileGraph->getPacman();
+	//Pacman* pacman = tileGraph->getPacman();
+	Fantasma* fantasma = tileGraph->getFantasma();
 
 	// Compruebe si hay colisión con el punto
 
-	if (pacman != nullptr) {
+	if (fantasma != nullptr) {
 
 		if (tileActual == tileSiguiente) {
 			// Get a camino to Pacman using A* algorithm
 			PathFinder astar(tileGraph);
 			astar.SetAvoidFunction(Poder::AvoidInPathFinder);
-			camino = astar.CalculateRoute(tileActual, pacman->getTile());
+			camino = astar.CalculateRoute(tileActual, fantasma->getTile());
 
 			tileSiguiente = camino[1];
 
@@ -158,9 +122,9 @@ void Poder::update()
 			// TODO: There should be a Kill() method within Pacman, which will play death animation
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
 
-				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->GetCollider())) {
-					tile->getPacman()->Delete();
-					cout << "MUERTE pacman = :" << endl;
+				if (tile->getFantasma() != nullptr && CheckForCollision(tile->getFantasma()->GetCollider())) {
+					tile->getFantasma()->Delete();
+					cout << "MUERTE Fantasma " << endl;
 				}
 
 			}

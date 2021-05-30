@@ -10,6 +10,8 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "Pacman.h"
+#include "Fantasma.h"
+
 #include "MoveDirection.h"
 #include "TextureManager.h" 
 #include "PathFinder.h"
@@ -23,11 +25,6 @@ class Poder : public GameObject
 private:
 	//PROPIEDADES
 
-	//// Compruebe si pacman está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& otherCollider);
-
-	//// Compruebe si el colisionador dado está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -49,8 +46,6 @@ private:
 
 	int posicionXEnTextura;
 	int posicionYEnTextura;
-
-	bool tratarDeMover(MoveDirection _direccionNueva);
 
 	vector<Tile*> camino;
 
