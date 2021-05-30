@@ -99,5 +99,8 @@ public:
 	// Devuelve verdadero si los objetos están marcados para su eliminación
 	bool ToDelete() const;
 
+	//static bool AvoidInPathFinder(Tile* _tile);
+
+
 };
 

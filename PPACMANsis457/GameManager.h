@@ -9,6 +9,8 @@
 #include <SDL_image.h>
 
 #include "Pacman.h"
+#include "Poder.h"
+
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"

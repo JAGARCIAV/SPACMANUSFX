@@ -31,6 +31,7 @@ public:
 	array<Tile*, 8> get8Vecinos(Tile* _tile);
 
 	Pacman* getPacman();
+	Fantasma* getFantasma();
 };
 
 

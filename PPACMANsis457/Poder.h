@@ -18,11 +18,11 @@
 
 using namespace std;
 
-class Fantasma : public GameObject
+class Poder : public GameObject
 {
 private:
 	//PROPIEDADES
-	
+
 	//// Compruebe si pacman está colisionando con otro colisionador
 	//bool CheckForCollision(const SDL_Rect& otherCollider);
 
@@ -38,7 +38,7 @@ private:
 	int velocidadX;
 	int velocidadY;
 
-	// Velocidad a la que mueve el fantasma en cualquier eje
+	// Velocidad a la que mueve el Poder en cualquier eje
 	int velocidadPatron;
 
 	int posicionXDestino;
@@ -56,9 +56,9 @@ private:
 
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Poder(Tile* _tile, Texture* _texturaPoder, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-	~Fantasma();
+	~Poder();
 
 	static const int Width = 25;
 	static const int Height = 25;
@@ -88,7 +88,7 @@ public:
 	void update() override;
 	// Renderizar imagen pacman
 	void render() override;
-	
+
 	// Marque el objeto a eliminar
 	void Delete() override;
 
@@ -97,3 +97,4 @@ public:
 
 	static bool AvoidInPathFinder(Tile* _tile);
 };
+

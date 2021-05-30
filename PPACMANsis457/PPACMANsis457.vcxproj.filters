@@ -66,6 +66,9 @@
     <ClInclude Include="PriorityQueue.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Poder.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pacman.cpp">
@@ -111,6 +114,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PathFinder.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Poder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

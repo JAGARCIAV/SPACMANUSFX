@@ -153,6 +153,7 @@
     <ClInclude Include="Pared.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="Pila.h" />
+    <ClInclude Include="Poder.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Texture.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Pila.cpp" />
+    <ClCompile Include="Poder.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />

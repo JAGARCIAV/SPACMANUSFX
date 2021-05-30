@@ -53,7 +53,7 @@ bool MapGenerator::load(string path)
 				break;
 
 			case 'J':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'I':
@@ -61,11 +61,11 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'H':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 4);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma3"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'G':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 2);
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma4"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'W':
@@ -74,6 +74,11 @@ bool MapGenerator::load(string path)
 				break;
 			case 'P':
 				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo->setParametrosAnimacion(2);
+				break;
+
+			case 'F':
+				objetoNuevo = new Poder(tileNuevo, textureManager->getTexture("poder"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			}

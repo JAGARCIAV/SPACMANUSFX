@@ -13,6 +13,8 @@ private:
 
 	// string de las clases 
 	const string pathPacman = "Resources/AurelioSol.png";
+	const string pathPoder = "Resources/Poder1.png";
+
 	const string pathFantasma1 = "Resources/AZULGR.png";
 	const string pathFantasma2 = "Resources/VERDEGR.png";
 	const string pathFantasma3 = "Resources/NARANJAGR.png";
@@ -24,6 +26,8 @@ private:
 	
 	//TEXTURAS DEL LAS CLASES con un puntero direcionamos a cada clase
 	Texture* pacmanTexture;
+	Texture* poderTexture;
+
 	Texture* fantasma1Texture;
 	Texture* fantasma2Texture;
 	Texture* fantasma3Texture;
