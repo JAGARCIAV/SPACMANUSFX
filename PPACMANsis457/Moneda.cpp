@@ -30,7 +30,16 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
+	Score = 0;
 }
+
+void Moneda::ContadorScore() {
+	if (Score < 200) {
+		Score++;
+	}
+}
+
+
 
 //DESTRUCTOR y deja un espacio libre 
 Moneda::~Moneda()

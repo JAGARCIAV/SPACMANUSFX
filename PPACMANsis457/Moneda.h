@@ -21,6 +21,8 @@ private:
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
     Tile* tileActual;
+    int Score;
+ 
 
 public:
     // Prefixed width and height of a wall
@@ -41,14 +43,19 @@ public:
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
     Tile* getTile() { return tileActual; }
+    int getScore() { return Score; }
+ 
 
 
     void setValor(int _valor) { valor = _valor; }
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
+    void setScore(int _Score) { Score = _Score; }
 
- 
+
+
+    void ContadorScore();
 
 };
 

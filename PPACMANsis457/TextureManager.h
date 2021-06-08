@@ -12,7 +12,7 @@ private:
 	Texture* textureManager;
 
 	// string de las clases 
-	const string pathPacman = "Resources/AurelioSol.png";
+	const string pathPacman = "Resources/AURELIO ULTRA 4.png";
 	const string pathPoder = "Resources/Poder1.png";
 
 	const string pathFantasma1 = "Resources/AZULGR.png";

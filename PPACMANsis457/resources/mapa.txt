@@ -2,20 +2,21 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 WC------------------------------W------------------------------CW
 W-WWWWWWWWWWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWWWWWWWWWW-W
 W--------W-------W----------------------------W---------W-------W
-W-WWWW-WWW-WWWWW-W---WWWWWWWWWWWWWWWWWWWWWW---W-WWWWW-WWWW-WWWW-W
-W----W---------W----------------W---------------W---------------W
-W-WWWWWWW-WWWWWW WWWWWWWWWWWWW-,W,-,WWWWWWWWWWW-WWWWWWW-WWWWWWWWW
+W-WWWW-WWW-WWWWW-W-w-WWWWWWWWWWWWWWWWWWWWWW-w-W-WWWWW-WWWW-WWWW-W
+W----W---------W---w-----------WWW----------w---W---------------W
+W-WWWWWWW-WWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWW-WWWWWWWWW
 W--------------W-W--------------C-------------W-W---------------W 
 WWW-WWWWWWWWWW-W-WWW-WWWWWWW         WWWWWWW-WW-WWWWW-WWWWWWWWWWW
--------------W--------W         W         W----------------------
-WWWWWWWWWWWWWW-W--W---W  ,G, ,H,W,I, ,J,  W---W-WWWWWWWWWWWWWWWWW
+W------------W-w--w---W         W         W---------------------W
+WWWWWWWWWW-WWW-W--W-w-W  ,G, ,H,W,I, ,J,  W-w-W-WWWWWWWWWWWWWWWWW
 W-------------------W-W         W         W-W---W---------------W
 W-WWWWWW-WWWWWWWW-WWW-WWWWWWWWWWWWWWWWWWWWW-WWW-W-WWWWWWW-WWWWWWW
 W---------------W-W-------------Y-------------W---------W-------W
-WWWWWWWWWWWWWWWWW-W-WWWWWWWWWW-WWW-WWWWWWWWWW-W-WWWWW-WWWWWWW-WWW
-W-----------------WP------------W------------pW----------W------W
-W---WWWWWWWWWWW-W-WW-WWWWWWWWWWWWWWWWWWWWWWW-WW-WWWWWWWWWWWWWWW-W
-W-------W-------W---------------------------------------W-------W
+WWWWWWWWWWWWWWW-W-W-WWWWWWWWWW-WWW-WWWWWWWWWW-W-WWWWW-WWWWWWW-WWW
+W-----------------WP------------W-------------W----------W------W
+W---WWWWWWWWWWW-W-WW-WWWWWWWWWWWWWWWWWWWWWWW-WW-WWWWWW-WWWWWWWW-W
+ -------W-------W---------------------------------------W------- 
 W-WWWWWWWWWW-WWWW-WWWWWWWWWWWWW-W-WWWWWWWWWWWWWW-W-WWWWWWWWWWWW-W
-WC--------------W---------------F----------------W-------------CW
+WC--------------W--------------------------------W-------------CW
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+

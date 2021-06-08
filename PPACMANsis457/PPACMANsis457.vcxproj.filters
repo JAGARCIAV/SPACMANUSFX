@@ -69,12 +69,39 @@
     <ClInclude Include="Poder.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryPacmanClasico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryPacmanGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PacmanGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FantasmaGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ParedGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FrutaGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MonedaGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MazeObject.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PacmanClasico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pacman.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="main_basico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="fantasma.cpp">
@@ -117,6 +144,39 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Poder.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryPacmanClasico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryPacmanGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PacmanGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FantasmaGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ParedGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FrutaGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MonedaGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MazeObject.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="main_basico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PacmanClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

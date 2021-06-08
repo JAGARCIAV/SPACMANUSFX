@@ -2,11 +2,24 @@
 
 using namespace std;
 
+GameManager* GameManager::instancia = nullptr;
+
+GameManager* GameManager::crearInstancia() {
+	if (instancia == nullptr) {
+		instancia = new GameManager();
+	}
+
+	return instancia;
+}
+
+
 GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
 
 	juego_en_ejecucion = true;
+	tipoFabrica = new FactoryPacmanClasico;
+
 }
 
 int GameManager::onExecute() {
@@ -19,7 +32,7 @@ int GameManager::onExecute() {
 	TileGraph tileGraphGM(65, 21);
 	textureManager = new TextureManager();
 	GameObject::tileGraph = &tileGraphGM;
-	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT);
+	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT, tipoFabrica);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
 
@@ -27,12 +40,12 @@ int GameManager::onExecute() {
 
 	while (juego_en_ejecucion) {
 
-		// Elimina todos los objetos marcados para su eliminación del vector gameobjects
 		for (int i = 0; i < actoresJuego.size(); i++) {
 			if (actoresJuego[i]->getEliminar()) {
 				actoresJuego.erase(remove(actoresJuego.begin(), actoresJuego.end(), actoresJuego[i]), actoresJuego.end());
 			}
 		}
+
 
 		while (SDL_PollEvent(&Event)) {
 			onEvent(&Event);
@@ -40,6 +53,8 @@ int GameManager::onExecute() {
 				actoresJuego[i]->handleEvent(&Event);
 			}
 		}
+
+		auto idob = actoresJuego[3]->getIdObjeto();
 
 		////Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
@@ -49,7 +64,6 @@ int GameManager::onExecute() {
 
 		onLoop();
 		onRender();
-	
 		SDL_RenderPresent(gRenderer);
 	}
 
@@ -119,5 +133,3 @@ void GameManager::onCleanup() {
 
 	SDL_Quit();
 };
-
-GameManager::~GameManager() {}

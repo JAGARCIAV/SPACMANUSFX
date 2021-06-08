@@ -21,8 +21,6 @@ class Pacman : public GameObject
 {
 private:
 	//PROPIEDADES
-	
-
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
@@ -39,13 +37,18 @@ private:
 
 	int posicionXEnTextura;
 	int posicionYEnTextura;
+
+	int vida;
+	int portal;
+	
+
 public:
 	//METODOS 
-	
+
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	~Pacman();
-	
+
 	static const int Width = 25;
 	static const int Height = 25;
 
@@ -56,6 +59,9 @@ public:
 	int getVelocidadPatron() { return velocidadPatron; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
+	int getVida() { return vida; }
+
+	int getPortales() { return portal; }
 
 
 	// Mark the object to be deleted
@@ -65,12 +71,19 @@ public:
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
+	void setVida(int _vida) { vida = _vida; }
+	void setPortales(int _portal) { portal = _portal; }
 
 
 
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
+	//vida del pacman
+	void RestarVida();
+	//portales atajos
+	void PortalesXY();
+
 	// Manejador de eventos de pacman
 	void handleEvent(SDL_Event* event) override;
 
@@ -90,12 +103,5 @@ public:
 	// Devuelve la ficha de pacman
 	Tile* GetTile();
 
-
-
-
-
-
 };
-
-
 

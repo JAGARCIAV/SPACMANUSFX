@@ -123,14 +123,18 @@ Fantasma* TileGraph::getFantasma()
 		}
 	}
 
-	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
-
-		Tile* tileNuevo = vectorTilesGraph[i];
-
-		if (tileNuevo->getPacman() != nullptr)
-			return tileNuevo->getPacman();
-	}*/
 
 	return nullptr;
 }
 
+Moneda* TileGraph::getMoneda()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getMoneda() != nullptr) {
+			return (*ivtg)->getMoneda();
+		}
+	}
+
+
+	return nullptr;
+}

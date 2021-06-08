@@ -44,7 +44,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 
 	//colisionador posicionY
 	collider->y = posicionY;
-	 
+
 	direccionActual = MOVE_RIGHT;
 	direccionSiguiente = MOVE_RIGHT;
 
@@ -55,6 +55,29 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	velocidadPatron = _velocidadPatron;
 	posicionXEnTextura = 0;
 	posicionYEnTextura = 0;
+	vida = 10;
+}
+
+void Pacman::RestarVida() {
+	if (vida>0) {
+		vida--;
+	}
+}
+
+void Pacman::PortalesXY() {
+
+	//if (posicionX <= -5) {
+
+	//	cout << "portal1" << endl;
+	//	posicionX = 870;
+	//}
+	//else if (posicionX >= 870) {
+
+	//	cout << "portal2" << endl;
+	//	posicionX = -5;
+
+	//}
+
 }
 
 //DESTRUCTOR y deja un espacio libre 
@@ -102,6 +125,17 @@ void Pacman::handleEvent(SDL_Event* event)
 		case SDLK_RIGHT:
 		case SDLK_d: direccionSiguiente = MOVE_RIGHT; break;
 		}
+	}
+	if (posicionX <= 1) {
+
+		cout << "portal 1" << endl;
+		posicionX = 1550;
+	}
+	else if (posicionX >= 1600) {
+
+		cout << "portal 2" << endl;
+		posicionX = 1;
+
 	}
 }
 
@@ -151,12 +185,18 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 void Pacman::update()
 {
-	
+
 	// Compruebe si hay colisión con el punto
+	Moneda* moneda = tileGraph->getMoneda();
+
+
 
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
 
-		cout << "Aqui moneda = :" << endl;
+		//cout << "Aqui moneda " << endl;
+		moneda->ContadorScore();
+		cout << "Moneda = " << moneda->getScore() << endl;
+
 
 
 		SDL_Rect* eatingHole = new SDL_Rect({
@@ -167,18 +207,20 @@ void Pacman::update()
 			});
 
 		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
+
 			tileSiguiente->getMoneda()->Delete();
 
 		}
+
 
 	}
 
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
 
-		cout << "Aqui Fruta = :" << endl;
+		cout << "Aqui Fruta" << endl;
 
 
-		SDL_Rect* eatingHole = new SDL_Rect ({
+		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX ,
 			posicionY ,
 			ancho,
@@ -189,7 +231,11 @@ void Pacman::update()
 			tileSiguiente->getFruta()->Delete();
 
 		}
+
+
 	}
+	//cout << "X"<<posicionX << endl;
+	//cout << "Y" << posicionY << endl;
 
 
 
@@ -238,8 +284,15 @@ void Pacman::update()
 
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
+
+		//Rutina para atajo
+
+
 	}
+
 }
+
+
 
 void Pacman::render()
 {
@@ -270,7 +323,6 @@ void Pacman::Delete()
 
 	tileActual->setPacman(nullptr);
 }
-
 
 
 

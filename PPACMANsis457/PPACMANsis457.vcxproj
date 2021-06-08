@@ -142,15 +142,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="FactoryPacmanClasico.h" />
+    <ClInclude Include="FactoryPacmanGalactico.h" />
     <ClInclude Include="fantasma.h" />
+    <ClInclude Include="FantasmaGalactico.h" />
     <ClInclude Include="fruta.h" />
+    <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="MazeObject.h" />
     <ClInclude Include="Moneda.h" />
+    <ClInclude Include="MonedaGalactico.h" />
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="pacman.h" />
+    <ClInclude Include="PacmanClasico.h" />
+    <ClInclude Include="PacmanGalactico.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Poder.h" />
@@ -162,15 +172,25 @@
     <ClInclude Include="TileGraph.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="FactoryPacmanClasico.cpp" />
+    <ClCompile Include="FactoryPacmanGalactico.cpp" />
     <ClCompile Include="fantasma.cpp" />
+    <ClCompile Include="FantasmaGalactico.cpp" />
     <ClCompile Include="fruta.cpp" />
+    <ClCompile Include="FrutaGalactico.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="MazeObject.cpp" />
     <ClCompile Include="Moneda.cpp" />
+    <ClCompile Include="MonedaGalactico.cpp" />
     <ClCompile Include="pacman.cpp" />
+    <ClCompile Include="PacmanClasico.cpp" />
+    <ClCompile Include="PacmanGalactico.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Poder.cpp" />

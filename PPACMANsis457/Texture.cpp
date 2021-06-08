@@ -143,3 +143,83 @@ void Texture::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
 	}
 }
 
+//bool loadMedia()
+//{
+//	//Loading success flag
+//	bool success = true;
+//
+//	//Open the font
+//	gFont = TTF_OpenFont("lazy.ttf", 28);
+//	if (gFont == NULL)
+//	{
+//		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
+//		success = false;
+//	}
+//	else
+//	{
+//		//Render text
+//		SDL_Color textColor = { 5, 87, 2 };
+//		if (!gTexture.loadFromRenderedText("PEJI ERES DON KEVIN ", textColor))
+//		{
+//			printf("Failed to render text texture!\n");
+//			success = false;
+//		}
+//	}
+//
+//	return success;
+//}
+//
+//bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor)
+//{
+//	//Get rid of preexisting texture
+//	free();
+//
+//	//Render text surface
+//	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
+//	if (textSurface == NULL)
+//	{
+//		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
+//	}
+//	else
+//	{
+//		//Create texture from surface pixels
+//		mTexture = SDL_CreateTextureFromSurface(gRenderer, textSurface);
+//		if (mTexture == NULL)
+//		{
+//			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
+//		}
+//		else
+//		{
+//			//Get image dimensions
+//			mWidth = textSurface->w;
+//			mHeight = textSurface->h;
+//		}
+//
+//		//Get rid of old surface
+//		SDL_FreeSurface(textSurface);
+//	}
+//
+//	//Return success
+//	return mTexture != NULL;
+//}
+//
+//void close()
+//{
+//	//Free loaded images
+//	gTextTexture.free();
+//
+//	//Free global font
+//	TTF_CloseFont(gFont);
+//	gFont = NULL;
+//
+//	//Destroy window	
+//	SDL_DestroyRenderer(gRenderer);
+//	SDL_DestroyWindow(gWindow);
+//	gWindow = NULL;
+//	gRenderer = NULL;
+//
+//	//Quit SDL subsystems
+//	TTF_Quit();
+//	IMG_Quit();
+//	SDL_Quit();
+//}

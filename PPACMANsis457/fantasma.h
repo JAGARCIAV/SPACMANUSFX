@@ -22,7 +22,7 @@ class Fantasma : public GameObject
 {
 private:
 	//PROPIEDADES
-	
+
 	//// Compruebe si pacman está colisionando con otro colisionador
 	//bool CheckForCollision(const SDL_Rect& otherCollider);
 
@@ -58,7 +58,7 @@ public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-	~Fantasma();
+	//~Fantasma();
 
 	static const int Width = 25;
 	static const int Height = 25;
@@ -88,12 +88,12 @@ public:
 	void update() override;
 	// Renderizar imagen pacman
 	void render() override;
-	
+
 	// Marque el objeto a eliminar
-	void Delete() override;
+	//void Delete() override;
 
 	// Devuelve la ficha de pacman
-	Tile* GetTile();
+	//Tile* GetTile();
 
 	static bool AvoidInPathFinder(Tile* _tile);
 };

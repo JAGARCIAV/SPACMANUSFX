@@ -57,14 +57,7 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _
 	posicionYEnTextura = 0;
 }
 
-//DESTRUCTOR y deja un espacio libre 
-Fantasma::~Fantasma()
-{
-	Free();
-}
-
 void Fantasma::setTile(Tile* _tileNuevo) {
-
 	if (tileActual != nullptr) {
 		tileActual->setFantasma(nullptr);
 	}
@@ -80,16 +73,10 @@ void Fantasma::setTile(Tile* _tileNuevo) {
 
 }
 
-
-
-bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
-{
+bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
 	Tile* tileDestino = nullptr;
 
-	// Retorna el tile destino dependiendo de la direccion de movimiento
-
-	switch (_direccionNueva)
-	{
+	switch (_direccionNueva) {
 	case MOVE_UP:
 		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
 		break;
@@ -104,13 +91,11 @@ bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
 		break;
 	}
 
-	// Si el tile destino es nullptr, no se puede avanzar ahi
 	if (tileDestino == nullptr) {
 		setTileSiguiente(nullptr);
 		return false;
 	}
 
-	// Si el tile destino es una pared, no se puede avanzar ahi
 	if (tileDestino->getPared() != nullptr) {
 		setTileSiguiente(nullptr);
 		return false;
@@ -122,82 +107,82 @@ bool Fantasma::tratarDeMover(MoveDirection _direccionNueva)
 }
 
 
-
 void Fantasma::update()
 {
-
-	//IA
 	Pacman* pacman = tileGraph->getPacman();
-
-	// Compruebe si hay colisión con el punto
 
 	if (pacman != nullptr) {
 
+		// The NPC will calculate a new camino every time it has entered a new tile
+		// In this way, it will dynamically follow Pacman
 		if (tileActual == tileSiguiente) {
 			// Get a camino to Pacman using A* algorithm
-			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
-			camino = astar.CalculateRoute(tileActual, pacman->getTile());
+			if (tileGraph->getPacman() != nullptr) {
+				PathFinder astar(tileGraph);
+				astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+				camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
-			tileSiguiente = camino[1];
+				if (camino.size() > 1) {
+					tileSiguiente = camino[1];
 
-			// All we really want to do after this is check the direction the NPC should go
-			if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
-				direccionActual = MOVE_RIGHT;
+					// All we really want to do after this is check the direction the NPC should go
+					if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+						direccionActual = MOVE_RIGHT;
 
-			else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
-				direccionActual = MOVE_LEFT;
+					else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+						direccionActual = MOVE_LEFT;
 
-			else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
-				direccionActual = MOVE_UP;
+					else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+						direccionActual = MOVE_UP;
 
-			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
-				direccionActual = MOVE_DOWN;
+					else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+						direccionActual = MOVE_DOWN;
 
-			// Check if Fantasma collides with Pacman, if so delete Pacman
-			// TODO: There should be a Kill() method within Pacman, which will play death animation
-			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
+					// Check if Fantasma collides with Pacman, if so delete Pacman
+					// TODO: There should be a Kill() method within Pacman, which will play death animation
+					if (CheckForCollision(pacman->GetCollider())) {
+						pacman->RestarVida();
+						cout << "VIDA = " << pacman->getVida() << endl;
 
-				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->GetCollider())) {
-					tile->getPacman()->Delete();
-					cout << "MUERTE pacman = :" << endl;
+						if (pacman->getVida() <= 0) {
+							tileActual->setPacman(nullptr);
+							pacman->Delete();
+						}
+					}
 				}
-
 			}
-			
 		}
-			
 
 
-
-
-
-			////IA
-
-			switch (direccionActual) {
+			// Depending of the direction of movement, move the NPC accordingly
+			switch (direccionActual)
+			{
 			case MOVE_UP:
-				posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 				break;
 			case MOVE_DOWN:
-				posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
 				break;
 			case MOVE_LEFT:
-				posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 				break;
 			case MOVE_RIGHT:
-				posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
 				break;
 			}
 
-			if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+			// Update the collider
+			collider->x = posicionX;
+			collider->y = posicionY;
+
+			// Check if the NPC has moved to the next tile, if so, change his current tile
+			if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 				setTile(tileSiguiente);
 
-			if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+			if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 				setTile(tileSiguiente);
-
+		
 	}
-
-	
 }
 
 void Fantasma::render()
@@ -221,6 +206,8 @@ void Fantasma::render()
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
+
+
 bool Fantasma::AvoidInPathFinder(Tile* _tile)
 {
 	if (_tile->getPared() != nullptr)
@@ -228,11 +215,3 @@ bool Fantasma::AvoidInPathFinder(Tile* _tile)
 	return false;
 }
 
-//BORRAR 
-void Fantasma::Delete()
-{
-	// Llamar a la función base
-	GameObject::Delete();
-
-	tileActual->setFantasma(nullptr);
-}

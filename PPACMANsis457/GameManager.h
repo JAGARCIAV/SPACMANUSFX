@@ -19,6 +19,8 @@
 #include "TileGraph.h"
 
 #include "TextureManager.h"
+#include "FactoryPacmanClasico.h"
+#include "FactoryPacmanGalactico.h"
 //#include "TextureAnimationManager.h"
 
 
@@ -27,7 +29,7 @@ using namespace std;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 1625;
-const int SCREEN_HEIGHT = 525;
+const int SCREEN_HEIGHT = 575;
 
 class GameManager //El que controla las clases
 {
@@ -44,9 +46,17 @@ private:
     MapGenerator* generadorNivelJuego;
     Texture* texture;
     TextureManager* textureManager;
-public:
+    Factory* tipoFabrica;
+
     GameManager();
-    ~GameManager();
+    static GameManager* instancia;
+
+
+public:
+    //GameManager();
+   // ~GameManager();
+    static GameManager* crearInstancia();
+
     int onExecute();
     bool onInit();
     void onEvent(SDL_Event* Event);

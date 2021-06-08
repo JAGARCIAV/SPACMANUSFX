@@ -32,6 +32,8 @@ public:
 
 	Pacman* getPacman();
 	Fantasma* getFantasma();
+	Moneda* getMoneda();
+
 };
 
 

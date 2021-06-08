@@ -62,5 +62,13 @@ public:
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
 
+	////Globally used font
+	//TTF_Font* gFont = nullptr;
+
+	////Loads media
+	//bool loadMedia();
+
+	////Frees media and shuts down SDL
+	//void close();
 };
 
