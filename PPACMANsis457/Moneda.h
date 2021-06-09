@@ -30,7 +30,7 @@ public:
     static const int Height = 25;
 
     static const int Margin = 11;
-    Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
  
     //DESTRUCTOR de moneda
     ~Moneda();

@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include "Poder.h"
-Poder::Poder(Tile* _tile, Texture* _texturaPoder, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaPoder, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Poder::Poder(Tile* _tile, Texture* _texturaPoder, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_texturaPoder, _posicionX, _posicionY)
 {
 	_texturaPoder = new Texture();
 	//texture->setTexture(_texturaPacman);

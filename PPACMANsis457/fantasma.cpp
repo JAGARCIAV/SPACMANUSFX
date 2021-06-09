@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include "Fantasma.h"
-Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaFantasma, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_texturaFantasma, _posicionX, _posicionY)
 {
 	_texturaFantasma = new Texture();
 	//texture->setTexture(_texturaPacman);
@@ -29,6 +29,9 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

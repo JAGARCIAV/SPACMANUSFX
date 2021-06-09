@@ -23,11 +23,6 @@ class Fantasma : public GameObject
 private:
 	//PROPIEDADES
 
-	//// Compruebe si pacman está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& otherCollider);
-
-	//// Compruebe si el colisionador dado está colisionando con otro colisionador
-	//bool CheckForCollision(const SDL_Rect& collider, const SDL_Rect& otherCollider);
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -56,7 +51,7 @@ private:
 
 public:
 	//Constructores y destructores
-	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY,int _velocidadPatron);
 
 	//~Fantasma();
 

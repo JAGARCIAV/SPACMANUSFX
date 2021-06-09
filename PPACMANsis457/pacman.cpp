@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Pacman.h"
-Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_texturaPacman, _posicionX, _posicionY)
 {
 	//_texturaPacman = new Texture();
 	//texture->setTexture(_texturaPacman);
@@ -64,21 +64,7 @@ void Pacman::RestarVida() {
 	}
 }
 
-void Pacman::PortalesXY() {
 
-	//if (posicionX <= -5) {
-
-	//	cout << "portal1" << endl;
-	//	posicionX = 870;
-	//}
-	//else if (posicionX >= 870) {
-
-	//	cout << "portal2" << endl;
-	//	posicionX = -5;
-
-	//}
-
-}
 
 //DESTRUCTOR y deja un espacio libre 
 Pacman::~Pacman()

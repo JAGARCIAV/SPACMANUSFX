@@ -21,6 +21,8 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
+
+#include "GamePanel.h"
 //#include "TextureAnimation.h"
 //#include "TextureAnimationManager.h"
 

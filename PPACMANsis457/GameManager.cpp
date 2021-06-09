@@ -105,6 +105,10 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+				if (TTF_Init() == -1) {
+					cout << "Error inicializacion SDL_ttf" <<TTF_GetError()<<endl;
+					success = false;
+				}
 			}
 
 			Texture::renderer = gRenderer;

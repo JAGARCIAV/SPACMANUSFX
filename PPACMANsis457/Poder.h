@@ -51,7 +51,7 @@ private:
 
 public:
 	//Constructores y destructores
-	Poder(Tile* _tile, Texture* _texturaPoder, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Poder(Tile* _tile, Texture* _texturaPoder, int _posicionX, int _posicionY, int _velocidadPatron);
 
 	~Poder();
 

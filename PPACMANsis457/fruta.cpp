@@ -3,22 +3,9 @@
 
 using namespace std;
 
-//Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-//	GameObject(_frutaTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
-//	// Inicializa propiedade de la fruta
-//	tipoFruta = TIPO_FRUTA_GUINDA;
-//
-//	visible = false;
-//
-//	tiempoVisible = 100;
-//	tiempoNoVisible = 150;
-//	contadorTiempoVisible = 0;
-//	contadorTiempoNoVisible = 0;
-//	int numeroFrutaVisible = 0;
-//}
 
-Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-	GameObject(_frutaTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY) :
+	GameObject(_frutaTextura, _posicionX, _posicionY)
 {
 	visible = false;
 
@@ -35,6 +22,8 @@ Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

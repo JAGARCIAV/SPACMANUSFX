@@ -1,7 +1,7 @@
 #include "Moneda.h"
 
-Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-	GameObject(_monedaTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) :
+	GameObject(_monedaTextura, _posicionX, _posicionY)
 {
 	tileActual = _tile;
 
@@ -10,6 +10,9 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

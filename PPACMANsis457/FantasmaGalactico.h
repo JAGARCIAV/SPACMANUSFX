@@ -5,7 +5,7 @@ class FantasmaGalactico :
     public GameObject
 {
 public:
-    FantasmaGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+    FantasmaGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY,  int _velocidadPatron);
 
 };
 

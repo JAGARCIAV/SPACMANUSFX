@@ -151,6 +151,7 @@
     <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GamePanel.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="MazeObject.h" />
     <ClInclude Include="Moneda.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="FrutaGalactico.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GamePanel.cpp" />
     <ClCompile Include="main_basico.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="MazeObject.cpp" />

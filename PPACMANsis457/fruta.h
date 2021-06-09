@@ -48,7 +48,7 @@ public:
 	static const int Margin = 11;
 	//Constructores y destructores
 
-	Fruta(Tile* _tile, Texture* _frutasTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(Tile* _tile, Texture* _frutasTextura, int _posicionX, int _posicionY);
 	~Fruta();
 
 	//Metodos accesores
