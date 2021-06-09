@@ -6,6 +6,9 @@ Tile::Tile() {
 	posicionY = 0;
 
 	pacman = nullptr;
+	pacmanClasico = nullptr;
+	pacmanGalactico = nullptr;
+
 
 	fantasma = nullptr;
 	fruta = nullptr;
@@ -18,6 +21,8 @@ Tile::Tile(int _x, int _y) {
 	posicionY = _y;
 
 	pacman = nullptr;
+	pacmanClasico = nullptr;
+	pacmanGalactico = nullptr;
 
 	fantasma = nullptr;
 	fruta = nullptr;

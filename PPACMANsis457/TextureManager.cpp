@@ -2,6 +2,11 @@
 
 TextureManager::TextureManager()
 {
+
+	pacmanTexture = new Texture();
+	pacmanTexture->loadFromImage(pathPacman);
+	addTexture("pacman", pacmanTexture);
+
 	pacmanTexture = new Texture();
 	pacmanTexture->loadFromImage(pathPacmanClasico);
 	addTexture("pacmanClasico", pacmanTexture);

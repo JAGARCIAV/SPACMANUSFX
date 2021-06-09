@@ -115,6 +115,29 @@ Pacman* TileGraph::getPacman()
 	return nullptr;
 }
 
+PacmanClasico* TileGraph::getPacmanClasico()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getPacmanClasico() != nullptr) {
+			return (*ivtg)->getPacmanClasico();
+		}
+	}
+
+	return nullptr;
+}
+
+PacmanGalactico* TileGraph::getPacmanGalactico()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getPacmanGalactico() != nullptr) {
+			return (*ivtg)->getPacmanGalactico();
+		}
+	}
+
+	return nullptr;
+}
+
+
 Fantasma* TileGraph::getFantasma()
 {
 	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {

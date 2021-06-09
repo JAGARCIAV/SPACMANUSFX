@@ -2,6 +2,9 @@
 #include <SDL.h>
 
 class Pacman;
+class PacmanClasico;
+class PacmanGalactico;
+
 class Poder;
 
 class Fantasma;
@@ -13,6 +16,8 @@ class Tile
 {
 private:
 	Pacman* pacman;
+	PacmanClasico* pacmanClasico;
+	PacmanGalactico* pacmanGalactico;
 	Poder* poder;
 
 	Fantasma* fantasma;
@@ -32,8 +37,10 @@ public:
 	Tile(int _x, int _y);
 
 	Pacman* getPacman() { return pacman; }
-	Poder* getPoder() { return poder; }
+	PacmanClasico* getPacmanClasico() { return pacmanClasico; }
+	PacmanGalactico* getPacmanGalactico() { return pacmanGalactico; }
 
+	Poder* getPoder() { return poder; }
 
 	Fantasma* getFantasma() { return fantasma; }
 	Fruta* getFruta() { return fruta; }
@@ -44,6 +51,9 @@ public:
 	int getPosicionY() { return posicionY; }
 
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
+	void setPacmanClasico(PacmanClasico* _pacmanClasico) { pacmanClasico = _pacmanClasico; }
+	void setPacmanGalactico(PacmanGalactico* _pacmanGalactico) { pacmanGalactico = _pacmanGalactico; }
+
 	void setPoder(Poder* _poder) { poder = _poder; }
 
 

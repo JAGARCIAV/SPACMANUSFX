@@ -17,9 +17,10 @@
 
 using namespace std;
 
-class Pacman : public GameObject
+class Pacman :
+	public GameObject
 {
-private:
+protected:
 	//PROPIEDADES
 
 	Tile* tileActual;
