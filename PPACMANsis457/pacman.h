@@ -48,7 +48,7 @@ public:
 
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-	~Pacman();
+	//~Pacman();
 
 	static const int Width = 25;
 	static const int Height = 25;
@@ -79,27 +79,27 @@ public:
 
 
 	// Metodos varios
-	bool tratarDeMover(MoveDirection _direccionNueva);
+	virtual bool tratarDeMover(MoveDirection _direccionNueva);
 	//vida del pacman
-	void RestarVida();
+	virtual void RestarVida();
 	//portales atajos
-	void PortalesXY();
+	virtual void PortalesXY();
 
 	// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;
+	virtual void handleEvent(SDL_Event* event) override;
 
 
 	// Actualiza la posición y comprueba la colisión.
-	void update() override;
+	virtual void update() override;
 
 
 	// Renderizar imagen pacman
-	void render() override;
+	virtual void render() override;
 
 	//void Muerte() override;
 
 	// Marque el objeto a eliminar
-	void Delete()override;
+	virtual void Delete()override;
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();

@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObject.h"
+//#include "GameObject.h"
 #include "Pacman.h"
 #include "Tile.h"
 
@@ -12,24 +12,21 @@ protected:
 
 public:
     PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-  //  ~PacmanGalactico();
+   ~PacmanGalactico();
 
-    //void RestarVida();
+    virtual void RestarVida();
 
-    //void setTile(Tile* _tileNuevo);
+    virtual void setTile(Tile* _tileNuevo);
 
-    //void handleEvent(SDL_Event* event);
+    virtual void handleEvent(SDL_Event* event);
 
-    //bool tratarDeMover(MoveDirection _direccionNueva);
+   bool tratarDeMover(MoveDirection _direccionNueva);
 
-    //void update();
+   virtual void update();
 
-    //void render();
+   virtual void render();
 
-    //void Delete();
-
-
-
+   virtual void Delete();
 
 };
 

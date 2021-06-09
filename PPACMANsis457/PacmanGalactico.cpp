@@ -66,7 +66,7 @@ PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posi
 	vida = 10;
 }
 
-void Pacman::RestarVida() {
+void PacmanGalactico::RestarVida() {
 	if (vida > 0) {
 		vida--;
 	}
@@ -75,12 +75,12 @@ void Pacman::RestarVida() {
 
 
 //DESTRUCTOR y deja un espacio libre 
-Pacman::~Pacman()
+PacmanGalactico::~PacmanGalactico()
 {
 	Free();
 }
 
-void Pacman::setTile(Tile* _tileNuevo) {
+void PacmanGalactico::setTile(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
 		tileActual->setPacman(nullptr);
@@ -98,7 +98,7 @@ void Pacman::setTile(Tile* _tileNuevo) {
 }
 
 
-void Pacman::handleEvent(SDL_Event* event)
+void PacmanGalactico::handleEvent(SDL_Event* event)
 {
 	if (event->type == SDL_KEYDOWN && event->key.repeat == 0) {
 		switch (event->key.keysym.sym)
@@ -123,7 +123,7 @@ void Pacman::handleEvent(SDL_Event* event)
 	if (posicionX <= 1) {
 
 		cout << "portal 1" << endl;
-		posicionX = 1550;
+		posicionX = 800;
 	}
 	else if (posicionX >= 1600) {
 
@@ -133,7 +133,7 @@ void Pacman::handleEvent(SDL_Event* event)
 	}
 }
 
-bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
+bool PacmanGalactico::tratarDeMover(MoveDirection _direccionNueva)
 {
 	Tile* tileDestino = nullptr;
 
@@ -177,7 +177,7 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 
 
-void Pacman::update()
+void PacmanGalactico::update()
 {
 
 	// Compruebe si hay colisión con el punto
@@ -288,7 +288,7 @@ void Pacman::update()
 
 
 
-void Pacman::render()
+void PacmanGalactico::render()
 {
 	SDL_Rect* cuadroAnimacion = new SDL_Rect();
 
@@ -310,7 +310,7 @@ void Pacman::render()
 }
 
 //BORRAR 
-void Pacman::Delete()
+void PacmanGalactico::Delete()
 {
 	// Llamar a la función base
 	GameObject::Delete();

@@ -7,13 +7,13 @@ TextureManager::TextureManager()
 	pacmanTexture->loadFromImage(pathPacman);
 	addTexture("pacman", pacmanTexture);
 
-	pacmanTexture = new Texture();
-	pacmanTexture->loadFromImage(pathPacmanClasico);
-	addTexture("pacmanClasico", pacmanTexture);
+	//pacmanTexture = new Texture();
+	//pacmanTexture->loadFromImage(pathPacmanClasico);
+	//addTexture("pacmanClasico", pacmanTexture);
 
-	pacmanTexture = new Texture();
-	pacmanTexture->loadFromImage(pacthPacmanGalactico);
-	addTexture("pacmanGalactico", pacmanTexture);
+	//pacmanTexture = new Texture();
+	//pacmanTexture->loadFromImage(pacthPacmanGalactico);
+	//addTexture("pacmanGalactico", pacmanTexture);
 
 
 	poderTexture = new Texture();
