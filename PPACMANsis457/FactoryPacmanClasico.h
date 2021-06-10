@@ -18,7 +18,7 @@ public:
 
     GameObject* createFrutaInstance(Tile* _tile, Texture* _frutasTextura, int _posicionX, int _posicionY)override;
 
-    GameObject* createMonedaInstace(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY)override;
+    GameObject* createMonedaInstance(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY)override;
 
 };
 

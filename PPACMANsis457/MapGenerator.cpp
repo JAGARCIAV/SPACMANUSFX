@@ -41,11 +41,11 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'C':
-				objetoNuevo = factory->createMonedaInstace(tileNuevo, textureManager->getTexture("supermoneda"), x * 25, y * 25);
+				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager->getTexture("supermoneda"), x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(9);
 				break;
 			case '-':
-				objetoNuevo = factory->createMonedaInstace(tileNuevo, textureManager->getTexture("moneda"), x * 25, y * 25);
+				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager->getTexture("moneda"), x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(7);
 				break;
 			case 'Y':

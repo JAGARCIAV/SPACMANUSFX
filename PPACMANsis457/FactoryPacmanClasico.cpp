@@ -16,6 +16,6 @@ GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, Texture* _par
     return new Pared(_tile,_paredTextura, _posicionX, _posicionY);
 }
 
-GameObject* FactoryPacmanClasico::createMonedaInstace(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) {
+GameObject* FactoryPacmanClasico::createMonedaInstance(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) {
     return new Moneda(_tile, _monedaTextura, _posicionX, _posicionY);
 }
