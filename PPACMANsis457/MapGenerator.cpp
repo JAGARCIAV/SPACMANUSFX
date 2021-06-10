@@ -75,7 +75,7 @@ bool MapGenerator::load(string path)
 				break;
 			case 'P':
 
-				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 5);
+				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager->getTexture("pacmanGalactico"), x * 25, y * 25, 5);
 				objetoNuevo->setParametrosAnimacion(2);
 
 				break;

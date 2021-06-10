@@ -14,8 +14,8 @@ private:
 	// string de las clases 
 	const string pathPacman = "Resources/AurelioSolClasico.png";
 
-	//const string pathPacmanClasico = "Resources/AurelioSolClasico.png";
-	//const string pacthPacmanGalactico = "Resources/AurelioSolGalactico.png";
+	const string pathPacmanClasico = "Resources/AurelioSolClasico.png";
+	const string pacthPacmanGalactico = "Resources/AurelioSolGalactico.png";
 
 	const string pathPoder = "Resources/Poder1.png";
 

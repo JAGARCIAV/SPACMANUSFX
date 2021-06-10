@@ -12,21 +12,20 @@ protected:
 
 public:
     PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-  // ~PacmanGalactico();
+   ~PacmanGalactico();
 
-   // virtual void RestarVida();
+   void RestarVida();
 
-   // virtual void setTile(Tile* _tileNuevo);
+   void setTile(Tile* _tileNuevo);
+   void handleEvent(SDL_Event* event);
 
-   // virtual void handleEvent(SDL_Event* event);
+   bool tratarDeMover(MoveDirection _direccionNueva);
 
-   //bool tratarDeMover(MoveDirection _direccionNueva);
+   void update();
 
-   //virtual void update();
+   void render();
 
-   //virtual void render();
-
-   //virtual void Delete();
+   void Delete();
 
 };
 
