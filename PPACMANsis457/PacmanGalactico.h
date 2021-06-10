@@ -12,7 +12,7 @@ protected:
 
 public:
     PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-   ~PacmanGalactico();
+  // ~PacmanGalactico();
 
     virtual void RestarVida();
 
