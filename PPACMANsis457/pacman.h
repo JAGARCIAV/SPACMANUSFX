@@ -79,27 +79,27 @@ public:
 
 
 	// Metodos varios
-	virtual bool tratarDeMover(MoveDirection _direccionNueva);
+	bool tratarDeMover(MoveDirection _direccionNueva);
 	//vida del pacman
-	virtual void RestarVida();
+	void RestarVida();
 	//portales atajos
-	virtual void PortalesXY();
+	 void PortalesXY();
 
 	// Manejador de eventos de pacman
-	virtual void handleEvent(SDL_Event* event) override;
+	 void handleEvent(SDL_Event* event) override;
 
 
 	// Actualiza la posición y comprueba la colisión.
-	virtual void update() override;
+	 void update() override;
 
 
 	// Renderizar imagen pacman
-	virtual void render() override;
+	 void render() override;
 
 	//void Muerte() override;
 
 	// Marque el objeto a eliminar
-	virtual void Delete()override;
+	 void Delete()override;
 
 	// Devuelve la ficha de pacman
 	Tile* GetTile();

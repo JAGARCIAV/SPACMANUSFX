@@ -14,19 +14,19 @@ public:
     PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
   // ~PacmanGalactico();
 
-    virtual void RestarVida();
+   // virtual void RestarVida();
 
-    virtual void setTile(Tile* _tileNuevo);
+   // virtual void setTile(Tile* _tileNuevo);
 
-    virtual void handleEvent(SDL_Event* event);
+   // virtual void handleEvent(SDL_Event* event);
 
-   bool tratarDeMover(MoveDirection _direccionNueva);
+   //bool tratarDeMover(MoveDirection _direccionNueva);
 
-   virtual void update();
+   //virtual void update();
 
-   virtual void render();
+   //virtual void render();
 
-   virtual void Delete();
+   //virtual void Delete();
 
 };
 

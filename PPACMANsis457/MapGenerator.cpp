@@ -91,7 +91,7 @@ bool MapGenerator::load(string path)
 				vectorObjetosJuego.push_back(objetoNuevo);
 			}
 		}
-
+		
 		y++;
 	}
 
