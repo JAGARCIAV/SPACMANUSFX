@@ -48,7 +48,7 @@ public:
 
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-	//~Pacman();
+	~Pacman();
 
 	static const int Width = 25;
 	static const int Height = 25;
