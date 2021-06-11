@@ -60,7 +60,34 @@ TextureManager::TextureManager()
 	paredGalacticoTexture->loadFromImage(pathParedGalactico);
 	addTexture("pared_galactico", paredGalacticoTexture);
 
-
+	//PACMAN ASESINO
+	pacmanAsesinoTexture = new Texture();
+	pacmanAsesinoTexture->loadFromImage(pathPacmanAsesino);
+	addTexture("pacman_asesino", pacmanAsesinoTexture);
+	fantasmaAsesino1Texture = new Texture();
+	fantasmaAsesino1Texture->loadFromImage(pathFantasmaAsesino1);
+	addTexture("fantasma_asesino1", fantasmaAsesino1Texture);
+	fantasmaAsesino2Texture = new Texture();
+	fantasmaAsesino2Texture->loadFromImage(pathFantasmaAsesino2);
+	addTexture("fantasma_asesino2", fantasmaAsesino2Texture);
+	fantasmaAsesino3Texture = new Texture();
+	fantasmaAsesino3Texture->loadFromImage(pathFantasmaAsesino3);
+	addTexture("fantasma_asesino3", fantasmaAsesino3Texture);
+	fantasmaAsesino4Texture = new Texture();
+	fantasmaAsesino4Texture->loadFromImage(pathFantasmaAsesino4);
+	addTexture("fantasma_asesino4", fantasmaAsesino4Texture);
+	frutaAsesinoTexture = new Texture();
+	frutaAsesinoTexture->loadFromImage(pathFrutaAsesino);
+	addTexture("fruta_asesino", frutaAsesinoTexture);
+	monedaAsesinoTexture = new Texture();
+	monedaAsesinoTexture->loadFromImage(pathMonedaAsesino);
+	addTexture("moneda_asesino", monedaAsesinoTexture);
+	superMonedaAsesinoTexture = new Texture();
+	superMonedaAsesinoTexture->loadFromImage(pathSuperMonedaAsesino);
+	addTexture("supermoneda_asesino", superMonedaAsesinoTexture);
+	paredAsesinoTexture = new Texture();
+	paredAsesinoTexture->loadFromImage(pathParedAsesino);
+	addTexture("pared_asesino", paredAsesinoTexture);
 	
 }
 

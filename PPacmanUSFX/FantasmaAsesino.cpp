@@ -1,8 +1,9 @@
 #include "FantasmaAsesino.h"
 
-FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
-	
-	Fantasma(_tile, _fantasmaAsesinoTextura, _posicionX, _posicionY,  _velocidadPatron)
+
+FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
+
+	Fantasma(_tile, _fantasmaGalacticoTextura, _posicionX, _posicionY, _velocidadPatron)
 
 
 {
@@ -66,7 +67,7 @@ void FantasmaAsesino::update()
 			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
 				direccionActual = MOVE_DOWN;
 
-			
+
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
 				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
@@ -74,7 +75,7 @@ void FantasmaAsesino::update()
 				}
 			}
 
-			
+
 		}
 
 		// Dependiendo a la direccion de movimiento, mueve el NPC cordinadamente

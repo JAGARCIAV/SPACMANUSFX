@@ -1,7 +1,5 @@
 #pragma once
 #include "Fantasma.h"
-#include "TileGraph.h"
-
 class FantasmaAsesino :
     public Fantasma
 {
@@ -14,7 +12,7 @@ private:
 
 public:
 
-    FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _velocidadPatron);
+    FantasmaAsesino(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _posicionX, int _posicionY, int _velocidadPatron);
     Tile* getTile() { return tileActual; }
     Tile* getTileSiguiente() { return tileSiguiente; }
     void setTile(Tile* _tileNuevo);
@@ -22,4 +20,5 @@ public:
 
     void update() override;
 };
+
 

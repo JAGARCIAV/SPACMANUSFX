@@ -1,13 +1,13 @@
 #pragma once
 #include "Factory.h"
-#include "PacmanGalactico.h"
-#include "FantasmaGalactico.h"
-#include "ParedGalactico.h"
-#include "FrutaGalactico.h"
-#include "MonedaGalactico.h"
+#include "PacmanAsesino.h"
+#include "FantasmaAsesino.h"
+#include "ParedAsesino.h"
+#include "FrutaAsesino.h"
+#include "MonedaAsesino.h"
 #include "Tile.h"
 
-class FactoryPacmanGalactico :
+class FactoryPacmanAsesino :
     public Factory
 {
 public:
