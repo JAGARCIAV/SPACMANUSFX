@@ -9,11 +9,6 @@ Texture::Texture()
 	alto = 0;
 }
 
-Texture::~Texture()
-{
-	free();
-}
-
 bool Texture::loadFromImage(std::string path, Uint8 r, Uint8 g, Uint8 b)
 {
 	// Free the previous texture
@@ -84,21 +79,20 @@ bool Texture::loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color t
 	return true;
 }
 
-void Texture::render(int x, int y, SDL_Rect* clip, SDL_Rect* rect, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
+void Texture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
 {
 	// Return if the renderer was not set
 	if (renderer == nullptr)
 		return;
-	if (rect == NULL) {
-		SDL_Rect rect = { x, y, getAncho(), getAlto() };
-		if (clip != NULL) {
-			rect.w = clip->w;
-			rect.h = clip->h;
-		}
-		SDL_RenderCopyEx(renderer, texture, clip, &rect, angle, center, renderFlip);
+
+	SDL_Rect renderQuad = { x, y, getAncho(), getAlto() };
+
+	if (clip != NULL) {
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
 	}
-	else
-		SDL_RenderCopyEx(renderer, texture, clip, rect, angle, center, renderFlip);
+
+	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, renderFlip);
 }
 
 void Texture::setColor(Uint8 red, Uint8 green, Uint8 blue)
@@ -116,6 +110,14 @@ void Texture::setAlpha(Uint8 alpha)
 	SDL_SetTextureAlphaMod(texture, alpha);
 }
 
+//RECORRER MAP DE TEXTURA
+Texture::~Texture() {
+	free();
+}
+
+
+
+
 void Texture::free()
 {
 	if (texture != nullptr) {
@@ -125,5 +127,21 @@ void Texture::free()
 
 		ancho = 0;
 		alto = 0;
+	}
+}
+
+
+void Texture::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
+{
+	auto emca = mapCuadrosAnimacion.find(_key);
+
+	if (emca != mapCuadrosAnimacion.end()) {
+		emca->second.push_back(_cuadroAnimacion);
+	}
+	else
+	{
+		vector<SDL_Rect*> vca;
+		vca.push_back(_cuadroAnimacion);
+		mapCuadrosAnimacion[_key] = vca;
 	}
 }

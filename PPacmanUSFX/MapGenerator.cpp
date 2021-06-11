@@ -38,34 +38,43 @@ bool MapGenerator::load(string path)
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
-			case 'x':
+			case 'Y':
+				objetoNuevo = factory->createFrutaInstance(tileNuevo, textureManager, x * 25, y * 25);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
+			case 'W':
 				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, x * Tile::altoTile, y * Tile::altoTile, false);
 				objetoNuevo->setParametrosAnimacion(1);
 				break;
-			case '.':
+			case '-':
 				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'p':
+			case 'P':
 				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, x * 25, y * 25, 5);
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
-			case 'a':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 1);
+			case 'J':
+				objetoNuevo = factory->createFantasma1Instance(tileNuevo, textureManager, x * 25, y * 25, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'b':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);
+			case 'H':
+				objetoNuevo = factory->createFantasma2Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'c':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);
+			case 'I':
+				objetoNuevo = factory->createFantasma3Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
-			case 'd':
-				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 3);
+			case 'G':
+				objetoNuevo = factory->createFantasma4Instance(tileNuevo, textureManager, x * 25, y * 25, 3);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
+			case 'C':
+				objetoNuevo = factory->createMoneda2Instance(tileNuevo, textureManager, x * 25, y * 25);
+				objetoNuevo->setParametrosAnimacion(9);
+				break;
+
 			}
 
 			// If the object was created, add it to the vector
@@ -80,7 +89,7 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-	GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
+	GameObject* objetoPanel = new GamePanel(new Texture(), 10, 540);
 	vectorObjetosJuego.push_back(objetoPanel);
 
 	return true;

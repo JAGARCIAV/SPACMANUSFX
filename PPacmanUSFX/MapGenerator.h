@@ -15,7 +15,6 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "TextureAnimation.h"
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"

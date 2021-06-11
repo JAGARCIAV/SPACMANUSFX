@@ -8,28 +8,30 @@ class TextureManager
 private:
 	map<string, Texture*> mapTexturas;
 
-	const string pathPacmanClasico = "Resources/PacMan.bmp";
-	const string pathFantasmaClasico1 = "Resources/Blinky.bmp";
-	const string pathFantasmaClasico2 = "Resources/Clyde.bmp";
-	const string pathFantasmaClasico3 = "Resources/Inkey.bmp";
-	const string pathFantasmaClasico4 = "Resources/Pinky.bmp";
-	const string pathFrutaClasico = "Resources/Frutas.png";
-	const string pathMonedaClasico = "Resources/Monedas02.jpg";
-	const string pathSuperMonedaClasico = "Resources/Monedas03.jpg";
-	const string pathParedClasico = "Resources/WallTextures.png";
 
-	const string pathPacmanGalactico = "Resources/PacMan.bmp";
-	const string pathFantasmaGalactico1 = "Resources/fantasmaamarillo.bmp ";
-	const string pathFantasmaGalactico2 = "Resources/azul.png ";
-	const string pathFantasmaGalactico3 = "Resources/fantasma.png ";
-	const string pathFantasmaGalactico4 = "Resources/fantasmarojo.bmp ";
-	const string pathFantasmaGalactico5 = "Resources/Pacmanultimo.bmp ";
-	const string pathFrutaGalactico = "Resources/espacial2.png";
-	const string pathMonedaGalactico = "Resources/monedagalactico1.png";
-	const string pathSuperMonedaGalactico = "Resources/Monedas03.jpg";
-	const string pathParedGalactico = "Resources/WallTextures.png";
+	//PACMAN CLASICO
+	const string pathPacmanClasico = "Resources/PACMAN_CLASICO.png";
+	const string pathFantasmaClasico1 = "Resources/FANTASMA_CLASICO1.png";
+	const string pathFantasmaClasico2 = "Resources/FANTASMA_CLASICO2.png";
+	const string pathFantasmaClasico3 = "Resources/FANTASMA_CLASICO3.png";
+	const string pathFantasmaClasico4 = "Resources/FANTASMA_CLASICO4.png";
+	const string pathFrutaClasico = "Resources/FRUTA_CLASICO.png";
+	const string pathMonedaClasico = "Resources/MONEDA_CLASICO.png";
+	const string pathSuperMonedaClasico = "Resources/SUPERMONEDA_CLASICO.png";
+	const string pathParedClasico = "Resources/PARED_CLASICO.png";
 
+	//PACMAN GALACTICO
+	const string pathPacmanGalactico = "Resources/PACMAN_GALACTICO.png";
+	const string pathFantasmaGalactico1 = "Resources/FANTASMA_GALACTICO1.bmp ";
+	const string pathFantasmaGalactico2 = "Resources/FANTASMA_GALACTICO2.png ";
+	const string pathFantasmaGalactico3 = "Resources/FANTASMA_GALACTICO3.bmp ";
+	const string pathFantasmaGalactico4 = "Resources/FANTASMA_GALACTICO4.bmp ";
+	const string pathFrutaGalactico = "Resources/FRUTA_CLASICO.png";
+	const string pathMonedaGalactico = "Resources/MONEDA_CLASICO.png";
+	const string pathSuperMonedaGalactico = "Resources/SUPERMONEDA_GALACTICO.png";
+	const string pathParedGalactico = "Resources/PARED_GALACTICO.bmp";
 
+	//PACMAN CLASICO
 	Texture* pacmanClasicoTexture;
 	Texture* fantasmaClasico1Texture;
 	Texture* fantasmaClasico2Texture;
@@ -40,6 +42,7 @@ private:
 	Texture* superMonedaClasicoTexture;
 	Texture* paredClasicoTexture;
 
+	//PACMAN GALACTICO
 	Texture* pacmanGalacticoTexture;
 	Texture* fantasmaGalactico1Texture;
 	Texture* fantasmaGalactico2Texture;

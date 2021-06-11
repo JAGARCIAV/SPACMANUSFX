@@ -51,9 +51,6 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="TextureAnimation.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="PathFinder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -96,9 +93,6 @@
     <ClCompile Include="FrutaAsesino.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="FrutaClasico.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="FrutaGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -112,6 +106,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PacmanClasico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FrutaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -153,9 +150,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureAnimation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">
@@ -203,9 +197,6 @@
     <ClInclude Include="FrutaAsesino.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="FrutaClasico.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="FrutaGalactico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -224,10 +215,8 @@
     <ClInclude Include="PacmanClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\Clyde.bmp">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
+    <ClInclude Include="FrutaClasico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

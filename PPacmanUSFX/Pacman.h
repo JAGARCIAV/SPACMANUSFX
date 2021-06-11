@@ -10,7 +10,7 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
-#include "TextureAnimation.h" 
+
 #include "Moneda.h"
 
 using namespace std;
@@ -31,7 +31,7 @@ protected:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
-	TextureAnimation* texturaAnimacion;
+
 	//static Pacman* instancia;
 
 	int energia;

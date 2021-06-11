@@ -15,16 +15,16 @@
 Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad) :
 	GameObject(_texturaPacman, _posicionX, _posicionY)
 {
-	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_texturaPacman);
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+	//texturaAnimacion = new TextureAnimation();
+	//texturaAnimacion->setTexture(_texturaPacman);
+	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -210,20 +210,20 @@ void Pacman::render()
 
 	switch (direccionActual) {
 	case MOVE_UP:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
+		cuadroAnimacion = textura->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
 	case MOVE_DOWN:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("abajo")[numeroFrame];
+		cuadroAnimacion = textura->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
 	case MOVE_LEFT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("izquierda")[numeroFrame];
+		cuadroAnimacion = textura->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
 	case MOVE_RIGHT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
+		cuadroAnimacion = textura->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
 
-	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
 void Pacman::deleteGameObject()

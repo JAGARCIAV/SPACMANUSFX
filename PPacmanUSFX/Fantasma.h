@@ -10,7 +10,6 @@
 #include "TileGraph.h"
 #include "MoveDirection.h"
 
-#include "TextureAnimation.h"
 #include "PathFinder.h"
 #include "Pacman.h"
 
@@ -39,7 +38,6 @@ protected:
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 
-	TextureAnimation* texturaAnimacion;
 
 	bool tratarDeMover(MoveDirection _direccionNueva);
 public:

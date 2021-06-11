@@ -29,7 +29,7 @@ int GameManager::onExecute() {
 		
 	srand(time(nullptr));
 
-	TileGraph tileGraphGM(20, 15, 800, 600);
+	TileGraph tileGraphGM(65, 21, 575, 1625);
 	textureManager = new TextureManager();
 	GameObject::tileGraph = &tileGraphGM;
 	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT, tipoFabrica);

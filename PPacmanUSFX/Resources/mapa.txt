@@ -1,15 +1,21 @@
-xxxxxxxxxxxxxxxxxxxx
-x..................x
-x.xxx.xxx..xxx.xxx.x
-x..................x
-x.xxx.x.xxxx.x.xxx.x
-x.....x......x.....x
-xxxxx.xxx..xxx.xxxxx
-xxxxx..........xxxxx
-......x      x......
-xxxxx.xabcd  x.xxxxx
-xxxxx.xxxxxxxx.xxxxx
-x..................x
-x.xxxxxxxxxxxxxxxx.x
-x........p.........x
-xxxxxxxxxxxxxxxxxxxx
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WC------------------------------W------------------------------CW
+W-WWWWWWWWWWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWWWWWWWWWW-W
+W--------W-------W----------------------------W---------W-------W
+W-WWWW-WWW-WWWWW-W-w-WWWWWWWWWWWWWWWWWWWWWW-w-W-WWWWW-WWWW-WWWW-W
+W----W---------W---w-----------WWW----------w---W---------------W
+W-WWWWWWW-WWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWW-WWWWWWWWW
+W--------------W-W--------------C-------------W-W---------------W 
+WWW-WWWWWWWWWW-W-WWW-WWWWWWW         WWWWWWW-WW-WWWWW-WWWWWWWWWWW
+W------------W-w--w---W         W         W---------------------W
+WWWWWWWWWW-WWW-W--W-w-W  ,G, ,H,W,I, ,J,  W-w-W-WWWWWWWWWWWWWWWWW
+W-------------------W-W         W         W-W---W---------------W
+W-WWWWWW-WWWWWWWW-WWW-WWWWWWWWWWWWWWWWWWWWW-WWW-W-WWWWWWW-WWWWWWW
+W---------------W-W-------------Y-------------W---------W-------W
+WWWWWWWWWWWWWWW-W-W-WWWWWWWWWW-WWW-WWWWWWWWWW-W-WWWWW-WWWWWWW-WWW
+W-----------------WP------------W-------------W----------W------W
+W---WWWWWWWWWWW-W-WW-WWWWWWWWWWWWWWWWWWWWWWW-WW-WWWWWW-WWWWWWWW-W
+ -------W-------W---------------------------------------W------- 
+W-WWWWWWWWWW-WWWW-WWWWWWWWWWWWW-W-WWWWWWWWWWWWWW-W-WWWWWWWWWWWW-W
+WC--------------W--------------------------------W-------------CW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
