@@ -18,7 +18,7 @@
 #include "TextureManager.h"
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
-
+#include "FactoryPacmanAsesino.h"
 using namespace std;
 
 
