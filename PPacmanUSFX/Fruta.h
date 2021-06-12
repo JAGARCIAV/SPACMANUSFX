@@ -31,10 +31,16 @@ private:
 	TIPO_FRUTA tipoFruta;
 
 	int tiempoVisible;
+	int tiempoInvisible;
 	int tiempoNoVisible;
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 	int numeroFrutaVisible;
+
+	int aumentarPuntosVida;
+	int aumentarVelocidad;
+
+	int contadorTiempoInvisible;
 
 	Tile* tileActual;
 
@@ -62,6 +68,17 @@ public:
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
 	void setTile(Tile* _tileNuevo);
+
+	//FRUTASS
+	int getAumentarPuntosVida() { return aumentarPuntosVida; }
+	int getAumentarVelocidad() { return aumentarVelocidad; }
+
+	void setAumentarPuntosVida(int _aumentarPuntosVida) { aumentarPuntosVida = _aumentarPuntosVida; }
+	void setAumentarVelocidad(int _aumentarVelocidad) { aumentarVelocidad = _aumentarVelocidad; }
+
+	//Manejador de Eventos
+	//void update() override;
+
 
 	// Metodos varios
 
