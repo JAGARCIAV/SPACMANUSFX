@@ -18,11 +18,36 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
+	//collider ancho
+	collider->w = ancho;
+	//collider alto
+	collider->h = alto;
+
+	//collider posicionX
+	collider->x = posicionX;
+
+	//collider posicionY
+	collider->y = posicionY;
 
 	// Inicializa propiedade de de pacman
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
+	Score = 0;
+}
+
+void Moneda::ContadorScore() {
+	if (Score < 200) {
+		Score++;
+	}
+}
+
+
+
+//DESTRUCTOR y deja un espacio libre 
+Moneda::~Moneda()
+{
+	free();
 }
 
 void Moneda::setTile(Tile* _tileNuevo) {
@@ -37,11 +62,18 @@ void Moneda::setTile(Tile* _tileNuevo) {
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
- 	}
+
+		collider->x = posicionX;
+		collider->y = posicionY;
+	}
 }
 
-void Moneda::deleteGameObject()
+
+//colisiones
+void Moneda::Delete()
 {
-	GameObject::deleteGameObject();
+	// Llamar a la función base
+	GameObject::Delete();
+
 	tileActual->setMoneda(nullptr);
 }

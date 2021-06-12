@@ -4,7 +4,6 @@ int GameObject::numeroObjetosCreados = 0;
 TileGraph* GameObject::tileGraph = nullptr;
 
 GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY) {
-	textura = _textura;
 	posicionX = _posicionX;
 	posicionY = _posicionY;
 	alto = 0;
@@ -14,58 +13,73 @@ GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY) {
 	enMovimiento = false;
 	numeroObjetosCreados++;
 	idObjeto = numeroObjetosCreados;
-	
-
+	textura = _textura;
 	numeroFrame = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
-	colisionador = new SDL_Rect({ _posicionX, _posicionY, ancho, alto});
+	collider = new SDL_Rect({ _posicionX, _posicionY, alto, ancho });
 }
+
+
 
 void GameObject::render()
 {
-	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
+	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
 
 	// Renderizar en la pantalla
-	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	textura->render(getPosicionX(), getPosicionY(), &renderQuad);
 }
 
-bool GameObject::revisarColision(const SDL_Rect* _otroColisionador)
-{
-	if (_otroColisionador->x > colisionador->x + colisionador->w) {
+//COLISION 1
+//comprobacion de que esta colisionando
+bool GameObject::CheckForCollision(const SDL_Rect* otherCollider)
+
+{	//otro colisionador.x > colisionador.x + colisionador.w
+	if (otherCollider->x > collider->x + collider->w) {
+		//printf("1");
 		return false;
 	}
 
-	if (_otroColisionador->y > colisionador->y + colisionador->h) {
+	if (otherCollider->y > collider->y + collider->h) {
+		//printf("2");
 		return false;
 	}
 
-	if (_otroColisionador->x + _otroColisionador->w < colisionador->x) {
+	if (otherCollider->x + otherCollider->w < collider->x) {
+		//printf("3");
 		return false;
 	}
 
-	if (_otroColisionador->y + _otroColisionador->h < colisionador->y) {
+	if (otherCollider->y + otherCollider->h < collider->y) {
+		//printf("4");
 		return false;
 	}
 
 	return true;
 }
 
-bool GameObject::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2)
+//COLISION 2
+
+//comprobando si colisiono, el OtroColisionador
+bool GameObject::CheckForCollision(const SDL_Rect* collider, const SDL_Rect* otherCollider)
 {
-	if (_colisionador1->x > _colisionador2->x + _colisionador2->w) {
+	if (otherCollider->x > collider->x + collider->w) {
+		//printf("1");
 		return false;
 	}
 
-	if (_colisionador1->y > _colisionador2->y + _colisionador2->h) {
+	if (otherCollider->y > collider->y + collider->h) {
+		//printf("2");
 		return false;
 	}
 
-	if (_colisionador1->x + _colisionador1->w < _colisionador2->x) {
+	if (otherCollider->x + otherCollider->w < collider->x) {
+		//printf("3");
 		return false;
 	}
 
-	if (_colisionador1->y + _colisionador1->h < _colisionador2->y) {
+	if (otherCollider->y + otherCollider->h < collider->y) {
+		//printf("4");
 		return false;
 	}
 
@@ -82,3 +96,23 @@ void GameObject::update() {
 	}
 
 }
+
+void HandleEvent(SDL_Event* event) {};
+
+void GameObject::free() {}
+
+GameObject::~GameObject() {}
+
+
+
+//funcion para eliminar clase que contenga delete=borrar
+void GameObject::Delete()
+{
+	eliminar = true;
+}
+// Devuelve verdadero si los objetos están marcados para su eliminación
+
+bool GameObject::ToDelete() const
+{
+	return eliminar;
+};

@@ -9,15 +9,20 @@
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
-#include "MoveDirection.h"
-
 #include "Moneda.h"
+#include "Fantasma.h"
+#include "Fruta.h"
+#include "MoveDirection.h"
+#include "TextureManager.h" 
 
 using namespace std;
 
-class Pacman : public GameObject
+class Pacman :
+	public GameObject
 {
 protected:
+	//PROPIEDADES
+
 	Tile* tileActual;
 	Tile* tileSiguiente;
 
@@ -31,50 +36,68 @@ protected:
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 
+	int vida;
+	int portal;
 
-	//static Pacman* instancia;
-
-	int energia;
-	int state;
 
 public:
+	//METODOS 
+
+	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
+	~Pacman();
 
-	//	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-
-		//Constructores y destructores
-
-		//~Pacman();
-
-		//Metodos accesores
-	
-	int getState() { return state; }
-	void setState(int _state) { state = _state; }
+	static const int Width = 25;
+	static const int Height = 25;
 
 
+	//Metodos accesores
 
-	int getVelocidad() { return velocidad; }
+	int getvelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
-	int getEnergia() { return energia; }
+	int getVida() { return vida; }
 
+	int getPortales() { return portal; }
+
+
+	// Mark the object to be deleted
+	//void Delete();
 
 	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-	void setEnergia(int _energia) { energia = _energia; }
+	void setVida(int _vida) { vida = _vida; }
+	void setPortales(int _portal) { portal = _portal; }
+
+
+
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
-	void restarEnergia();
+	//vida del pacman
+	void RestarVida();
+	//portales atajos
+	void PortalesXY();
 
 	// Manejador de eventos de pacman
 	void handleEvent(SDL_Event* event) override;
-	// Mover pacman
+
+
+	// Actualiza la posición y comprueba la colisión.
 	void update() override;
+
+
 	// Renderizar imagen pacman
 	void render() override;
-	//void update();
-	void deleteGameObject() override;
+
+	//void Muerte() override;
+
+	// Marque el objeto a eliminar
+	void Delete()override;
+
+	// Devuelve la ficha de pacman
+	Tile* GetTile();
 
 };
+

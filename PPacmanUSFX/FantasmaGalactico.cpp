@@ -1,9 +1,9 @@
 #include "FantasmaGalactico.h"
 
 
-FantasmaGalactico::FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
+FantasmaGalactico::FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _posicionX, int _posicionY, int _velocidad) :
 
-	Fantasma(_tile, _fantasmaGalacticoTextura, _posicionX, _posicionY, _velocidadPatron)
+	Fantasma(_tile, _fantasmaGalacticoTextura, _posicionX, _posicionY, _velocidad)
 
 
 {
@@ -48,7 +48,7 @@ void FantasmaGalactico::update()
 		if (tileActual == tileSiguiente) {
 			// cnsigue el camino para seguir a pacman
 			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
+			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
 			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
 			if (camino.size() > 1) {
@@ -70,8 +70,8 @@ void FantasmaGalactico::update()
 
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
-					tile->getPacman()->deleteGameObject();
+				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->GetCollider())) {
+					tile->getPacman()->Delete();
 				}
 			}
 
@@ -82,22 +82,22 @@ void FantasmaGalactico::update()
 		switch (direccionActual)
 		{
 		case MOVE_UP:
-			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::max(posicionY - velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_DOWN:
-			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::min(posicionY + velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_LEFT:
-			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::max(posicionX - velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		case MOVE_RIGHT:
-			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
 
 		// Actualizar la colision
-		colisionador->x = posicionX;
-		colisionador->y = posicionY;
+		collider->x = posicionX;
+		collider->y = posicionY;
 		/*setTile(tileSiguiente);*/
 
 
