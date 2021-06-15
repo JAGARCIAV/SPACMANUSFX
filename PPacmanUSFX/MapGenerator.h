@@ -20,6 +20,9 @@
 #include "Factory.h"
 
 #include "GamePanel.h"
+#include "GaPanelConcretoTipe1.h"
+#include "GaPanelConcretoTipe2.h"
+
 using namespace std;
 
 class MapGenerator

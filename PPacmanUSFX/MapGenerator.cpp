@@ -89,7 +89,7 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-	GameObject* objetoPanel = new GamePanel(new Texture(), 10, 540);
+	GameObject* objetoPanel = new GaPanelConcretoTipe2(new Texture(), 10, 540);
 	vectorObjetosJuego.push_back(objetoPanel);
 
 	return true;

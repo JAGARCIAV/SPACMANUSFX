@@ -40,7 +40,7 @@ private:
 	const string pathFrutaAsesino = "Resources/FRUTA_CLASICO.png";
 	const string pathMonedaAsesino = "Resources/MONEDA_CLASICO.png";
 	const string pathSuperMonedaAsesino = "Resources/SUPERMONEDA_GALACTICO.png";
-	const string pathParedAsesino = "Resources/PARED_GALACTICO.bmp";
+	const string pathParedAsesino = "Resources/PARED_ASESINO.png";
 
 	//PACMAN CLASICO
 	Texture* pacmanClasicoTexture;
