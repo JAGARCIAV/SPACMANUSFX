@@ -15,8 +15,8 @@ protected:
 public:
 	static void  Inicializar() {
 
-		TipoTexto1 = new GaPanelConcretoTipe1(0,0,0);
-		TipoTexto2 = new GaPanelConcretoTipe1(0,0,0);
+		TipoTexto1 = new GaPanelConcretoTipe1(new Texture(), 10, 540);
+		TipoTexto2 = new GaPanelConcretoTipe1(new Texture(), 50, 540);
 
 	};
 

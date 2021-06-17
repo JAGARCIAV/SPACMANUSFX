@@ -92,8 +92,8 @@ bool MapGenerator::load(string path)
 
 	//score Tff
 
-	//GameObject* objetoPanel = new GaPanelConcretoTipe2(new Texture(), 10, 540);
-	//vectorObjetosJuego.push_back(objetoPanel);
+	GameObject* objetoPanel = new GaPanelConcretoTipe1(new Texture(), 10, 540);
+	vectorObjetosJuego.push_back(objetoPanel);
 
 
 
