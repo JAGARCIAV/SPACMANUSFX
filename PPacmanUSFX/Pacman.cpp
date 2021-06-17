@@ -64,7 +64,6 @@ void Pacman::RestarVida() {
 }
 
 
-
 //DESTRUCTOR y deja un espacio libre 
 Pacman::~Pacman()
 {

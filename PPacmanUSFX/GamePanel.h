@@ -7,8 +7,8 @@
 class GamePanel :
     public GameObject
 {
-private:
-    string textoTipo;
+protected:
+    string type;
     //string texto;
 
 public:
@@ -20,9 +20,9 @@ public:
 
 
     //Metodos accesores
-    string getTextoTipo() { return textoTipo; }
+    string getTextoTipo() { return type; }
 
-    void setTextoTipo(string _textoTipo) { textoTipo = _textoTipo; }
+    //void setTextoTipo(string _type) { type = _type; }
 
 
     void render() override;

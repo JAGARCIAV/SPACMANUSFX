@@ -66,10 +66,12 @@ private:
 
 	//PACMAN ASESINO
 	Texture* pacmanAsesinoTexture;
+
 	Texture* fantasmaAsesino1Texture;
 	Texture* fantasmaAsesino2Texture;
 	Texture* fantasmaAsesino3Texture;
 	Texture* fantasmaAsesino4Texture;
+
 	Texture* frutaAsesinoTexture;
 	Texture* monedaAsesinoTexture;
 	Texture* superMonedaAsesinoTexture;

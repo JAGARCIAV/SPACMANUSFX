@@ -31,11 +31,11 @@
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
     <ClCompile Include="FrutaGalactico.cpp" />
+    <ClCompile Include="GaFabricaGamePanel.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePanel.cpp" />
     <ClCompile Include="GaPanelConcretoTipe1.cpp" />
-    <ClCompile Include="GaPanelConcretoTipe2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
@@ -69,11 +69,11 @@
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />
     <ClInclude Include="FrutaGalactico.h" />
+    <ClInclude Include="GaFabricaGamePanel.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePanel.h" />
     <ClInclude Include="GaPanelConcretoTipe1.h" />
-    <ClInclude Include="GaPanelConcretoTipe2.h" />
     <ClInclude Include="Laberinto.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />

@@ -3,12 +3,12 @@
 class FantasmaAsesino :
     public Fantasma
 {
+
 private:
 
     Tile* tileActual;
 
     Tile* tileSiguiente;
-
 
 public:
 

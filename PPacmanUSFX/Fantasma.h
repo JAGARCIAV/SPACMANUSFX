@@ -18,7 +18,8 @@
 
 using namespace std;
 
-class Fantasma : public GameObject
+class Fantasma : 
+	public GameObject
 {
 protected:
 	//PROPIEDADES

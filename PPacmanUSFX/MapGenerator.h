@@ -19,6 +19,8 @@
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
 
+#include "GaFabricaGamePanel.h"
+
 #include "GamePanel.h"
 #include "GaPanelConcretoTipe1.h"
 #include "GaPanelConcretoTipe2.h"

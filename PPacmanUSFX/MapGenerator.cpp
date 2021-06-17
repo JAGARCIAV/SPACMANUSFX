@@ -89,8 +89,26 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-	GameObject* objetoPanel = new GaPanelConcretoTipe2(new Texture(), 10, 540);
-	vectorObjetosJuego.push_back(objetoPanel);
+
+	//score Tff
+
+	//GameObject* objetoPanel = new GaPanelConcretoTipe2(new Texture(), 10, 540);
+	//vectorObjetosJuego.push_back(objetoPanel);
+
+
+
+	//PATRON PROTOTYPE main score
+
+	GaFabricaGamePanel::Inicializar();
+	GamePanel* object;
+
+	/* All the object were created by cloning the prototypes. */
+
+	object = GaFabricaGamePanel::getObjetoTipoTexto1();
+	cout << object->getTextoTipo()/* << "tipo1 " */<<endl;
+
+	object = GaFabricaGamePanel::getObjetoTipoTexto2();
+	cout << object->getTextoTipo() /*<< "tipo2 "*/ << endl;
 
 	return true;
 }
