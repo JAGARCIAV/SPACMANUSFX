@@ -46,17 +46,18 @@ protected:
 
 public:
 
+	GameObject();
 
 	//Constructores y destructores
 	GameObject(Texture* _textura, int _posicionX, int _posicionY);
 	virtual ~GameObject();
+
 	//Metodos accesores
 	int getIdObjeto() { return idObjeto; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
-
 	bool getVisible() { return visible; }
 	bool getEliminar() { return eliminar; }
 	bool getEnMovimiento() { return enMovimiento; }
@@ -84,7 +85,7 @@ public:
 
 
 	//colisionador
-	virtual SDL_Rect* GetCollider() { return  collider; }
+	virtual SDL_Rect* getColisionador() { return  collider; }
 	bool CheckForCollision(const SDL_Rect* otherCollider);
 	bool CheckForCollision(const SDL_Rect* collider, const SDL_Rect* otherCollider);
 
@@ -96,5 +97,6 @@ public:
 
 	//static bool AvoidInPathFinder(Tile* _tile);
 
-
+	//PATRON ADAPTER DE WALL
+	void Free() { free(); }
 };

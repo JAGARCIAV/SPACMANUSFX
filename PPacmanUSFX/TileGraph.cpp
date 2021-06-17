@@ -68,6 +68,12 @@ Tile* TileGraph::getTileEn(int _x, int _y)
 	return vectorTilesGraph[indice];
 }
 
+//PATRON ADAPTER DE WALL
+array<Tile*, 4> TileGraph::GetNeighbours(Tile* _tile)
+{
+	return get4Vecinos(_tile);
+}
+
 array<Tile*, 4> TileGraph::get4Vecinos(Tile* _tile)
 {
 	array<Tile*, 4> vecinos;
@@ -110,14 +116,6 @@ Pacman* TileGraph::getPacman()
 		}
 	}
 	
-	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
-
-		Tile* tileNuevo = vectorTilesGraph[i];
-
-		if (tileNuevo->getPacman() != nullptr)
-			return tileNuevo->getPacman();
-	}*/
-
 	return nullptr;
 }
 

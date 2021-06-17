@@ -190,7 +190,7 @@ void Pacman::update()
 			alto,
 			});
 
-		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->GetCollider())) {
+		if (CheckForCollision(eatingHole, tileSiguiente->getMoneda()->getColisionador())) {
 
 			tileSiguiente->getMoneda()->Delete();
 
@@ -211,7 +211,7 @@ void Pacman::update()
 			alto,
 			});
 
-		if (CheckForCollision(eatingHole, tileSiguiente->getFruta()->GetCollider())) {
+		if (CheckForCollision(eatingHole, tileSiguiente->getFruta()->getColisionador())) {
 			tileSiguiente->getFruta()->Delete();
 
 		}

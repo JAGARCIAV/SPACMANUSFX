@@ -20,8 +20,12 @@ GameObject* FactoryPacmanClasico::createFantasma4Instance(Tile* _tile, TextureMa
     return new FantasmaClasico(_tile, _textureManager->getTexture("fantasma_clasico4"), _posicionX, _posicionY, _velocidad);
 }
 
+//GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY, bool _isElectric) {
+//    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"), _posicionX, _posicionY);
+//}
+
 GameObject* FactoryPacmanClasico::createParedInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY, bool _isElectric) {
-    return new ParedClasico(_tile, _textureManager->getTexture("pared_clasico"), _posicionX, _posicionY);
+    return ((Pared*)new ParedAdapter(_tile, _textureManager->getTexture("pared_clasico_adapter"), _posicionX, _posicionY));
 }
 
 GameObject* FactoryPacmanClasico::createFrutaInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) {

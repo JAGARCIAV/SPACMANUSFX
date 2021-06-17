@@ -7,6 +7,8 @@ class Fantasma;
 class Fruta;
 class Moneda;
 class Pared;
+class Wall;
+
 
 class Tile
 {
@@ -17,6 +19,7 @@ private:
 	Fruta* fruta;
 	Moneda* moneda;
 	Pared* pared;
+	Wall* wall;
 
 	int posicionX;
 	int posicionY;
@@ -38,6 +41,11 @@ public:
 	Pared* getPared() { return pared; }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
+	
+	//PATRON ADAPTER
+	Wall* GetWall() { return ((Wall*)pared); }
+
+	SDL_Point GetPosition() { return SDL_Point() = { posicionX, posicionY }; }
 
 	void setPacman(Pacman* _pacman) { pacman = _pacman; }
 	void setPacmanGalactico(PacmanGalactico* _pacmanGalactico) { pacmanGalactico = _pacmanGalactico; }
@@ -47,6 +55,9 @@ public:
 	void setPared(Pared* _pared) { pared = _pared; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
+
+	//PATRON ADAPTER
+	void SetWall(Wall* _wall) { pared = ((Pared*)_wall); }
 
 };
 

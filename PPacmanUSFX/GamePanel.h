@@ -4,6 +4,11 @@
 
 #include "GameObject.h"
 
+enum tiposDePaneles {
+    SCORE,
+    VIDA
+};
+
 class GamePanel :
     public GameObject
 {

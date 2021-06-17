@@ -4,7 +4,7 @@ GaPanelConcretoTipe2::GaPanelConcretoTipe2(Texture* _texturaGamePanel, int _posi
 	GamePanel(_texturaGamePanel, _posicionX, _posicionY)
 
 {
-	setTextoTipo("GamePanelTipo2 SCORE N1:");
+	type = "Type 2 ";
 }
 
 GamePanel* GaPanelConcretoTipe2::Clonar()

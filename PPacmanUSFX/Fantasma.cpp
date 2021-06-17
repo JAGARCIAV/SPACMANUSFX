@@ -143,7 +143,7 @@ void Fantasma::update()
 
 					// Check if Fantasma collides with Pacman, if so delete Pacman
 					// TODO: There should be a Kill() method within Pacman, which will play death animation
-					if (CheckForCollision(pacman->GetCollider())) {
+					if (CheckForCollision(pacman->getColisionador())) {
 						pacman->RestarVida();
 						cout << "VIDA = " << pacman->getVida() << endl;
 

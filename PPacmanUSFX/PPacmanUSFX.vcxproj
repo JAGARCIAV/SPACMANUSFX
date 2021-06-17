@@ -47,6 +47,7 @@
     <ClCompile Include="PacmanClasico.cpp" />
     <ClCompile Include="PacmanGalactico.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="ParedAdapter.cpp" />
     <ClCompile Include="ParedAsesino.cpp" />
     <ClCompile Include="ParedClasico.cpp" />
     <ClCompile Include="ParedGalactico.cpp" />
@@ -55,6 +56,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Factory.h" />
@@ -86,6 +88,7 @@
     <ClInclude Include="PacmanClasico.h" />
     <ClInclude Include="PacmanGalactico.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="ParedAdapter.h" />
     <ClInclude Include="ParedAsesino.h" />
     <ClInclude Include="ParedClasico.h" />
     <ClInclude Include="ParedGalactico.h" />
@@ -96,6 +99,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
     <ClInclude Include="TipoTexturaPared.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

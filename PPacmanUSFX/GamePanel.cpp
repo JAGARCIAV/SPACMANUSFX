@@ -3,7 +3,7 @@
 GamePanel::GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY)
 	:GameObject(_texturaGamePanel, _posicionX, _posicionY)
 {
-	type = "SCORE :";
+	type = " SCORE :";
 }
 
 void GamePanel::render()

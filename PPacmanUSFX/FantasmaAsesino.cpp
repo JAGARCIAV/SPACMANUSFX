@@ -70,7 +70,7 @@ void FantasmaAsesino::update()
 
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->GetCollider())) {
+				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->getColisionador())) {
 					tile->getPacman()->Delete();
 				}
 			}

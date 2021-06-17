@@ -5,7 +5,7 @@
 GaPanelConcretoTipe1::GaPanelConcretoTipe1(Texture* _texturaGamePanel, int _posicionX, int _posicionY) :
 	GamePanel(_texturaGamePanel, _posicionX, _posicionY)
 {
-	type = "Type1";
+	type = "Type 1 ";
 
 }
 

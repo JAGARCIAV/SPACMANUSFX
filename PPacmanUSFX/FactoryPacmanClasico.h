@@ -4,7 +4,10 @@
 #include "FantasmaClasico.h"
 #include "FrutaClasico.h"
 #include "ParedClasico.h"
+#include "ParedAdapter.h"
+
 #include "MonedaClasico.h"
+
 
 class FactoryPacmanClasico :
     public Factory

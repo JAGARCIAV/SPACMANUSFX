@@ -7,6 +7,7 @@ class GaPanelConcretoTipe1 :
 public:
 
     GaPanelConcretoTipe1(Texture* _texturaGamePanel, int _posicionX, int _posicionY);
+
     // clonar
     GamePanel* Clonar();
 
