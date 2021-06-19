@@ -52,6 +52,10 @@
     <ClCompile Include="ParedClasico.cpp" />
     <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
+    <ClCompile Include="SuperMoneda.cpp" />
+    <ClCompile Include="SuperMonedaAsesino.cpp" />
+    <ClCompile Include="SuperMonedaClasico.cpp" />
+    <ClCompile Include="SuperMonedaGalactico.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -76,7 +80,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePanel.h" />
     <ClInclude Include="GaPanelConcretoTipe1.h" />
-    <ClInclude Include="Laberinto.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MonedaAsesino.h" />
@@ -94,6 +97,10 @@
     <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="SuperMoneda.h" />
+    <ClInclude Include="SuperMonedaAsesino.h" />
+    <ClInclude Include="SuperMonedaClasico.h" />
+    <ClInclude Include="SuperMonedaGalactico.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />

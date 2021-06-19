@@ -8,7 +8,6 @@ class TextureManager
 private:
 	map<string, Texture*> mapTexturas;
 
-
 	//PACMAN CLASICO
 	const string pathPacmanClasico = "Resources/PACMAN_CLASICO.png";
 	const string pathFantasmaClasico1 = "Resources/FANTASMA_CLASICO1.png";
@@ -19,7 +18,8 @@ private:
 	const string pathMonedaClasico = "Resources/MONEDA_CLASICO.png";
 	const string pathSuperMonedaClasico = "Resources/SUPERMONEDA_CLASICO.png";
 	const string pathParedClasico = "Resources/PARED_CLASICO.png";
-
+	
+	//adapter
 	const string pathParedAdapter = "Resources/wall_sprite.bmp";
 
 	//PACMAN GALACTICO
@@ -34,11 +34,11 @@ private:
 	const string pathParedGalactico = "Resources/PARED_GALACTICO.bmp";
 
 	//PACMAN ASESINO
-	const string pathPacmanAsesino = "Resources/PACMAN_GALACTICO.png";
-	const string pathFantasmaAsesino1 = "Resources/FANTASMA_GALACTICO1.bmp ";
-	const string pathFantasmaAsesino2 = "Resources/FANTASMA_GALACTICO2.png ";
-	const string pathFantasmaAsesino3 = "Resources/FANTASMA_GALACTICO3.bmp ";
-	const string pathFantasmaAsesino4 = "Resources/FANTASMA_GALACTICO4.bmp ";
+	const string pathPacmanAsesino = "Resources/impostor.png";
+	const string pathFantasmaAsesino1 = "Resources/VERDE ZOMBIE.png";
+	const string pathFantasmaAsesino2 = "Resources/AMARILLO ZOMBIE.png";
+	const string pathFantasmaAsesino3 = "Resources/ROJO ZOMBIE.png";
+	const string pathFantasmaAsesino4 = "Resources/BLANCO ZOMBIE.png";
 	const string pathFrutaAsesino = "Resources/FRUTA_CLASICO.png";
 	const string pathMonedaAsesino = "Resources/MONEDA_CLASICO.png";
 	const string pathSuperMonedaAsesino = "Resources/SUPERMONEDA_GALACTICO.png";
@@ -55,6 +55,7 @@ private:
 	Texture* superMonedaClasicoTexture;
 	Texture* paredClasicoTexture;
 
+	//adapter
 	Texture* paredAdapterTexture;
 
 	//PACMAN GALACTICO
@@ -70,7 +71,6 @@ private:
 
 	//PACMAN ASESINO
 	Texture* pacmanAsesinoTexture;
-
 	Texture* fantasmaAsesino1Texture;
 	Texture* fantasmaAsesino2Texture;
 	Texture* fantasmaAsesino3Texture;

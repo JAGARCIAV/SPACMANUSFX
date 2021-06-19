@@ -32,6 +32,6 @@ GameObject* FactoryPacmanAsesino::createMonedaInstance(Tile* _tile, TextureManag
     return new MonedaAsesino(_tile, _textureManager->getTexture("moneda_asesino"), _posicionX, _posicionY);
 }
 
-GameObject* FactoryPacmanAsesino::createMoneda2Instance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) {
-    return new MonedaAsesino(_tile, _textureManager->getTexture("supermoneda_asesino"), _posicionX, _posicionY);
+GameObject* FactoryPacmanAsesino::createSuperMonedaInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) {
+    return new SuperMonedaAsesino(_tile, _textureManager->getTexture("supermoneda_asesino"), _posicionX, _posicionY);
 }

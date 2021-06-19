@@ -31,6 +31,6 @@ GameObject* FactoryPacmanGalactico::createMonedaInstance(Tile* _tile, TextureMan
     return new MonedaGalactico(_tile, _textureManager->getTexture("moneda_galactico"), _posicionX, _posicionY);
 }
 
-GameObject* FactoryPacmanGalactico::createMoneda2Instance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) {
-    return new MonedaGalactico(_tile, _textureManager->getTexture("supermoneda_galactico"), _posicionX, _posicionY);
+GameObject* FactoryPacmanGalactico::createSuperMonedaInstance(Tile* _tile, TextureManager* _textureManager, int _posicionX, int _posicionY) {
+    return new SuperMonedaGalactico(_tile, _textureManager->getTexture("supermoneda_galactico"), _posicionX, _posicionY);
 }

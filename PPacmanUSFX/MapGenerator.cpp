@@ -71,7 +71,7 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'C':
-				objetoNuevo = factory->createMoneda2Instance(tileNuevo, textureManager, x * 25, y * 25);
+				objetoNuevo = factory->createSuperMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
 				objetoNuevo->setParametrosAnimacion(9);
 				break;
 

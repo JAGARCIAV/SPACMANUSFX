@@ -142,3 +142,15 @@ Moneda* TileGraph::getMoneda()
 
 	return nullptr;
 }
+
+SuperMoneda* TileGraph::getSuperMoneda()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getSuperMoneda() != nullptr) {
+			return (*ivtg)->getSuperMoneda();
+		}
+	}
+
+
+	return nullptr;
+}
