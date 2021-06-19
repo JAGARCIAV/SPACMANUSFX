@@ -74,5 +74,5 @@ void SuperMoneda::Delete()
 	// Llamar a la función base
 	GameObject::Delete();
 
-	tileActual->setMoneda(nullptr);
+	tileActual->setSuperMoneda(nullptr);
 }

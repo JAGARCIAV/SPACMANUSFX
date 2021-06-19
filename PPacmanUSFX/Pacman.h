@@ -10,6 +10,8 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "Moneda.h"
+#include "SuperMoneda.h"
+
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "MoveDirection.h"

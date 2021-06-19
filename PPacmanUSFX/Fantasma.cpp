@@ -143,15 +143,15 @@ void Fantasma::update()
 
 					// Check if Fantasma collides with Pacman, if so delete Pacman
 					// TODO: There should be a Kill() method within Pacman, which will play death animation
-					if (CheckForCollision(pacman->getColisionador())) {
-						pacman->RestarVida();
-						cout << "VIDA = " << pacman->getVida() << endl;
+					//if (CheckForCollision(pacman->getColisionador())) {
+					//	pacman->RestarVida();
+					//	cout << "VIDA = " << pacman->getVida() << endl;
 
-						if (pacman->getVida() <= 0) {
-							tileActual->setPacman(nullptr);
-							pacman->Delete();
-						}
-					}
+					//	if (pacman->getVida() <= 0) {
+					//		tileActual->setPacman(nullptr);
+					//		pacman->Delete();
+					//	}
+					//}
 				}
 			}
 		}
@@ -216,4 +216,13 @@ bool Fantasma::AvoidInPathFinder(Tile* _tile)
 	if (_tile->getPared() != nullptr)
 		return true;
 	return false;
+}
+
+//colisiones
+void Fantasma::Delete()
+{
+	// Llamar a la función base
+	GameObject::Delete();
+
+	tileActual->setFantasma(nullptr);
 }

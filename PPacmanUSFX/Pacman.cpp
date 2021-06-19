@@ -169,6 +169,7 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 void Pacman::update()
 {
+	//MONEDA
 
 	// Compruebe si hay colisión con el punto
 	Moneda* moneda = tileGraph->getMoneda();
@@ -199,30 +200,50 @@ void Pacman::update()
 
 	}
 
+	//COMER FRUTAS
+
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
-
 		cout << "Aqui Fruta" << endl;
-
-
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX ,
 			posicionY ,
 			ancho,
 			alto,
 			});
-
 		if (CheckForCollision(eatingHole, tileSiguiente->getFruta()->getColisionador())) {
 			tileSiguiente->getFruta()->Delete();
-
 		}
-
-
 	}
-	//cout << "X"<<posicionX << endl;
-	//cout << "Y" << posicionY << endl;
 
+	//COMER SUPER MONEDAS
 
+	if (tileActual != nullptr && tileActual->getSuperMoneda() != nullptr) {
+		cout << "SuperMoneda = " << endl;
+		SDL_Rect* eatingHole = new SDL_Rect({
+			posicionX ,
+			posicionY ,
+			ancho,
+			alto,
+			});
+		if (CheckForCollision(eatingHole, tileSiguiente->getSuperMoneda()->getColisionador())) {
 
+			tileSiguiente->getSuperMoneda()->Delete();
+		}
+	}
+
+	//COMER FANTASMA
+
+	if (tileActual != nullptr && tileActual->getFantasma() != nullptr) {
+		SDL_Rect* eatingHole = new SDL_Rect({
+			posicionX ,
+			posicionY ,
+			ancho,
+			alto,
+			});
+		if (CheckForCollision(eatingHole, tileActual->getFantasma()->getColisionador())) {
+			tileSiguiente->getFantasma()->Delete();
+		}
+	}
 
 	// Animacion de pacman
 

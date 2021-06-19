@@ -26,6 +26,7 @@ protected:
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
+	Tile* tileAtras;
 
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
@@ -80,7 +81,7 @@ public:
 	void render() override;
 
 	// Marque el objeto a eliminar
-	//void Delete() override;
+	void Delete() override;
 
 	// Devuelve la ficha de pacman
 	//Tile* GetTile();
