@@ -22,6 +22,7 @@ FantasmaGalactico::FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTex
 		posicionX = 0;
 		posicionY = 0;
 	}
+	tipoFantasma = FANTASMA_GALACTICO;
 };
 
 void FantasmaGalactico::setTile(Tile* _tileNuevo) {
@@ -109,4 +110,9 @@ void FantasmaGalactico::update()
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 	}
+}
+
+Fantasma* FantasmaGalactico::clone()
+{
+	return new FantasmaGalactico(*this);
 }

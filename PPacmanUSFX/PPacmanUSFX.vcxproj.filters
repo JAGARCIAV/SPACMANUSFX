@@ -141,6 +141,9 @@
     <ClCompile Include="SuperMoneda.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="FantasmasFactory.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pacman.h">
@@ -273,6 +276,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="SuperMoneda.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="FantasmasFactory.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

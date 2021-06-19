@@ -18,11 +18,18 @@
 
 using namespace std;
 
+enum GameFantasmaType {
+	FANTASMA_CLASICO,
+	FANTASMA_GALACTICO,
+	FANTASMA_ASESINO
+};
+
 class Fantasma : 
 	public GameObject
 {
 protected:
 	//PROPIEDADES
+	GameFantasmaType tipoFantasma;
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
@@ -48,7 +55,10 @@ protected:
 	bool tratarDeMover(MoveDirection _direccionNueva);
 
 	vector<Tile*> camino;
+public:
+	virtual Fantasma* clone() = 0;
 
+	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _velocidad);
@@ -63,6 +73,8 @@ public:
 	int getVelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
+
+	void reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad);
 
 	void setVelocidadPatron(int _velocidad) { velocidad = _velocidad; }
 	void setTile(Tile* _tileNuevo);

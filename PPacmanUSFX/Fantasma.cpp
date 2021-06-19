@@ -60,6 +60,36 @@ Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _
 	posicionYEnTextura = 0;
 }
 
+void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad)
+{
+
+
+	tileActual = _tile;
+	tileSiguiente = nullptr;
+
+	if (tileActual != nullptr) {
+		tileActual->setFantasma(this);
+		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
+
+		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+	}
+	else {
+		posicionX = 0;
+		posicionY = 0;
+	}
+
+	collider->w = ancho;
+	collider->h = alto;
+
+	direccionActual = MOVE_RIGHT;
+	direccionSiguiente = MOVE_RIGHT;
+
+	// Inicializa propiedade de de pacman
+
+	velocidad = _velocidad;
+}
+
 void Fantasma::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
 		tileActual->setFantasma(nullptr);

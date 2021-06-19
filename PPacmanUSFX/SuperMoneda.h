@@ -4,13 +4,11 @@
 #include "Texture.h"
 #include "TileGraph.h"
 
-//enum PODER_SUPERMONEDA {
-//    PODER_MONEDA_NINGUNO,
-//    PODER_MONEDA_CRECIMIENTO,
-//    PODER_MONEDA_COMER,
-//    PODER_MONEDA_VELOCIDAD,
-//    PODER_MONEDA_SALTO
-//};
+enum  PODER_SUPERMONEDA {
+    PODER_DE_COMER_FANTASMA,
+    PODER_DE_VELOCIDAD
+
+};
 
 
 class SuperMoneda :
@@ -18,7 +16,7 @@ class SuperMoneda :
 {
 private:
     int valor;
-   // PODER_SUPERMONEDA tipoPoderMoneda;
+   PODER_SUPERMONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
     Tile* tileActual;
     int Score;
@@ -40,7 +38,7 @@ public:
 
 
     int getValor() { return valor; }
-  //  PODER_SUPERMONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
+    PODER_SUPERMONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
     Tile* getTile() { return tileActual; }
     int getScore() { return Score; }
@@ -48,7 +46,7 @@ public:
 
 
     void setValor(int _valor) { valor = _valor; }
-   // void setTipoPoderMoneda(PODER_SUPERMONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
+    void setTipoPoderMoneda(PODER_SUPERMONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
     void setTile(Tile* _tileNuevo);
     void setScore(int _Score) { Score = _Score; }

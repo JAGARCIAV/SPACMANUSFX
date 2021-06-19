@@ -27,6 +27,7 @@
     <ClCompile Include="FantasmaAsesino.cpp" />
     <ClCompile Include="FantasmaClasico.cpp" />
     <ClCompile Include="FantasmaGalactico.cpp" />
+    <ClCompile Include="FantasmasFactory.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
@@ -71,6 +72,7 @@
     <ClInclude Include="FantasmaAsesino.h" />
     <ClInclude Include="FantasmaClasico.h" />
     <ClInclude Include="FantasmaGalactico.h" />
+    <ClInclude Include="FantasmasFactory.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />

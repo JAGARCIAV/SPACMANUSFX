@@ -241,7 +241,7 @@ void Pacman::update()
 			alto,
 			});
 		if (CheckForCollision(eatingHole, tileActual->getFantasma()->getColisionador())) {
-			tileSiguiente->getFantasma()->Delete();
+			tileActual->getFantasma()->Delete();
 		}
 	}
 

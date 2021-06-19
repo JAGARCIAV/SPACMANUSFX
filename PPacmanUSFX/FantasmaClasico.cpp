@@ -21,6 +21,7 @@ FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, 
 		posicionX = 0;
 		posicionY = 0;
 	}
+	tipoFantasma = FANTASMA_CLASICO;
 };
 
 void FantasmaClasico::setTile(Tile* _tileNuevo) {
@@ -37,3 +38,7 @@ void FantasmaClasico::setTile(Tile* _tileNuevo) {
 	}
 };
 
+Fantasma* FantasmaClasico::clone()
+{
+	return new FantasmaClasico(*this);
+}

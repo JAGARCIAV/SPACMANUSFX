@@ -20,6 +20,7 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
+#include "FantasmasFactory.h"
 
 #include "GaFabricaGamePanel.h"
 

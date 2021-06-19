@@ -22,6 +22,8 @@ FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaGalacticoTextura
 		posicionX = 0;
 		posicionY = 0;
 	}
+	tipoFantasma = FANTASMA_ASESINO;
+
 };
 
 void FantasmaAsesino::setTile(Tile* _tileNuevo) {
@@ -109,4 +111,9 @@ void FantasmaAsesino::update()
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 	}
+}
+
+Fantasma* FantasmaAsesino::clone()
+{
+	return new FantasmaAsesino(*this);
 }

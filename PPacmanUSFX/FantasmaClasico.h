@@ -18,7 +18,8 @@ public:
     void setTile(Tile* _tileNuevo);
     void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
 
-    
+    Fantasma* clone();
+
 
 };
 

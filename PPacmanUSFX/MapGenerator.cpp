@@ -31,8 +31,13 @@ bool MapGenerator::load(string path)
 		// Divide la linea leida y la guarda en un vector de caracteres
 		vector<char> chars(line.begin(), line.end());
 
+		FantasmasFactory::initialize();
+
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* objetoNuevo = nullptr;
+			Fantasma* objetoFantasmaClonado = nullptr;
+
+
 			Tile* tileNuevo = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
@@ -55,20 +60,32 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'J':
-				objetoNuevo = factory->createFantasma1Instance(tileNuevo, textureManager, x * 25, y * 25, 1);
-				objetoNuevo->setParametrosAnimacion(4);
+				//objetoNuevo = factory->createFantasma1Instance(tileNuevo, textureManager, x * 25, y * 25, 1);
+				//objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 1);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'H':
-				objetoNuevo = factory->createFantasma2Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
-				objetoNuevo->setParametrosAnimacion(4);
+				//objetoNuevo = factory->createFantasma2Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
+				//objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo = FantasmasFactory::getTipoClasicoClyde();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 2);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'I':
-				objetoNuevo = factory->createFantasma3Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
-				objetoNuevo->setParametrosAnimacion(4);
+				//objetoNuevo = factory->createFantasma3Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
+				//objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo = FantasmasFactory::getTipoClasicoInkey();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 3);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'G':
-				objetoNuevo = factory->createFantasma4Instance(tileNuevo, textureManager, x * 25, y * 25, 3);
-				objetoNuevo->setParametrosAnimacion(4);
+				//objetoNuevo = factory->createFantasma4Instance(tileNuevo, textureManager, x * 25, y * 25, 3);
+				//objetoNuevo->setParametrosAnimacion(4);
+				objetoNuevo = FantasmasFactory::getTipoClasicoPinky();
+				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 4);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'C':
 				objetoNuevo = factory->createSuperMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
