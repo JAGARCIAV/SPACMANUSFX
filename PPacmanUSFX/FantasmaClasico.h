@@ -11,7 +11,7 @@ protected:
 
 public:
 
-    FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, int _posicionX, int _posicionY, int _velocidadPatron);
+    FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura);
     /*Tile* getTile() { return tileActual; }
     Tile* getTileSiguiente() { return tileSiguiente; }*/
     //void setTile(Tile* _tileNuevo);
@@ -19,7 +19,7 @@ public:
     void update() { Fantasma::update(); }
 
     
-    Fantasma* clone();
+    //Fantasma* clone();
 
 };
 

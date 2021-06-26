@@ -54,8 +54,8 @@ public:
 	static bool avoidInPathFinder(Tile* _tile);
 	bool hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint);
 
-	void update();
-	void render();
+	void update()override;
+	void render()override;
 	void deleteGameObject() override;
 	void handleEvent(SDL_Event* event) {};
 

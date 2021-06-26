@@ -8,7 +8,7 @@ private:
 	int aumentarVelocidad;
 
 public:
-	FrutaClasico(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY);
+	FrutaClasico(Tile* _tile, Texture* _frutaTexture);
 	int getAumentarPuntosVida() { return aumentarPuntosVida; }
 	int getAumentarVelocidad() { return aumentarVelocidad; }
 

@@ -26,7 +26,7 @@ public:
 	//METODOS 
 
 	//Constructores y destructores
-	PacmanGalactico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad);
+	PacmanGalactico(Tile* _tile, Texture* _texturaPacmanClasico);
 	~PacmanGalactico();
 
 	static const int Width = 25;

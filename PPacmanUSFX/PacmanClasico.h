@@ -30,7 +30,7 @@ public:
 	//METODOS 
 
 	//Constructores y destructores
-	PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad);
+	PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico);
 	~PacmanClasico();
 
 	static const int Width = 25;

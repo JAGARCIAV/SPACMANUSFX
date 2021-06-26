@@ -19,10 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Decorator.cpp" />
-    <ClCompile Include="DecoratorFantasma.cpp" />
+    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="FactoryPacmanClasico.cpp" />
+    <ClCompile Include="FactoryPacmanGalactico.cpp" />
     <ClCompile Include="Fantasma.cpp" />
+    <ClCompile Include="FantasmaClasico.cpp" />
+    <ClCompile Include="FantasmaGalactico.cpp" />
     <ClCompile Include="Fruta.cpp" />
+    <ClCompile Include="FrutaClasico.cpp" />
+    <ClCompile Include="FrutaGalactico.cpp" />
     <ClCompile Include="GameActor.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -30,8 +35,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
+    <ClCompile Include="MonedaClasico.cpp" />
+    <ClCompile Include="MonedaGalactico.cpp" />
     <ClCompile Include="Pacman.cpp" />
+    <ClCompile Include="PacmanClasico.cpp" />
+    <ClCompile Include="PacmanGalactico.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="ParedClasico.cpp" />
+    <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="SuperMoneda.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -41,10 +52,15 @@
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Decorator.h" />
-    <ClInclude Include="DecoratorFantasma.h" />
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="FactoryPacmanClasico.h" />
+    <ClInclude Include="FactoryPacmanGalactico.h" />
     <ClInclude Include="Fantasma.h" />
+    <ClInclude Include="FantasmaClasico.h" />
+    <ClInclude Include="FantasmaGalactico.h" />
     <ClInclude Include="Fruta.h" />
+    <ClInclude Include="FrutaClasico.h" />
+    <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="GameActor.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
@@ -52,9 +68,15 @@
     <ClInclude Include="GamePawn.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
+    <ClInclude Include="MonedaClasico.h" />
+    <ClInclude Include="MonedaGalactico.h" />
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="Pacman.h" />
+    <ClInclude Include="PacmanClasico.h" />
+    <ClInclude Include="PacmanGalactico.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="ParedClasico.h" />
+    <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="SuperMoneda.h" />
@@ -63,6 +85,7 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
+    <ClInclude Include="TipoTexturaPared.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Clyde.bmp" />
