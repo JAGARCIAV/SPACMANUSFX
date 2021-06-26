@@ -9,7 +9,6 @@ Tile::Tile() {
 	fantasma = nullptr;
 	fruta = nullptr;
 	moneda = nullptr;
-	superMoneda = nullptr;
 	pared = nullptr;
 }
 
@@ -21,7 +20,6 @@ Tile::Tile(int _x, int _y) {
 	fantasma = nullptr;
 	fruta = nullptr;
 	moneda = nullptr;
-	superMoneda = nullptr;
 	pared = nullptr;
 }
 

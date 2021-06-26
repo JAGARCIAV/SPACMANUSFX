@@ -12,15 +12,14 @@
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"
-#include "SuperMoneda.h"
-
 #include "Texture.h"
 #include "MapGenerator.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
-#include "FactoryPacmanClasico.h"
-#include "FactoryPacmanGalactico.h"
-#include "FactoryPacmanAsesino.h"
+//#include "FactoryPacmanClasico.h"
+//#include "FactoryPacmanGalactico.h"
+#include "GameActor.h"
+
 using namespace std;
 
 
@@ -43,7 +42,7 @@ private:
     list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
-    Factory* tipoFabrica;
+    //Factory* tipoFabrica;
 
     GameManager();
     static GameManager* instancia;

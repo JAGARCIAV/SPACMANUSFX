@@ -1,12 +1,12 @@
-#include "Moneda.h"
+#include "Fruta.h"
 
-Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) :
-	GameObject(_monedaTextura, _posicionX, _posicionY)
+Fruta::Fruta(Tile* _tile, Texture* _textura) :
+	GameActor(_textura)
 {
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(this);
+		tileActual->setFruta(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -18,62 +18,42 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 		posicionX = 0;
 		posicionY = 0;
 	}
-	//collider ancho
-	collider->w = ancho;
-	//collider alto
-	collider->h = alto;
 
-	//collider posicionX
-	collider->x = posicionX;
+	colisionador->w = ancho;
+	colisionador->h = alto;
 
-	//collider posicionY
-	collider->y = posicionY;
+	colisionador->x = posicionX;
+	colisionador->y = posicionY;
+
 
 	// Inicializa propiedade de de pacman
 	valor = 1;
-	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
+	//tipoPoderMoneda = PODER_MONEDA_NINGUNO;
 	tiempoPoderMoneda = 0;
-	Score = 0;
 }
 
-void Moneda::ContadorScore() {
-	if (Score < 200) {
-		Score++;
-	}
-}
-
-
-
-//DESTRUCTOR y deja un espacio libre 
-Moneda::~Moneda()
-{
-	free();
-}
-
-void Moneda::setTile(Tile* _tileNuevo) {
+void Fruta::setTileActual(Tile* _tileNuevo) {
+	
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(nullptr);
+		tileActual->setFruta(nullptr);
 	}
 
 	tileActual = _tileNuevo;
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(this);
+		tileActual->setFruta(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		collider->x = posicionX;
-		collider->y = posicionY;
+ 	}
+	else {
+		posicionX = 0;
+		posicionY = 0;
 	}
 }
 
-
-//colisiones
-void Moneda::Delete()
+void Fruta::deleteGameObject()
 {
-	// Llamar a la función base
-	GameObject::Delete();
-
-	tileActual->setMoneda(nullptr);
+	GameObject::deleteGameObject();
+	tileActual->setFruta(nullptr);
 }

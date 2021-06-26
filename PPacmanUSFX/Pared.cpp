@@ -1,10 +1,10 @@
 #include "Pared.h"
 
-Pared::Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY) :
-	GameObject(_paredTextura, _posicionX, _posicionY) {
-
+Pared::Pared(Tile* _tile, Texture* _textura) :
+	GameActor(_textura) {
+	//tipoTexturaPared = TEXTURA_UNO;
+	//setTexture(tipoTexturaPared);
 	tileActual = _tile;
-
 	if (tileActual != nullptr) {
 		tileActual->setPared(this);
 
@@ -20,7 +20,7 @@ Pared::Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY
 	}
 };
 
-void Pared::setTile(Tile* _tileNuevo) {
+void Pared::setTileActual(Tile* _tileNuevo) {
 	if (tileActual != nullptr)
 		tileActual->setPared(nullptr);
 
@@ -32,8 +32,15 @@ void Pared::setTile(Tile* _tileNuevo) {
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
+	else {
+		posicionX = 0;
+		posicionY = 0;
+	}
+
 };
 
-
-
-
+void Pared::deleteGameObject()
+{
+	GameObject::deleteGameObject();
+	tileActual->setPared(nullptr);
+}

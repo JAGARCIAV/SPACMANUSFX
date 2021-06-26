@@ -1,27 +1,16 @@
-#include "Fruta.h"
-#include <iostream>
+#include "Moneda.h"
 
-using namespace std;
-
-
-Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY) :
-	GameObject(_frutaTextura, _posicionX, _posicionY)
+Moneda::Moneda(Tile* _tile, Texture* _textura) :
+	GameActor(_textura)
 {
-	visible = false;
-
-	tiempoVisible = 20;
-	tiempoNoVisible = 10;
-	contadorTiempoVisible = 0;
-	contadorTiempoNoVisible = 0;
-	int numeroFrutaVisible = 0;
-
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setFruta(this);
+		tileActual->setMoneda(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
 		ancho = Tile::anchoTile;
 		alto = Tile::altoTile;
 	}
@@ -29,102 +18,42 @@ Fruta::Fruta(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY
 		posicionX = 0;
 		posicionY = 0;
 	}
-	//colisionador ancho
-	collider->w = ancho;
-	//colisionador alto
-	collider->h = alto;
 
-	//colisionador posicionX
-	collider->x = posicionX;
+	colisionador->w = ancho;
+	colisionador->h = alto;
 
-	//colisionador posicionY
-	collider->y = posicionY;
-
+	colisionador->x = posicionX;
+	colisionador->y = posicionY;
 
 
 	// Inicializa propiedade de de pacman
-	//valor = 1;
-	//tipoPoderMoneda = PODER_MONEDA_NINGUNO;
-	//tiempoPoderMoneda = 0;
+	valor = 1;
+	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
+	tiempoPoderMoneda = 0;
 }
 
-void Fruta::mostrar()
-{
-	if (contadorTiempoVisible >= tiempoVisible) {
-		visible = false;
-		if (contadorTiempoNoVisible >= tiempoNoVisible) {
-			//posicionX = 1 + rand() % anchoPantalla;
-			//posicionY = 1 + rand() % altoPantalla;
-			contadorTiempoVisible = 0;
-			contadorTiempoNoVisible = 0;
-			visible = true;
-			//numeroFrutaVisible = rand() % frutasTextures.size();
-			//numeroFrutaVisible = rand() % 4;
-		}
-		else {
-			contadorTiempoNoVisible++;
-			contadorTiempoNoVisible = contadorTiempoNoVisible + 1;
-		}
-	}
-	else {
-		contadorTiempoVisible++;
-	}
+void Moneda::setTileActual(Tile* _tileNuevo) {
 
-}
-
-//DESTRUCTOR y deja un espacio libre 
-Fruta::~Fruta()
-{
-	free();
-}
-
-void Fruta::setTile(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
-		tileActual->setFruta(nullptr);
+		tileActual->setMoneda(nullptr);
 	}
 
 	tileActual = _tileNuevo;
 
 	if (tileActual != nullptr) {
-		tileActual->setFruta(this);
+		tileActual->setMoneda(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		collider->x = posicionX;
-		collider->y = posicionY;
 	}
-
+	else {
+		posicionX = 0;
+		posicionY = 0;
+	}
 }
 
-//void Fruta::update()
-//{
-//	if (contadorTiempoVisible >= tiempoVisible) {
-//		visible = false;
-//		if (contadorTiempoInvisible >= tiempoInvisible) {
-//			posicionX = 1 + rand() % 800;
-//			posicionY = 1 + rand() % 600;
-//			contadorTiempoVisible = 0;
-//			contadorTiempoInvisible = 0;
-//			visible = true;
-//			//numeroFrutaVisible = rand() % frutasTextures.size();
-//			numeroFrutaVisible = rand() % 4;
-//		}
-//		else {
-//			contadorTiempoInvisible++;
-//		}
-//	}
-//	else {
-//		contadorTiempoVisible++;
-//	}
-//}
-
-
-//colisiones
-void Fruta::Delete()
+void Moneda::deleteGameObject()
 {
-	// Llamar a la función base
-	GameObject::Delete();
-
-	tileActual->setFruta(nullptr);
+	GameObject::deleteGameObject();
+	tileActual->setMoneda(nullptr);
 }

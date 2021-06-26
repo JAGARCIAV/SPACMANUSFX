@@ -35,7 +35,7 @@ std::vector<Tile*> PathFinder::CalculateRoute(Tile* start, Tile* goal)
 		for (auto next : pTileGraph->get4Vecinos(current)) {
 			float new_cost = cost_so_far[current] + 1;
 
-			if (next != NULL && (!cost_so_far.count(next) || new_cost < cost_so_far[next]))
+			if (next != nullptr && (!cost_so_far.count(next) || new_cost < cost_so_far[next]))
 			{
 				// If there's a wall in the tile, set cost of movement to INFINITY
 				// TODO: We shouldn't include those tiles at all!

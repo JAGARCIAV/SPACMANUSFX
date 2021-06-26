@@ -9,10 +9,10 @@ class Image
 {
   public:
     virtual void draw() = 0;
-    static Image *findAndClone(imageType);
+    static Image* findAndClone(imageType);
   protected:
     virtual imageType returnType() = 0;
-    virtual Image *clone() = 0;
+    virtual Image* clone() = 0;
     // As each subclass of Image is declared, it registers its prototype
     static void addPrototype(Image *image)
     {
@@ -20,21 +20,21 @@ class Image
     }
   private:
     // addPrototype() saves each registered prototype here
-    static Image *_prototypes[10];
+    static Image* _prototypes[10];
     static int _nextSlot;
 };
 
-Image *Image::_prototypes[];
+Image* Image::_prototypes[];
 int Image::_nextSlot;
 
 // Client calls this public static member function when it needs an instance
 // of an Image subclass
-Image *Image::findAndClone(imageType type)
+Image* Image::findAndClone(imageType type)
 {
   for (int i = 0; i < _nextSlot; i++)
     if (_prototypes[i]->returnType() == type)
       return _prototypes[i]->clone();
-  return NULL;
+  return nullptr;
 }
 
 class LandSatImage: public Image

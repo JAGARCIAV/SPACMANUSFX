@@ -10,8 +10,8 @@ class TimeImp {
         min_ = min;
     }
     virtual void tell() {
-		cout << setw(2) << setfill('0') << hr_ << ":";
-		cout << setw(2) << setfill('0') << min_ << ":";
+		cout << setw(2) << /*setfill('0') <<*/ hr_ << ":";
+        cout << setw(2) << /*setfill('0') << */ min_ << endl;
 		//cout << setw(2) << setfill('0') << seconds << endl;
     }
   protected:
@@ -46,7 +46,7 @@ class ZuluTimeImp: public TimeImp {
 
     /* virtual */
     void tell() {
-        cout << "time is " << setw(2) << setfill(48) << hr_ << min_ << zone_ <<
+        cout << "time is " << setw(2) << /*setfill(48) <<*/ hr_ << min_ << zone_ <<
           endl;
     }
   protected:

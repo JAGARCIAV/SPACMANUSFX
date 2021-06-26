@@ -1,9 +1,8 @@
 #include "FantasmaAsesino.h"
 
-
-FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaGalacticoTextura, int _posicionX, int _posicionY, int _velocidad) :
-
-	Fantasma(_tile, _fantasmaGalacticoTextura, _posicionX, _posicionY, _velocidad)
+FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _velocidad) :
+	
+	Fantasma(_tile, _fantasmaAsesinoTextura, _posicionX, _posicionY,  _velocidad)
 
 
 {
@@ -22,8 +21,6 @@ FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaGalacticoTextura
 		posicionX = 0;
 		posicionY = 0;
 	}
-	tipoFantasma = FANTASMA_ASESINO;
-
 };
 
 void FantasmaAsesino::setTile(Tile* _tileNuevo) {
@@ -50,7 +47,7 @@ void FantasmaAsesino::update()
 		if (tileActual == tileSiguiente) {
 			// cnsigue el camino para seguir a pacman
 			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+			astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
 			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
 			if (camino.size() > 1) {
@@ -69,15 +66,15 @@ void FantasmaAsesino::update()
 			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
 				direccionActual = MOVE_DOWN;
 
-
+			
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->getColisionador())) {
-					tile->getPacman()->Delete();
+				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
+					tile->getPacman()->deleteGameObject();
 				}
 			}
 
-
+			
 		}
 
 		// Dependiendo a la direccion de movimiento, mueve el NPC cordinadamente
@@ -98,8 +95,8 @@ void FantasmaAsesino::update()
 		}
 
 		// Actualizar la colision
-		collider->x = posicionX;
-		collider->y = posicionY;
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
 		/*setTile(tileSiguiente);*/
 
 
@@ -111,9 +108,4 @@ void FantasmaAsesino::update()
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
 	}
-}
-
-Fantasma* FantasmaAsesino::clone()
-{
-	return new FantasmaAsesino(*this);
 }

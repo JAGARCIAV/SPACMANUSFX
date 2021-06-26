@@ -1,0 +1,1 @@
+#include "DecoratorFantasma.h"

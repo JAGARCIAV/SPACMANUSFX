@@ -3,67 +3,9 @@
 
 using namespace std;
 
-Fantasma::Fantasma(Tile* _tile, Texture* _texturaFantasma, int _posicionX, int _posicionY, int _velocidad) :
-	GameObject(_texturaFantasma, _posicionX, _posicionY)
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture) :
+	GameActor(_fantasmaTexture)
 {
-	_texturaFantasma = new Texture();
-	//texture->setTexture(_texturaPacman);
-	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
-
-
-
-	tileActual = _tile;
-	tileSiguiente = nullptr;
-
-	if (tileActual != nullptr) {
-		tileActual->setFantasma(this);
-
-		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
-
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
-	}
-	else {
-		posicionX = 0;
-		posicionY = 0;
-	}
-	//collider ancho y alto 
-	collider->w = Width;
-	collider->h = Height;
-
-
-
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
-
-
-
-
-	// Inicializa propiedade de de pacman
-	posicionXDestino = getPosicionX();
-	posicionYDestino = getPosicionY();
-
-
-	velocidad = _velocidad;
-	posicionXEnTextura = 0;
-	posicionYEnTextura = 0;
-}
-
-void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad)
-{
-
-
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -79,18 +21,59 @@ void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _ve
 		posicionY = 0;
 	}
 
-	collider->w = ancho;
-	collider->h = alto;
+	colisionador->w = ancho;
+	colisionador->h = alto;
 
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
+	direccionActual = MOVE_STILL;
+	direccionSiguiente = MOVE_STILL;
 
 	// Inicializa propiedade de de pacman
 
-	velocidad = _velocidad;
+	velocidad = 5;
 }
 
-void Fantasma::setTile(Tile* _tileNuevo) {
+//void Fantasma::reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad) 
+//{
+//	/*framesAnimacion = new TextureAnimation();
+//	framesAnimacion->setTexture(_fantasmaTexture);
+//	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+//	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));*/
+//
+//	tileActual = _tile;
+//	tileSiguiente = nullptr;
+//
+//	if (tileActual != nullptr) {
+//		tileActual->setFantasma(this);
+//		tileSiguiente = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY());
+//
+//		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+//		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+//	}
+//	else {
+//		posicionX = 0;
+//		posicionY = 0;
+//	}
+//
+//	colisionador->w = ancho;
+//	colisionador->h = alto;
+//
+//	direccionActual = MOVE_RIGHT;
+//	direccionSiguiente = MOVE_RIGHT;
+//
+//	// Inicializa propiedade de de pacman
+//
+//	velocidad = _velocidad;
+//}
+
+
+
+void Fantasma::setTileActual(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
 		tileActual->setFantasma(nullptr);
 	}
@@ -106,39 +89,38 @@ void Fantasma::setTile(Tile* _tileNuevo) {
 
 }
 
-bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
-	Tile* tileDestino = nullptr;
-
-	switch (_direccionNueva) {
-	case MOVE_UP:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
-		break;
-	case MOVE_DOWN:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
-		break;
-	case MOVE_LEFT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
-		break;
-	case MOVE_RIGHT:
-		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
-		break;
-	}
-
-	if (tileDestino == nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	if (tileDestino->getPared() != nullptr) {
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	setTileSiguiente(tileDestino);
-
-	return true;
-}
-
+//bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
+//	Tile* tileDestino = nullptr;
+//
+//	switch (_direccionNueva) {
+//	case MOVE_UP:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
+//		break;
+//	case MOVE_DOWN:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
+//		break;
+//	case MOVE_LEFT:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
+//		break;
+//	case MOVE_RIGHT:
+//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
+//		break;
+//	}
+//
+//	if (tileDestino == nullptr) {
+//		setTileSiguiente(nullptr);
+//		return false;
+//	}
+//
+//	if (tileDestino->getPared() != nullptr) {
+//		setTileSiguiente(nullptr);
+//		return false;
+//	}
+//
+//	setTileSiguiente(tileDestino);
+//
+//	return true;
+//}
 
 void Fantasma::update()
 {
@@ -146,48 +128,40 @@ void Fantasma::update()
 
 	if (pacman != nullptr) {
 
-		// The NPC will calculate a new camino every time it has entered a new tile
-		// In this way, it will dynamically follow Pacman
-		if (tileActual == tileSiguiente) {
-			// Get a camino to Pacman using A* algorithm
-			if (tileGraph->getPacman() != nullptr) {
-				PathFinder astar(tileGraph);
-				astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
-				camino = astar.CalculateRoute(tileActual, pacman->getTile());
+		// en este punto seguira a pacman
+		if (tileActual == tileSiguiente ) {
+			// cnsigue el camino para seguir a pacman
+			PathFinder astar(tileGraph);
+			astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
+			camino = astar.CalculateRoute(tileActual, pacman->getTileActual());
 
-				if (camino.size() > 1) {
-					tileSiguiente = camino[1];
+			if (camino.size() > 1) {
+				tileSiguiente = camino[1];
+			}
+			// Lo que se desea despues es ver el NPC deberia ir
+			if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_RIGHT;
 
-					// All we really want to do after this is check the direction the NPC should go
-					if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
-						direccionActual = MOVE_RIGHT;
+			else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_LEFT;
 
-					else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
-						direccionActual = MOVE_LEFT;
+			else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_UP;
 
-					else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
-						direccionActual = MOVE_UP;
+			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_DOWN;
 
-					else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
-						direccionActual = MOVE_DOWN;
-
-					// Check if Fantasma collides with Pacman, if so delete Pacman
-					// TODO: There should be a Kill() method within Pacman, which will play death animation
-					//if (CheckForCollision(pacman->getColisionador())) {
-					//	pacman->RestarVida();
-					//	cout << "VIDA = " << pacman->getVida() << endl;
-
-					//	if (pacman->getVida() <= 0) {
-					//		tileActual->setPacman(nullptr);
-					//		pacman->Delete();
-					//	}
-					//}
+			// Revisa si fantasma colisiono con pacman, por tanto pacman es eliminado
+			if (revisarColision(pacman->getColisionador())) {
+				pacman->restarEnergia();
+				if (pacman->getEnergia() <= 0) {
+					tileActual->setPacman(nullptr);
+					pacman->deleteGameObject();
 				}
 			}
 		}
 
-
-		// Depending of the direction of movement, move the NPC accordingly
+		// Dependiendo a la direccion de movimiento, mueve el NPC cordinadamente
 		switch (direccionActual)
 		{
 		case MOVE_UP:
@@ -204,19 +178,20 @@ void Fantasma::update()
 			break;
 		}
 
-		// Update the collider
-		collider->x = posicionX;
-		collider->y = posicionY;
+		// Actualizar la colision
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
+		/*setTile(tileSiguiente);*/
 
-		// Check if the NPC has moved to the next tile, if so, change his current tile
+		// Revisa si el NPC se movio al siguiente tile, si es asi cambia su direccion
 		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
-			setTile(tileSiguiente);
+			setTileActual(tileSiguiente);
 
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
-			setTile(tileSiguiente);
-
+			setTileActual(tileSiguiente);
 	}
 }
+
 
 void Fantasma::render()
 {
@@ -224,35 +199,46 @@ void Fantasma::render()
 
 	switch (direccionActual) {
 	case MOVE_UP:
-		cuadroAnimacion = textura->getCuadrosAnimacion("arriba")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
 	case MOVE_DOWN:
-		cuadroAnimacion = textura->getCuadrosAnimacion("abajo")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
 	case MOVE_LEFT:
-		cuadroAnimacion = textura->getCuadrosAnimacion("izquierda")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
 	case MOVE_RIGHT:
-		cuadroAnimacion = textura->getCuadrosAnimacion("derecha")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
+
 	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
 
-
-bool Fantasma::AvoidInPathFinder(Tile* _tile)
+bool Fantasma::hasPositionChanged(SDL_Point firstPos, SDL_Point secondPoint)
 {
-	if (_tile->getPared() != nullptr)
+	if (firstPos.x != secondPoint.x || firstPos.y != secondPoint.y) {
 		return true;
+	}
+
 	return false;
 }
 
-//colisiones
-void Fantasma::Delete()
+bool Fantasma::avoidInPathFinder(Tile* _tile)
 {
-	// Llamar a la función base
-	GameObject::Delete();
+	if (_tile->getPared() != nullptr) {
 
+		return true;
+	}
+
+	return false;
+}
+
+void Fantasma::deleteGameObject()
+{
+	// Calling the base function
+	GameObject::deleteGameObject();
 	tileActual->setFantasma(nullptr);
 }
+

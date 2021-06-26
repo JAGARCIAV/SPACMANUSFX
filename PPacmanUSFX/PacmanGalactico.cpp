@@ -12,16 +12,16 @@
 PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, int _posicionX, int _posicionY, int _velocidad) :
 	Pacman(_tile, _texturaPacmanGalactico, _posicionX, _posicionY, _velocidad)
 {
-	//texturaAnimacion = new TextureAnimation();
-	//texturaAnimacion->setTexture(_texturaPacmanGalactico);
-	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	textura->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	textura->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	textura->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	textura->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+	texturaAnimacion = new TextureAnimation();
+	texturaAnimacion->setTexture(_texturaPacmanGalactico);
+	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 
 
 	tileActual = _tile;

@@ -40,7 +40,14 @@ public:
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
 
-	//vida del pacman
-	
+	////vida del pacman
+	//// Manejador de eventos de pacman
+	//void handleEvent(SDL_Event* event) {};
+	//// Mover pacman
+	//void update() {};
+	//// Renderizar imagen pacman
+	//void render() {};
+	////void update();
+	//void deleteGameObject() {};
 
 };

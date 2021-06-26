@@ -29,15 +29,9 @@ public:
 
 	array<Tile*, 4> get4Vecinos(Tile* _tile);
 	array<Tile*, 8> get8Vecinos(Tile* _tile);
-	
-	//PATRON ADAPTER
+
 	array<Tile*, 4> GetNeighbours(Tile* _tile);
-
-
 	Pacman* getPacman();
-	Fantasma* getFantasma();
-	Moneda* getMoneda();
-	SuperMoneda* getSuperMoneda();
 };
 
 

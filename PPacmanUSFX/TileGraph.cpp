@@ -68,11 +68,11 @@ Tile* TileGraph::getTileEn(int _x, int _y)
 	return vectorTilesGraph[indice];
 }
 
-//PATRON ADAPTER DE WALL
 array<Tile*, 4> TileGraph::GetNeighbours(Tile* _tile)
 {
 	return get4Vecinos(_tile);
 }
+
 
 array<Tile*, 4> TileGraph::get4Vecinos(Tile* _tile)
 {
@@ -116,41 +116,14 @@ Pacman* TileGraph::getPacman()
 		}
 	}
 	
-	return nullptr;
-}
+	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
 
-Fantasma* TileGraph::getFantasma()
-{
-	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
-		if ((*ivtg)->getFantasma() != nullptr) {
-			return (*ivtg)->getFantasma();
-		}
-	}
+		Tile* tileNuevo = vectorTilesGraph[i];
 
+		if (tileNuevo->getPacman() != nullptr)
+			return tileNuevo->getPacman();
+	}*/
 
 	return nullptr;
 }
 
-Moneda* TileGraph::getMoneda()
-{
-	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
-		if ((*ivtg)->getMoneda() != nullptr) {
-			return (*ivtg)->getMoneda();
-		}
-	}
-
-
-	return nullptr;
-}
-
-SuperMoneda* TileGraph::getSuperMoneda()
-{
-	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
-		if ((*ivtg)->getSuperMoneda() != nullptr) {
-			return (*ivtg)->getSuperMoneda();
-		}
-	}
-
-
-	return nullptr;
-}

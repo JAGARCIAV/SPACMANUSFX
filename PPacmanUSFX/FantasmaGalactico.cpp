@@ -7,7 +7,6 @@ FantasmaGalactico::FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTex
 
 
 {
-
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -22,7 +21,9 @@ FantasmaGalactico::FantasmaGalactico(Tile* _tile, Texture* _fantasmaGalacticoTex
 		posicionX = 0;
 		posicionY = 0;
 	}
+
 	tipoFantasma = FANTASMA_GALACTICO;
+
 };
 
 void FantasmaGalactico::setTile(Tile* _tileNuevo) {
@@ -49,7 +50,7 @@ void FantasmaGalactico::update()
 		if (tileActual == tileSiguiente) {
 			// cnsigue el camino para seguir a pacman
 			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+			astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
 			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
 			if (camino.size() > 1) {
@@ -71,8 +72,8 @@ void FantasmaGalactico::update()
 
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && CheckForCollision(tile->getPacman()->getColisionador())) {
-					tile->getPacman()->Delete();
+				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
+					tile->getPacman()->deleteGameObject();
 				}
 			}
 
@@ -97,8 +98,8 @@ void FantasmaGalactico::update()
 		}
 
 		// Actualizar la colision
-		collider->x = posicionX;
-		collider->y = posicionY;
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
 		/*setTile(tileSiguiente);*/
 
 

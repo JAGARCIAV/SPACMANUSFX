@@ -9,6 +9,11 @@ Texture::Texture()
 	alto = 0;
 }
 
+Texture::~Texture()
+{
+	free();
+}
+
 bool Texture::loadFromImage(std::string path, Uint8 r, Uint8 g, Uint8 b)
 {
 	// Free the previous texture
@@ -52,12 +57,12 @@ bool Texture::loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color t
 	free();
 
 	// Return if the renderer was not set
-	if (renderer == NULL)
+	if (renderer == nullptr)
 		return false;
 
 	// Render the text using SDL_ttf library
 	SDL_Surface* loadedSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
-	if (loadedSurface == NULL) {
+	if (loadedSurface == nullptr) {
 		printf("Unable to render text! SDL_ttf Error: %s\n", TTF_GetError());
 		return false;
 	}
@@ -79,23 +84,23 @@ bool Texture::loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color t
 	return true;
 }
 
-void Texture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
+void Texture::render(int x, int y, SDL_Rect* clip, SDL_Rect* rect, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
 {
 	// Return if the renderer was not set
 	if (renderer == nullptr)
 		return;
-
-	SDL_Rect renderQuad = { x, y, getAncho(), getAlto() };
-
-	if (clip != NULL) {
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
+	if (rect == nullptr) {
+		SDL_Rect rect = { x, y, getAncho(), getAlto() };
+		if (clip != nullptr) {
+			rect.w = clip->w;
+			rect.h = clip->h;
+		}
+		SDL_RenderCopyEx(renderer, texture, clip, &rect, angle, center, renderFlip);
 	}
-
-	SDL_RenderCopyEx(renderer, texture, clip, &renderQuad, angle, center, renderFlip);
+	else
+		SDL_RenderCopyEx(renderer, texture, clip, rect, angle, center, renderFlip);
 }
 
-//PATRON ADAPTER WALL
 void Texture::Render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip renderFlip)
 {
 	// Return if the renderer was not set
@@ -113,6 +118,8 @@ void Texture::Render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* cent
 }
 
 
+
+
 void Texture::setColor(Uint8 red, Uint8 green, Uint8 blue)
 {
 	SDL_SetTextureColorMod(texture, red, green, blue);
@@ -128,38 +135,14 @@ void Texture::setAlpha(Uint8 alpha)
 	SDL_SetTextureAlphaMod(texture, alpha);
 }
 
-//RECORRER MAP DE TEXTURA
-Texture::~Texture() {
-	free();
-}
-
-
-
-
 void Texture::free()
 {
 	if (texture != nullptr) {
-		// Free the texture and set its pointer to NULL
+		// Free the texture and set its pointer to nullptr
 		SDL_DestroyTexture(texture);
 		texture = nullptr;
 
 		ancho = 0;
 		alto = 0;
-	}
-}
-
-
-void Texture::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
-{
-	auto emca = mapCuadrosAnimacion.find(_key);
-
-	if (emca != mapCuadrosAnimacion.end()) {
-		emca->second.push_back(_cuadroAnimacion);
-	}
-	else
-	{
-		vector<SDL_Rect*> vca;
-		vca.push_back(_cuadroAnimacion);
-		mapCuadrosAnimacion[_key] = vca;
 	}
 }

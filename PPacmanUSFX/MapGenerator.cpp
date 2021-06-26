@@ -1,8 +1,9 @@
 #include "MapGenerator.h"
 
-MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* _factory)
+//MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* _factory)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla)
 {
-	factory = _factory;
+	//factory = _factory;
 	tileGraph = _tileGraph;
 	textureManager = _textureManager;
 	anchoPantalla = _anchoPantalla;
@@ -31,67 +32,83 @@ bool MapGenerator::load(string path)
 		// Divide la linea leida y la guarda en un vector de caracteres
 		vector<char> chars(line.begin(), line.end());
 
-		FantasmasFactory::initialize();
+		//FantasmasFactory::initialize();
 
 		for (unsigned int x = 0; x < chars.size(); x++) {
 			GameObject* objetoNuevo = nullptr;
 			Fantasma* objetoFantasmaClonado = nullptr;
-
-
 			Tile* tileNuevo = tileGraph->getTileEn(x, y);
 
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
-			case 'Y':
-				objetoNuevo = factory->createFrutaInstance(tileNuevo, textureManager, x * 25, y * 25);
-				objetoNuevo->setParametrosAnimacion(4);
-				break;
 			case 'W':
-				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, x * Tile::altoTile, y * Tile::altoTile, false);
-				objetoNuevo->setParametrosAnimacion(1);
+				objetoNuevo = new Pared(tileNuevo, textureManager->getTextura("pared_clasico"));
+				
+				((GameActor*)objetoNuevo)->setFramesDireccion(1);
+
+				/*objetoNuevo = factory->createParedInstance(tileNuevo, textureManager, x * Tile::altoTile, y * Tile::altoTile, false);
+				objetoNuevo->setFramesDireccion(1);*/
 				break;
 			case '-':
-				objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
-				objetoNuevo->setParametrosAnimacion(4);
-				break;
-			case 'P':
-				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, x * 25, y * 25, 5);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
-			case 'J':
-				//objetoNuevo = factory->createFantasma1Instance(tileNuevo, textureManager, x * 25, y * 25, 1);
-				//objetoNuevo->setParametrosAnimacion(4);
-				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 1);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
-			case 'H':
-				//objetoNuevo = factory->createFantasma2Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
-				//objetoNuevo->setParametrosAnimacion(4);
-				objetoNuevo = FantasmasFactory::getTipoClasicoClyde();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 2);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
-			case 'I':
-				//objetoNuevo = factory->createFantasma3Instance(tileNuevo, textureManager, x * 25, y * 25, 2);
-				//objetoNuevo->setParametrosAnimacion(4);
-				objetoNuevo = FantasmasFactory::getTipoClasicoInkey();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 3);
-				objetoNuevo->setParametrosAnimacion(2);
-				break;
-			case 'G':
-				//objetoNuevo = factory->createFantasma4Instance(tileNuevo, textureManager, x * 25, y * 25, 3);
-				//objetoNuevo->setParametrosAnimacion(4);
-				objetoNuevo = FantasmasFactory::getTipoClasicoPinky();
-				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 4);
-				objetoNuevo->setParametrosAnimacion(2);
+				objetoNuevo = new Moneda(tileNuevo, textureManager->getTextura("moneda_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(4);
+
+				/*objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
+				objetoNuevo->setFramesDireccion(4);*/
 				break;
 			case 'C':
-				objetoNuevo = factory->createSuperMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
-				objetoNuevo->setParametrosAnimacion(9);
+				objetoNuevo = new SuperMoneda(tileNuevo, textureManager->getTextura("supermoneda_clasico"));
+				//((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("supermoneda_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(9);
+				
 				break;
+			case 'Y':
+				objetoNuevo = new Fruta(tileNuevo, textureManager->getTextura("fruta_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(4);
+				break;
+			case 'P':
+				objetoNuevo = new Pacman(tileNuevo, textureManager->getTextura("pacman_clasico"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("pacman_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(2);
 
+				/*objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, x * 25, y * 25, 5);
+				objetoNuevo->setFramesDireccion(2);*/
+				break;
+			case 'I':
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico1"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(2);
+				((GameActor*)objetoNuevo)->setVelocidad(1);
+
+				break;
+			case 'G':
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico2"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(2);
+				((GameActor*)objetoNuevo)->setVelocidad(2);
+
+				/*objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);
+				objetoNuevo->setFramesDireccion(4);*/
+				break;
+			case 'H':
+
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico3"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(2);
+				((GameActor*)objetoNuevo)->setVelocidad(3);
+				/*objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);
+				objetoNuevo->setFramesDireccion(4);*/
+
+				break;
+			case 'J':
+				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico4"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				((GameActor*)objetoNuevo)->setFramesDireccion(2);
+				((GameActor*)objetoNuevo)->setVelocidad(4);
+				/*objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 3);
+				objetoNuevo->setFramesDireccion(4);*/
+				break;
 			}
 
 			// If the object was created, add it to the vector
@@ -106,28 +123,8 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-
-	////score Tff
-	GaFabricaGamePanel::Inicializar();
-	GamePanel* object;
-
-	GameObject* objetoPanel = new GaPanelConcretoTipe1(new Texture(), 10, 540);
-	vectorObjetosJuego.push_back(objetoPanel);
-
-
-
-	//PATRON PROTOTYPE main score
-
-	//GaFabricaGamePanel::Inicializar();
-	//GamePanel* object;
-
-	/* Todo el objeto fue creado clonando los prototipos.. */
-
-	object = GaFabricaGamePanel::getObjetoTipoTexto1();
-	cout << object->getTextoTipo() << " SCORE TIPO 1" <<endl;
-
-	object = GaFabricaGamePanel::getObjetoTipoTexto2();
-	cout << object->getTextoTipo() << " SCORE TIPO 2 " << endl;
+	/*GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
+	vectorObjetosJuego.push_back(objetoPanel);*/
 
 	return true;
 }

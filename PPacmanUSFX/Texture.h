@@ -1,42 +1,28 @@
 #pragma once
-#include <vector>
+
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
-#include <map>
-
 // #include <SDL_image.h>
 
-using namespace std;
-
-class Texture //Es el que nos permite manejar las imagenes
+class Texture
 {
 private:
 	// Textura actual
 	SDL_Texture* texture;
 
-	map<string, vector<SDL_Rect*>> mapCuadrosAnimacion;
-
 	int ancho;
 	int alto;
 
 public:
-
+	// Static SDL_Renderer so we don't have to ask for it
+	// when creating the texture or when rendering
+	// TODO: Temporary solution, should be removed after implementation of Game class
 	static SDL_Renderer* renderer;
 
 	Texture();
-	//destructor
 	~Texture();
-
-	vector<SDL_Rect*> getCuadrosAnimacion(string _key) { return mapCuadrosAnimacion[_key]; }
-
-	void free();
-
-	void setCuadrosAnimacion(string _key, vector<SDL_Rect*> _vectorCuadrosAnimacion) {
-		mapCuadrosAnimacion[_key] = _vectorCuadrosAnimacion;
-	}
-	void addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion);
 
 	// Load texture from file
 	bool loadFromImage(std::string path, Uint8 r = 0, Uint8 g = 0, Uint8 b = 0);
@@ -45,9 +31,7 @@ public:
 	bool loadFromRenderedText(TTF_Font* font, std::string text, SDL_Color textColor);
 
 	// Render the texture
-	void render(int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip renderFlip = SDL_FLIP_NONE);
-	
-	//PATRON ADAPTER WALL
+	void render(int x, int y, SDL_Rect* clip = nullptr, SDL_Rect* rect = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip renderFlip = SDL_FLIP_NONE);
 	void Render(int x, int y, SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip renderFlip = SDL_FLIP_NONE);
 
 	// Set color
@@ -60,10 +44,10 @@ public:
 	void setAlpha(Uint8 alpha);
 
 	// Free assets
-	//void free();
+	void free();
 
 	int getAncho() { return ancho; }
 	int getAlto() { return alto; }
 
-
 };
+

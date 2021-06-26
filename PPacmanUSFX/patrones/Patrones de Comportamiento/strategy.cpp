@@ -14,7 +14,7 @@ class TestBed
     };
     TestBed()
     {
-        strategy_ = NULL;
+        strategy_ = nullptr;
     }
     void setStrategy(int type, int width);
     void doIt();
