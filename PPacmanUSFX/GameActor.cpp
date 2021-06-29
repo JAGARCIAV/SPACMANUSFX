@@ -16,8 +16,10 @@ GameActor::GameActor():GameObject()
 	enMovimiento = false;
 
 	velocidad = 10;
-	energia = 10;
-	vidas = 3;
+	energia = 5;
+	vidas = 15;
+	score = 1;
+
 
 	textura = nullptr;
 	framesAnimacion = nullptr;
@@ -48,8 +50,9 @@ GameActor::GameActor(Texture* _textura):GameObject()
 	enMovimiento = false;
 
 	velocidad = 10;
-	energia = 10;
-	vidas = 3;
+	energia = 5;
+	vidas = 15;
+	score = 1;
 
 	textura = _textura;
 	tileActual = nullptr;
@@ -195,7 +198,16 @@ int GameActor::restarEnergia()
 	return energia;
 }
 
-int GameActor::restarVida()
+int GameActor::contadorScore() {
+	if (score == 200) {
+		score++;
+	}
+
+	return score;
+
+}
+
+int GameActor::restarVidas()
 {
 	if (vidas > 0) {
 		vidas--;

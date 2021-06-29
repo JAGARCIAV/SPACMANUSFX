@@ -19,7 +19,7 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
-//#include "FantasmasFactory.h"
+#include "FantasmasFactory.h"
 
 //#include "GamePanel.h"
 using namespace std;

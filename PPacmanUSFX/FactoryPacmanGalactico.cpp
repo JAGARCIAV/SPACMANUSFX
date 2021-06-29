@@ -9,6 +9,7 @@ GameObject* FactoryPacmanGalactico::createFantasma1Instance(Tile* _tile, Texture
 }
 
 GameObject* FactoryPacmanGalactico::createFantasma2Instance(Tile* _tile, TextureManager* _textureManager) {
+
     return new FantasmaGalactico(_tile, _textureManager->getTextura("fantasma_galactico2"));
 }
 
@@ -31,3 +32,8 @@ GameObject* FactoryPacmanGalactico::createFrutaInstance(Tile* _tile, TextureMana
 GameObject* FactoryPacmanGalactico::createMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
     return new MonedaGalactico(_tile, _textureManager->getTextura("moneda_galactico"));
 }
+
+GameObject* FactoryPacmanGalactico::createSuperMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
+    return new SuperMonedaGalactico(_tile, _textureManager->getTextura("supermoneda_galactico"));
+}
+

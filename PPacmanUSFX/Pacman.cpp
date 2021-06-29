@@ -3,15 +3,6 @@
 
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
-	/*framesAnimacion = new AnimationFrames();
-	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));*/
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -39,6 +30,8 @@ Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 	direccionSiguiente = MOVE_STILL;
 }
 
+
+
 void Pacman::setTileActual(Tile* _tileNuevo) {
 
 
@@ -59,9 +52,14 @@ void Pacman::setTileActual(Tile* _tileNuevo) {
 
 void Pacman::update()
 {
-	// Revisar colisiones con monedas
-	// NOTE: Should this be nextTile?
+	//MONEDA
+
+	// Compruebe si hay colisión con el punto
+	Moneda* moneda = tileGraph->getMoneda();
+
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		moneda->contadorScore();
+		cout << "Moneda = " << moneda->getScore() << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,
@@ -74,8 +72,26 @@ void Pacman::update()
 		}
 	}
 
+	//COMER SUPER MONEDAS
+
+	if (tileActual != nullptr && tileActual->getSuperMoneda() != nullptr) {
+		cout << "SuperMoneda = " << endl;
+		SDL_Rect* eatingHole = new SDL_Rect({
+			posicionX ,
+			posicionY ,
+			ancho,
+			alto,
+			});
+		if (revisarColision(eatingHole, tileSiguiente->getSuperMoneda()->getColisionador())) {
+
+			tileSiguiente->getSuperMoneda()->Delete();
+		}
+	}
+
 	//fruta
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
+		cout << "Fruta = " << endl;
+
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,

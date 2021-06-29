@@ -1,12 +1,12 @@
-#include "Moneda.h"
+#include "Fruta.h"
 
-Moneda::Moneda(Tile* _tile, Texture* _textura) :
+Fruta::Fruta(Tile* _tile, Texture* _textura) :
 	GameActor(_textura)
 {
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(this);
+		tileActual->setFruta(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -28,20 +28,20 @@ Moneda::Moneda(Tile* _tile, Texture* _textura) :
 
 	// Inicializa propiedade de de pacman
 	valor = 1;
-	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
+
 	tiempoPoderMoneda = 0;
 }
 
-void Moneda::setTileActual(Tile* _tileNuevo) {
+void Fruta::setTileActual(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(nullptr);
+		tileActual->setFruta(nullptr);
 	}
 
 	tileActual = _tileNuevo;
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(this);
+		tileActual->setFruta(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -52,8 +52,8 @@ void Moneda::setTileActual(Tile* _tileNuevo) {
 	}
 }
 
-void Moneda::deleteGameObject()
+void Fruta::deleteGameObject()
 {
 	GameObject::deleteGameObject();
-	tileActual->setMoneda(nullptr);
+	tileActual->setFruta(nullptr);
 }

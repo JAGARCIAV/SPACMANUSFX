@@ -6,8 +6,5 @@ FrutaGalactico::FrutaGalactico(Tile* _tile, Texture* _frutaTextura):
 	Fruta(_tile, _frutaTextura){
 }
 
-void FrutaGalactico::update()
-{
 
-}
 

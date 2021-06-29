@@ -14,5 +14,7 @@ public:
 	virtual GameObject* createParedInstance(Tile* _tile, TextureManager* _texturaManager) = 0;
 	virtual GameObject* createFrutaInstance(Tile* _tile, TextureManager* _texturaManager) = 0;
 	virtual GameObject* createMonedaInstance(Tile* _tile, TextureManager* _texturaManager) = 0;
+	virtual GameObject* createSuperMonedaInstance(Tile* _tile, TextureManager* _texturaManager) = 0;
+
 };
 

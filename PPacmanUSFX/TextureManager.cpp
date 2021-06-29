@@ -2,9 +2,9 @@
 
 TextureManager::TextureManager()
 {
-	// Texturas
+	// Texturas //
 
-	//PACMAN CLASICO
+	//VERSION PACMAN CLASICO
 	pacmanClasicoTexture = new Texture();
 	pacmanClasicoTexture->loadFromImage(pathPacmanClasico);
 	addTextura("pacman_clasico", pacmanClasicoTexture);
@@ -32,11 +32,8 @@ TextureManager::TextureManager()
 	paredClasicoTexture = new Texture();
 	paredClasicoTexture->loadFromImage(pathParedClasico);
 	addTextura("pared_clasico", paredClasicoTexture);
-	paredClasicoAdapterTexture = new Texture();
-	paredClasicoAdapterTexture->loadFromImage(pathParedClasicoAdapter);
-	addTextura("pared_clasico_adapter", paredClasicoAdapterTexture);
 
-	//PACMAN GALACTICO
+	//VERSION PACMAN GALACTICO
 	pacmanGalacticoTexture = new Texture();
 	pacmanGalacticoTexture->loadFromImage(pathPacmanGalactico);
 	addTextura("pacman_galactico", pacmanGalacticoTexture);
@@ -64,9 +61,12 @@ TextureManager::TextureManager()
 	paredGalacticoTexture = new Texture();
 	paredGalacticoTexture->loadFromImage(pathParedGalactico);
 	addTextura("pared_galactico", paredGalacticoTexture);
+	paredGalacticoAdapterTexture = new Texture();
+	paredGalacticoAdapterTexture->loadFromImage(pathParedGalacticoAdapter);
+	addTextura("pared_galactico_adapter", paredGalacticoAdapterTexture);
 		
 
-	// Frames de animacion
+	// Frames de animacion de Pacman
 	framesAnimacionPacmanClasico = new AnimationFrames();
 	framesAnimacionPacmanClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	framesAnimacionPacmanClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
@@ -78,6 +78,8 @@ TextureManager::TextureManager()
 	framesAnimacionPacmanClasico->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 	addFramesAnimacion("pacman_clasico", framesAnimacionPacmanClasico);
 
+
+	// Frames de animacion de Fantasmas
 	framesAnimacionFantasmaClasico = new AnimationFrames();
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
@@ -88,6 +90,8 @@ TextureManager::TextureManager()
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
 	addFramesAnimacion("fantasma_clasico", framesAnimacionFantasmaClasico);
+
+
 }
 
 TextureManager::~TextureManager() {

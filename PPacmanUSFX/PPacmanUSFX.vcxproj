@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="FactoryPacmanClasico.cpp" />
     <ClCompile Include="FactoryPacmanGalactico.cpp" />
     <ClCompile Include="Fantasma.cpp" />
@@ -45,6 +44,8 @@
     <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="SuperMoneda.cpp" />
+    <ClCompile Include="SuperMonedaClasico.cpp" />
+    <ClCompile Include="SuperMonedaGalactico.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="AnimationFrames.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -80,6 +81,8 @@
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="SuperMoneda.h" />
+    <ClInclude Include="SuperMonedaClasico.h" />
+    <ClInclude Include="SuperMonedaGalactico.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="AnimationFrames.h" />
     <ClInclude Include="TextureManager.h" />

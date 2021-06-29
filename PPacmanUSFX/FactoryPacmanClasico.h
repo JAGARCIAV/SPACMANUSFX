@@ -6,6 +6,8 @@
 #include "ParedClasico.h"
 #include "ParedClasicoAdapter.h"
 #include "MonedaClasico.h"
+#include "SuperMonedaClasico.h"
+
 
 class FactoryPacmanClasico :
     public Factory
@@ -19,5 +21,7 @@ public:
     GameObject* createParedInstance(Tile* _tile, TextureManager* _textureManager) override;
     GameObject* createFrutaInstance(Tile* _tile, TextureManager* _textureManager) override;
     GameObject* createMonedaInstance(Tile* _tile, TextureManager* _textureManager) override;
+    GameObject* createSuperMonedaInstance(Tile* _tile, TextureManager* _textureManager) override;
+
 };
 

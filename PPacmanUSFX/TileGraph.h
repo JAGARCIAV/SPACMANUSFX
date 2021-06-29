@@ -32,6 +32,11 @@ public:
 
 	array<Tile*, 4> GetNeighbours(Tile* _tile);
 	Pacman* getPacman();
+	Moneda* getMoneda();
+	//SuperMoneda* getSuperMoneda();
+	//Fruta* getFruta();
+
+
 };
 
 

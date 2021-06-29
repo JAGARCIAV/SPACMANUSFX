@@ -1,51 +1,56 @@
 #include "FantasmasFactory.h"
 
-Fantasma* FantasmasFactory::tipoClasicoBlinky = nullptr;
-Fantasma* FantasmasFactory::tipoClasicoClyde = nullptr;
-Fantasma* FantasmasFactory::tipoClasicoInkey = nullptr;
-Fantasma* FantasmasFactory::tipoClasicoPinky = nullptr;
+//VERSION CLASICO
+Fantasma* FantasmasFactory::tipoFantasmaClasico1 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaClasico2 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaClasico3 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaClasico4 = nullptr;
 
-Fantasma* FantasmasFactory::tipoGalacticoBlinky = nullptr;
-Fantasma* FantasmasFactory::tipoGalacticoClyde = nullptr;
-Fantasma* FantasmasFactory::tipoGalacticoInkey = nullptr;
-Fantasma* FantasmasFactory::tipoGalacticoPinky = nullptr;
+//VERSION GALACTICO
+Fantasma* FantasmasFactory::tipoFantasmaGalactico1 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaGalactico2 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaGalactico3 = nullptr;
+Fantasma* FantasmasFactory::tipoFantasmaGalactico4 = nullptr;
 
-Fantasma* FantasmasFactory::getTipoClasicoBlinky()
+//VERSION CLASICO
+Fantasma* FantasmasFactory::getTipoFantasmaClasico1()
 {
-	return tipoClasicoBlinky->clone();
+	return tipoFantasmaClasico1->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoClasicoClyde()
+Fantasma* FantasmasFactory::getTipoFantasmaClasico2()
 {
-	return tipoClasicoClyde->clone();
+	return tipoFantasmaClasico2->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoClasicoInkey()
+Fantasma* FantasmasFactory::getTipoFantasmaClasico3()
 {
-	return tipoClasicoInkey->clone();
+	return tipoFantasmaClasico3->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoClasicoPinky()
+Fantasma* FantasmasFactory::getTipoFantasmaClasico4()
 {
-	return tipoClasicoPinky->clone();
+	return tipoFantasmaClasico4->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoGalacticoBlinky()
+
+//VERSION GALACTICO
+Fantasma* FantasmasFactory::getTipoFantasmaGalactico1()
 {
-	return tipoGalacticoBlinky->clone();
+	return tipoFantasmaGalactico1->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoGalacticoClyde()
+Fantasma* FantasmasFactory::getTipoFantasmaGalactico2()
 {
-	return tipoGalacticoClyde->clone();
+	return tipoFantasmaGalactico2->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoGalacticoInkey()
+Fantasma* FantasmasFactory::getTipoFantasmaGalactico3()
 {
-	return tipoGalacticoInkey->clone();
+	return tipoFantasmaGalactico3->clone();
 }
 
-Fantasma* FantasmasFactory::getTipoGalacticoPinky()
+Fantasma* FantasmasFactory::getTipoFantasmaGalactico4()
 {
-	return tipoGalacticoPinky->clone();
+	return tipoFantasmaGalactico4->clone();
 }

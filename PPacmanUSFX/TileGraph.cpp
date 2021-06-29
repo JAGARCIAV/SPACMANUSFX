@@ -115,15 +115,41 @@ Pacman* TileGraph::getPacman()
 			return (*ivtg)->getPacman();
 		}
 	}
-	
-	/*for (unsigned int i = 0; i < vectorTilesGraph.size(); i++) {
-
-		Tile* tileNuevo = vectorTilesGraph[i];
-
-		if (tileNuevo->getPacman() != nullptr)
-			return tileNuevo->getPacman();
-	}*/
 
 	return nullptr;
 }
 
+Moneda* TileGraph::getMoneda()
+{
+	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+		if ((*ivtg)->getPacman() != nullptr) {
+			return (*ivtg)->getMoneda();
+		}
+	}
+
+	return nullptr;
+}
+
+//SuperMoneda* TileGraph::getSuperMoneda()
+//{
+//	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+//		if ((*ivtg)->getSuperMoneda() != nullptr) {
+//			return (*ivtg)->getSuperMoneda();
+//		}
+//	}
+//
+//
+//	return nullptr;
+//}
+//
+//Fruta* TileGraph::getFruta()
+//{
+//	for (auto ivtg = vectorTilesGraph.begin(); ivtg != vectorTilesGraph.end(); ++ivtg) {
+//		if ((*ivtg)->getFruta() != nullptr) {
+//			return (*ivtg)->getFruta();
+//		}
+//	}
+//
+//
+//	return nullptr;
+//}

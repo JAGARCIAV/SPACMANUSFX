@@ -55,27 +55,24 @@ bool MapGenerator::load(string path)
 
 
 				break;
-			//case 'C':
-			//	objetoNuevo = new SuperMoneda(tileNuevo, textureManager->getTextura("supermoneda_clasico"));
-			//	//((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("supermoneda_clasico"));
-			//	((GameActor*)objetoNuevo)->setFramesDireccion(9);
-
-			//	objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager);
-			//	((GameActor*)objetoNuevo)->setFramesDireccion(1);
-			//	
-			//	break;
+			case 'C':
+				objetoNuevo = factory->createSuperMonedaInstance(tileNuevo, textureManager);
+				((GameActor*)objetoNuevo)->setFramesDireccion(6);
+				
+				break;
 			case 'Y':
 
 				objetoNuevo = factory->createFrutaInstance(tileNuevo, textureManager);
 				((GameActor*)objetoNuevo)->setFramesDireccion(4);
 				break;
+
 			case 'P':
 
 				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager);
 				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("pacman_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(2);
-
 				break;
+
 			case 'I':
 
 				objetoNuevo = factory->createFantasma1Instance(tileNuevo, textureManager);

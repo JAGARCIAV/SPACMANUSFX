@@ -27,6 +27,8 @@ protected:
 	int velocidad;
 	int energia;
 	int vidas;
+	int score;
+
 
 	// Representacion grafica del objeto
 	Texture* textura;
@@ -66,8 +68,11 @@ public:
 	int getVelocidad() { return velocidad; }
 	int getEnergia() { return energia; }
 	int getVidas() { return vidas; }
+	int getScore() { return score; }
+
 	Texture* getTextura() { return textura; }
 	AnimationFrames* getFramesAnimacion() { return framesAnimacion; }
+
 	Tile* getTileActual() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	MoveDirection getDireccionActual() { return direccionActual; }
@@ -75,6 +80,7 @@ public:
 	int getframesDireccion() { return framesDireccion; }
 	SDL_Rect* getColisionador() { return colisionador; }
 
+	void setScore(int _score) { score = _score; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void setAncho(int _ancho) { ancho = _ancho; }
@@ -101,7 +107,9 @@ public:
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
 	bool tratarDeMover(MoveDirection _direccionNueva);
 	int restarEnergia();
-	int restarVida();
+	int restarVidas();
+	int contadorScore();
+
 
 	//Metodos virtuales, redefinidos o sobrecargados
 	virtual void render();

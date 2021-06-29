@@ -35,3 +35,7 @@ GameObject* FactoryPacmanClasico::createFrutaInstance(Tile* _tile, TextureManage
 GameObject* FactoryPacmanClasico::createMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
     return new MonedaClasico(_tile, _textureManager->getTextura("moneda_clasico"));
 }
+
+GameObject* FactoryPacmanClasico::createSuperMonedaInstance(Tile* _tile, TextureManager* _textureManager) {
+    return new SuperMonedaClasico(_tile, _textureManager->getTextura("supermoneda_clasico"));
+}

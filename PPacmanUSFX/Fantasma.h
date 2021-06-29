@@ -34,14 +34,14 @@ protected:
 
 	//bool tratarDeMover(MoveDirection _direccionNueva);
 	
-public:
-	//virtual Fantasma* clone() = 0;
+//public:
+//	virtual Fantasma* clone() = 0;
 
-	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
+	//GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _texture);
-	//~Fantasma();
+	~Fantasma() {};
 
 	//Metodos accesores
 	//void reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad);

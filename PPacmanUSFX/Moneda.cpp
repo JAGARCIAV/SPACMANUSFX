@@ -1,12 +1,12 @@
-#include "Fruta.h"
+#include "Moneda.h"
 
-Fruta::Fruta(Tile* _tile, Texture* _textura) :
+Moneda::Moneda(Tile* _tile, Texture* _textura) :
 	GameActor(_textura)
 {
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setFruta(this);
+		tileActual->setMoneda(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -26,22 +26,22 @@ Fruta::Fruta(Tile* _tile, Texture* _textura) :
 	colisionador->y = posicionY;
 
 
-	// Inicializa propiedade de de pacman
-	valor = 1;
-	//tipoPoderMoneda = PODER_MONEDA_NINGUNO;
+	// Inicializa propiedade de de moneda
 	tiempoPoderMoneda = 0;
 }
 
-void Fruta::setTileActual(Tile* _tileNuevo) {
+
+
+void Moneda::setTileActual(Tile* _tileNuevo) {
 	
 	if (tileActual != nullptr) {
-		tileActual->setFruta(nullptr);
+		tileActual->setMoneda(nullptr);
 	}
 
 	tileActual = _tileNuevo;
 
 	if (tileActual != nullptr) {
-		tileActual->setFruta(this);
+		tileActual->setMoneda(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -52,8 +52,8 @@ void Fruta::setTileActual(Tile* _tileNuevo) {
 	}
 }
 
-void Fruta::deleteGameObject()
+void Moneda::deleteGameObject()
 {
 	GameObject::deleteGameObject();
-	tileActual->setFruta(nullptr);
+	tileActual->setMoneda(nullptr);
 }
