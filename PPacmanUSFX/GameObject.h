@@ -39,7 +39,5 @@ public:
 	virtual void deleteGameObject() { eliminar = true; }
 	virtual void free(){};
 
-	void Delete() { deleteGameObject(); }
-	void Free() { free(); }
 };
 

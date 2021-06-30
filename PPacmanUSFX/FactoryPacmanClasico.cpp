@@ -4,6 +4,10 @@ GameObject* FactoryPacmanClasico::createPacmanInstance(Tile* _tile, TextureManag
     return new PacmanClasico(_tile, _textureManager->getTextura("pacman_clasico"));
 }
 
+GameObject* FactoryPacmanClasico::createMsPacmanInstance(Tile* _tile, TextureManager* _textureManager) {
+    return new MsPacmanClasico(_tile, _textureManager->getTextura("mspacman_clasico"));
+}
+
 GameObject* FactoryPacmanClasico::createFantasma1Instance(Tile* _tile, TextureManager* _textureManager) {
     return new FantasmaClasico(_tile, _textureManager->getTextura("fantasma_clasico1"));
 }

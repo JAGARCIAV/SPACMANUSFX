@@ -9,7 +9,7 @@ class Moneda;
 class SuperMoneda;
 
 class Pared;
-class Wall;
+//class Wall;
 
 class Tile
 {
@@ -22,7 +22,7 @@ private:
 	SuperMoneda* superMoneda;
 
 	Pared* pared;
-	Wall* wall;
+	//Wall* wall;
 
 	int posicionX;
 	int posicionY;
@@ -44,7 +44,7 @@ public:
 	SuperMoneda* getSuperMoneda() { return superMoneda; }
 
 	Pared* getPared() { return pared; }
-	Wall* GetWall() { return ((Wall*)pared); }
+	//Wall* GetWall() { return ((Wall*)pared); }
 	int getPosicionX() { return posicionX; }
 	int getPosicionY() { return posicionY; }
 	SDL_Point GetPosition() {return SDL_Point() = { posicionX, posicionY };}
@@ -59,6 +59,6 @@ public:
 	void setPared(Pared* _pared) { pared = _pared; }
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
-	void SetWall(Wall* _wall) { pared = ((Pared*)_wall); }
+	//void SetWall(Wall* _wall) { pared = ((Pared*)_wall); }
 };
 

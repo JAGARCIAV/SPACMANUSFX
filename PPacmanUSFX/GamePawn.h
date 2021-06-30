@@ -1,10 +1,12 @@
 #pragma once
 #include "GameActor.h"
+#include "GamePawnController.h"
 class GamePawn :
     public GameActor
 {
 private:
 protected:
+    GamePawnController* gamePawnController;
 public:
     // Constructores y destructores
     GamePawn();
@@ -20,4 +22,5 @@ public:
     virtual void deleteGameObject();
 
 };
+
 

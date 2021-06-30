@@ -3,7 +3,6 @@
 
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
-
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -28,9 +27,9 @@ Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 	enMovimiento = false;
 	direccionActual = MOVE_STILL;
 	direccionSiguiente = MOVE_STILL;
+
+	gamePawnController = new GamePawnControllerKey1();
 }
-
-
 
 void Pacman::setTileActual(Tile* _tileNuevo) {
 
@@ -52,14 +51,10 @@ void Pacman::setTileActual(Tile* _tileNuevo) {
 
 void Pacman::update()
 {
-	//MONEDA
-
-	// Compruebe si hay colisión con el punto
-	Moneda* moneda = tileGraph->getMoneda();
-
+	// Revisar colisiones con monedas
+	// NOTE: Should this be nextTile?
 	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
-		moneda->contadorScore();
-		cout << "Moneda = " << moneda->getScore() << endl;
+		cout << "moneda" << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,
@@ -72,26 +67,22 @@ void Pacman::update()
 		}
 	}
 
-	//COMER SUPER MONEDAS
-
 	if (tileActual != nullptr && tileActual->getSuperMoneda() != nullptr) {
-		cout << "SuperMoneda = " << endl;
+		cout << "SuperMoneda" << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
-			posicionX ,
-			posicionY ,
+			posicionX /*+ Point::Margin*/,
+			posicionY /*+ Point::Margin*/,
 			ancho,
 			alto,
 			});
-		if (revisarColision(eatingHole, tileSiguiente->getSuperMoneda()->getColisionador())) {
 
-			tileSiguiente->getSuperMoneda()->Delete();
+		if (revisarColision(eatingHole, tileSiguiente->getSuperMoneda()->getColisionador())) {
+			tileSiguiente->getSuperMoneda()->deleteGameObject();
 		}
 	}
 
-	//fruta
 	if (tileActual != nullptr && tileActual->getFruta() != nullptr) {
-		cout << "Fruta = " << endl;
-
+		cout << "Fruta" << endl;
 		SDL_Rect* eatingHole = new SDL_Rect({
 			posicionX /*+ Point::Margin*/,
 			posicionY /*+ Point::Margin*/,
@@ -103,10 +94,10 @@ void Pacman::update()
 			tileSiguiente->getFruta()->deleteGameObject();
 		}
 	}
-	
+
 	// Animacion de pacman
 	if (enMovimiento) {
-		
+
 		GamePawn::update();
 	}
 

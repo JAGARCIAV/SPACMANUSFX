@@ -13,25 +13,19 @@
 #include "Moneda.h"
 #include "SuperMoneda.h"
 #include "Fruta.h"
-
+#include "GamePawnControllerKey1.h"
 
 using namespace std;
 
 class Pacman : public GamePawn
 {
 protected:
-	
-	//static Pacman* instancia;
-
-	//int estado;
-
 	GameObjectType returType() { return PACMAN; }
 public:
 	//Constructores y destructores
 	Pacman(Tile* _tile, Texture* _textura);
 	~Pacman() {};
 
-	//Metodos accesores
 	void setTileActual(Tile* _tileNuevo) override;
 
 	// Metodos varios

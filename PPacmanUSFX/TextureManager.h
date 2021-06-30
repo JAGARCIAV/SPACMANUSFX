@@ -13,6 +13,7 @@ private:
 
 	//VERSION PACMAN CLASICO
 	const string pathPacmanClasico = "IMAGENES/VERSION CLASICO/PACMAN_CLASICO.png";
+	const string pathMsPacmanClasico = "IMAGENES/VERSION CLASICO/MSPACMAN_CLASICO.png";
 	const string pathFantasmaClasico1 = "IMAGENES/VERSION CLASICO/FANTASMA_CLASICO1.png";
 	const string pathFantasmaClasico2 = "IMAGENES/VERSION CLASICO/FANTASMA_CLASICO2.png";
 	const string pathFantasmaClasico3 = "IMAGENES/VERSION CLASICO/FANTASMA_CLASICO3.png";
@@ -24,6 +25,7 @@ private:
 
 	//VERSION PACMAN GALACTICO
 	const string pathPacmanGalactico =	  "IMAGENES/VERSION GALACTICO/PACMAN_GALACTICO.png";
+	const string pathMsPacmanGalactico = "IMAGENES/VERSION GALACTICO/MSPACMAN_GALACTICO.png";
 	const string pathFantasmaGalactico1 = "IMAGENES/VERSION GALACTICO/FANTASMA_GALACTICO1.bmp";
 	const string pathFantasmaGalactico2 = "IMAGENES/VERSION GALACTICO/FANTASMA_GALACTICO2.png";
 	const string pathFantasmaGalactico3 = "IMAGENES/VERSION GALACTICO/FANTASMA_GALACTICO3.bmp";
@@ -32,10 +34,11 @@ private:
 	const string pathMonedaGalactico = "IMAGENES/VERSION GALACTICO/MONEDA_GALACTICO.png";
 	const string pathSuperMonedaGalactico = "IMAGENES/VERSION GALACTICO/SUPERMONEDA_GALACTICO.png";
 	const string pathParedGalactico = "IMAGENES/VERSION GALACTICO/PARED_GALACTICO.bmp";
-	const string pathParedGalacticoAdapter = "IMAGENES/VERSION CLASICO/wall_sprite.bmp";
+
 
 	//VERSION PACMAN CLASICO
 	Texture* pacmanClasicoTexture;
+	Texture* MsPacmanClasicoTexture;
 	Texture* fantasmaClasico1Texture;
 	Texture* fantasmaClasico2Texture;
 	Texture* fantasmaClasico3Texture;
@@ -47,6 +50,7 @@ private:
 	
 	//VERSION PACMAN GALACTICO
 	Texture* pacmanGalacticoTexture;
+	Texture* MsPacmanGalacticoTexture;
 	Texture* fantasmaGalactico1Texture;
 	Texture* fantasmaGalactico2Texture;
 	Texture* fantasmaGalactico3Texture;

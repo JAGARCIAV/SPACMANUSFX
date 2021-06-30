@@ -4,6 +4,10 @@ GameObject* FactoryPacmanGalactico::createPacmanInstance(Tile* _tile, TextureMan
     return new PacmanGalactico(_tile, _textureManager->getTextura("pacman_galactico"));
 }
 
+GameObject* FactoryPacmanGalactico::createMsPacmanInstance(Tile* _tile, TextureManager* _textureManager) {
+    return new MsPacmanGalactico(_tile, _textureManager->getTextura("mspacman_galactico"));
+}
+
 GameObject* FactoryPacmanGalactico::createFantasma1Instance(Tile* _tile, TextureManager* _textureManager) {
     return new FantasmaGalactico(_tile, _textureManager->getTextura("fantasma_galactico1"));
 }

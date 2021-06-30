@@ -8,6 +8,9 @@ TextureManager::TextureManager()
 	pacmanClasicoTexture = new Texture();
 	pacmanClasicoTexture->loadFromImage(pathPacmanClasico);
 	addTextura("pacman_clasico", pacmanClasicoTexture);
+	MsPacmanClasicoTexture = new Texture();
+	MsPacmanClasicoTexture->loadFromImage(pathMsPacmanClasico);
+	addTextura("mspacman_clasico", MsPacmanClasicoTexture);
 	fantasmaClasico1Texture = new Texture();
 	fantasmaClasico1Texture->loadFromImage(pathFantasmaClasico1);
 	addTextura("fantasma_clasico1", fantasmaClasico1Texture);
@@ -37,6 +40,9 @@ TextureManager::TextureManager()
 	pacmanGalacticoTexture = new Texture();
 	pacmanGalacticoTexture->loadFromImage(pathPacmanGalactico);
 	addTextura("pacman_galactico", pacmanGalacticoTexture);
+	MsPacmanGalacticoTexture = new Texture();
+	MsPacmanGalacticoTexture->loadFromImage(pathMsPacmanGalactico);
+	addTextura("mspacman_galactico", MsPacmanGalacticoTexture);
 	fantasmaGalactico1Texture = new Texture();
 	fantasmaGalactico1Texture->loadFromImage(pathFantasmaGalactico1);
 	addTextura("fantasma_galactico1", fantasmaGalactico1Texture);
@@ -61,9 +67,7 @@ TextureManager::TextureManager()
 	paredGalacticoTexture = new Texture();
 	paredGalacticoTexture->loadFromImage(pathParedGalactico);
 	addTextura("pared_galactico", paredGalacticoTexture);
-	paredGalacticoAdapterTexture = new Texture();
-	paredGalacticoAdapterTexture->loadFromImage(pathParedGalacticoAdapter);
-	addTextura("pared_galactico_adapter", paredGalacticoAdapterTexture);
+
 		
 
 	// Frames de animacion de Pacman

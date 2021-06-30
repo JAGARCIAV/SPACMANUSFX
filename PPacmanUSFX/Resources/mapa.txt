@@ -1,5 +1,5 @@
 WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-WC------------------------------W------------------------------CW
+WC-P----------------------------W----------------------------S-CW
 W-WWWWWWWWWWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWWWWWWWWWW-W
 W--------W-------W----------------------------W---------W-------W
 W-WWWW-WWW-WWWWW-W-w-WWWWWWWWWWWWWWWWWWWWWW-w-W-WWWWW-WWWW-WWWW-W
@@ -13,7 +13,7 @@ W-------------------W-W         W         W-W---W---------------W
 W-WWWWWW-WWWWWWWW-WWW-WWWWWWWWWWWWWWWWWWWWW-WWW-W-WWWWWWW-WWWWWWW
 W---------------W-W-------------Y-------------W---------W-------W
 WWWWWWWWWWWWWWW-W-W-WWWWWWWWWW-WWW-WWWWWWWWWW-W-WWWWW-WWWWWWW-WWW
-W-----------------WP------------W-------------W----------W------W
+W-----------------W-------------W-------------W----------W------W
 W---WWWWWWWWWWW-W-WW-WWWWWWWWWWWWWWWWWWWWWWW-WW-WWWWWW-WWWWWWWW-W
  -------W-------W---------------------------------------W------- 
 W-WWWWWWWWWW-WWWW-WWWWWWWWWWWWW-W-WWWWWWWWWWWWWW-W-WWWWWWWWWWWW-W
