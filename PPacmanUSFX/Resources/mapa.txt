@@ -7,8 +7,8 @@ W----W---------W---w-----------WWW----------w---W---------------W
 W-WWWWWWW-WWWWWW-WWWWWWWWWWWWW-WWW-WWWWWWWWWWWW-WWWWWWW-WWWWWWWWW
 W--------------W-W--------------C-------------W-W---------------W 
 WWW-WWWWWWWWWW-W-WWW-WWWWWWW         WWWWWWW-WW-WWWWW-WWWWWWWWWWW
-W------------W-w--w---W         W         W---------------------W
-WWWWWWWWWW-WWW-W--W-w-W  ,G, ,H,W,I, ,J,  W-w-W-WWWWWWWWWWWWWWWWW
+W------------W-W--W---W         W         W---------------------W
+WWWWWWWWWW-WWW-W--W-W-W  ,G, ,H,W,I, ,J,  W-W-W-WWWWWWWWWWWWWWWWW
 W-------------------W-W         W         W-W---W---------------W
 W-WWWWWW-WWWWWWWW-WWW-WWWWWWWWWWWWWWWWWWWWW-WWW-W-WWWWWWW-WWWWWWW
 W---------------W-W-------------Y-------------W---------W-------W

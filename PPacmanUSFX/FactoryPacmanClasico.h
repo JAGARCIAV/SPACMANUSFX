@@ -7,6 +7,8 @@
 #include "ParedClasico.h"
 #include "MonedaClasico.h"
 #include "SuperMonedaClasico.h"
+#include "GameActor.h"
+#include "GameObject.h"
 
 
 class FactoryPacmanClasico :

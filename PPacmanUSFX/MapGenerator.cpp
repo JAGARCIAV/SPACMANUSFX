@@ -47,6 +47,7 @@ bool MapGenerator::load(string path)
 				objetoNuevo = factory->createParedInstance(tileNuevo, textureManager);
 				((GameActor*)objetoNuevo)->setFramesDireccion(1);
 
+
 				break;
 			case '-':
 
@@ -122,6 +123,36 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
+	//vertical
+	GameObject* contenedorPaneles = new GUIComposite(TextureManager::getInstancia()->getRenderer(), "Root");
+
+	GameObject* objetoPanel1 = new Panel(TextureManager::getInstancia()->getRenderer(), 1628, 0, 62, 525, "PANEL A1");
+	((Panel*)objetoPanel1)->setPanelColorRGBA(250, 0, 6, 250);
+
+	GameObject* objetoPanel11 = new Panel(TextureManager::getInstancia()->getRenderer(), 1632, 4, 54,40, "PANEL A11");
+	((Panel*)objetoPanel11)->setPanelColorRGBA(0,0, 0, 250);
+
+	GameObject* objetoPanel111 = new Panel(TextureManager::getInstancia()->getRenderer(), 1632, 50, 54, 15, "PANEL A111");
+	((Panel*)objetoPanel111)->setPanelColorRGBA(0, 0, 0, 250);
+
+	//Horizontal
+	GameObject* objetoPanel2 = new Panel(TextureManager::getInstancia()->getRenderer(), 3, 528, 130, 43, "PANEL B");
+	((Panel*)objetoPanel2)->setPanelColorRGBA(12, 258, 22, 253);
+
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel1);
+
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel2);
+
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel11);
+
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel111);
+
+	/*((GUIComposite*)contenedorPaneles)->add(550, 500, 100, 50, "PANEL B", 10, 255, 24, 255, true);
+	((GUIComposite*)contenedorPaneles)->add(570, 75, 50, 50, "BUTTON A", 0, 5, 65, 255, true);
+	vectorObjetosJuego.push_back(contenedorPaneles);
+	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 620, 50, 150, 300, "BUTTON A");
+	((Panel*)objetoPanel)->setPanelColorRGBA(250, 180, 35, 250);*/
+	vectorObjetosJuego.push_back(contenedorPaneles);
 	/*GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
 	vectorObjetosJuego.push_back(objetoPanel);*/
 

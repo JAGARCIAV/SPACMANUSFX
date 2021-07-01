@@ -72,6 +72,8 @@ void Fantasma::update()
 				if (camino.size() > 1) {
 					tileSiguiente = camino[1];
 
+
+
 					// All we really want to do after this is check the direction the NPC should go
 					if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
 						direccionActual = MOVE_RIGHT;

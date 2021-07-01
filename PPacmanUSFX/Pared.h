@@ -15,10 +15,11 @@ class Pared :
 {
 private:
     GameObjectType returType() { return PARED; }
-    Texture* wallTexture;
+    Texture* textura;
     int connections;
     static SDL_Rect textureClips[16];
     bool CheckForWall(Tile* tile);
+
 public:
     // Creates connection clips
     static void CreateClips();

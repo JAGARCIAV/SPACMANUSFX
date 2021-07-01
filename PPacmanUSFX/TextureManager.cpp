@@ -1,6 +1,13 @@
 #include "TextureManager.h"
+TextureManager* TextureManager::instancia = nullptr;
 
-TextureManager::TextureManager()
+void TextureManager::inicializarRecursosSDL(SDL_Renderer* _renderer)
+{
+	load(pathPacmanClasico, "pacman_clasico", _renderer);
+	load(pathFantasmaClasico1, "fantasma_clasico1", _renderer);
+
+}
+void TextureManager::inicializarRecursos()
 {
 	// Texturas //
 
@@ -98,8 +105,23 @@ TextureManager::TextureManager()
 
 }
 
+TextureManager::TextureManager()
+{
+	inicializarRecursos();
+}
+
 TextureManager::~TextureManager() {
 	free();
+}
+
+TextureManager* TextureManager::getInstancia()
+{
+	if (instancia == nullptr) {
+		instancia = new TextureManager();
+		return instancia;
+	}
+
+	return instancia;
 }
 
 void TextureManager::addTextura(string _key, Texture* _textura)
@@ -121,4 +143,85 @@ void TextureManager::free()
 		//delete elementoMapTexturas.second;
 		mapTexturas.erase(elementoMapTexturas.first);
 	}
+}
+
+
+bool TextureManager::load(string fileName, string _key, SDL_Renderer* _renderer)
+{
+
+	SDL_Surface* tempsurface = IMG_Load(fileName.c_str());
+	//Checks
+	if (tempsurface == 0)
+	{
+		cout << IMG_GetError();
+		return false;
+	}
+	//Create a texture from temporary surface
+	SDL_Texture* sdltexture = SDL_CreateTextureFromSurface(_renderer, tempsurface);
+	SDL_FreeSurface(tempsurface);
+
+	if (sdltexture != 0)
+	{
+		mapTexturasSDL[_key] = sdltexture;
+		return true;
+	}
+
+	return false;
+}
+
+void TextureManager::draw(string _key, int x, int y,
+	int width, int height, SDL_Renderer* _renderer, SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+
+	srcRect.x = 0;
+	srcRect.y = 0;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_RenderCopyEx(_renderer, mapTexturasSDL[_key], &srcRect, &destRect, 0, 0, flip);
+}
+
+void TextureManager::drawFrame(string _key, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* _renderer, double angle, int alpha, SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+	srcRect.x = width * currentFrame;
+	srcRect.y = height * currentRow;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_SetTextureAlphaMod(mapTexturasSDL[_key], alpha);
+	SDL_RenderCopyEx(_renderer, mapTexturasSDL[_key], &srcRect, &destRect, angle, 0, flip);
+}
+
+void TextureManager::drawTile(string _key, int margin, int spacing, int x, int y,
+	int width, int height, int currentRow, int currentFrame, SDL_Renderer* _renderer)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+	srcRect.x = margin + (spacing + width) * currentFrame;
+	srcRect.y = margin + (spacing + height) * currentRow;
+	srcRect.w = destRect.w = width;
+	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_RenderCopyEx(_renderer, mapTexturasSDL[_key], &srcRect, &destRect, 0, 0, SDL_FLIP_NONE);
+}
+
+
+void TextureManager::clearTextureMap()
+{
+	mapTexturasSDL.clear();
+}
+
+void TextureManager::clearFromTextureMap(string _key)
+{
+	mapTexturasSDL.erase(_key);
 }

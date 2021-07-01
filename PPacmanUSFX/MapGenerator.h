@@ -20,9 +20,11 @@
 #include "FactoryPacmanClasico.h"
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
-#include "FantasmasFactory.h"
 
-//#include "GamePanel.h"
+#include "GUI/Panel.h"
+#include "GUI/GUIComposite.h"
+
+
 using namespace std;
 
 class MapGenerator

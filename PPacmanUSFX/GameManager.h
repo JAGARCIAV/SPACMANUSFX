@@ -25,7 +25,7 @@ using namespace std;
 
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 1625;
+const int SCREEN_WIDTH = 1700;
 const int SCREEN_HEIGHT = 575;
 
 class GameManager
