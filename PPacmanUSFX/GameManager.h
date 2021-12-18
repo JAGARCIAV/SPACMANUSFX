@@ -24,7 +24,7 @@
 using namespace std;
 
 
-//Screen dimension constants 4
+//Screen dimension constants 45
 const int SCREEN_WIDTH = 1700;
 const int SCREEN_HEIGHT = 575;
 
